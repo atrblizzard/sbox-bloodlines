@@ -193,10 +193,7 @@ namespace bloodlines.entities.core.Func
 		/// </summary>
 		protected Output OnLockedUse { get; set; }
 
-		/// <summary>
-		/// A player has pressed this
-		/// </summary>
-		public virtual bool OnUse( Entity user )
+		public virtual bool Use( Entity user )
 		{
 			if ( Locked )
 			{
@@ -212,6 +209,14 @@ namespace bloodlines.entities.core.Func
 			}
 
 			return false;
+		}
+
+		/// <summary>
+		/// A player has pressed this
+		/// </summary>
+		public virtual bool OnUse( Entity user )
+		{
+			return Use( user );
 		}
 
 		public override void TakeDamage( DamageInfo info )
