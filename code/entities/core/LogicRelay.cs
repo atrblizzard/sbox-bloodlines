@@ -10,7 +10,7 @@ namespace bloodlines.entities.core
 	/// <summary>
 	/// A generic relay that is useful to control other map entities via map input/outputs.
 	/// </summary>
-	[Library( "logic_relay" )]
+	//[Library( "logic_relay" )]
 
 	public partial class LogicRelay : BaseTrigger
 	{

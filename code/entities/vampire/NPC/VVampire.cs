@@ -2,13 +2,13 @@
 
 namespace bloodlines.entities.vampire.NPC
 {
-	[Library( "npc_VPedestrian" )]
+	[Library( "npc_VVampire" )]
 	[Hammer.Model]
-	public partial class VPedestrian : VBaseNPC
+	public partial class VVampire : VBaseNPC
 	{
 		public override void Spawn()
 		{
-			base.Spawn();	
-		}		
+			base.Spawn();
+		}
 	}
 }

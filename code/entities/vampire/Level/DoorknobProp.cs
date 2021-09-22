@@ -1,33 +1,30 @@
 ﻿using Sandbox;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using bloodlines.entities.core.Func;
 
 namespace bloodlines.entities.vampire
 {
-	[Library( "prop_doorknob_electronic", Description = "Doorknob shit bro" )]
-	public partial class ElectronicDoorknobProp : KeyframeEntity, IUse
+	[Hammer.Model]	
+	[Hammer.RenderFields]
+	[Library( "prop_doorknob", Description = "Generic Doorknob" )]
+	public partial class DoorknobProp : KeyframeEntity, IUse
 	{
+		// TODO: implement a base to derive use icon from
 		[Property("use_icon", Title = "Use Icon")]
 		public int UseIcon { get; set; }
-		
-		[Property("difficulty", Title = "Difficulty", Hammer = true)]
-		public int Difficulty { get; set; }
-		
-		[Property( Title = "Model Name" )]
-		public string Model { get; set; }
 
-		[Property( Title = "Parent Name" )]
+		[Property("difficulty", Title = "Difficulty")]
+		public int Difficulty { get; set; }
+
+		[Hammer.Skip]
+		[Property("parentname", Title = "Parent Name" )]
 		public string ParentName { get; set; }
 
 		public override void Spawn()
 		{
 			base.Spawn();
 
-			SetModel( Model );
+			SetModel( GetModel() );
 
 			SetupPhysicsFromModel( PhysicsMotionType.Dynamic );
 		}
@@ -43,15 +40,15 @@ namespace bloodlines.entities.vampire
 		{
 			List<Entity> ents = new List<Entity>();
 
-			if ( !string.IsNullOrEmpty( EntityName ) ) ents.AddRange( Entity.FindAllByName( EntityName ) );
-			if ( !string.IsNullOrEmpty( ParentName ) ) ents.AddRange( Entity.FindAllByName( ParentName ) );
+			if ( !string.IsNullOrEmpty( Name ) ) ents.AddRange( FindAllByName( Name ) );
+			if ( !string.IsNullOrEmpty( ParentName ) ) ents.AddRange( FindAllByName( ParentName ) );
 
 			foreach ( var ent in ents )
 			{
-				if ( ent == this || !(ent is DoorRotating) ) continue;
+				if ( ent == this || ent is not DoorRotating ) continue;
 				DoorRotating door = (DoorRotating)ent;
 
-				door.Use( user );
+				door.OnUse( user );
 			}
 			return false;
 		}

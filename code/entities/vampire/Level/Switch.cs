@@ -1,25 +1,33 @@
-﻿using Sandbox;
+﻿using bloodlines.entities.vampire.NPC;
+using Sandbox;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Sandbox.FuncButton;
+using static Sandbox.ButtonEntity;
 
 namespace bloodlines.entities.vampire
 {
 	[Library( "prop_switch", Description = "Prop Switch" )]
 	[Hammer.Model]
-	public partial class Switch : AnimEntity, IUse
+	public partial class Switch : VAnimEntity, IUse
 	{
-		[Property( "spawnsettings", Title = "Spawn Settings", FGDType = "flags" )]
+		[Flags]
+		public enum Flags
+		{
+			UseActivates = 1,
+			DamageActivates = 2,
+			//TouchActivates = 4,
+			//Toggle = 8,
+		}
+
+		[FGDType("flags")]
+		[Property( "spawnsettings", Title = "Spawn Settings")]
 		public Flags SpawnSettings { get; set; } = Flags.UseActivates;
 
 		[Property( Title = "Start Disabled" )]
 		public bool StartDisabled { get; set; } = false;
-
-		[Property( Title = "Model Name" )]
-		public string Model { get; set; }
 
 		[Property( Title = "Activate Sound" )]
 		public string Actsnd { get; set; }
@@ -45,10 +53,10 @@ namespace bloodlines.entities.vampire
 		{
 			base.Spawn();
 
-			if ( Model != null )
-				SetModel( Model );
+			if (!string.IsNullOrEmpty(GetModelName()))
+				SetModel( GetModel() );
 
-			SetupPhysicsFromModel( PhysicsMotionType.Static);
+			SetupPhysicsFromModel( PhysicsMotionType.Static );
 		}
 
 		protected Output OnLockedUse { get; set; }
@@ -127,7 +135,7 @@ namespace bloodlines.entities.vampire
 			SetAnimBool( "activated", open );
 		}
 
-		public override void OnAnimGraphCreated()
+		protected override void OnAnimGraphCreated()
 		{
 			base.OnAnimGraphCreated();
 
@@ -154,7 +162,7 @@ namespace bloodlines.entities.vampire
 			}			
 		}
 
-		public override void OnAnimGraphTag( string tag, AnimGraphTagEvent fireMode )
+		protected override void OnAnimGraphTag( string tag, AnimGraphTagEvent fireMode )
 		{
 			if ( tag == "AnimationFinished" && fireMode != AnimGraphTagEvent.End )
 			{
