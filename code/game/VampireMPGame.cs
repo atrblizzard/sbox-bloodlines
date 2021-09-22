@@ -1,14 +1,11 @@
-﻿using bloodlines.entities.vampire.Events;
-using bloodlines.entities.vampire.Game;
-using Sandbox;
-using System.Linq;
+﻿using Sandbox;
 
-[Library( "bloodlines", Title = "Vampire" )]
-partial class VampireGame : Game
+[Library( "vampiremp", Title = "Vampire Multiplayer Games" )]
+partial class VampireMPGame : Game
 {
 	public int StoryState { get; set; }
 
-	public VampireGame()
+	public VampireMPGame()
 	{
 		if ( IsServer )
 		{
