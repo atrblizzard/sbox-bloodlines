@@ -1,0 +1,69 @@
+{
+   "BackgroundImage":{
+      "Name":"interface/Pop_Ups/area",
+      "XPos":"",
+      "YPos":"",
+      "Wide":"2048",
+      "Tall":"1024"
+   },
+   "Label":[
+      {
+         "Text":"",
+         "Alignment":"center",
+         "Font":null,
+         "XPos":"469",
+         "YPos":"141",
+         "Wide":"180",
+         "Tall":"180",
+         "TextRGBA":null,
+         "BackgroundRGBA":null,
+         "Image":"hud/Area_Icons/area_icon_combat"
+      },
+      {
+         "Text":"",
+         "Alignment":"center",
+         "Font":null,
+         "XPos":"669",
+         "YPos":"141",
+         "Wide":"180",
+         "Tall":"180",
+         "TextRGBA":null,
+         "BackgroundRGBA":null,
+         "Image":"hud/Area_Icons/area_icon_safearea"
+      },
+      {
+         "Text":"",
+         "Alignment":"center",
+         "Font":null,
+         "XPos":"869",
+         "YPos":"141",
+         "Wide":"180",
+         "Tall":"180",
+         "TextRGBA":null,
+         "BackgroundRGBA":null,
+         "Image":"hud/Area_Icons/area_icon_elysium"
+      }
+   ],
+   "TextBlock":[
+      {
+         "Text":"Area Indicator: The icon to the left indicates that you are in a Combat area.\n\nCombat: Anything goes.\n\nMasquerade: Respect the Masquerade.\n\nElysium: Vampire neutral ground. No combat or Disciplines are allowed, except Bloodbuff while lockpicking.",
+         "Font":null,
+         "XPos":"470",
+         "YPos":"370",
+         "Wide":"575",
+         "Tall":"223",
+         "TextRGBA":"[245, 245, 245, 200]",
+         "BackgroundRGBA":null
+      },
+      {
+         "Text":"left-click to continue",
+         "Font":null,
+         "XPos":"600",
+         "YPos":"806",
+         "Wide":"315",
+         "Tall":"28",
+         "TextRGBA":"[245, 245, 245, 200]",
+         "BackgroundRGBA":null
+      }
+   ]
+}

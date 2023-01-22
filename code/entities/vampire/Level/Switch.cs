@@ -1,25 +1,30 @@
 ﻿using Sandbox;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using static Sandbox.FuncButton;
+using Editor;
 
 namespace bloodlines.entities.vampire
 {
 	[Library( "prop_switch", Description = "Prop Switch" )]
-	[Hammer.Model]
-	public partial class Switch : AnimEntity, IUse
+	[Model]
+	[HammerEntity]
+	public partial class Switch : VAnimEntity, IUse
 	{
-		[Property( "spawnsettings", Title = "Spawn Settings", FGDType = "flags" )]
+		[Flags]
+		public enum Flags
+		{
+			UseActivates = 1,
+			DamageActivates = 2,
+			//TouchActivates = 4,
+			//Toggle = 8,
+		}
+
+		[FGDType( "flags" )]
+		[Property( "spawnsettings", Title = "Spawn Settings" )]
 		public Flags SpawnSettings { get; set; } = Flags.UseActivates;
 
 		[Property( Title = "Start Disabled" )]
 		public bool StartDisabled { get; set; } = false;
-
-		[Property( Title = "Model Name" )]
-		public string Model { get; set; }
 
 		[Property( Title = "Activate Sound" )]
 		public string Actsnd { get; set; }
@@ -45,15 +50,15 @@ namespace bloodlines.entities.vampire
 		{
 			base.Spawn();
 
-			if ( Model != null )
-				SetModel( Model );
-
-			SetupPhysicsFromModel( PhysicsMotionType.Static);
+			// if (!string.IsNullOrEmpty(GetModelName()))
+			// 	SetModel( GetModel() );
+			//
+			// SetupPhysicsFromModel( PhysicsMotionType.Static );
 		}
 
-		protected Output OnLockedUse { get; set; }
-		protected Output OnActivate { get; set; }
-		protected Output OnDeactivate { get; set; }
+		protected Entity.Output OnLockedUse { get; set; }
+		protected Entity.Output OnActivate { get; set; }
+		protected Entity.Output OnDeactivate { get; set; }
 
 		public virtual void Activate( Entity toucher )
 		{
@@ -83,7 +88,7 @@ namespace bloodlines.entities.vampire
 		[Input]
 		public void Toggle( Entity activator = null )
 		{
-			switch (State)
+			switch ( State )
 			{
 				case SwitchState.On:
 					Close( activator );
@@ -117,17 +122,17 @@ namespace bloodlines.entities.vampire
 
 		public virtual void UpdateState()
 		{
-			bool open = (State == SwitchState.Activating) || (State == SwitchState.On);
+			bool open = State is SwitchState.Activating or SwitchState.On;
 
 			_ = DoMove( open );
 		}
 
 		void UpdateAnimGraph( bool open )
-		{		
-			SetAnimBool( "activated", open );
+		{
+			SetAnimParameter( "activated", open );
 		}
 
-		public override void OnAnimGraphCreated()
+		protected override void OnAnimGraphCreated()
 		{
 			base.OnAnimGraphCreated();
 
@@ -143,20 +148,20 @@ namespace bloodlines.entities.vampire
 				await Task.Delay( 2000 );
 				_ = OnActivate.Fire( this );
 				State = SwitchState.On;
-	
+
 			}
-			else if ( State == SwitchState.Deactivating)
+			else if ( State == SwitchState.Deactivating )
 			{
 				PlaySound( "small_metal_switch.off" );
 				await Task.Delay( 900 );
 				State = SwitchState.Off;
 				_ = OnDeactivate.Fire( this );
-			}			
+			}
 		}
 
-		public override void OnAnimGraphTag( string tag, AnimGraphTagEvent fireMode )
+		protected override void OnAnimGraphTag( string tag, AnimatedEntity.AnimGraphTagEvent fireMode )
 		{
-			if ( tag == "AnimationFinished" && fireMode != AnimGraphTagEvent.End )
+			if ( tag == "AnimationFinished" && fireMode != AnimatedEntity.AnimGraphTagEvent.End )
 			{
 				AnimGraphFinished = true;
 			}
