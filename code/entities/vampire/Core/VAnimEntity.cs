@@ -2,37 +2,37 @@
 
 namespace bloodlines.entities.vampire
 {
-	public partial class VAnimEntity : AnimEntity
+	public class VAnimEntity : AnimatedEntity
 	{
-		[Property( "starthidden", Title = "Start Hidden" )]
+		[Property("starthidden", Title = "Start Hidden")]
 		public int StartHidden { get; set; }
 
 		[Input]
-		protected void ScriptHide( Entity activator )
+		protected void ScriptHide(Entity activator)
 		{
-			Hide( activator );
+			Hide(activator);
 		}
 
 		[Input]
-		protected void ScriptUnhide( Entity activator )
+		protected void ScriptUnhide(Entity activator)
 		{
 			EnableAllCollisions = true;
 			EnableDrawing = true;
-			CollisionGroup = CollisionGroup.Always;
+			//CollisionGroup = CollisionGroup.Always;
 		}
 
-		public void Hide( Entity activator = null)
-		{		
+		public void Hide(Entity activator = null)
+		{
 			EnableDrawing = false;
 			EnableAllCollisions = false;
-			CollisionGroup = CollisionGroup.Never;
+			//CollisionGroup = CollisionGroup.Never;
 		}
 
 		public override void Spawn()
 		{
 			base.Spawn();
 
-			if ( StartHidden == 1 )
+			if (StartHidden == 1)
 				Hide();
 		}
 	}

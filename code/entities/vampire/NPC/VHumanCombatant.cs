@@ -1,19 +1,11 @@
 ﻿using Sandbox;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Editor;
 
 namespace bloodlines.entities.vampire.NPC
 {
 	[Library( "npc_VHumanCombatant" )]
-	[Hammer.Model]
+	[Model]
 	public partial class VHumanCombatant : VBaseNPC
 	{
-		public override void Spawn()
-		{
-			base.Spawn();
-		}
 	}
 }

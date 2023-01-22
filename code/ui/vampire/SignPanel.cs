@@ -34,7 +34,7 @@ namespace bloodlines.ui.Vampire
 			//UpdatePanel( SignData );
 		}
 
-		[ClientCmd( name: "signwindow" )]
+		[ConCmd.Client( name: "signwindow" )]
 		public static void ToggleWindow()
 		{
 			IsOpen = !IsOpen;
@@ -55,7 +55,7 @@ namespace bloodlines.ui.Vampire
 				//Delete();
 
 				PanelTransform backgroundTransform = new();
-				backgroundTransform.BuildTransform( 400, 400 );
+				backgroundTransform.BuildTransform( 400, 400, Vector2.One );
 				backgroundTransform.AddTranslateX( Length.Fraction( -0.05f ) );
 				backgroundTransform.AddTranslateY( Length.Fraction( -0.1f ) );
 				AddChild( out BackgroundImage, "backgroundimage" );
@@ -70,7 +70,7 @@ namespace bloodlines.ui.Vampire
 				TextBlockLabel.Clear();
 
 				var imageTransform = new PanelTransform();
-				imageTransform.BuildTransform( 300, 400 );
+				imageTransform.BuildTransform( 300, 400, Vector2.One);
 				var imageShit = 0;
 
 				foreach ( var label in SignData.Label )
@@ -152,7 +152,7 @@ namespace bloodlines.ui.Vampire
 		//[GameEvents.SignPanel.Open(SignData)]
 		public void Open( string signData )
 		{
-			if ( !Host.IsClient || IsOpen ) return;
+			if ( !Game.IsClient || IsOpen ) return;
 			if ( signData != null )
 			{
 				JsonSerializerOptions options = new()
@@ -173,7 +173,7 @@ namespace bloodlines.ui.Vampire
 		[Event( "bloodlines.signpanel.close" )]
 		public void Close()
 		{
-			if ( !Host.IsClient || !IsOpen ) return;
+			if ( !Game.IsClient || !IsOpen ) return;
 			RemoveClass( "open" );
 			IsOpen = false;
 		}
@@ -193,7 +193,7 @@ namespace bloodlines.ui.Vampire
 		{
 			base.Tick();
 
-			var player = Local.Pawn;
+			var player = Game.LocalPawn;
 			if ( player == null ) return;
 
 			this.SetClass( "enabled", IsOpen );
@@ -201,6 +201,7 @@ namespace bloodlines.ui.Vampire
 			//Style.Dirty();
 			return;
 
+			/*
 			PanelTransform transform = new();
 			transform.AddTranslateX( Length.Fraction( -0.5f ) );
 			transform.AddTranslateY( Length.Fraction( -0.1f ) );
@@ -257,13 +258,14 @@ namespace bloodlines.ui.Vampire
 			//InventoryLabel.Style.Dirty();
 
 			Style.Dirty();
+			*/
 		}
 
 		protected override void OnClick( MousePanelEvent e )
 		{
 			base.OnClick( e );
 
-			if ( Local.Pawn is not Player player ) return;
+			if ( Game.LocalPawn is not Player player ) return;
 
 			if ( e.Button == "mouseleft" )
 				Close();

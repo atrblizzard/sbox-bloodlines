@@ -1,30 +1,32 @@
-﻿using Sandbox;
+﻿using bloodlines.entities.core.Func;
+using Sandbox;
+using Editor;
 using System.Collections.Generic;
-using bloodlines.entities.core.Func;
 
 namespace bloodlines.entities.vampire
 {
-	[Hammer.Model]	
-	[Hammer.RenderFields]
+	[Model]
+	[HammerEntity]
+	[RenderFields]
 	[Library( "prop_doorknob", Description = "Generic Doorknob" )]
-	public partial class DoorknobProp : KeyframeEntity, IUse
+	public partial class DoorknobProp : VAnimEntity, IUse
 	{
 		// TODO: implement a base to derive use icon from
-		[Property("use_icon", Title = "Use Icon")]
+		[Property( "use_icon", Title = "Use Icon" )]
 		public int UseIcon { get; set; }
 
-		[Property("difficulty", Title = "Difficulty")]
+		[Property( "difficulty", Title = "Difficulty" )]
 		public int Difficulty { get; set; }
 
-		[Hammer.Skip]
-		[Property("parentname", Title = "Parent Name" )]
+		[HideInEditor]
+		[Property( "parentname", Title = "Parent Name" )]
 		public string ParentName { get; set; }
 
 		public override void Spawn()
 		{
 			base.Spawn();
 
-			SetModel( GetModel() );
+			SetModel( GetModelName() );
 
 			SetupPhysicsFromModel( PhysicsMotionType.Dynamic );
 		}

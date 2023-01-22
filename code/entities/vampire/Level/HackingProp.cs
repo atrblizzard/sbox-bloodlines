@@ -1,16 +1,20 @@
 ﻿using Sandbox;
-using Sandbox.UI;
+using Editor;
 
 namespace bloodlines.entities.vampire
 {
-	[Hammer.Model]
+	[Model]
+	[HammerEntity]
 	[Library( "prop_hacking", Description = "A point entity that used as a hackable computer/terminal with useful information." )]
 	public partial class HackingProp : VAnimEntity, IUse
 	{
 		[Property( "hack_file", Title = "Definition File. This is related script file that contains the certain computer's data and it's interactions." )]
 		public string HackFile { get; set; }
 
-	#region Outputs
+		[Property("difficulty")]
+		public int Difficulty { get; set; }
+
+		#region Outputs
 		protected Output OnTrigger0 { get; set; }
 		protected Output OnTrigger1 { get; set; }
 		protected Output OnTrigger2 { get; set; }
@@ -19,7 +23,7 @@ namespace bloodlines.entities.vampire
 		protected Output OnTrigger5 { get; set; }
 		protected Output OnTrigger6 { get; set; }
 		protected Output OnTrigger7 { get; set; }
-	#endregion
+		#endregion
 
 		public bool isHacking = false;
 
@@ -27,29 +31,29 @@ namespace bloodlines.entities.vampire
 		{
 			base.Spawn();
 
-			SetModel( GetModel() );			
+			SetModel( GetModelName() );
 
 			SetupPhysicsFromModel( PhysicsMotionType.Keyframed, true );
 		}
 
 		public bool IsUsable( Entity user )
-		{			
-			if ( isHacking )
-				return false;
-			return true;
+		{
+			return !isHacking;
 		}
 
 		public bool OnUse( Entity user )
 		{
-			var screenBone = GetModel().GetAttachment( "screen_axis" );
+			var screenBone = Model.GetAttachment( "screen_axis" );
 
 			HandleCamera( user );
 
+#if HACKING_CAMERA
 			if ( user is VampirePlayer player )
 			{
 				if ( player.MainCamera is not HackingCamera )
 					player.MainCamera = new HackingCamera();
 			}
+#endif
 
 			isHacking = !isHacking;
 
@@ -85,26 +89,29 @@ namespace bloodlines.entities.vampire
 		}
 #endif
 
-		public void HandleCamera(Entity user)
+		public void HandleCamera( Entity user )
 		{
 			for ( int i = 0; i < All.Count; i++ )
 			{
 				//Don't delete other peoples cameras
+#if HACKING_CAMERA
 				if ( All[i] is HackingCameraEntity hc ) //&& tc.Owner == this.Owner )
 				{
 					hc.Delete();
 				}
+#endif
 			}
 
-			var screenBone = GetModel().GetAttachment( 0 );
+			var screenBone = Model.GetAttachment( 0 );
 
 			var screenAxis = GetAttachment( "screen_axis" ) ?? default;
 			var screen = GetAttachment( "screen" ) ?? default;
 			var pos = screenAxis.Position;
 			var rot = screenAxis.Rotation;
 
-			Log.Info( screenAxis  );
+			Log.Info( screenAxis );
 
+#if HACKING_CAMERA
 			var ent = new HackingCameraEntity
 			{
 				Position = pos,
@@ -112,10 +119,12 @@ namespace bloodlines.entities.vampire
 				Owner = user
 			};
 
+
 			Log.Info( screenAxis.RotationToLocal( screenAxis.Rotation ) );
 			Log.Info( screenAxis.Rotation );
 
 			ent.SetPhys( false );
+#endif
 		}
 	}
 }

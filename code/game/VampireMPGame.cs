@@ -1,30 +1,33 @@
 ﻿using Sandbox;
+using System.Linq;
+using System.Threading.Tasks;
 
 [Library( "vampiremp", Title = "Vampire Multiplayer Games" )]
-partial class VampireMPGame : Game
+partial class VampireMPGame : GameManager
 {
 	public int StoryState { get; set; }
 
-	public VampireMPGame()
-	{
-		if ( IsServer )
-		{
-			// Create the HUD
-			_ = new DeathmatchHud();
-		}
-	}
+    //public DeathmatchHud UI;
 
-	public override void PostCameraSetup( ref CameraSetup camSetup )
-	{
-		base.PostCameraSetup( ref camSetup );
+    public VampireMPGame()
+    {
+        if (Game.IsServer)
+        {
+            //UI = new DeathmatchHud();
+        }
+    }
 
-		if ( VR.Enabled )
-			camSetup.ZNear = 1f;
+    //public override void PostCameraSetup( ref CameraSetup camSetup )
+    //{
+    //	base.PostCameraSetup( ref camSetup );
 
-		camSetup.ZNear = 0.5f;
-	}
+    //	if ( VR.Enabled )
+    //		camSetup.ZNear = 1f;
 
-	public override void ClientJoined( Client cl )
+    //	camSetup.ZNear = 0.5f;
+    //}
+
+    public override void ClientJoined( IClient cl )
 	{
 		base.ClientJoined( cl );
 		var player = new VampirePlayer();
@@ -38,59 +41,80 @@ partial class VampireMPGame : Game
 		base.OnDestroy();
 	}
 
-	[ServerCmd( "spawn" )]
-	public static void Spawn( string modelname )
-	{
-		var owner = ConsoleSystem.Caller?.Pawn;
+    [ConCmd.Server("spawn")]
+    public static async Task Spawn(string modelname)
+    {
+        var owner = ConsoleSystem.Caller?.Pawn as Player;
 
-		if ( ConsoleSystem.Caller == null )
-			return;
+        if (ConsoleSystem.Caller == null)
+            return;
 
-		var tr = Trace.Ray( owner.EyePos, owner.EyePos + owner.EyeRot.Forward * 500 )
-			.UseHitboxes()
-			.Ignore( owner )
-			.Run();
+        var tr = Trace.Ray(owner.EyePosition, owner.EyePosition + owner.EyeRotation.Forward * 500)
+            .UseHitboxes()
+            .Ignore(owner)
+            .Run();
 
-		var ent = new Prop
-		{
-			Position = tr.EndPos,
-			Rotation = Rotation.From( new Angles( 0, owner.EyeRot.Angles().yaw, 0 ) ) * Rotation.FromAxis( Vector3.Up, 180 )
-		};
-		ent.SetModel( modelname );
-		ent.Position = tr.EndPos - Vector3.Up * ent.CollisionBounds.Mins.z;
-	}
+        var modelRotation = Rotation.From(new Angles(0, owner.EyeRotation.Angles().yaw, 0)) * Rotation.FromAxis(Vector3.Up, 180);
 
-	[ServerCmd( "spawn_entity" )]
-	public static void SpawnEntity( string entName )
-	{
-		var owner = ConsoleSystem.Caller.Pawn;
+   
 
-		if ( owner == null )
-			return;
+        var model = Model.Load(modelname);
+        if (model == null || model.IsError)
+            return;
 
-		var attribute = Library.GetAttribute( entName );
+        var ent = new Prop
+        {
+            Position = tr.EndPosition + Vector3.Down * model.PhysicsBounds.Mins.z,
+            Rotation = modelRotation,
+            Model = model
+        };
 
-		if ( attribute == null || !attribute.Spawnable )
-			return;
+        // Let's make sure physics are ready to go instead of waiting
+        ent.SetupPhysicsFromModel(PhysicsMotionType.Dynamic);
 
-		var tr = Trace.Ray( owner.EyePos, owner.EyePos + owner.EyeRot.Forward * 200 )
-			.UseHitboxes()
-			.Ignore( owner )
-			.Size( 2 )
-			.Run();
+        // If there's no physics model, create a simple OBB
+        if (!ent.PhysicsBody.IsValid())
+        {
+            ent.SetupPhysicsFromOBB(PhysicsMotionType.Dynamic, ent.CollisionBounds.Mins, ent.CollisionBounds.Maxs);
+        }
+    }
 
-		var ent = Library.Create<Entity>( entName );
-		if ( ent is BaseCarriable && owner.Inventory != null )
-		{
-			if ( owner.Inventory.Add( ent, true ) )
-				return;
-		}
 
-		ent.Position = tr.EndPos;
-		ent.Rotation = Rotation.From( new Angles( 0, owner.EyeRot.Angles().yaw, 0 ) );
-	}
+    [ConCmd.Server("spawn_entity")]
+    public static void SpawnEntity(string entName)
+    {
+        var owner = ConsoleSystem.Caller.Pawn as Player;
 
-	public override void DoPlayerNoclip( Client player )
+        if (owner == null)
+            return;
+
+        var entityType = TypeLibrary.GetType<Entity>(entName)?.TargetType;
+        if (entityType == null)
+            return;
+
+        if (!TypeLibrary.HasAttribute<SpawnableAttribute>(entityType))
+            return;
+
+        var tr = Trace.Ray(owner.EyePosition, owner.EyePosition + owner.EyeRotation.Forward * 200)
+            .UseHitboxes()
+            .Ignore(owner)
+            .Size(2)
+            .Run();
+
+        var ent = TypeLibrary.Create<Entity>(entityType);
+        if (ent is BaseCarriable && owner.Inventory != null)
+        {
+            if (owner.Inventory.Add(ent, true))
+                return;
+        }
+
+        ent.Position = tr.EndPosition;
+        ent.Rotation = Rotation.From(new Angles(0, owner.EyeRotation.Angles().yaw, 0));
+
+        Log.Info($"ent: {ent}");
+    }
+
+    public void DoPlayerNoclip( IClient player )
 	{
 		if ( player.Pawn is Player basePlayer )
 		{
@@ -105,12 +129,6 @@ partial class VampireMPGame : Game
 				basePlayer.DevController = new NoclipController();
 			}
 		}
-	}
-	
-	[ClientCmd( "debug_write" )]
-	public static void Write()
-	{
-		ConsoleSystem.Run( "quit" );
 	}
 
 #if WORLDEVENTS

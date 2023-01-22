@@ -5,7 +5,10 @@ namespace bloodlines.entities.vampire
 	public class VEntity : Entity
 	{
 		[Property( "starthidden", Title = "Start Hidden" )]
-		public int StartHidden { get; set; }
+		public bool StartHidden { get; set; }
+		
+		[Property( "start_enabled", Title = "Start Enabled" )]
+		public bool StartEnabled { get; set; }
 
 		[Input]
 		protected void ScriptHide( Entity activator )
@@ -28,7 +31,7 @@ namespace bloodlines.entities.vampire
 		{
 			base.Spawn();
 
-			if ( StartHidden == 1 )
+			if ( StartHidden )
 				Hide();
 		}
 	}

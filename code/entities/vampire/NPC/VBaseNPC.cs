@@ -1,30 +1,78 @@
-﻿using Sandbox;
+﻿using System;
+using Sandbox;
 
 namespace bloodlines.entities.vampire.NPC
 {
-	public partial class VBaseNPC : VAnimEntity
+	public partial class VBaseNPC : VAnimEntity, IUse
 	{
+		[Flags]
+		public enum Flags
+		{
+			None = 0,
+			FallToGround = 4,
+			Flag8192 = 8192
+		}
+
 		[Property( "base_gender" )]
 		public int BaseGender { get; set; }
 
-		[Property( "cantdropweapons" )]
-		public int DontDropWeapons { get; set; }
+		[Property( "cantdropweapons" ), Title("Can't Drop Weapons")]
+		public bool CantDropWeapons { get; set; }
 
-		[Property( "invincible", "If set, the player can't kill this NPC.")]
-		public int Invinsible { get; set; }
+		[Property( "invincible", "If set, the player can't kill this NPC." )]
+		public bool Invincible { get; set; }
+		
+		/// <summary>
+		/// Make NPC use Interesting Places' features.
+		/// This and the interesting groups work fine if there are info_nodes in the area of the interesting places.
+		/// </summary>
+		[Property( "use_interesting", Title = "Use Interesting Places")]
+		public bool UseInteresting { get; set; }
+
+		[Property( "default_camera" )]
+		public string DefaultCamera { get; set; }
+
+		/// <summary>
+		/// NPC's hearing radius [0...100]. Set '-1' as default 
+		/// </summary>
+		[Property( "hearing" )]
+		public float Hearing { get; set; } = -1f;
+		
+		/// <summary>
+		/// If set, the creations don't run away from Nosferatu player.
+		/// </summary>
+		[Property("ignore_nosferatu")]
+		public bool IgnoreNosferatu { get; set; }
+
+		
+		/// <summary>
+		/// Goes to data in 'vdata/system/npctemplate***.txt'. NPCs in Hammer are assigned one of these which determines their statistics.
+		/// </summary>
+		[Property( "stattemplate" )]
+		public string StatTemplate { get; set; }
+		
+		[Property( "spawnflags", Title = "Spawn Settings" )]
+		public Flags SpawnSettings { get; set; } = Flags.None;
 
 		protected Vector3 InputVelocity;
 		protected Vector3 LookDir;
 
+		// Misc
+		public string NPCAnimGraph = "";
+
+		Color MyDebugColour = Color.Random;
+		
+		public Vector3 EyePosition;
+		public Rotation EyeRotation;
 
 		[Input]
-		public void SetHealth(int value)
+		public void SetHealth( int value )
 		{
 
 		}
 
 		[Input]
-		public void SetBodyGroup(int value)
+		public void SetBodyGroup( int value )
 		{
 
 		}
@@ -36,7 +84,7 @@ namespace bloodlines.entities.vampire.NPC
 		}
 
 		[Input]
-		public void WillTalk(int value)
+		public void WillTalk( int value )
 		{
 
 		}
@@ -73,46 +121,60 @@ namespace bloodlines.entities.vampire.NPC
 
 		public override void Spawn()
 		{
-			var model = GetModel();
-			if ( model == null || model.IsError )
-			{
-				SetModel( "models/editor/playerstart.vmdl" );
-				SetupPhysicsFromAABB( PhysicsMotionType.Static, Vector3.One, Vector3.One );
-			}
-			else
-			{
-				SetModel( GetModelName() );
-				SetupPhysicsFromModel( PhysicsMotionType.Dynamic, false );
-				CollisionGroup = CollisionGroup.Interactive;
-				EnableSelfCollisions = true;
-				MoveType = MoveType.MOVETYPE_WALK;
-				EnableHitboxes = true;
-				Velocity = Vector3.Zero;
-			}
+			var model = GetModelName();
+			
+			SetModel( "models/editor/playerstart.vmdl" );
+			SetupPhysicsFromAABB( PhysicsMotionType.Static, Vector3.One, Vector3.One );
+			//
+			//
+			// if ( model == null )
+			// {
+			// 	SetModel( "models/editor/playerstart.vmdl" );
+			// 	SetupPhysicsFromAABB( PhysicsMotionType.Static, Vector3.One, Vector3.One );
+			// }
+			// else
+			// {
+			// 	SetModel( GetModelName() );
+			// 	SetupPhysicsFromModel( PhysicsMotionType.Dynamic, false );
+			// 	//CollisionGroup = CollisionGroup.Interactive;
+			// 	EnableSelfCollisions = true;
+			// 	//MoveType = MoveType.MOVETYPE_WALK;
+			// 	EnableHitboxes = true;
+			// 	Velocity = Vector3.Zero;
+			// 	
+			// 	//SetAnimGraph(NPCAnimGraph);
+			// 	SetupPhysicsFromAABB(PhysicsMotionType.Keyframed, new Vector3(-16, -16, 0), new Vector3(16, 16, 72));
+			// 	EnableHitboxes = true;
+			// }
+			//
+			Tags.Add("npc", "playerclip");
 
-			var particleList = model.GetParticles();
-			if ( particleList == null || particleList.Length <= 0 )
-				return;
+			//var particleList = Model.GetParticles();
+			//if ( particleList is not { Length: > 0 } )
+			//	return;
 
-			foreach ( var particleData in particleList )
-			{
-				Particles.Create( particleData.Name, this, particleData.AttachmentPoint );
-			}
+			//foreach ( var particleData in particleList )
+			//{
+			//	Particles.Create( particleData.Name, this, particleData.AttachmentPoint );
+			//}
 
 			base.Spawn();
 		}
 
 		[Event.Tick.Server]
-		public virtual void Tick()
+		public void Tick()
 		{
 			InputVelocity = 0;
 
-			Move( Time.Delta );
+			//using ( Profile.Scope( "Move" ) )
+			//{
+				Move( Time.Delta );
+			//}
 
 			var walkVelocity = Velocity.WithZ( 0 );
 			if ( walkVelocity.Length > 0.5f )
 			{
-				var turnSpeed = walkVelocity.Length.LerpInverse( 0, 100, true );
+				var turnSpeed = walkVelocity.Length.LerpInverse( 0, 100 );
 				var targetRotation = Rotation.LookAt( walkVelocity.Normal, Vector3.Up );
 				Rotation = Rotation.Lerp( Rotation, targetRotation, turnSpeed * Time.Delta * 20.0f );
 			}
@@ -123,8 +185,7 @@ namespace bloodlines.entities.vampire.NPC
 		{
 			var bbox = BBox.FromHeightAndRadius( 64, 4 );
 
-			MoveHelper move = new( Position, Velocity );
-			move.MaxStandableAngle = 50;
+			MoveHelper move = new( Position, Velocity ) { MaxStandableAngle = 50 };
 			move.Trace = move.Trace.Ignore( this ).Size( bbox );
 
 			if ( !Velocity.IsNearlyZero( 0.001f ) )
@@ -141,7 +202,7 @@ namespace bloodlines.entities.vampire.NPC
 
 				if ( !tr.StartedSolid )
 				{
-					move.Position = tr.EndPos;
+					move.Position = tr.EndPosition;
 				}
 
 				if ( InputVelocity.Length > 0 )
@@ -165,6 +226,16 @@ namespace bloodlines.entities.vampire.NPC
 
 			Position = move.Position;
 			Velocity = move.Velocity;
+		}
+		
+		public bool IsUsable( Entity user )
+		{
+			return true;
+		}
+
+		public virtual bool OnUse( Entity user )
+		{
+			return LifeState != LifeState.Dead;
 		}
 	}
 }

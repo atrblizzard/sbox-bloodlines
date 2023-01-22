@@ -1,8 +1,9 @@
-﻿using Sandbox;
+﻿using Editor;
+using Sandbox;
 
 namespace bloodlines.entities.vampire.Level
 {
-	[Hammer.Solid]
+	[Solid]
 	[Library( "trigger_electric_bugaloo" )]
 	public partial class ElectricBogalooTrigger : BaseTrigger, IUse
 	{
@@ -33,7 +34,7 @@ namespace bloodlines.entities.vampire.Level
 				{
 					OnUse( entity );
 				}
-			}			
+			}
 		}
 
 		public bool OnUse( Entity user )
@@ -41,7 +42,7 @@ namespace bloodlines.entities.vampire.Level
 			if ( isUsing )
 			{
 				isUsing = false;
-				OnUseEnd.Fire(user);
+				OnUseEnd.Fire( user );
 			}
 			else
 			{

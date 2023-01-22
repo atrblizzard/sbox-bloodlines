@@ -1,8 +1,10 @@
-﻿using Sandbox;
+﻿using Editor;
+using Sandbox;
 
 namespace bloodlines.entities.vampire.Events
 {
-	//[Library( "worldspawn" )]
+	[HammerEntity]
+	[Library( "worldspawn" )]
 	public partial class WorldSpawn : WorldEntity
 	{
 		[Property( "safearea" )]

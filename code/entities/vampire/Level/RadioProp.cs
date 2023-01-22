@@ -1,7 +1,8 @@
 ﻿using Sandbox;
+using Editor;
 
 [Library( "prop_radio", Description = "Radio" )]
-[Hammer.Model]
+[Model]
 public partial class RadioProp : ModelEntity, IUse
 {
 	/// <summary>
@@ -46,7 +47,7 @@ public partial class RadioProp : ModelEntity, IUse
 
 	public void Use()
 	{
-		
+
 	}
 
 	public void LoadRadioData()

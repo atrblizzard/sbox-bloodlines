@@ -1,4 +1,5 @@
 ﻿using Sandbox;
+using Editor;
 using System;
 using System.Threading.Tasks;
 
@@ -8,8 +9,10 @@ namespace bloodlines.entities.core.Func
 	/// A brush entity that simulates the elevator functions.
 	/// </summary>
 	[Library( "func_elevator" )]
-	[Hammer.Solid]
-	[Hammer.RenderFields]
+	[RenderFields]
+	[DoorHelper( "movedir", "movedir_islocal", null, "movedistance" )]
+	//[HammerEntity]
+	[SupportsSolid]
 	public partial class Elevator : KeyframeEntity, IUse
 	{
 		/// <summary>
@@ -17,7 +20,7 @@ namespace bloodlines.entities.core.Func
 		/// </summary>
 		[Property( "speed" )]
 		public float Speed { get; set; } = 35;
-		
+
 		/// <summary>
 		/// Defines height the 1st floor is (in units).
 		/// </summary>
@@ -65,18 +68,23 @@ namespace bloodlines.entities.core.Func
 		/// </summary>
 		[Property( "floor8" )]
 		public float FloorHeight8 { get; set; } = 0;
-		
+
 		/// <summary>
 		/// Defines the number of floors, used by elevator.
 		/// </summary>
 		[Property( "numfloors" )]
 		public int NumFloors { get; set; } = 0;
-		
+
 		/// <summary>
 		/// Be locked until output will sent by some action." = [ 0 : "No" 1 : "Yes" ]
 		/// </summary>
 		[Property( "locked" )]
-		public int Locked { get; set; } = 0;
+		public bool Locked { get; set; }
+		
+		[Property( "startsound", Title = "Start Sound"), FGDType( "sound" )]
+		public string StartSound { get; set; }
+		[Property( "stopsound", Title = "Stop Sound"), FGDType( "sound" )]
+		public string StopSound { get; set; }
 
 		public float InitialPosition { get; set; } = 0;
 		public bool MoveDirIsLocal { get; set; } = true;
@@ -96,7 +104,7 @@ namespace bloodlines.entities.core.Func
 		protected Output OnMoveStart { get; set; }
 		protected Output OnReachFloorAny { get; set; }
 		protected Output OnPassFloorAny { get; set; }
-		
+
 		protected Output OnReachFloor1 { get; set; }
 		protected Output OnReachFloor2 { get; set; }
 		protected Output OnReachFloor3 { get; set; }
@@ -105,7 +113,7 @@ namespace bloodlines.entities.core.Func
 		protected Output OnReachFloor6 { get; set; }
 		protected Output OnReachFloor7 { get; set; }
 		protected Output OnReachFloor8 { get; set; }
-		
+
 		protected Output OnPassFloor1 { get; set; }
 		protected Output OnPassFloor2 { get; set; }
 		protected Output OnPassFloor3 { get; set; }
@@ -115,14 +123,14 @@ namespace bloodlines.entities.core.Func
 		protected Output OnPassFloor7 { get; set; }
 		protected Output OnPassFloor8 { get; set; }
 		protected Output OnStop { get; set; }
-		
+
 		protected Output OnReachStart { get; set; }
 		protected Output OnReachEnd { get; set; }
 		protected Output OnMoveTowardsStart { get; set; }
 		protected Output OnMoveTowardsEnd { get; set; }
-#endregion
+		#endregion
 
-#region Inputs
+		#region Inputs
 
 		[Input]
 		public void CallCurrentFloorOutputs()
@@ -131,9 +139,9 @@ namespace bloodlines.entities.core.Func
 		}
 
 		[Input]
-		public void SnapToFloor( )
+		public void SnapToFloor()
 		{
-					
+
 		}
 
 		[Input]
@@ -170,7 +178,7 @@ namespace bloodlines.entities.core.Func
 					OnPassFloor5.Fire( activator );
 					break;
 				case 6:
-					floorDistance = FloorHeight6;		
+					floorDistance = FloorHeight6;
 					OnPassFloor6.Fire( activator );
 					break;
 				case 7:
@@ -186,10 +194,20 @@ namespace bloodlines.entities.core.Func
 					break;
 			}
 
-			MoveDistance = floorDistance + Math.Abs( FloorHeight1);
+			MoveDistance = floorDistance + Math.Abs( FloorHeight1 );
 			MoveDir = new Angles( -90, 0, 0 );
-			var dir_world = Transform.NormalToWorld( MoveDir.Direction );
+			var dir_world = Transform.NormalToWorld( MoveDir.Forward ); // MoveDir.Direction
 			PositionB = PositionA + dir_world * MoveDistance;
+			
+			// if ( DebugFlags.HasFlag( EntityDebugFlags.Text ) )
+			// {
+			// 	DebugOverlay.Text( $"State: {FloorHeight1}\nProgress: {floorDistance}", WorldSpaceBounds.Center, 10, Color.White );
+			//
+			// 	//var dir_world = MoveDir.Forward;
+			// 	//if ( MoveDirIsLocal ) dir_world = Transform.NormalToWorld( MoveDir.Forward );
+			//
+			// 	DebugOverlay.Line( Position, Position + dir_world * 100 );
+			// }
 
 			_ = MoveElevator( floor, floorDistance, activator );
 		}
@@ -197,27 +215,27 @@ namespace bloodlines.entities.core.Func
 		[Input]
 		public void Lock()
 		{
-			Locked = 1;
+			Locked = true;
 		}
 
 		[Input]
 		public void Unlock()
 		{
-			Locked = 0;
+			Locked = false;
 		}
 
 		[Input]
 		public void Open()
 		{
-			
+
 		}
-		
+
 		[Input]
 		public void Close()
 		{
-			
+
 		}
-#endregion
+		#endregion
 
 		Vector3 PositionA;
 		Vector3 PositionB;
@@ -229,7 +247,7 @@ namespace bloodlines.entities.core.Func
 			SetupPhysicsFromModel( PhysicsMotionType.Keyframed );
 
 			PositionA = LocalPosition;
-			PositionB = PositionA + MoveDir.Direction * MoveDistance;
+			PositionB = PositionA + MoveDir.Forward * MoveDistance; // MoveDir.Direction
 
 			MoveDirIsLocal = true;
 
@@ -238,24 +256,24 @@ namespace bloodlines.entities.core.Func
 
 			if ( MoveDirIsLocal )
 			{
-				var dir_world = Transform.NormalToWorld( MoveDir.Direction );
+				var dir_world = Transform.NormalToWorld( MoveDir.Forward ); // MoveDir.Direction
 				PositionB = PositionA + dir_world * MoveDistance;
 			}
 		}
-		
+
 		public bool OnUse( Entity user )
-		{			
+		{
 			return false;
 		}
 
 		public bool IsUsable( Entity user )
-		{		
+		{
 			//TODO: implement lock checks
 			return true;
 		}
 
 		int movement = 0;
-		async Task MoveElevator(int floor, float floorDistance, Entity activator = null)
+		async Task MoveElevator( int floor, float floorDistance, Entity activator = null )
 		{
 			// TODO: implement movement sound
 			//if ( !IsMoving )
@@ -276,7 +294,7 @@ namespace bloodlines.entities.core.Func
 				return;
 
 			switch ( floor )
-			{				
+			{
 				case 1:
 					_ = OnReachFloor1.Fire( activator );
 					break;

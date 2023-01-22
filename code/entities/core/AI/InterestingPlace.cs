@@ -1,14 +1,13 @@
 ﻿using Sandbox;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Editor;
 
 namespace bloodlines.entities.core.AI
 {
-	[Library( "intersting_place" )]
-	public partial class InterestingPlace : BaseTrigger
+	[ClassName( "intersting_place" )]
+	[HammerEntity]
+	[EditorSprite( "materials/editor/npcinterestingplace.vmat" )]
+	[Title( "intersting_place" ), Category( "AI" ), Icon( "select_all" )]
+	public partial class InterestingPlace : Entity
 	{
 		[Property( "holster_weapon" )]
 		public int HolsterWeapon { get; set; } = 0;
@@ -54,7 +53,8 @@ namespace bloodlines.entities.core.AI
 		/// <summary>
 		/// interesting_places(target_destination) : "Interesting Place" : : "Target 'intersting_place' entity to be used [not tested]."
 		/// </summary>
-		[Property( "interesting_places", FGDType = "target_destination" )]
+		[Property( "interesting_places")]
+		[FGDType("target_destination" )]
 		public string InterestingPlaces { get; set; }
 
 		[Property( "min_time" )]

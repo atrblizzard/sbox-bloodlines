@@ -16,7 +16,7 @@ namespace bloodlines.ui.Vampire
 
 		public VirtualScrollPanel DialogList { get; set; }
 
-		[ClientCmd( name: "dialog" )]
+		[ConCmd.Client( name: "dialog" )]
 		public static void ToggleInspector()
 		{
 			enabled = !enabled;
@@ -91,7 +91,7 @@ namespace bloodlines.ui.Vampire
 		{
 			base.Tick();
 
-			var player = Local.Pawn;
+			var player = Game.LocalPawn;
 			if ( player == null ) return;
 
 			this.SetClass( "enabled", enabled );

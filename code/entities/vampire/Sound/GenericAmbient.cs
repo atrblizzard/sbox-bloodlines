@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace Sandbox
 {
@@ -16,14 +17,16 @@ namespace Sandbox
 		/// <summary>
 		/// Settings that are only applicable when the entity spawns
 		/// </summary>
-		[Property( "spawnflags", Title = "Spawn Settings", FGDType = "flags" )]
+		[Property( "spawnflags", Title = "Spawn Settings")]
+		[FGDType("flags")]
 		public new Flags SpawnFlags { get; set; } = Flags.PlayEverywhere;
 
 		/// <summary>
 		/// Name of the GameSound entry for the sound to play. Also supports direct .wav filenames.
 		/// </summary>
-		[Property( "message", Group = "Sounds", FGDType = "sound", Title = "Sound Name" )]
-		public string SoundName { get; set; }
+		[Property( "message", Title = "Sound Name" )]
+		[FGDType("sound")]
+        public string SoundName { get; set; }
 
 		/// <summary>
 		/// Sound volume, expressed as a range from 0 to 10, where 10 is the loudest.
@@ -40,7 +43,8 @@ namespace Sandbox
 		/// <summary>
 		/// The entity to use as the origin of the sound playback. If not set, will play from this snd_event_point.
 		/// </summary>
-		[Property( "sourceEntityName", FGDType = "target_destination" )]
+		[Property( "sourceEntityName")]
+        [FGDType("target_destination")]
 		public string SourceEntityName { get; set; }
 
 		public Sound PlayingSound { get; protected set; }
@@ -107,11 +111,11 @@ namespace Sandbox
 			IsPlaying = false;
 		}
 
-		public override void OnClientActive()
-		{
+        public override void OnClientActive(IClient cl)
+        {
 			if ( !SpawnFlags.HasFlag(Flags.StartSilent) )
 			{
-				PlaySound();				
+				PlaySound();
 			}	
 		}
 

@@ -1,9 +1,10 @@
-﻿using Sandbox;
+﻿using Editor;
+using Sandbox;
 
 namespace bloodlines.entities.core.Func
 {
-	[Hammer.AutoApplyMaterial( "materials/tools/toolsinvisibleladder.vmat" )]
-	[Hammer.SupportsSolid]
+	[AutoApplyMaterial( "materials/tools/toolsinvisibleladder.vmat" )]
+	[SupportsSolid]
 	public partial class Ladder : Entity
 	{
 	}

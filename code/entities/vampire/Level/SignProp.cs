@@ -2,9 +2,11 @@
 {
 	using bloodlines.entities.vampire.Data;
 	using Sandbox;
+	using Editor;
 
 	[Library( "prop_sign", Description = "Sign prop" )]
-	[Hammer.Model]
+	[HammerEntity]
+	[Model]
 	public partial class SignProp : ModelEntity, ISignData, IUse
 	{
 		public bool Locked { get; set; }
@@ -25,7 +27,7 @@
 		{
 			base.Spawn();
 
-			SetModel( GetModel() );
+			SetModel( GetModelName() );
 
 			SetupPhysicsFromModel( PhysicsMotionType.Static );
 		}

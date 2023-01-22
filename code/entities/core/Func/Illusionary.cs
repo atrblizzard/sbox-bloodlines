@@ -1,12 +1,13 @@
 ﻿using Sandbox;
+using Editor;
 
 namespace bloodlines.entities.core.Func
 {
 	[Library( "func_illusionary" )]
-	[Hammer.Solid]
-	[Hammer.RenderFields]
+	[Solid]
+	[RenderFields]
 	public partial class Illusionary : ModelEntity
 	{
-		
+
 	}
 }

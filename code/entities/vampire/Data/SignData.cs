@@ -42,7 +42,7 @@ namespace bloodlines.entities.vampire.Data
 	}
 
 	[Library( "signdata" ), AutoGenerate]
-	public sealed partial class SignData : Asset
+	public sealed partial class SignData // : AssetType
 	{
 		[Property]
 		public BackgroundImage BackgroundImage { get; set; }

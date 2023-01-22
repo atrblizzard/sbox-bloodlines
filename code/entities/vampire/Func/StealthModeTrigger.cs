@@ -1,8 +1,9 @@
 ﻿using Sandbox;
+using Editor;
 
 namespace bloodlines.entities.vampire.Level
 {
-	[Hammer.Solid]
+	[Solid]
 	[Library( "trigger_stealth_mod" )]
 	public partial class StealthModeTrigger : BaseTrigger, IUse
 	{

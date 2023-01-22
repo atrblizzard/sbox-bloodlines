@@ -1,12 +1,12 @@
 ﻿using Sandbox;
 using System;
 
-[Library( "ent_hackingcamera", Title = "Hacking Camera", Spawnable = false )]
+[Library( "ent_hackingcamera", Title = "Hacking Camera" )]
 public partial class HackingCameraEntity : Prop
 {
 	private readonly string camModel = "models/editor/camera.vmdl";
 
-	public ICamera ViewCamera;
+	//public ICamera ViewCamera;
 
 	public override void Spawn()
 	{
@@ -14,17 +14,17 @@ public partial class HackingCameraEntity : Prop
 		SetupPhysicsFromModel( PhysicsMotionType.Static, false );
 	}
 
-	[Event.Frame]
+	[Event.Client.Frame]
 	public void OnFrame()
 	{
-		if ( this.Owner?.Camera is HackingCamera hc )
-		{
-			//Yes, we do need to set this every frame
-			//cameras really don't like having their properties set from the outside
-			hc.Owner = this;
-		}
+		//if ( this.Owner?.Camera is HackingCamera hc )
+		//{
+		//	//Yes, we do need to set this every frame
+		//	//cameras really don't like having their properties set from the outside
+		//	hc.Owner = this;
+		//}
 
-		DebugOverlay.Text( this.Position, $"Owner: {this.Owner?.GetClientOwner().Name}", Color.Red, 0, 100 );
+		//DebugOverlay.Text( this.Position, $"Owner: {this.Owner?.GetClientOwner().Name}", Color.Red, 0, 100 );
 	}
 
 	public void SetPhys( bool enable )
@@ -42,8 +42,8 @@ public partial class HackingCameraEntity : Prop
 		{
 			//Disable all physics, but still removeable with the remove tool
 			PhysicsEnabled = false;
-			ClearCollisionLayers();
-			AddCollisionLayer( CollisionLayer.Debris );
+			//ClearCollisionLayers();
+			//AddCollisionLayer( CollisionLayer.Debris );
 		}
 	}
 
@@ -65,7 +65,7 @@ public partial class HackingCameraEntity : Prop
 
 	protected override void OnDestroy()
 	{
-		(this.Owner as VampirePlayer).MainCamera = new FirstPersonCamera();
+		//(this.Owner as VampirePlayer).MainCamera = new FirstPersonCamera();
 
 		base.OnDestroy();
 	}

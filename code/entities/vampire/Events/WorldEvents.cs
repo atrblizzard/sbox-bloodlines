@@ -1,7 +1,9 @@
-﻿using Sandbox;
+﻿using Editor;
+using Sandbox;
 
 namespace bloodlines.entities.vampire.Events
 {
+	[HammerEntity]
 	[Library( "events_world" )]
 	public partial class WorldEvents : Entity
 	{
