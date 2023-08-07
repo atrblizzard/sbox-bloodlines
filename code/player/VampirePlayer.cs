@@ -34,6 +34,16 @@ partial class VampirePlayer : Player
         Clothing.LoadFromClient(cl);
     }
 
+
+    public override void Spawn()
+    {
+        base.Spawn();
+
+        EnableDrawing = true;
+        EnableHideInFirstPerson = true;
+        EnableShadowInFirstPerson = true;
+    }
+
     public override void Respawn()
     {
         SetModel("models/citizen/citizen.vmdl");

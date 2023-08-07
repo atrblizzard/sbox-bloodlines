@@ -11,8 +11,8 @@ namespace bloodlines.entities.core.Func
 	[Library( "func_elevator" )]
 	[RenderFields]
 	[DoorHelper( "movedir", "movedir_islocal", null, "movedistance" )]
-	//[HammerEntity]
-	[SupportsSolid]
+	[HammerEntity]
+	[Solid]
 	public partial class Elevator : KeyframeEntity, IUse
 	{
 		/// <summary>
@@ -199,15 +199,15 @@ namespace bloodlines.entities.core.Func
 			var dir_world = Transform.NormalToWorld( MoveDir.Forward ); // MoveDir.Direction
 			PositionB = PositionA + dir_world * MoveDistance;
 			
-			// if ( DebugFlags.HasFlag( EntityDebugFlags.Text ) )
-			// {
-			// 	DebugOverlay.Text( $"State: {FloorHeight1}\nProgress: {floorDistance}", WorldSpaceBounds.Center, 10, Color.White );
-			//
-			// 	//var dir_world = MoveDir.Forward;
-			// 	//if ( MoveDirIsLocal ) dir_world = Transform.NormalToWorld( MoveDir.Forward );
-			//
-			// 	DebugOverlay.Line( Position, Position + dir_world * 100 );
-			// }
+			if ( DebugFlags.HasFlag( EntityDebugFlags.Text ) )
+			{
+				DebugOverlay.Text( $"State: {FloorHeight1}\nProgress: {floorDistance}", WorldSpaceBounds.Center, 10, Color.White );
+			
+				//var dir_world = MoveDir.Forward;
+				//if ( MoveDirIsLocal ) dir_world = Transform.NormalToWorld( MoveDir.Forward );
+			
+				DebugOverlay.Line( Position, Position + dir_world * 100 );
+			}
 
 			_ = MoveElevator( floor, floorDistance, activator );
 		}
