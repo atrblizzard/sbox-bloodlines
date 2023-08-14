@@ -1,40 +1,71 @@
-﻿using Sandbox;
+﻿#define WORLDEVENTS
+
+using Sandbox;
+using Sandbox.Pawns;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Bloodlines.Game.System.Dialog;
+using Bloodlines.UI;
+using MyGame;
+//using Vampire.UI;
 
 [Library( "vampiremp", Title = "Vampire Multiplayer Games" )]
 partial class VampireMPGame : GameManager
 {
-	public int StoryState { get; set; }
-
-    //public DeathmatchHud UI;
+	public int StoryState { get; set; }	
+	public DialogManager DialogManager { get; set; }
 
     public VampireMPGame()
     {
         if (Game.IsServer)
         {
-            //UI = new DeathmatchHud();
+            // TODO: Add future server only functoins
+        }
+
+        if (Game.IsClient)
+        {
+            Game.RootPanel = new Hud();
         }
     }
-
-    //public override void PostCameraSetup( ref CameraSetup camSetup )
-    //{
-    //	base.PostCameraSetup( ref camSetup );
-
-    //	if ( VR.Enabled )
-    //		camSetup.ZNear = 1f;
-
-    //	camSetup.ZNear = 0.5f;
-    //}
 
     public override void ClientJoined( IClient cl )
 	{
 		base.ClientJoined( cl );
-		var player = new VampirePlayer();
-		player.Respawn();
 
-		cl.Pawn = player;
-	}
+		var player = new VampirePlayer();
+
+        if (cl.IsUsingVr)
+        {
+            cl.Pawn = new VRPawn();
+        }
+        else
+        {
+            cl.Pawn = player;
+        }
+
+        player.Respawn();
+
+        // Get all of the spawnpoints
+        var spawnpoints = All.OfType<SpawnPoint>();
+
+        // chose a random one
+        var randomSpawnPoint = spawnpoints.MinBy(_ => Guid.NewGuid());
+
+        // if it exists, place the pawn there
+        if (randomSpawnPoint != null)
+        {
+            player.Transform = randomSpawnPoint.Transform;
+
+            if (cl.IsUsingVr)
+            {
+	            var tx = randomSpawnPoint.Transform;
+	            tx.Position += Vector3.Up * 50.0f; // raise it up
+                var vrPawn = (VRPawn)cl.Pawn;
+                vrPawn.Transform = tx;
+            }
+        }
+    }
 
 	protected override void OnDestroy()
 	{
@@ -55,8 +86,6 @@ partial class VampireMPGame : GameManager
             .Run();
 
         var modelRotation = Rotation.From(new Angles(0, owner.EyeRotation.Angles().yaw, 0)) * Rotation.FromAxis(Vector3.Up, 180);
-
-   
 
         var model = Model.Load(modelname);
         if (model == null || model.IsError)
@@ -131,21 +160,23 @@ partial class VampireMPGame : GameManager
 		}
 	}
 
-#if WORLDEVENTS
 	public override void PostLevelLoaded()
 	{
 		Log.Info( "PostLevelLoaded initializing!" );
 
-		foreach ( var worldspawn in All.OfType<WorldSpawn>() )
-		{
-			worldspawn.Test();
-		}
+#if WORLDEVENTS
+        // foreach ( var worldspawn in All.OfType<WorldSpawn>() )
+        // {
+        // 	worldspawn.Test();
+        // }
+        //
+        // Log.Info( Entity.All.OfType<WorldSpawn>().Count() );
+        // Log.Info( Entity.All.OfType<WorldEntity>().Count() );
+        // Log.Info( WorldEntity.All.First().SpawnFlags );
+#endif
 
-		Log.Info( Entity.All.OfType<WorldSpawn>().Count() );
-		Log.Info( Entity.All.OfType<WorldEntity>().Count() );
-		Log.Info( WorldEntity.All.First().SpawnFlags );
+        DialogManager = new DialogManager();
 
 		base.PostLevelLoaded();
 	}
-#endif
 }

@@ -1,0 +1,18 @@
+Hud {
+    pointer-events: none;
+    cursor: none;
+
+    &.devcamera {
+        display: none;
+    }
+
+    .hidden
+    {
+        display: none;
+    }
+}
+
+.hidden
+{
+    display: none;
+}

@@ -1,0 +1,43 @@
+{
+  "Quests": [
+    {
+      "Title": "Arthur Knox",
+      "DisplayName": "A Bounty For The Hunter",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "The bondsman Arthur Kilpatrick wants you to locate his bounty hunter, Carson, and ask him to return to work. Carson lives at the Santa Monica Suites, in Apartment 1.",
+          "Type": "Incomplete"
+        },
+        {
+          "ID": 2,
+          "Description": "After entering Carson\u0027s apartment, you found some information about the last case he was working on. He mentioned something about the tattoo parlor. Perhaps you need to go there next.",
+          "Type": "Incomplete"
+        },
+        {
+          "ID": 5,
+          "Description": "You located Carson and told Arthur he is not coming back, and you got paid.",
+          "Type": "Success",
+          "AwardMoney": 200
+        }
+      ]
+    },
+    {
+      "Title": "Bail Jumper",
+      "DisplayName": "Jumpin\u0027 The Bail",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Arthur Kilpatrick, the bondsman, has asked you to find some clue as to where \\\u0022Muddy\\\u0022 Mike Durbin has gone. Mr. Durbin\u0027s lady friend, Marian Murietta, put up money for the bond. She lives in an apartment above a pawnshop.",
+          "Type": "Incomplete"
+        },
+        {
+          "ID": 2,
+          "Description": "You have intercepted a message from Mr. Durbin. He is headed downtown to the Skyeline Apartments, 2A, the residence of a Mr. Milton. He is also expecting a call from someone named Reno. You should report back to Arthur.",
+          "Type": "Incomplete",
+          "AwardXP": 1
+        }
+      ]
+    }
+  ]
+}

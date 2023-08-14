@@ -1,8 +1,9 @@
 ﻿using Sandbox;
 using System.Collections.Generic;
 using System.Linq;
+using bloodlines.game.Quest;
 
-partial class VampirePlayer : Player
+public partial class VampirePlayer : Player
 {
     private TimeSince timeSinceDropped;
     private TimeSince timeSinceJumpReleased;
@@ -12,10 +13,20 @@ partial class VampirePlayer : Player
     [Net, Predicted]
     public bool ThirdPersonCamera { get; set; }
 
+    [ConVar.Server("thirdperson_offset_x")]
+    public float TPSOffsetX = 10;
+    [ConVar.Server("thirdperson_offset_y")]
+    public float TPSOffsetY = 85;
+    [ConVar.Server("thirdperson_offset_z")]
+    public float TPSOffsetZ = 64;
+
     /// <summary>
     /// The clothing container is what dresses the citizen
     /// </summary>
     public ClothingContainer Clothing = new();
+
+    // Quest state
+    public QuestState QuestState { get; set; } = new();
 
     /// <summary>
     /// Default init
@@ -32,8 +43,35 @@ partial class VampirePlayer : Player
     {
         // Load clothing from client data
         Clothing.LoadFromClient(cl);
+        QuestState.LoadFromClient(cl);
     }
 
+    [ConCmd.Server("questtest")]
+    public static void QuestTest()
+    {
+        var target = ConsoleSystem.Caller.Pawn as VampirePlayer;
+        if (target == null) return;
+        
+        Log.Info(target.QuestState.QuestCompletionState.Count);
+        
+        foreach (var quest in target.QuestState.QuestCompletionState)
+            Log.Info(quest.Key + ": " + quest.Value);
+    }
+    
+    [ConCmd.Server("setqueststateplayer")]
+    public static void Cmd_SetQuestState(string name, int state)
+    {
+        if (ConsoleSystem.Caller.Pawn is not VampirePlayer target) return;
+
+        if (ConsoleSystem.Caller == null)
+            return;
+      
+        
+        target.QuestState.SetQuest(name, state);
+        
+        
+        Log.Info(target.QuestState.QuestCompletionState.Count);
+    }
 
     public override void Spawn()
     {
@@ -42,11 +80,23 @@ partial class VampirePlayer : Player
         EnableDrawing = true;
         EnableHideInFirstPerson = true;
         EnableShadowInFirstPerson = true;
+        
+        QuestState = new QuestState();
+        QuestState.LoadState();
     }
 
     public override void Respawn()
     {
         SetModel("models/citizen/citizen.vmdl");
+        var path = @"models\Character\pc\female\tremere\armor0\tremere_female_armor_0.vmdl";
+        if (FileSystem.Mounted.FileExists(path))
+        {
+            SetModel(path);
+        }
+        else
+        {
+            Log.Warning($"File does not exist! (Path: {path})");
+        }
 
         Controller = new WalkController();
 
@@ -113,7 +163,8 @@ partial class VampirePlayer : Player
 
     public override PawnController GetActiveController()
     {
-        if (DevController != null) return DevController;
+        if (DevController != null)
+            return DevController;
 
         return base.GetActiveController();
     }
@@ -135,7 +186,7 @@ partial class VampirePlayer : Player
 
         TickPlayerUse();
         SimulateActiveChild(cl, ActiveChild);
-
+        
         if (Input.Pressed(InputButton.View))
         {
             ThirdPersonCamera = !ThirdPersonCamera;

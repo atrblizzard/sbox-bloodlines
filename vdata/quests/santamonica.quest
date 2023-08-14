@@ -1,0 +1,907 @@
+{
+  "Quests": [
+    {
+      "Title": "Arthur Knox",
+      "DisplayName": "A Bounty For The Hunter",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "The bondsman Arthur Kilpatrick wants you to locate his bounty hunter, Carson, and ask him to return to work. Carson lives at the Santa Monica Suites, in Apartment 1.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "After entering Carson's apartment, you found some information about the last case he was working on. He mentioned something about the tattoo parlor. Perhaps you need to go there next.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You rescued Carson from the clutches of the deranged Stan Gimble. You should report back to Arthur.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You located Carson and told Arthur he is not coming back. Arthur still owes you money for the job, however.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You located Carson and told Arthur he is not coming back, and you got paid.",
+          "Type": "Success",
+          "AwardXP": 0,
+          "AwardMoney": 200
+        },
+        {
+          "ID": 6,
+          "Description": "While searching McGee's parlor, you received a phone call from Stan Gimble, a maker of prosthetic devices. He is willing to answer your questions about McGee, if you go by his shop, which is located at the end of Main Street in a small basement studio.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 7,
+          "Description": "You've killed Arthur Kilpatrick. Any deal you may have had with him died with him.",
+          "Type": "Failure",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Bail Jumper",
+      "DisplayName": "Jumpin' The Bail",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Arthur Kilpatrick, the bondsman, has asked you to find some clue as to where \"Muddy\" Mike Durbin has gone. Mr. Durbin's lady friend, Marian Murietta, put up money for the bond. She lives in an apartment above a pawnshop.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have intercepted a message from Mr. Durbin. He is headed downtown to the Skyeline Apartments, 2A, the residence of a Mr. Milton. He is also expecting a call from someone named Reno. You should report back to Arthur.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You told Arthur that Mr. Durbin left Santa Monica.",
+          "Type": "Success",
+          "AwardXP": 3,
+          "AwardMoney": 15
+        },
+        {
+          "ID": 4,
+          "Description": "Arthur learned of Mr. Durbin's fate without your help.",
+          "Type": "Failure",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You've killed Arthur Kilpatrick. Any deal you may have had with him died with him.",
+          "Type": "Failure",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Knox Asian",
+      "DisplayName": "The Hunted Hunter",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Knox is being stalked by an \"Asian vampire\". He wants it to go away and has asked for your help. He has given you a license in the hopes it will provide some useful information.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "Knox tried to trick you into doing Bertram's dirty work. Despite their trickery, you think about accepting the task of destroying an \"Asian vampire\" that is lurking somewhere in Santa Monica.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have destroyed the \"Asian vampire\". Knox will be relieved when you tell him.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You destroyed the \"Asian vampire\" and told Knox about it",
+          "Type": "Success",
+          "AwardXP": 3,
+          "AwardMoney": 10
+        },
+        {
+          "ID": 5,
+          "Description": "You have unravelled Bertram's plan to manipulate you into destroying the \"Asian vampire\".",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 6,
+          "Description": "You have unravelled Bertram's plan to manipulate you after you destroyed the \"Asian vampire\".",
+          "Type": "Success",
+          "AwardXP": 3,
+          "AwardMoney": 5
+        },
+        {
+          "ID": 7,
+          "Description": "You have found a key card to something called \"Foxy Boxes\" in the morgue while looking for anything belonging to Virgil Crumb, the man on the license Knox gave you. This should hopefully help you to locate Knox's \"Asian vampire\"",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Lily",
+      "DisplayName": "Thinned Blood",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "E is interested in knowing what thin-bloods are. He knows only what his sire, Lily, told him before he parted ways with her. You might want to check out The Surfside Diner in town and see if she's there.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have located Lily's journal. Her last entry mentions a plan of hers to break into the local blood bank.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You found Lily, freed her from the back of the blood bank, and got information about the thin-bloods from her. You should go talk to E.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You found Lily, though you also murdered her.",
+          "Type": "Failure",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "E seems to have left Santa Monica. You're not sure if he found Lily, but you can presume you'll never find her now.",
+          "Type": "Failure",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 6,
+          "Description": "E seems to have left Santa Monica. You're not sure if he was reunited with Lily, and now it seems you'll never know.",
+          "Type": "Failure",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 7,
+          "Description": "You have retrieved Lily's belongings from the diner. They consist of a photo, a key, and a bail bond. Hmm, a bail bond....",
+          "Type": "Incomplete",
+          "AwardXP": 2,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 8,
+          "Description": "E and Lily have been reunited.",
+          "Type": "Success",
+          "AwardXP": 3,
+          "AwardMoney": 4
+        },
+        {
+          "ID": 9,
+          "Description": "You found a reference to Rolf Toten in Arthur's Krime-Puter. His car is a red Lightningbird '77, license reads \"GUYCONI\". Perhaps you should find this car.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 10,
+          "Description": "You have killed E, making anything he wanted you to do inconsequential.",
+          "Type": "Failure",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 11,
+          "Description": "You have retrieved Lily's belongings from the diner. They consist of a photo, a key, and a bail bond for Rolf Toten. From reading Kilpatrick's Krime-Puter, you know Toten's car to be a red Lightningbird '77, license \"GUYCONI\". Perhaps you should find this car.",
+          "Type": "Incomplete",
+          "AwardXP": 3,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Release the Spirit",
+      "DisplayName": "Spiritual Release",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "You have discovered a journal in the Ocean House. According to its contents, a jealous husband murdered his wife and family because of a locket. The murderous ghost of the husband means to keep her trapped here forever with him, and she seems to be trying to help you find a way to free her.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have trapped the spirit of the doomed woman in the Ocean House with the murderous ghost of her husband for all eternity by letting Jeanette have the pendant. Now it rests at the bottom of the ocean, somewhere, never to be found.",
+          "Type": "Failure",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "By delivering the pendant to Therese, you have given her the means to free the spirits from the Ocean House, thereby delivering the unfortunate wife to her eternal reward and her murderous husband to his eternal damnation.",
+          "Type": "Success",
+          "AwardXP": 3,
+          "AwardMoney": 15
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Werewolf Blood",
+      "DisplayName": "Bloody Mess",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "LaCroix has contacted you through email and given you the task of retrieving a pack of werewolf blood from the Medical Clinic to protect the Masquerade.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have retrieved the werewolf blood from the Medical Clinic. Put it in your mailbox to send it to LaCroix.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have mailed the werewolf blood to LaCroix. Check back later for your reward.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You have successfully protected the Masquerade by taking the werewolf blood and sending it to LaCroix.",
+          "Type": "Success",
+          "AwardXP": 3,
+          "AwardMoney": 5
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Danielle",
+      "DisplayName": "Replanting A Lily",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Vandal wants you to find some unsuspecting victim to replace Lily as the \"donor\" at the blood bank.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have convinced the girl in The Asylum to go to the blood bank. Don't you feel good about yourself? Report back to Vandal.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You've killed Vandal. I hope you know where to find some blood packs.",
+          "Type": "Failure",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You have convinced Patty to go to the blood bank. Report back to Vandal.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You have killed Patty before she got to Vandal. Now you need to find someone else.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 6,
+          "Description": "Vandal has acknowledged your compensation for Lily.",
+          "Type": "Success",
+          "AwardXP": 3,
+          "AwardMoney": 10
+        },
+        {
+          "ID": 7,
+          "Description": "You have convinced Gimble to go to the blood bank. Report back to Vandal.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Morphine",
+      "DisplayName": "The Pain Of Being Mercurio",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Mercurio is in need of some serious painkillers.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have acquired some morphine, which should ease Mercurio's pain quite nicely.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You've eased Mercurio's pain by doping him up with morphine.",
+          "Type": "Success",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "Mercurio no longer needs painkillers.",
+          "Type": "Failure",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Serial",
+      "DisplayName": "Carnival Of Death",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Gruesome remains were found on the Santa Monica Pier. Perhaps you should look into this.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You saw the murder scene on the pier, but weren't able to find out anything significant about the killer, except that the killing was extremely brutal, vicious, and beast-like.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You talked to a bum inside an abandoned warehouse, the scene of the latest grisly murder. The bum witnessed the killing and told you the killer grew claws and ripped the victim apart while saying something about \"revenge\".",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Muddy",
+      "DisplayName": "Mudd Hunt",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "While trying to find 'Muddy' Mike Durbin for Arthur Kilpatrick, you heard an answering machine message that said he is headed downtown, to the Skyeline Apartments, 2A. The residence of a Mr. Milton. Even though Arthur has cut you loose, maybe you can get some money for finding him.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You went to the Skyeline Apartments to look for 'Muddy', but he wasn't there. Instead you heard an another message telling Durbin and Milton to meet someone at an unknown location, across the street from a bar.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You found the shredded body of Milton at an abandoned warehouse, but Durbin was nowhere to be found. You did find a key to the Luck E. Star Motel, though.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You finally located Muddy Mike, though you won't be collecting any bounty money, as he's become the latest victim of the serial killer.",
+          "Type": "Success",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Mercurio",
+      "DisplayName": "Wherefore Art Thou, Mercurio?",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Prince LaCroix has dictated that you are to go to Santa Monica and meet with an agent of his named Mercurio, who will provide you with the details of your assignment. To get to his apartment take a right at the end of the alley downstairs from your haven. His apartment building is the first one on your right.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have located Mercurio, Prince LaCroix's agent in Santa Monica.",
+          "Type": "Success",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Astrolite",
+      "DisplayName": "Surf's Up",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Mercurio has asked you to retrieve the Astrolite he was supposed to get for you from a group of 'junkie pricks' who live in a dump on the beach.  Additionally, Mercurio would also like it if you could get his money back.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You retrieved the Astrolite for Mercurio. You should return to him and find out what your next step should be.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You retrieved the Astrolite and returned to Mercurio for further instructions.",
+          "Type": "Success",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "Mercurio screwed up and got beaten by a gang of 'junkie pricks' who live in a dump on the beach. You need to get the Astrolite from them using any means possible.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You retrieved the Astrolite, and need to return to Mercurio for further instructions. Judging from the mood he was in when you left him, he probably won't be too happy to see you.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 6,
+          "Description": "You retrieved the Astrolite, but Mercurio wasn't too happy to see you. You had to put him down like the dog he was. You need to find information on what you're supposed to do next.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 7,
+          "Description": "After killing Mercurio you found his journal with details on what you're supposed to do next.",
+          "Type": "Success",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Warehouse",
+      "DisplayName": "Explosive Beginning",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "You have located Bertram Tung. Your next step is to blow up the warehouse. And plant the Astrolite without killing anyone if possible.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "Mercurio has told you about a warehouse being used by the Sabbat that must be infiltrated and destroyed. The problem is that Bertram Tung, the only person who might be able to get you in, is in hiding because of a feud with Therese Voerman, the owner of The Asylum. To get to Tung, you'll have to find some way to call off the feud.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "The feud has been called off. Tung is hiding in an oil tank not far from The Asylum. You must meet with him and get him to show you a way into the warehouse so that the explosives can be set.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "The warehouse mostly lies at the bottom of the Pacific, with a few pieces neatly lodged in a lawn in Pasadena. Tell Tung about it.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Hotel",
+      "DisplayName": "The Ghost Haunts At Midnight",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Therese has asked you to go to the Ocean House hotel and search for a personal item of the spirit that haunts the place and bring it back to her. The only way to get to the Ocean House is through the sewers.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You retrieved the pendant from the Ocean House to bring to Therese as payment to convince her to call off her feud with Tung.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You gave the Ocean House pendant to Therese, as per her request.",
+          "Type": "Success",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "Therese wasn't available, so you gave the Ocean House pendant to Jeanette - probably not the best of ideas. You should check back later to talk to Therese when she returns.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Slashterpiece",
+      "DisplayName": "Slashterpiece",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Jeanette has asked you to go to Gallery Noir in Santa Monica and slash the paintings inside. And steal the charity box, would you?",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You slashed the paintings in the gallery for Jeanette, possibly making some kind of statement in the process.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "Someone has broken into the Gallery Noir, most likely sent by Jeanette to do the job you refused.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Diner",
+      "DisplayName": "Bad Blood",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Therese has asked you to go to the local diner to meet with Jeanette and assure her that Therese does not mean to harm her.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You went to the diner, but...",
+          "Type": "Success",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Tourette",
+      "DisplayName": "Sibling Rivalry",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "The diner was a set-up. Jeanette called you and asked you to save her from Therese.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "Therese called you and told you the diner was a set-up by Jeanette. She offered to call off the feud once she deals with Jeanette. Go and see her at The Asylum.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You managed to talk the Jeanette personality into \"killing\" the Therese personality. Jeanette has put word out with Tung that the feud is off.",
+          "Type": "Success",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You managed to talk the Therese personality into \"killing\" the Jeanette personality. Therese has put word out with Tung that the feud is off.",
+          "Type": "Success",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You managed to persuade the Voerman \"sisters\" into coexisting. They have called off the feud with Tung.",
+          "Type": "Success",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Bloodhunt",
+      "DisplayName": "Out For Blood",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "A blood hunt has been called on your sorry ass. You need to get across Santa Monica to a cab that is waiting for you.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have survived the blood hunt, at least temporarily.",
+          "Type": "Success",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Ming",
+      "DisplayName": "Ming Must Die!",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "The prince has sent you to get the sarcophagus key from Ming-Xiao.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "Nines wants you to kill Ming-Xiao and the prince. In that order.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "The mysterious cab driver has convinced you that the only way to free yourself from this tangled mess is to kill Ming-Xiao and the prince. Ming-Xiao is up first.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Strauss",
+      "DisplayName": "The Regent's Riddle",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "M. Strauss, the Tremere regent, has invited you to his home in downtown Los Angeles. You need to find him. His invitation left a cryptic riddle which reads: \"Dark blood, our curse, a light this verse Such power I sense in one so young Come find me where burns the mystical sun.\"",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You found Maximillian Strauss, the Tremere regent.",
+          "Type": "Success",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "BertramCD",
+      "DisplayName": "Missing Data",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Bertram Tung has asked you to go back to the warrens and find his lost data CD. If you find it, he promised to teach you something that might come in handy.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You found Bertram's data CD. Return to Santa Monica and give it to him.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You returned Bertram's data CD. In return, he gave you the inside scoop on computers.",
+          "Type": "Success",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Heather",
+      "DisplayName": "Trick Or Treatment",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "You have discovered a girl dying in the Santa Monica clinic. Maybe you can do something about it.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You saved the girl in the Santa Monica clinic by giving her your blood. You should look out for her later as she is now your ghoul.",
+          "Type": "Success",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "The girl at the Santa Monica clinic died and it's all your fault.",
+          "Type": "Failure",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Copper",
+      "DisplayName": "Daydream Believer",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "One of the thin-bloods believes everything you say. Selling him what he wants could make you some money.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You exploited the thin-blood and sent him on a suicide mission. Are you satisfied now?",
+          "Type": "Success",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You refused to give the thin-blood what he wanted.",
+          "Type": "Failure",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Trip Drugs",
+      "DisplayName": "Drug Trip",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Trip wants drugs. The clinic will surely have a medical safe full of the stuff.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You found the medical safe of the clinic. Now take the drug box back to Trip.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You delivered the drug box to Trip and had some outstanding fun with him.",
+          "Type": "Success",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    },
+    {
+      "Title": "Prince",
+      "DisplayName": "Royal Flush",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "You need to deliver the key to the prince.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "Deliver the key to the prince, and deal with him.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "Deal with the prince for Ming-Xiao.",
+          "Type": "Incomplete",
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ],
+      "QuestCompletionState": 0
+    }
+  ]
+}

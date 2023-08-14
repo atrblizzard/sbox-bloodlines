@@ -1,0 +1,43 @@
+@namespace Bloodlines.UI
+@using System
+@using System.Linq
+@using Bloodlines.Game.System.Dialog
+@using Sandbox
+@using Sandbox.UI
+@inherits Sandbox.UI.Panel
+@attribute [StyleSheet]
+
+@if (Game.LocalPawn is not Player player)
+{
+    return;
+}
+
+<root class="@(IsDisabled(player) ? "disabled" : "")">
+    <label class="charges">@GetIDString()</label>
+    <label>@(string.IsNullOrEmpty(Entry?.Text.Values.FirstOrDefault()) ? "Missing entry" : Entry?.Text.Values.FirstOrDefault())</label> 
+</root>
+
+@code {
+    public IDialogEntry Entry { get; set; }
+    public int Counter { get; set; }
+
+    private bool IsDisabled(Player player)
+    {
+        return !player.IsValid();
+    }
+
+    private float GetDelayHeight()
+    {
+        return 1f;
+    }
+
+    protected string GetIDString()
+    {
+        return Counter.ToString();
+    }
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine(IsDisabled(Game.LocalPawn as Player), GetIDString());
+    }
+}

@@ -1,11 +1,17 @@
-﻿using bloodlines.entities.vampire.Data;
+﻿using System;
+using bloodlines.entities.vampire.Data;
 using System.Text.Json.Serialization;
 using Sandbox;
 using System.IO;
 using System.Linq;
-using bloodlines.ui.Vampire;
 using Bloodlines.Globals;
 using System.Text.Json;
+
+[Obsolete]
+public class SignPanel
+{
+
+}
 
 namespace bloodlines.entities.vampire.Game
 {

@@ -1,0 +1,376 @@
+{
+  "Quests": [
+    {
+      "Title": "Kiki",
+      "DisplayName": "Kikinapped",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Wong Ho's daughter Kiki has been kidnapped and is being held in the Lotus Blossom. If you rescue her, Wong Ho will help you in any way he can.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have rescued Kiki, though you feel like killing her instead. You should go back to Wong Ho and collect on his offer of help.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have rescued Kiki and returned to Wong Ho to collect on his offer of help.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Gangster",
+      "DisplayName": "Original Gangster",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "You are to meet with Zhao at his warehouse to get more information on the possible whereabouts of Barabus.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You met with Zhao and he has provided you with the password to see Johnny at the Glaze nightclub.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You succeeded in getting out of Zhao's in one piece, but Zhao himself was killed.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You succeeded in getting out of Zhao's with Zhao still being alive.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Johnny",
+      "DisplayName": "Dragon's Tail",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "You need to get to Johnny in his office upstairs at the Glaze nightclub to get information on the whereabouts of Barabus. The password to enter Glaze is \\",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "Kill Johnny and the Mandarin will discuss Barabus' whereabouts with you.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have killed Johnny.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Mandarin",
+      "DisplayName": "Come Into My Parlor",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "The Mandarin has told you he is holding Barabus at the Fu Syndicate. He wants you to go there to discuss the terms of Barabus' release.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have survived the Mandarin's experiments. Time to deal with the Mandarin.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have killed the Mandarin. You must locate Barabus and free him.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You have released Barabus.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Yukie",
+      "DisplayName": "Gone Fishin'",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Yukie is looking for a demon, a hengey�kai. She is interested in anything you can find out about it.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "Ming-Xiao has told you the hengey�kai's name is \\",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have set up a meeting with Zygaena, the hengey�kai, at the fish market tonight. But first you'll need to tell Yukie.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You are to meet with Zygaena, the hengey�kai demon, at the fish market. Yukie will meet you there.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You have destroyed the hengey�kai demon.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 6,
+          "Description": "Yukie is dead, thereby making it pointless for you to destroy her hengey�kai demon.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Eyes",
+      "DisplayName": "Eye Gouge Hell",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "The White Cloud vendor wants you to \\",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have harvested Lin's eyes for the White Cloud vendor. Now to return them....",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have given Lin's eyes to the White Cloud vendor.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You have made the White Cloud vendor vanish, thereby nullifying any deals you had struck with him.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Ox",
+      "DisplayName": "Bad Luck Farmer",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "You are to place a bad luck talisman in a locker in the Lotus Blossum. The locker will have a black circle on it.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have successfully placed the bad luck talisman. Now report back to the White Cloud vendor.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have dealt with the patron, because he caught you placing the talisman for the White Cloud vendor. You should return to him now.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You have reported to the White Cloud vendor that the talisman was placed.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You made the White Cloud vendor happy by telling him that you killed the patron while placing the talisman.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 6,
+          "Description": "You have made the White Cloud vendor vanish, thereby nullifying any deals you had struck with him.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 7,
+          "Description": "You have removed the bad luck talisman from the locker again.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Hitman",
+      "DisplayName": "The Hitman Impasse",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Ji Wen Ja wants you to kill his old partner, Lu Fang.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "Lu Fang wants you to kill his old partner, Ji Wen Ja.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You killed Lu Fang for Ji Wen Ja.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You killed Ji Wen Ja for Lu Fang.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You gave Ji Wen Ja Lu Fang's key. Come back later to get your money.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 6,
+          "Description": "You gave Lu Fang Ji Wen Ja's key. Come back later for your money.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 7,
+          "Description": "You got your money for solving the old hitman's problem.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 8,
+          "Description": "You convinced Ji Wen Ja and Lu Fang to stop hating each other and become friends again. Can you feel the love?",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 9,
+          "Description": "You killed both the old hitmen. No money for you.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 10,
+          "Description": "You convinced one hitman to make peace. Now tell the other....",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Giovanni",
+      "DisplayName": "Italian Dinner",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Gary has informed you that the sarcophagus is at the Giovanni mansion. It's time to retrieve it.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have infiltrated the Giovanni mansion. Now to find the sarcophagus.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have found the sarcophagus room in the Giovanni mansion.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You have found the sarcophagus room in the Giovanni mansion, and removed the last obstacle keeping you from bringing it back to the prince.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    }
+  ],
+  "Count": 9,
+  "name": "",
+  "hideFlags": 0
+}

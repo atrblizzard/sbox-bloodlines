@@ -1,4 +1,4 @@
-﻿using Vampire.System.VData.Items.Data;
+﻿namespace Vampire.System.VData.Items.Data;
 
 public struct ActivationTypes
 {
