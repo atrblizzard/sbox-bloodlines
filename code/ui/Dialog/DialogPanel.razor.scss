@@ -47,7 +47,7 @@
     transition: all 0.1s ease-out;
 
     label {
-        font-family: VTMB, "Comic Sans MS", sans-serif;
+        font-family: VTMB;
         font-size: 30px;
         margin-left: 40px;
         color: white;
@@ -145,7 +145,7 @@ DialogPanel {
     }
 
     .name {
-        font-family: VTMB, sans-serif;
+        font-family: VTMB;
         margin-top: 20px;
         margin-left: 20px;
         margin-bottom: 50px;
@@ -168,6 +168,5 @@ DialogPanel {
         margin-right: 20px;
         flex-wrap: wrap;
         gap: 10px;
-        
     }
 }

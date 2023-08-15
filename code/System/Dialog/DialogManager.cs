@@ -1,15 +1,14 @@
 ﻿using System.Linq;
 using Sandbox;
 using Bloodlines.UI;
-using bloodlines.game.Quest;
 
 namespace Bloodlines.Game.System.Dialog;
 
-public partial class DialogManager : Entity
+public partial class DialogManager
 {
     public static DialogManager Instance { get; private set; }
 
-    [Net] public DialogData Dialog { get; private set; }
+    public DialogData Dialog { get; private set; } //[Net] 
 
     public int CurrentLine
     {
@@ -70,13 +69,13 @@ public partial class DialogManager : Entity
         }
         Instance.ReadDialogData(path);
     }
-
+#if TEST
     /// <summary>
     /// Activates (picks) a dialog line.
     /// </summary>
     /// <param name="choice"></param>
-    [ConCmd.Server("dialogpick")]
-    public static void DialogPickCmd(int choice)
+    [ConCmd.Client("dialogpick", CanBeCalledFromServer = true)]
+    public static void Cmd_DialogPick(int choice)
     {
         if (Instance == null)
         {
@@ -85,10 +84,11 @@ public partial class DialogManager : Entity
         }
         Instance.DialogPick(choice);
     }
+#endif
 
     public void DialogPick(int choice)
     {
-        if (choice >= 4 && choice <= 0)
+        if (choice >= 4)
         {
             Log.Warning("Out of range!");
             return;
@@ -120,10 +120,8 @@ public partial class DialogManager : Entity
                 Log.Warning($"Trying to pick dialog choice {choice}, out of bounds.");
                 return;
             }
-            else
-            {
-                Log.Info("Trying to pick dialog choice " + choice);
-            }
+
+            Log.Info("Trying to pick dialog choice " + choice);
 
             if (entry.Responses == null)
             {
@@ -144,8 +142,11 @@ public partial class DialogManager : Entity
                 return;
             }
 
-            Log.Info($"You picked dialog response choice {choice} with id {response.Id} and link {response.Link}");
-            Log.Info($"{response.Text.Values.First()}");
+            if (debugMode)
+            {
+                Log.Info($"You picked dialog response choice {choice} with id {response.Id} and link {response.Link}");
+                Log.Info($"{response.Text.Values.First()}");
+            }
 
             if (response.Link == 0)
             {
@@ -193,8 +194,9 @@ public partial class DialogManager : Entity
         }
     }
 
-    [ConCmd.Server("dialog_start")]
-    public static void DialogStart(int line)
+#if TEST
+    [ConCmd.Client("dialog_start", CanBeCalledFromServer = true)]
+    public static void Cmd_DialogStart(int line)
     {
         if (Instance == null)
         {
@@ -204,8 +206,9 @@ public partial class DialogManager : Entity
         }
         Instance.CurrentLine = line;
         Log.Info($"Set dialog line start to {line}");
-        Instance?.Pick(line);
+        Instance.Pick(line);
     }
+#endif
 
     private void Pick(int line)
     {

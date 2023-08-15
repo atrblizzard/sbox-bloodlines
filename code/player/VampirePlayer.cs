@@ -1,7 +1,8 @@
 ﻿using Sandbox;
-using System.Collections.Generic;
-using System.Linq;
 using bloodlines.game.Quest;
+using Bloodlines.Game.System.Dialog;
+using System;
+using Vampire.CameraEffects;
 
 public partial class VampirePlayer : Player
 {
@@ -26,7 +27,16 @@ public partial class VampirePlayer : Player
     public ClothingContainer Clothing = new();
 
     // Quest state
-    public QuestState QuestState { get; set; } = new();
+    public QuestState QuestState { get; set; }
+    public DialogManager DialogManager { get; set; }
+    
+    public static VampirePlayer Me => Game.LocalPawn as VampirePlayer;
+    
+    [Net] public int UniqueRandomSeed { get; set; }
+    
+    private float WalkBob;
+    private float Lean;
+    private float FOV;
 
     /// <summary>
     /// Default init
@@ -34,6 +44,38 @@ public partial class VampirePlayer : Player
     public VampirePlayer()
     {
         Inventory = new Inventory(this);
+        QuestState = new QuestState();
+        DialogManager = new DialogManager();
+    }
+    
+    private void AddCameraEffects(bool noclip)
+    {
+        var speed = Velocity.Length.LerpInverse( 0f, 320f );
+        var forwardSpeed = Velocity.Normal.Dot( Camera.Rotation.Forward );
+
+        var left = Camera.Rotation.Left;
+        var up = Camera.Rotation.Up;
+
+        if ( GroundEntity != null )
+        {
+            WalkBob += Time.Delta * 25f * speed;
+        }
+
+        Camera.Position += up * MathF.Sin( WalkBob ) * speed * 2f;
+        Camera.Position += left * MathF.Sin( WalkBob * 0.6f ) * speed * 1f;
+
+        Lean = Lean.LerpTo( Velocity.Dot( Camera.Rotation.Right ) * 0.01f, Time.Delta * 15f );
+
+        var appliedLean = Lean;
+        appliedLean += MathF.Sin( WalkBob ) * speed * 0.3f;
+        Camera.Rotation *= Rotation.From( 0, 0, appliedLean );
+
+        speed = (speed - 0.7f).Clamp( 0f, 1f ) * 3f;
+
+        if (!noclip)
+            FOV = FOV.LerpTo( speed * 20f * MathF.Abs( forwardSpeed ), Time.Delta * 4f );
+
+        Camera.FieldOfView += FOV;
     }
 
     /// <summary>
@@ -80,9 +122,8 @@ public partial class VampirePlayer : Player
         EnableDrawing = true;
         EnableHideInFirstPerson = true;
         EnableShadowInFirstPerson = true;
-        
-        QuestState = new QuestState();
-        QuestState.LoadState();
+
+        QuestState?.LoadState();
     }
 
     public override void Respawn()
@@ -97,6 +138,8 @@ public partial class VampirePlayer : Player
         {
             Log.Warning($"File does not exist! (Path: {path})");
         }
+        
+        RemoveRagdollEntity();
 
         Controller = new WalkController();
 
@@ -110,10 +153,18 @@ public partial class VampirePlayer : Player
         EnableDrawing = true;
         EnableHideInFirstPerson = true;
         EnableShadowInFirstPerson = true;
+        
+        Health = 100f;
+        LifeState = LifeState.Alive;
 
         Clothing.DressEntity(this);
 
         base.Respawn();
+    }
+
+    private void RemoveRagdollEntity()
+    {
+        // TODO: implement removal of ragdoll entity after spawning
     }
 
     public override void OnKilled()
@@ -263,13 +314,9 @@ public partial class VampirePlayer : Player
         // where should we be rotated to
         var turnSpeed = 0.02f;
 
-        Rotation rotation;
-
-        // If we're a bot, spin us around 180 degrees.
-        if (Client.IsBot)
-            rotation = ViewAngles.WithYaw(ViewAngles.yaw + 180f).ToRotation();
-        else
-            rotation = ViewAngles.ToRotation();
+        var rotation =
+            // If we're a bot, spin us around 180 degrees.
+            Client.IsBot ? ViewAngles.WithYaw(ViewAngles.yaw + 180f).ToRotation() : ViewAngles.ToRotation();
 
         var idealRotation = Rotation.LookAt(rotation.Forward.WithZ(0), Vector3.Up);
         Rotation = Rotation.Slerp(Rotation, idealRotation, controller.WishVelocity.Length * Time.Delta * turnSpeed);
@@ -349,49 +396,66 @@ public partial class VampirePlayer : Player
         Camera.Rotation = ViewAngles.ToRotation();
         Camera.FieldOfView = Screen.CreateVerticalFieldOfView(Game.Preferences.FieldOfView);
 
-        if (ThirdPersonCamera)
+        switch (ThirdPersonCamera)
         {
-            Camera.FirstPersonViewer = null;
+            case true:
+            {
+                Camera.FirstPersonViewer = null;
 
-            Vector3 targetPos;
-            var center = Position + Vector3.Up * 64;
+                Vector3 targetPos;
+                var center = Position + Vector3.Up * 64;
 
-            var pos = center;
-            var rot = Camera.Rotation * Rotation.FromAxis(Vector3.Up, -16);
+                var pos = center;
+                var rot = Camera.Rotation * Rotation.FromAxis(Vector3.Up, -16);
 
-            float distance = 130.0f * Scale;
-            targetPos = pos + rot.Right * ((CollisionBounds.Mins.x + 32) * Scale);
-            targetPos += rot.Forward * -distance;
+                float distance = 130.0f * Scale;
+                targetPos = pos + rot.Right * ((CollisionBounds.Mins.x + 32) * Scale);
+                targetPos += rot.Forward * -distance;
 
-            var tr = Trace.Ray(pos, targetPos)
-                .WithAnyTags("solid")
-                .Ignore(this)
-                .Radius(8)
-                .Run();
+                var tr = Trace.Ray(pos, targetPos)
+                    .WithAnyTags("solid")
+                    .Ignore(this)
+                    .Radius(8)
+                    .Run();
 
-            Camera.Position = tr.EndPosition;
-        }
-        else if (LifeState != LifeState.Alive && Corpse.IsValid())
-        {
-            Corpse.EnableDrawing = true;
+                Camera.Position = tr.EndPosition;
+                break;
+            }
+            default:
+            {
+                if (LifeState != LifeState.Alive && Corpse.IsValid())
+                {
+                    Corpse.EnableDrawing = true;
 
-            var pos = Corpse.GetBoneTransform(0).Position + Vector3.Up * 10;
-            var targetPos = pos + Camera.Rotation.Backward * 100;
+                    var pos = Corpse.GetBoneTransform(0).Position + Vector3.Up * 10;
+                    var targetPos = pos + Camera.Rotation.Backward * 100;
 
-            var tr = Trace.Ray(pos, targetPos)
-                .WithAnyTags("solid")
-                .Ignore(this)
-                .Radius(8)
-                .Run();
+                    var tr = Trace.Ray(pos, targetPos)
+                        .WithAnyTags("solid")
+                        .Ignore(this)
+                        .Radius(8)
+                        .Run();
 
-            Camera.Position = tr.EndPosition;
-            Camera.FirstPersonViewer = null;
-        }
-        else
-        {
-            Camera.Position = EyePosition;
-            Camera.FirstPersonViewer = this;
-            Camera.Main.SetViewModelCamera(90f);
+                    Camera.Position = tr.EndPosition;
+                    Camera.FirstPersonViewer = null;
+                }
+                else
+                {
+                    Camera.Position = EyePosition;
+                    Camera.FirstPersonViewer = this;
+                    Camera.Rotation = ViewAngles.ToRotation();
+                    Camera.Main.SetViewModelCamera(90f);
+                    //Camera.FieldOfView = Game.Preferences.FieldOfView; // TODO: to be enabled later
+                    Camera.ZNear = 1f;
+                    Camera.ZFar = 5000f;
+
+                    AddCameraEffects(DevController is not NoclipController);
+
+                    ScreenShake.Apply();
+                }
+
+                break;
+            }
         }
     }
 
