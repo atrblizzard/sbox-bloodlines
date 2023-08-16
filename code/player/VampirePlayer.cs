@@ -1,11 +1,22 @@
 ﻿using Sandbox;
 using bloodlines.game.Quest;
-using Bloodlines.Game.System.Dialog;
+using Bloodlines.Game.Systems.Dialog;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Vampire.CameraEffects;
+using Vampire.System.VData.Character.Attributes.Data;
+using Trace = Sandbox.Trace;
 
 public partial class VampirePlayer : Player
 {
+    public class VCharacterAttributes
+    {
+        public Dictionary<string, int> Skills { get; set; }
+        public Dictionary<string, int> Feats { get; set; }
+        public Dictionary<string, int> Disciplines { get; set; }
+    }
+    
     private TimeSince timeSinceDropped;
     private TimeSince timeSinceJumpReleased;
 
@@ -26,11 +37,14 @@ public partial class VampirePlayer : Player
     /// </summary>
     public ClothingContainer Clothing = new();
 
-    // Quest state
-    public QuestState QuestState { get; set; }
-    public DialogManager DialogManager { get; set; }
-    
-    public static VampirePlayer Me => Game.LocalPawn as VampirePlayer;
+	// Quest state
+	[BindComponent] public QuestState QuestState { get; } //set;
+	[Net] public DialogManager DialogManager { get; set; } //set;
+
+	public static VampirePlayer Me => Game.LocalPawn as VampirePlayer;
+
+    public VAttributes Attributes { get; set; } = new VAttributes();
+    public VCharacterAttributes CharacterAttributes { get; set; } = new();
     
     [Net] public int UniqueRandomSeed { get; set; }
     
@@ -38,17 +52,25 @@ public partial class VampirePlayer : Player
     private float Lean;
     private float FOV;
 
+    public string Clan { get; set; }
+
     /// <summary>
     /// Default init
     /// </summary>
     public VampirePlayer()
     {
         Inventory = new Inventory(this);
-        QuestState = new QuestState();
-        DialogManager = new DialogManager();
-    }
-    
-    private void AddCameraEffects(bool noclip)
+	}
+
+    public void SetupComponents()
+    {
+		var dialogManager = Components.GetOrCreate<DialogManager>();
+		var questState = Components.GetOrCreate<QuestState>();
+
+        DialogManager = dialogManager;
+	}
+
+	private void AddCameraEffects(bool noclip)
     {
         var speed = Velocity.Length.LerpInverse( 0f, 320f );
         var forwardSpeed = Velocity.Normal.Dot( Camera.Rotation.Forward );
@@ -115,9 +137,104 @@ public partial class VampirePlayer : Player
         Log.Info(target.QuestState.QuestCompletionState.Count);
     }
 
+    [ClientRpc]
+    public static void Cl_SetClan(string name)
+    {
+        if (string.IsNullOrEmpty(name)) return;
+
+        Me.Clan = name;
+        Log.Info("Set player clan to: " + name);
+    }
+
+    [ConCmd.Client("setclan")]
+    public static void Cmd_SetClan(string name)
+    {
+        if (ConsoleSystem.Caller.Pawn is not VampirePlayer target) return;
+
+        if (ConsoleSystem.Caller == null)
+            return;
+
+        if (string.IsNullOrEmpty(name)) return;
+
+        target.Clan = name;
+        Log.Info($"Set player clan to: {name}");
+
+        Cl_SetClan(name);
+    }
+
+    public object GetAttribute(string name)
+    {
+        if (string.IsNullOrEmpty(name))
+            return null;
+
+        var props = TypeLibrary.GetPropertyDescriptions(Attributes, true);
+        foreach (var prop in props)
+        {
+            var def = prop.GetValue(Attributes);
+            if (def != null)
+            {
+                foreach (var defProp in TypeLibrary.GetPropertyDescriptions(def, true))
+                {
+                    if (defProp.Name == name)
+                    {
+                        var value = defProp.GetValue(def);
+                        //Log.Info(value.ToString());
+                        return value;
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+    [ConCmd.Client("getattribute", CanBeCalledFromServer = true)]
+    public static void Cmd_GetAttributes(string name)
+    {
+        if (ConsoleSystem.Caller == null)
+            return;
+
+        if (string.IsNullOrEmpty(name)) return;
+
+        Log.Info(Me.GetAttribute(name));
+    }
+
+    [ConCmd.Client("setattribute", CanBeCalledFromServer = true)]
+    public static void Cmd_SetAttributes(string name, int value)
+    {
+        if (ConsoleSystem.Caller == null)
+            return;
+
+        Me.SetAttribute(name, value);
+    }
+
+    public void SetAttribute(string name, int value)
+    {
+        if (string.IsNullOrEmpty(name)) return;
+
+        var props = TypeLibrary.GetPropertyDescriptions(Attributes, true);
+        foreach (var prop in props)
+        {
+            var def = prop.GetValue(Attributes);
+            if (def != null)
+            {
+                foreach (var defProp in TypeLibrary.GetPropertyDescriptions(def, true))
+                {
+                    if (defProp.Name == name)
+                    {
+                        defProp.SetValue(def, value);
+                        Log.Info($"Set attribute {defProp.Name} to value: {defProp.GetValue(def)}");
+                    }
+                }
+            }
+        }
+    }
+
     public override void Spawn()
     {
-        base.Spawn();
+		SetupComponents();
+
+		base.Spawn();
 
         EnableDrawing = true;
         EnableHideInFirstPerson = true;
@@ -128,8 +245,10 @@ public partial class VampirePlayer : Player
 
     public override void Respawn()
     {
-        SetModel("models/citizen/citizen.vmdl");
         var path = @"models\Character\pc\female\tremere\armor0\tremere_female_armor_0.vmdl";
+        
+        // Override path for regular citizen model
+        path =@"models/citizen/citizen.vmdl";
         if (FileSystem.Mounted.FileExists(path))
         {
             SetModel(path);

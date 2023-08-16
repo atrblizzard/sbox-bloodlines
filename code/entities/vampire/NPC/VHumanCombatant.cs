@@ -1,7 +1,7 @@
 ﻿using Sandbox;
 using Editor;
 
-namespace bloodlines.entities.vampire.NPC
+namespace Bloodlines.Entities.Vampire.NPC
 {
 	[Library( "npc_VHumanCombatant" )]
 	[Model]

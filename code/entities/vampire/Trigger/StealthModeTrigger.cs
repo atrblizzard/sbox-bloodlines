@@ -1,15 +1,13 @@
 ﻿using Sandbox;
 using Editor;
 
-namespace bloodlines.entities.vampire.Level
+namespace Bloodlines.Entities.Vampire.Trigger
 {
 	[Solid]
+	[HammerEntity]
 	[Library( "trigger_stealth_mod" )]
 	public partial class StealthModeTrigger : BaseTrigger, IUse
 	{
-		[Property( Title = "Start Disabled" )]
-		public bool StartDisabled { get; set; } = false;
-
 		[Property( "stealth_modifier", Title = "Stealth Modifier" )]
 		public int StealthModifier { get; set; }
 
@@ -25,7 +23,7 @@ namespace bloodlines.entities.vampire.Level
 		/// </summary>
 		protected Output OnUseEnd { get; set; }
 
-		[Event.Tick.Server]
+		[GameEvent.Tick.Server]
 		protected virtual void DealDamagePerTick()
 		{
 			if ( !Enabled )
@@ -39,7 +37,9 @@ namespace bloodlines.entities.vampire.Level
 				if ( entity.Tags.Has( "player" ) )
 				{
 					OnUse( entity );
-				}
+
+					OnUseBegin.Fire( entity );
+    }
 			}
 		}
 

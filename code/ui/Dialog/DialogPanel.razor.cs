@@ -1,8 +1,9 @@
 using System;
 using Sandbox;
 using Sandbox.UI;
-using Bloodlines.Game.System.Dialog;
+using Bloodlines.Game.Systems.Dialog;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,14 +14,19 @@ public partial class DialogPanel : Panel
     public bool IsOpen { get; set; }
     public bool DebugMode { get; set; }
     private bool RequestOpen() => Sandbox.Game.LocalPawn is var _ && Input.Down("score");
-    private IDialogEntry _hoveredWeapon;
+
+    private IDialogEntry hoveredEntry;
     private string _currentDialogLine;
+
+    private List<DialogEntrySlot> dialogSlots = new();
+
+    static VampirePlayer Player => Sandbox.Game.LocalPawn as VampirePlayer;
 
     public string CurrentDialogLine
     {
         get
         {
-            _currentDialogLine = DialogManager.Instance?.CurrentLine.ToString();
+            _currentDialogLine = Player.DialogManager?.CurrentLine.ToString();
             return _currentDialogLine;
         }
 
@@ -28,12 +34,12 @@ public partial class DialogPanel : Panel
         {
             _currentDialogLine = value;
             if (int.TryParse(_currentDialogLine, out var intVal))
-            {
-                if (DialogManager.Instance != null)
+			{
+                if (Player.DialogManager != null)
                 {
                     if (DebugMode)
                         Log.Info(_currentDialogLine + " " + intVal);
-                    DialogManager.Instance.CurrentLine = intVal;
+					Player.DialogManager.CurrentLine = intVal;
                     StateHasChanged();
                 }
             }
@@ -44,14 +50,16 @@ public partial class DialogPanel : Panel
 
     public static DialogPanel CreateInstance()
     {
-	    if (Instance == null)
+        if (Instance == null)
         {
-			Log.Info("Instance not found, creating one");
-			return new DialogPanel();
+            Log.Info("Instance not found, creating one");
+            return new DialogPanel();
         }
-
-	    Log.Info("Found instance");
-	    return Instance;
+        else
+        {
+            Log.Info("Found instance");
+            return Instance;
+        }
     }
 
     public static DialogPanel GetInstance() { return Instance; }
@@ -90,35 +98,32 @@ public partial class DialogPanel : Panel
 
     void OnResetDialog()
     {
-        DialogManager.Instance.CurrentLine = 1;
+        Player.DialogManager.CurrentLine = 1;
         Log.Info("Reset");
         //DialogClose();
     }
 
     void OnInventorySlotClicked(IDialogEntry entry, int counter)
     {
-        var player = Sandbox.Game.LocalPawn as Player;
+        var player = Sandbox.Game.LocalPawn as VampirePlayer;
         if (!player.IsValid())
             return;
         
         player.PlaySound("ui.navigate.forward");
 
-		if (DialogManager.Instance == null)
+		if (player.DialogManager == null)
         {
-            Log.Error("DialogManager.Instance is missing!");
+            Log.Error("player.DialogManager is missing!");
             return;
         }
 
-        DialogManager.Instance.DialogPick(counter);
+        player.DialogManager.DialogPick(counter);
 
-
-        if (IsOpen)
+		if (IsOpen)
         {
-            if (DialogManager.Instance?.CurrentLine == 0)
+            if (player.DialogManager?.CurrentLine == 0)
             {
                 Log.Info("Current line is 0!");
-                //DialogManager.CurrentLine = 1;
-                //DialogClose();
             }
         }
 
@@ -128,10 +133,10 @@ public partial class DialogPanel : Panel
     List<Option> GetResponseOptions()
     {
         var options = new List<Option>();
-        var devices = DialogManager.Instance?.Dialog.Entries;
+        var devices = Player.DialogManager?.Dialog.Entries;
         foreach (var device in devices)
         {
-            options.Add(new Option(device.Id + ") " + device.Text.Values.FirstOrDefault(), device.Id));
+            options.Add(new Option($"{device.Id}) {device.Text.Values.FirstOrDefault()}", device.Id));
         }
 
         return options;
@@ -140,18 +145,13 @@ public partial class DialogPanel : Panel
     List<Option> GetDialogOptions()
     {
         var options = new List<Option>();
-        var devices = DialogManager.Instance?.Dialog.Entries;
+        var devices = Player.DialogManager?.Dialog.Entries;
         foreach (var device in devices)
         {
-            options.Add(new Option(device.Id + ") " + device.Text.Values.FirstOrDefault(), device.Id));
+            options.Add(new Option($"{device.Id}) {device.Text.Values.FirstOrDefault()}", device.Id));
         }
 
         return options;
-    }
-
-    protected override int BuildHash()
-    {
-        return HashCode.Combine(IsOpen, base.BuildHash(), DialogManager.Instance?.GetCurrentLine(), DialogManager.Instance?.GetActiveDialog()?.Responses.Count);
     }
 
     public override void Tick()
@@ -161,16 +161,33 @@ public partial class DialogPanel : Panel
         if (!IsOpen) return;
 
         if (Input.Pressed("Slot1"))
-            DialogManager.Instance.DialogPick(1);
+            Player.DialogManager.DialogPick(1);
 
         if (Input.Pressed("Slot2"))
-            DialogManager.Instance.DialogPick(2);
+            Player.DialogManager.DialogPick(2);
 
         if (Input.Pressed("Slot3"))
-            DialogManager.Instance.DialogPick(3);
+            Player.DialogManager.DialogPick(3);
 
         if (Input.Pressed("Slot4"))
-            DialogManager.Instance.DialogPick(4);
+            Player.DialogManager.DialogPick(4);
+    }
+
+    public void DialogOpen()
+    {
+        //DebugMode = Player.DialogManager.DebugMode;
+        Log.Info(DebugMode);
+        if (Player.DialogManager != null)
+        {
+            if (DebugMode)
+                Log.Info(Player.DialogManager?.CurrentLine);
+        }
+        else
+        {
+            Log.Error("DialogManager.Instance is missing!");
+        }
+
+        IsOpen = true;
     }
 
     [ConCmd.Client("dialog_open")]
@@ -178,10 +195,10 @@ public partial class DialogPanel : Panel
     {
 		if (Instance != null)
         {
-            if (DialogManager.Instance != null)
+            if (Player.DialogManager != null)
             {
-                Log.Info(DialogManager.Instance.CurrentLine);
-                DialogManager.Instance.CurrentLine = 1;
+                Log.Info(Player.DialogManager?.CurrentLine);
+                Player.DialogManager.CurrentLine = 1;
             }
             else
             {
@@ -223,4 +240,9 @@ public partial class DialogPanel : Panel
     {
 		IsOpen = !IsOpen;
 	}
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine(IsOpen, Player.DialogManager?.GetCurrentLine(), Player.DialogManager?.GetActiveDialog());
+    }
 }

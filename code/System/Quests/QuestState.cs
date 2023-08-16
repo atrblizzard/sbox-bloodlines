@@ -5,17 +5,18 @@ using Sandbox;
 
 namespace bloodlines.game.Quest
 {
-	public partial class QuestState
+	public partial class QuestState : EntityComponent
 	{
 		public static QuestState Instance { get; private set; }
 
 		private QuestTable _questJournal;
-		public Dictionary<string, int> QuestCompletionState { get; set; } = new();
+		[Net] public IDictionary<string, int> QuestCompletionState { get; set; }
 		
 		public List<QuestTable> QuestTables { get; set; } = new();
 
 		public QuestState()
 		{
+			QuestCompletionState = new Dictionary<string, int>();
 			ReadQuestData("vdata/quests/santamonica.quest");
 
 			if (Instance != null) return;

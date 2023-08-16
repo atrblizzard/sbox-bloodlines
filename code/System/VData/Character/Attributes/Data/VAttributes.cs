@@ -2,6 +2,7 @@
 
 public struct VAttributes
 {
-    public VSkills skills;
-    public VDisciplines disciplines;
+    public VSkills Skills { get; set; }
+    public VDisciplines Disciplines { get; set; }
+    public VFeats Feats { get; set; }
 }

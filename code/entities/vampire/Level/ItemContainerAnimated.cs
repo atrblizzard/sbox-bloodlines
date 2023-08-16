@@ -1,7 +1,7 @@
 ﻿using Editor;
 using Sandbox;
 
-namespace bloodlines.entities.vampire;
+namespace Bloodlines.Entities.Vampire;
 
 [Library( "item_container_animated", Description = "Animated Container" )]
 [Model]

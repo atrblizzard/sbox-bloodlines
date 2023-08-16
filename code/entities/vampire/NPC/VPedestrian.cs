@@ -1,12 +1,12 @@
 ﻿using Editor;
 using Sandbox;
 
-namespace bloodlines.entities.vampire.NPC;
+namespace Bloodlines.Entities.Vampire.NPC;
 
 [Library( "npc_VPedestrian" )]
 [HammerEntity]
-[EditorModel( "models/rust_player/rustplayer.vmdl" )]
-//[Model]
+[EditorModel( "models/editor/playerstart.vmdl" )]
+[Model]
 public class VPedestrian : VBaseNPC
 {
 }

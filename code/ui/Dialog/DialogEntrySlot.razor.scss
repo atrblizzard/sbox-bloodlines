@@ -1,17 +1,30 @@
 ﻿DialogEntrySlot {
     width: 100%;
-    height: 45px;
-    background-image: linear-gradient(to top, rgba(#eeeeee, 0.1), #ffffff1f);
-    backdrop-filter-blur: 20px;
+    height: auto;
+    //background-image: linear-gradient(to top, rgba(#eeeeee, 0.1), #ffffff1f);
     border-radius: 4px;
-    transition: all 0.1s ease-out;
+    flex-direction: column;
+    color: white;
+    transition: all 0.1s ease-out;    
 
     label {
         font-family: "VTMB";
         font-size: 30px;
         margin-left: 40px;
-        color: white;
+
         text-shadow: 2px 2px 2px black;
+
+        &.label-small {
+            font-family: "VTMB";
+            font-size: 20px;
+            margin-left: 40px;
+            color: grey;
+            text-shadow: 2px 2px 2px black;
+
+            &:hover {
+                color: red;
+            }
+        }
 
         &.charges {
             font-size: 30px;
@@ -26,7 +39,8 @@
     }
 
     &:hover {
-        transform: scale(1.05);
+        transform: scale(1.01);
+        color: red;
 
         &:not(.disabled) {
             sound-in: ui_button_hover;
@@ -34,7 +48,8 @@
     }
 
     &:active {
-        transform: scale(1.1);
+        transform: scale(1.02);
+        color: red;
 
         &:not(.disabled) {
             sound-in: ui_button_click;

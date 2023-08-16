@@ -1,4 +1,4 @@
-﻿using bloodlines.entities.vampire;
+﻿using Bloodlines.Entities.Vampire;
 using Editor;
 
 namespace Sandbox.Entities.Vampire.Level;

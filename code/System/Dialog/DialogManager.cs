@@ -1,38 +1,30 @@
 ﻿using System.Linq;
 using Sandbox;
 using Bloodlines.UI;
+using System.Collections.Generic;
+using Vampire;
 
-namespace Bloodlines.Game.System.Dialog;
+namespace Bloodlines.Game.Systems.Dialog;
 
-public partial class DialogManager
+public partial class DialogManager : EntityComponent
 {
     public static DialogManager Instance { get; private set; }
 
-    public DialogData Dialog { get; private set; } //[Net] 
+    [Net] public DialogData Dialog { get; private set; }
 
-    public int CurrentLine
+    //[Net, Predicted] 
+    public int CurrentLine { get; set; }
+
+	[Net, Predicted] public bool DebugMode { get; set; }
+
+    private void ShowLog(string message)
     {
-        get
-        {
-            if (debugMode)
-                Log.Info($"Getting value of CurrentLine: {_currentLine}");
-            return _currentLine;
-        }
-        set
-        {
-            if (debugMode)
-                Log.Info($"Setting value of CurrentLine: {value} from {_currentLine}");
-            _currentLine = value;
-        }
+        if (DebugMode)
+            Log.Info(message);
     }
-
-    private bool debugMode;
-    private int _currentLine = 1;
-
+    
     public DialogManager()
     {
-        ReadDialogData("vdata/dialog/vv.dialog");
-
         if (Instance != null) return;
         Instance = this;
     }
@@ -41,18 +33,26 @@ public partial class DialogManager
     {
         if (Instance == null)
         {
-            Log.Info("Instance not found, creating one");
+            ShowLog("Instance not found, creating one");
             Instance = new DialogManager();
             return;
         }
 
-        Log.Info("Found instance");
+        ShowLog("Found instance");
     }
 
     [ConCmd.Server("dialog_debug_mode")]
-    public static void DebugMode(bool value)
+    public static void Cmd_SetDebugMode(bool value)
     {
-        Instance.debugMode = value;
+        Instance.DebugMode = value;
+        Cl_SetDebugMode(value);
+    }
+
+    [ConCmd.Client("cl_dialog_debug_mode")]
+    public static void Cl_SetDebugMode(bool value)
+    {
+        Instance.DebugMode = value;
+        Log.Info($"Setting client debug value: {value}");
     }
 
     /// <summary>
@@ -69,12 +69,12 @@ public partial class DialogManager
         }
         Instance.ReadDialogData(path);
     }
-#if TEST
+
     /// <summary>
     /// Activates (picks) a dialog line.
     /// </summary>
     /// <param name="choice"></param>
-    [ConCmd.Client("dialogpick", CanBeCalledFromServer = true)]
+    [ConCmd.Server("dialogpick")]
     public static void Cmd_DialogPick(int choice)
     {
         if (Instance == null)
@@ -82,32 +82,35 @@ public partial class DialogManager
             Log.Warning("DialogManager instance is null!");
             return;
         }
-        Instance.DialogPick(choice);
-    }
-#endif
 
-    public void DialogPick(int choice)
-    {
-        if (choice >= 4)
+        if (choice > 4)
         {
             Log.Warning("Out of range!");
             return;
         }
+
+        Instance.DialogPick(choice);
+    }
+
+    public void DialogPick(int choice)
+    {
         var entryChoice = choice - 1;
-        Log.Info("Trying to pick dialog choice " + choice);
-        if (Instance == null)
+
+        ShowLog($"Trying to pick dialog choice {choice}");
+
+        if (Dialog == null)
         {
-            Log.Warning("DialogManager instance is null!");
+            Log.Warning("Instance.Dialog is null!");
             return;
         }
 
-        if (Instance.Dialog.Entries == null)
+        if (Dialog.Entries == null)
         {
             Log.Warning("Dialog entry is null!");
             return;
         }
 
-        var nextLine = Instance.Dialog.Entries.Where(x => x.Id == CurrentLine);
+        var nextLine = Dialog.Entries.Where(x => x.Id == CurrentLine);
 
         var npcDialogEntries = nextLine.ToList();
 
@@ -121,7 +124,7 @@ public partial class DialogManager
                 return;
             }
 
-            Log.Info("Trying to pick dialog choice " + choice);
+            ShowLog($"Trying to pick dialog response choice {choice}");
 
             if (entry.Responses == null)
             {
@@ -141,37 +144,29 @@ public partial class DialogManager
                 Log.Warning($"Couldn't find player dialog reply with valid ID!");
                 return;
             }
-
-            if (debugMode)
-            {
-                Log.Info($"You picked dialog response choice {choice} with id {response.Id} and link {response.Link}");
-                Log.Info($"{response.Text.Values.First()}");
-            }
+            
+            ShowLog($"You picked dialog response choice {choice} with id {response.Id} and link {response.Link}");
 
             if (response.Link == 0)
             {
-                Log.Info("Dialog ended.");
-                Instance.CurrentLine = 0;
-                DialogPanel.GetInstance().DialogClose();
+                ShowLog("Dialog ended.");
+                CurrentLine = 0;
+                DialogPanel.GetInstance()?.DialogClose();
                 return;
             }
 
             // Find if link to id exists, if not, reset current line to 0
             // This way we make sure we won't get stuck with any unlinked dialog.
-            if (!Instance.Dialog.Entries.Any(x => x.Id == response.Link))
+            if (!Dialog.Entries.Any(x => x.Id == response.Link))
             {
                 Log.Error($"Missing link {response.Link} for dialog entries, returning!");
-                Instance.CurrentLine = 0;
-                DialogPanel.GetInstance().DialogClose();
+                CurrentLine = 0;
+                DialogPanel.GetInstance()?.DialogClose();
                 return;
             }
-            else
-            {
-                Log.Info(response.Link);
-            }
 
-            Instance.CurrentLine = response.Link;
-            Instance?.Pick(response.Link);
+            CurrentLine = response.Link;
+            Pick(response.Link);
         }
         else
         {
@@ -179,79 +174,93 @@ public partial class DialogManager
         }
 
 
-        if (Instance == null) return;
-        if (Instance is { CurrentLine: 0 })
+        if (CurrentLine == 0)
         {
-            if (debugMode)
-                Log.Info("Line returned to 0, closing dialog.");
+            ShowLog("Line returned to 0, closing dialog.");
             //DialogPanel.GetInstance().DialogClose();
             return;
         }
+
         if (npcDialogEntries.Count == 0)
         {
-            Log.Warning($"Couldn't find NPC dialog reply with ID {Instance.CurrentLine}!");
-            return;
+            Log.Warning($"Couldn't find NPC dialog reply with ID {CurrentLine}!");
         }
     }
 
-#if TEST
-    [ConCmd.Client("dialog_start", CanBeCalledFromServer = true)]
+    [ConCmd.Server("dialog_start")]
     public static void Cmd_DialogStart(int line)
     {
-        if (Instance == null)
+        if (Instance.Dialog == null)
+		    Instance.ReadDialogData("vdata/dialog/vv.dialog");
+
+		if (Instance == null)
         {
             Log.Error("Missing Dialog Manager instance!");
             Instance = new DialogManager();
             return;
         }
         Instance.CurrentLine = line;
-        Log.Info($"Set dialog line start to {line}");
+        Instance.ShowLog($"Set dialog line start to {line}");
         Instance.Pick(line);
     }
-#endif
 
     private void Pick(int line)
     {
-        if (Dialog != null)
-            DebugLog(line);
-    }
+        if (Sandbox.Game.IsClient)
+            CurrentLine = line;
+        
+        ShowLog("Picked line " + CurrentLine);
 
-    private void DebugLog(int choice)
-    {
-        if (Dialog.Entries == null)
+        if (Dialog == null)
         {
-            Log.Warning("Dialog entry is null!");
+            Log.Warning("Dialog is null!");
             return;
         }
+
+		if (Dialog.Entries == null)
+		{
+			Log.Warning("Dialog entries are null!");
+			return;
+		}
 
         var nextLine = Dialog.Entries.Where(x => x.Id == CurrentLine);
-        var npcDialogEntries = nextLine.ToList();
+		var npcDialogEntries = nextLine.ToList();
 
-        if (npcDialogEntries.Count == 0)
-        {
-            //Log.Warning("npcDialogEntries is empty!");
-            return;
+		if (npcDialogEntries.Count == 0)
+		{
+			//Log.Warning("npcDialogEntries is empty!");
+			return;
+		}
+
+		foreach (var entry in npcDialogEntries.Where(entry => !string.IsNullOrEmpty(entry.Text.FirstOrDefault().Value)))
+		{
+			CurrentLine = entry.Id;
         }
 
+        DebugLog(npcDialogEntries);
+    }
+
+    private void DebugLog(List<NPCDialogEntry> npcDialogEntries)
+    {
+        if (DebugMode == false) return;
+
+        ShowLog($"Picked current NPC line {CurrentLine}!");
         foreach (var entry in npcDialogEntries)
         {
-            Log.Info(entry.Id);
+            ShowLog($"Entry ID: {entry.Id}");
 
             if (!string.IsNullOrEmpty(entry.Text.FirstOrDefault().Value))
             {
-                CurrentLine = entry.Id;
-                Log.Info($"{entry.Text.FirstOrDefault().Value} - (Line: {CurrentLine})");
-                Log.Info("Responses:");
+                ShowLog($"{entry.Text.FirstOrDefault().Value} - (Line: {CurrentLine})");
+                ShowLog("Responses:");
                 for (var i = 0; i < entry.Responses.Count; i++)
                 {
                     var response = entry.Responses[i];
-                    Log.Info($"{i + 1}) {response.Text.FirstOrDefault().Value}");
-                    if (debugMode)
-                        Log.Info($"(Line {response.Id} / Link: {response.Link})");
+                    ShowLog($"{i + 1}) {response.Text.FirstOrDefault().Value}");
+                    ShowLog($"(Line {response.Id} / Link: {response.Link})");
                 }
             }
         }
-
     }
 
     public void CallEventScript()
@@ -284,9 +293,104 @@ public partial class DialogManager
 
     }
 
-    public void CheckStartingConditions(int line)
-    {
-        Log.Info("Checking starting conditions for line: " + line);
+    public bool CheckStartingConditionsButtons(int line)
+    {        
+        if (Dialog == null)
+        {
+            Log.Error("Dialog is null!");
+            return false;
+        }
+
+        if (Sandbox.Game.LocalPawn is not VampirePlayer player)
+            return false;
+
+        var responseEntry = GetActiveDialog().Responses.FirstOrDefault(x => x.Id == line);        
+        ConditionParser.IsDebugMode = DebugMode;
+        if (responseEntry != null)
+        {
+            var parsedValues = ConditionParser.ParseCondition(responseEntry.Condition);
+            
+            ShowLog($"Response entry count for {responseEntry.Id}: {responseEntry.Condition.Length}");
+            ShowLog($"Parsed values count: {parsedValues.Count}");
+            
+            // TODO: for now we have a simpler parser just to demonstrate its functionality.
+            // The player can store a state and check if it's true or false, similar to the G. states in Python.
+            // It can also check the attributes of the player and clan (albeit in a much simpler version).
+            // It can also currently check the not operator and if the argument is numeric for attributes.
+            // A lot of the stuff here should be moved to the parser itself, but for now it's just a proof of concept.
+
+            foreach (var kvp in parsedValues)
+            {
+                if (kvp.Value is List<string> arguments)
+                {
+                    foreach (var argument in arguments)
+                    {
+                        if (arguments.Contains("not"))
+                        {
+                            // We have hardcoded "pc" for "IsClan" for the sake of demonstration.
+                            // Here we check if the player is not a member of the specified clan.
+                            if (arguments[1] == "pc" && arguments[2] != player.Clan)
+                            {
+                                ShowLog("Found not match!");
+                                return true;
+                            }
+                            return false;
+                        }
+
+                        if (!arguments.Contains("not"))
+                        {
+                            // Ditto, except here we check if the player is a member of the specified clan.
+                            if (arguments[0] == "pc" && arguments[1] == player.Clan)
+                            {
+                                ShowLog("Found match!");
+                                return true;
+                            }
+
+                            // Here we check if the argument is numeric, for example the player's attributes.
+                            var isNumeric = int.TryParse(arguments[1], out var n);
+                            if (isNumeric)
+                            {
+                                ShowLog("Argument 1 is numeric:" + n);
+                                if (player.GetAttribute(arguments[0]) == (object)n)
+                                {
+                                    ShowLog("Found match!");
+                                    return true;
+                                }
+                            }
+
+                            return false;
+                        }
+
+                        ShowLog($"Didn't find match for {argument}!");
+
+                        return false;
+                    }
+                }
+
+                //ShowLog(kvp.Value.ToString());
+                
+                ShowLog("Checking starting conditions for line: " + line);
+                ShowLog(kvp.Key + ": " + kvp.Value);
+                
+                ShowLog($"{kvp.Value}: {player.GetAttribute(kvp.Key)}");
+                if (player.GetAttribute(kvp.Key) == kvp.Value)
+                {
+                    ShowLog("Found match!");
+                    return true;
+                }
+
+                if (responseEntry.Condition.Contains(kvp.Key) && kvp.Value.ToString() == 
+                    GlobalStates.Instance.GetState(kvp.Key).ToString())
+                {
+                    ShowLog($"Found matching stuff: {kvp.Key}: {kvp.Value}");
+                    return true;
+                }
+
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public void ShowHistoryWindow()
@@ -309,18 +413,53 @@ public partial class DialogManager
 
     }
 
+	[ClientRpc]
+	public void DialogReadData(DialogData dialog)
+    {
+        if (Dialog != null)
+        {
+            if (Dialog.Entries != null)
+            {
+                if (Dialog.ResourceName == dialog.ResourceName)
+                {
+                    return;
+                }
+
+				Dialog = dialog;
+                ShowLog($"Read dialog counts: {Dialog.Entries.Count}");
+            }
+            else
+                Log.Error("No dialog entries have been found!");
+        }
+		else
+		{
+            ShowLog("Dialog returned null, this is not good!");
+		}
+	}
+
     public void ReadDialogData(string path)
     {
-        var dialog = ResourceLibrary.Get<DialogData>(path);
-        if (dialog != null)
-        {
-            Dialog = dialog;
-            Log.Info(Dialog.ResourcePath);
-        }
-        else
-        {
-            Log.Info($"Couldn't load dialog data from path {path}!");
-        }
+		if (!string.IsNullOrWhiteSpace(path))
+		{
+			if (ResourceLibrary.TryGet<DialogData>(path, out var dialog))
+			{
+                ShowLog($"Found dialog at path {path}");
+				Dialog = dialog;
+				DialogReadData(dialog);
+
+				if (Dialog != null)
+                {
+                    if (Dialog.Entries == null)
+                        Log.Error("No dialog entries have been found!");
+                    else
+                        ShowLog($"Read dialog counts: {Dialog.Entries.Count}");
+                }
+                else
+                {
+                    ShowLog("Dialog returned null, this is not good!");
+                }
+			}
+		}
     }
 
     public DialogData GetDialog()
@@ -332,4 +471,33 @@ public partial class DialogManager
     {
         return Dialog?.Entries.FirstOrDefault(x => x.Id == CurrentLine);
     }
+
+    [ClientRpc]
+    public void ShowDialog()
+    {
+        ShowLog("Trying to show dialog!");
+        if (Sandbox.Game.IsClient)
+        {
+            CurrentLine = 1;
+            var dialogPanel = DialogPanel.CreateInstance();
+            dialogPanel.DebugMode = DebugMode;
+            dialogPanel.DialogOpen();
+        }
+        else
+        {
+            if (DialogPanel.GetInstance() != null)
+            {
+                DialogPanel.GetInstance().DialogOpen();
+            }
+            else
+            {
+                Log.Error("DialogPanel.GetInstance() is missing!");
+            }
+        }
+    }
+
+	internal void ClearDialog()
+	{
+        Dialog = null;
+	}
 }

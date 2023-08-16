@@ -1,7 +1,7 @@
 ﻿using System;
 using Sandbox;
 
-namespace bloodlines.entities.vampire.NPC
+namespace Bloodlines.Entities.Vampire.NPC
 {
 	public partial class VBaseNPC : VAnimEntity, IUse
 	{
@@ -53,6 +53,9 @@ namespace bloodlines.entities.vampire.NPC
 		
 		[Property( "spawnflags", Title = "Spawn Settings" )]
 		public Flags SpawnSettings { get; set; } = Flags.None;
+
+		[Property("dialogname", Title = "Dialog Name")]
+		public string DialogName { get; set; }
 
 		protected Vector3 InputVelocity;
 		protected Vector3 LookDir;
@@ -122,31 +125,46 @@ namespace bloodlines.entities.vampire.NPC
 		public override void Spawn()
 		{
 			var model = GetModelName();
-			
-			SetModel( "models/editor/playerstart.vmdl" );
-			SetupPhysicsFromAABB( PhysicsMotionType.Static, Vector3.One, Vector3.One );
-			//
-			//
-			// if ( model == null )
-			// {
-			// 	SetModel( "models/editor/playerstart.vmdl" );
-			// 	SetupPhysicsFromAABB( PhysicsMotionType.Static, Vector3.One, Vector3.One );
-			// }
-			// else
-			// {
-			// 	SetModel( GetModelName() );
-			// 	SetupPhysicsFromModel( PhysicsMotionType.Dynamic, false );
-			// 	//CollisionGroup = CollisionGroup.Interactive;
-			// 	EnableSelfCollisions = true;
-			// 	//MoveType = MoveType.MOVETYPE_WALK;
-			// 	EnableHitboxes = true;
-			// 	Velocity = Vector3.Zero;
-			// 	
-			// 	//SetAnimGraph(NPCAnimGraph);
-			// 	SetupPhysicsFromAABB(PhysicsMotionType.Keyframed, new Vector3(-16, -16, 0), new Vector3(16, 16, 72));
-			// 	EnableHitboxes = true;
-			// }
-			//
+
+			if (!string.IsNullOrEmpty(model))
+			{
+				if (FileSystem.Mounted.FileExists(model))
+				{
+					SetModel(GetModelName());
+					SetupPhysicsFromModel(PhysicsMotionType.Dynamic, false);
+					//CollisionGroup = CollisionGroup.Interactive;
+					EnableSelfCollisions = true;
+					//MoveType = MoveType.MOVETYPE_WALK;
+					EnableHitboxes = true;
+					Velocity = Vector3.Zero;
+
+					//SetAnimGraph(NPCAnimGraph);
+					SetupPhysicsFromAABB(PhysicsMotionType.Keyframed, new Vector3(-16, -16, 0), new Vector3(16, 16, 72));
+					EnableHitboxes = true;
+				}
+				else
+				{
+					var cloudModel = Cloud.Model("sboxmp/citizen");
+					if (FileSystem.Mounted.FileExists(cloudModel.ResourcePath))
+						SetModel(cloudModel.ResourcePath);
+					else
+						SetModel("models/editor/playerstart.vmdl");
+					EnableAllCollisions = true;
+					EnableHitboxes = true;
+					
+					Velocity = Vector3.Zero;
+					SetupPhysicsFromAABB( PhysicsMotionType.Keyframed, new Vector3( -16, -16, 0 ), new Vector3( 16, 16, 72 ) );
+					
+					Tags.Add( "solid" );
+				}
+			}
+			else
+			{
+				Log.Error($"NPC {Name} has invalid model {model}.");
+				SetModel("models/editor/playerstart.vmdl");
+				SetupPhysicsFromAABB(PhysicsMotionType.Static, Vector3.One, Vector3.One);
+			}
+
 			Tags.Add("npc", "playerclip");
 
 			//var particleList = Model.GetParticles();
@@ -161,9 +179,13 @@ namespace bloodlines.entities.vampire.NPC
 			base.Spawn();
 		}
 
-		[Event.Tick.Server]
+		[GameEvent.Tick.Server]
 		public void Tick()
 		{
+			if ( DebugFlags.HasFlag( EntityDebugFlags.Text ) )
+			{
+				DebugOverlay.Line( Position, Position + Rotation.From( Rotation.Angles() ).Forward * 100 );
+			}
 			InputVelocity = 0;
 
 			//using ( Profile.Scope( "Move" ) )
@@ -177,6 +199,10 @@ namespace bloodlines.entities.vampire.NPC
 				var turnSpeed = walkVelocity.Length.LerpInverse( 0, 100 );
 				var targetRotation = Rotation.LookAt( walkVelocity.Normal, Vector3.Up );
 				Rotation = Rotation.Lerp( Rotation, targetRotation, turnSpeed * Time.Delta * 20.0f );
+				if (DebugFlags.HasFlag(EntityDebugFlags.Text))
+				{
+					DebugOverlay.Line(Position, Position + Rotation.Forward * 100, 0, false);
+				}
 			}
 			LookDir = Vector3.Lerp( LookDir, InputVelocity.WithZ( 0 ) * 1000, Time.Delta * 100.0f );
 		}

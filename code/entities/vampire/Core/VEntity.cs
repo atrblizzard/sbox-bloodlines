@@ -1,6 +1,6 @@
 ﻿using Sandbox;
 
-namespace bloodlines.entities.vampire
+namespace Bloodlines.Entities.Vampire
 {
 	public class VEntity : Entity
 	{

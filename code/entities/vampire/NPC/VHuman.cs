@@ -1,11 +1,11 @@
 ﻿using Sandbox;
 using Editor;
 
-namespace bloodlines.entities.vampire.NPC
+namespace Bloodlines.Entities.Vampire.NPC
 {
 	[Library( "npc_VHuman" )]
-    //[Model]
-    [EditorModel("models/rust_player/rustplayer.vmdl")]
+    [Model]
+    [EditorModel("models/editor/playerstart.vmdl")]
     public partial class VHuman : VBaseNPC
 	{
 	}

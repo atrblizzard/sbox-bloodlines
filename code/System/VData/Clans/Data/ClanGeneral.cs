@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Bloodlines.Game.System.Dialog;
+using Bloodlines.Game.Systems.Dialog;
 
 namespace Vampire.System.Clans;
 

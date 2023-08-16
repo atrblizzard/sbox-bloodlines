@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Bloodlines.Game.System.Dialog;
+namespace Bloodlines.Game.Systems.Dialog;
 
 public class NPCDialogEntry : IDialogEntry
 {

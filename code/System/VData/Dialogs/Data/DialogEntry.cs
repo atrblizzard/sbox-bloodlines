@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Bloodlines.Game.System.Dialog;
+namespace Bloodlines.Game.Systems.Dialog;
 
 public class DialogEntry : IDialogEntry
 {
@@ -9,4 +9,5 @@ public class DialogEntry : IDialogEntry
 	public string Condition { get; set; }
 	public string Action { get; set; }
 	public int Link { get; set; }
+	public bool StartingCondition { get; set; }
 }

@@ -1,5 +1,4 @@
 ﻿@using System.Linq
-@using Bloodlines.Game.System.Dialog
 @using Sandbox;
 @using Sandbox.UI;
 
@@ -16,42 +15,54 @@
 <root class="@(IsOpen ? "open" : "")">
     @if (DebugMode)
     {
-        <DropDown class="glass name with-grow" Value:bind="@CurrentDialogLine" BuildOptions=@GetResponseOptions></DropDown>
+        <DropDown class="dropdown with-grow name" Value:bind="@CurrentDialogLine" BuildOptions=@GetResponseOptions></DropDown>
     }
     else
     {
-        <label class="name">@DialogManager.Instance?.GetActiveDialog()?.Text.Values.FirstOrDefault()</label>
+        <label class="name">@player.DialogManager?.GetActiveDialog()?.Text.Values.FirstOrDefault()</label>
     }
     <div class="items">
         @{
-            var responses = DialogManager.Instance?.GetActiveDialog()?.Responses;
+            var responses = player.DialogManager?.GetActiveDialog()?.Responses;
             if (responses == null)
                 return;
 
             if (DebugMode && responses.Count == 0)
             {
-                <label class="name">No responses</label>
+                <label class="name">No responses found</label>
                 return;
             }
 
             if (responses.FirstOrDefault()?.Text.Values.FirstOrDefault() == "(Auto-Link)")
             {
-                <label class="name">End</label>
                 <label class="name">@responses.FirstOrDefault()?.Link</label>
             }
+
+            dialogSlots.Clear();
 
             @for (var i = 0; i < responses.Count; i++)
             {
                 var response = responses[i];
-                var counter = i + 1;
-                <DialogEntrySlot
-                    Entry=@response
-                    Counter=@(counter)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @onmouseover=@(() => _hoveredWeapon = response)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @onmouseout=@(() => _hoveredWeapon = null)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @onclick=@(() => OnInventorySlotClicked(response, counter))/>
+                var lineNumber = i + 1;
+                if (player.DialogManager?.CheckStartingConditionsButtons(response.Id) == true)
+                {
+                    var entrySlot = new DialogEntrySlot();
+                  
+                    <DialogEntrySlot @ref="entrySlot"
+                        Entry=@response
+                        Counter=@(0)
+                        IsDebug=@DebugMode
+                        @onmouseover=@(() => hoveredEntry = response)
+                        @onmouseout=@(() => hoveredEntry = null)
+                        @onclick=@(() => OnInventorySlotClicked(response, lineNumber))/>
 
+                    dialogSlots.Add(entrySlot);
+                }
+            }
 
+            @for (var i = 0; i < dialogSlots.Count; i++)
+            {
+                dialogSlots[i].Counter = i + 1;
             }
         }
 

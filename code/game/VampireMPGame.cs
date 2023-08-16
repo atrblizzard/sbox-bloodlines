@@ -3,8 +3,6 @@
 using Sandbox;
 using System;
 using System.Linq;
-using System.Threading.Tasks;
-using Bloodlines.Game.System.Dialog;
 using Bloodlines.UI;
 using MyGame;
 
@@ -14,8 +12,6 @@ public partial class VampireMPGame : GameManager
 	public static VampireMPGame Entity => Current as VampireMPGame;
 	public int StoryState { get; set; }	
 	public Hud Hud { get; set; }
-	
-	
 
     public VampireMPGame()
     {

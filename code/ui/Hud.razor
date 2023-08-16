@@ -25,6 +25,9 @@
 	{
 		Game.AssertClient();
 		Game.RootPanel = this;
+
+		DialogPanel.CreateInstance();
+		Log.Info(DialogPanel.GetInstance());
 	}
 
 	public override void Tick()
@@ -35,11 +38,6 @@
 		{
 			CurrentHudPanel.Parent = this;
 			CurrentHudPanel.BindClass("hidden", () => DevCam != null);
-		}
-
-		if (Input.Pressed("score"))
-		{
-			DialogPanel.GetInstance().Toggle();
 		}
 
 		if (Input.Pressed("Log"))
