@@ -2,37 +2,32 @@
 using Editor;
 using System.Threading.Tasks;
 
+[Library("scripted_sequence")]
+[HammerEntity]
+[EditorModel("models/editor/scripted_sequence.vmdl")]
+[Title("scripted_sequence"), Category("Choreo"), Icon("theater_comedy")]
 
-[Library( "scripted_sequence" )]
-[Model( Archetypes = ModelArchetype.animated_model | ModelArchetype.static_prop_model )]
 public partial class ScriptedSequence : Entity
 {
-	[Property( "Search Radius" )] public float m_flRadius { get; set; }
-	[Property( "Repeat" )] public float m_flRepeat { get; set; }
-	[Property( "Move to Position" )] public int m_fMoveTo { get; set; }
-
-	/*
-        [Property("Move to Position")] public int MoveTo
-    {
-        get => m_fMoveTo;
-        set => m_fMoveTo = value;
-    }
-
-    private int m_fMoveTo;
-     */
+	[Property( "Search Radius" )]
+	public float m_flRadius { get; set; }
+	[Property( "Repeat" )]
+	public float m_flRepeat { get; set; }
+	[Property( "Move to Position" )]
+	public int m_fMoveTo { get; set; }
 
 
-	//[Property("Entry Animation")] public string m_iszEntry { get; set; }
-	//[Property] public string m_iszIdle { get; set; }
+	[Property("Entry Animation")] public string m_iszEntry { get; set; }
+	[Property] public string m_iszIdle { get; set; }
 
 	[Property( "m_iszPlay", Title = "Play Sequence" )]
 	public string PlaySequence { get; set; }
 
-	//[Property] public string m_iszPostIdle { get; set; }
-	//[Property] public string m_iszCustomMove { get; set; }
-	//[Property("Next Script")] public string m_iszNextScript { get; set; } 
+	[Property] public string m_iszPostIdle { get; set; }
+	[Property] public string m_iszCustomMove { get; set; }
+	[Property("Next Script")] public string m_iszNextScript { get; set; } 
 
-	//[Property] public string m_iszEntity { get; set; } 
+	[Property] public string m_iszEntity { get; set; } 
 
 	[Property( "target", Title = "Sequence Target" )]
 	[FGDType( "target_destination" )]
