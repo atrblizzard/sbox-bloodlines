@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Bloodlines.Game.Systems.Dialog;
+using Vampire.Data.Dialog;
 
-namespace Vampire.System.Clans;
+namespace Vampire.Data.Clans;
 
 public struct ClanGeneral
 {

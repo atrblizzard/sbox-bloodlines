@@ -1,4 +1,4 @@
-﻿namespace Bloodlines.Game.Systems.Dialog;
+﻿namespace Vampire.Data.Dialog;
 
 public enum Gender
 {

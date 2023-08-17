@@ -1,4 +1,4 @@
-﻿namespace Vampire.System.Clans;
+﻿namespace Vampire.Data.Clans;
 
 public struct ClanEffects
 {

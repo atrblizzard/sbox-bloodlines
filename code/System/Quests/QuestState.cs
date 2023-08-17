@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Editor;
 using Sandbox;
+using Vampire.Data.Quest;
 
-namespace bloodlines.game.Quest
+namespace Bloodlines.Systems.Quest
 {
 	public partial class QuestState : EntityComponent
 	{
@@ -11,7 +11,7 @@ namespace bloodlines.game.Quest
 
 		private QuestTable _questJournal;
 		[Net] public IDictionary<string, int> QuestCompletionState { get; set; }
-		
+
 		public List<QuestTable> QuestTables { get; set; } = new();
 
 		public QuestState()
@@ -37,48 +37,50 @@ namespace bloodlines.game.Quest
 			return _questJournal.Quests.ToList();
 		}
 
-        [ConCmd.Client("quest_populate_test", CanBeCalledFromServer = true)]
-        public static void Cmd_TestQuests()
-		{
-            var quests = Instance.GetQuests();
-            var names = new List<string>
-            {
-                "Arthur Knox",
-                "Prince",
-                "Bloodhunt",
-                "Morphine",
-                "Astrolite",
-                "Muddy",
-                "Copper",
-                "Serial",
-                "Lily",
-                "Danielle",
-                "Hotel",
-                "Tourette",
-                "Strauss",
-                "Warehouse"
-            };
-            var questList = new List<QuestJournal>();
-            foreach (var name in names)
-            {
-                questList.Add(quests.FirstOrDefault(x => x.Title == name));
-            }
+		[ConCmd.Client("quest_populate_test")] //, CanBeCalledFromServer = true)
+		public static void Cmd_TestQuests()
+		{		
+			if (Instance.GetQuests().Count == 0)
+			{
+				Log.Error("Found 0 quests");
+				return;
+			}
 
-            foreach (var quest in questList)
-            {
-                //foreach (var completionState in quest1.CompletionState.DefaultIfEmpty()
-                //             .Where(x => x.Type == CompletionType.Failure))
-                //{
-                //    Instance.SetQuest(quest1.Title, completionState.ID);
-                //}
+			var quests = Instance.GetQuests();
+			Log.Info($"Quest {quests.Count}");
 
-                var a = Game.Random.Int(1, quest.CountCompletionState);
-                Instance.SetQuest(quest.Title, a);
-            }
-        }
+			var names = new List<string>
+			{
+				"Arthur Knox",
+				"Prince",
+				"Bloodhunt",
+				"Morphine",
+				"Astrolite",
+				"Muddy",
+				"Copper",
+				"Serial",
+				"Lily",
+				"Danielle",
+				"Hotel",
+				"Tourette",
+				"Strauss",
+				"Warehouse"
+			};
+			var questList = new List<QuestJournal>();
+			foreach (var name in names)
+			{
+				questList.Add(quests.FirstOrDefault(x => x.Title == name));
+			}
+
+			foreach (var quest in questList)
+			{
+				var a = Game.Random.Int(1, quest.CountCompletionState);
+				Instance.SetQuest(quest.Title, a);
+			}
+		}
 
 		[ConCmd.Client("getqueststate", CanBeCalledFromServer = true)]
-        public static void Cmd_GetQuestState(string name)
+		public static void Cmd_GetQuestState(string name)
 		{
 			var questState = Instance._questJournal.Quests.FirstOrDefault(x => x.Title == name).CompletionState
 				.ToList();
@@ -87,10 +89,10 @@ namespace bloodlines.game.Quest
 				Log.Info("Getting Quest state of " + quest.Key + ": " + quest.Value);
 				var currentState = questState.FirstOrDefault(x => x.ID == quest.Value);
 				Log.Info("> " + currentState.ID + " | " + currentState.Description +
-				         " | " + currentState.AwardXP + " | " + currentState.AwardMoney + " | " + currentState.Type);
+						 " | " + currentState.AwardXP + " | " + currentState.AwardMoney + " | " + currentState.Type);
 			}
 		}
-		
+
 		[ConCmd.Client("setqueststate", CanBeCalledFromServer = true)]
 		public static void Cmd_SetQuestState(string name, int state)
 		{
@@ -122,9 +124,19 @@ namespace bloodlines.game.Quest
 
 		public void ReadQuestData(string path)
 		{
-			var dialog = ResourceLibrary.Get<QuestTable>(path);
-			_questJournal = dialog;
-			Log.Info(_questJournal.ResourcePath);
+			if (!string.IsNullOrWhiteSpace(path))
+			{
+				if (ResourceLibrary.TryGet<QuestTable>(path, out var dialog))
+				{
+					_questJournal = dialog;
+				}
+				else
+				{
+					Log.Warning($"Quest table could not be found at path {path}");
+					return;
+				}
+				_questJournal = dialog;
+			}
 		}
 
 		public void SetQuestState(int questId, int state)
@@ -134,7 +146,7 @@ namespace bloodlines.game.Quest
 				Log.Warning("QuestCompletionState is null");
 				return;
 			}
-			
+
 			Log.Info(QuestCompletionState.Count);
 
 			if (QuestCompletionState.Count != _questJournal.Quests.Count)
@@ -190,6 +202,10 @@ namespace bloodlines.game.Quest
 				Instance = new QuestState();
 				return;
 			}
+			else
+			{
+				Instance = this;
+			}
 
 			Log.Info("Found instance");
 		}
@@ -199,21 +215,22 @@ namespace bloodlines.game.Quest
 			var data = cl.GetClientData("queststate");
 			Deserialize(data);
 		}
-		
+
 		public string Serialize()
 		{
-			return System.Text.Json.JsonSerializer.Serialize( QuestCompletionState );
+			return System.Text.Json.JsonSerializer.Serialize(QuestCompletionState);
 		}
-		
+
+
 		public static string QuestStateJson { get; set; }
-		
-		[ConCmd.Client( "quest_savestate", CanBeCalledFromServer = true )]
+
+		[ConCmd.Client("quest_savestate", CanBeCalledFromServer = true)]
 		private static void Cmd_SaveQuestState()
 		{
 			Instance.SaveChanges();
 		}
-		
-		[ConCmd.Client( "quest_loadstate", CanBeCalledFromServer = true )]
+
+		[ConCmd.Client("quest_loadstate", CanBeCalledFromServer = true)]
 		private static void Cmd_LoaduestState()
 		{
 			Instance.LoadState();
@@ -223,7 +240,11 @@ namespace bloodlines.game.Quest
 		{
 			var path = $"queststate.txt";
 			var jsonContent = FileSystem.Data.ReadAllText($"{path}");
-			Deserialize(jsonContent);
+
+			if (!string.IsNullOrEmpty(jsonContent))
+			{
+				Deserialize(jsonContent);
+			}
 		}
 
 		public void SaveChanges()
@@ -231,7 +252,7 @@ namespace bloodlines.game.Quest
 			var str = Serialize();
 			var path = $"queststate.txt";
 			FileSystem.Data.WriteAllText($"{path}", str);
-			Log.Info( "Settings have been saved!" );
+			Log.Info("Settings have been saved!");
 		}
 
 		private void Deserialize(string json)
@@ -241,16 +262,16 @@ namespace bloodlines.game.Quest
 
 			try
 			{
-				var entries = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, int>>( json );
-				
+				var entries = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, int>>(json);
+
 				Log.Info("Deserializing quest state");
 				QuestCompletionState.Clear();
-				
-				foreach ( var entry in entries )
+
+				foreach (var entry in entries)
 				{
 					var item = entry;
-					if ( item.Key == null ) continue;
-					Add( item );
+					if (item.Key == null) continue;
+					Add(item);
 				}
 			}
 			catch (System.Exception e)

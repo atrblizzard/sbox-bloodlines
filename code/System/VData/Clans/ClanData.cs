@@ -1,6 +1,6 @@
 ﻿using Sandbox;
 
-namespace Vampire.System.Clans;
+namespace Vampire.Data.Clans;
 
 [GameResource("Clan Data", "clan", "VTM:B Clan Definitions")]
 public class ClanData : GameResource

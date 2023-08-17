@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Sandbox;
 
-namespace Vampire.System.Clans;
+namespace Vampire.Data.Clans;
 
 [GameResource("Clan Data tables", "clans", "VTM:B Clan Table Definitions")]
 public class ClanDataTables : GameResource

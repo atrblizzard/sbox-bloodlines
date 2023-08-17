@@ -3,8 +3,9 @@ using Sandbox;
 using Bloodlines.UI;
 using System.Collections.Generic;
 using Vampire;
+using Vampire.Data.Dialog;
 
-namespace Bloodlines.Game.Systems.Dialog;
+namespace Bloodlines.Systems.Dialog;
 
 public partial class DialogManager : EntityComponent
 {

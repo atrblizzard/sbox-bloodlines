@@ -1,9 +1,9 @@
 {
-  "Title": "Vampire the Masquerade: Bloodlines",
+  "Title": "VtM: Bloodlines S2",
   "Type": "game",
-  "Org": "atrblizzard",
-  "Ident": "bloodlines",
-  "Tags": "vtmb",
+  "Org": "vaulderie",
+  "Ident": "bloodlines-s2",
+  "Tags": "vtmb vtm vampire the masquerade bloodlines source2",
   "Schema": 1,
   "HasAssets": true,
   "AssetsPath": "",
@@ -236,6 +236,18 @@
           "GroupName": "UI"
         }
       ]
+    },
+    "LaunchConfigs": [
+      {
+        "Name": "Theater",
+        "GameIdent": "vaulderie.bloodlines-s2#local",
+        "MapName": "vaulderie.chinesetheater",
+        "MaxPlayers": 1,
+        "GameSettings": {},
+        "Addons": "",
+        "PreLaunchCommand": "",
+        "PostLaunchCommand": ""
     }
+    ]
   }
 }

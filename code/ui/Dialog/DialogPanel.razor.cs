@@ -1,11 +1,11 @@
 using System;
 using Sandbox;
 using Sandbox.UI;
-using Bloodlines.Game.Systems.Dialog;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Vampire.Data.Dialog;
 
 namespace Bloodlines.UI;
 

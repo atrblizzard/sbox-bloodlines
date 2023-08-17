@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Sandbox;
 
-namespace Bloodlines.Game.Systems.Dialog;
+namespace Vampire.Data.Dialog;
 
 [GameResource("Dialog", "dialog", "VTM:B Dialog Definitions")]
 public class DialogData : GameResource

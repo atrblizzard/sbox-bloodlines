@@ -1,10 +1,9 @@
 ﻿using Sandbox;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace bloodlines.game.Quest
+namespace Vampire.Data.Quest
 {
 	[GameResource("Quest Table", "quest", "VTM:B Quest Definitions")]
     public partial class QuestTable : GameResource

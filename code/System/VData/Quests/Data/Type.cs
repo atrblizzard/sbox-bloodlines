@@ -1,4 +1,4 @@
-﻿namespace bloodlines.game.Quest
+﻿namespace Vampire.Data.Quest
 {
     /// <summary>
     /// Completion State types

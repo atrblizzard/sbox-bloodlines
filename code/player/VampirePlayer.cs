@@ -1,10 +1,10 @@
 ﻿using Sandbox;
-using bloodlines.game.Quest;
-using Bloodlines.Game.Systems.Dialog;
+using Bloodlines.Systems.Dialog;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using Bloodlines.Systems.Quest;
 using Vampire.CameraEffects;
+using Vampire.Data.Quest;
 using Vampire.System.VData.Character.Attributes.Data;
 using Trace = Sandbox.Trace;
 
@@ -38,8 +38,8 @@ public partial class VampirePlayer : Player
     public ClothingContainer Clothing = new();
 
 	// Quest state
-	[BindComponent] public QuestState QuestState { get; } //set;
-	[Net] public DialogManager DialogManager { get; set; } //set;
+	[Net] public QuestState QuestState { get; set; }
+	[Net] public DialogManager DialogManager { get; set; }
 
 	public static VampirePlayer Me => Game.LocalPawn as VampirePlayer;
 
@@ -62,12 +62,13 @@ public partial class VampirePlayer : Player
         Inventory = new Inventory(this);
 	}
 
-    public void SetupComponents()
+    private void SetupComponents()
     {
 		var dialogManager = Components.GetOrCreate<DialogManager>();
 		var questState = Components.GetOrCreate<QuestState>();
 
         DialogManager = dialogManager;
+        QuestState = questState;
 	}
 
 	private void AddCameraEffects(bool noclip)

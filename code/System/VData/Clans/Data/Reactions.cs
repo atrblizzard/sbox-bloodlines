@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Vampire.System.Clans.Data;
+namespace Vampire.Data.Clans;
 
 public struct Reactions
 {

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using bloodlines.game.Quest;
 using Sandbox;
 using Sandbox.UI;
+using Vampire.Data.Quest;
 
 namespace Bloodlines.UI;
 
@@ -40,6 +40,10 @@ public partial class QuestPanel : Panel
 	public QuestDisplayModel GetQuestDisplayModel(CompletionType type)
 	{
 		var currentState = GetSpecificQuestType(type);
+		if (player.QuestState == null)
+		{
+			return null;
+		}
 		foreach (var completionState in player.QuestState.QuestCompletionState)
 		{
 			var currentQuest = player.QuestState.GetQuests().FirstOrDefault(x => x.Title == completionState.Key);
@@ -96,7 +100,7 @@ public partial class QuestPanel : Panel
 	{
 		if (ConsoleSystem.Caller.Pawn is VampirePlayer player)
 		{
-			player = Instance.player;
+			Instance.player = player;
 			if (player.QuestState != null)
 			{
 				foreach (var quest in player.QuestState.QuestCompletionState)
@@ -134,7 +138,6 @@ public partial class QuestPanel : Panel
 	
 	protected override int BuildHash()
 	{
-		return HashCode.Combine(IsOpen, QuestState.Instance.QuestCompletionState.Count,
-			QuestState.Instance.QuestCompletionState.Values.Count); // base.BuildHash(),
+		return HashCode.Combine(IsOpen, player.QuestState?.QuestCompletionState?.Count, player.QuestState?.QuestCompletionState?.Values.Count); // base.BuildHash(),
 	}
 }

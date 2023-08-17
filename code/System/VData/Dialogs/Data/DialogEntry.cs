@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Bloodlines.Game.Systems.Dialog;
+namespace Vampire.Data.Dialog;
 
 public class DialogEntry : IDialogEntry
 {

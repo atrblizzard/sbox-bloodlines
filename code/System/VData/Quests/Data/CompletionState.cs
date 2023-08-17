@@ -1,4 +1,6 @@
-﻿namespace bloodlines.game.Quest
+﻿using System.Text.Json.Serialization;
+
+namespace Vampire.Data.Quest
 {
     public struct CompletionState
     {
@@ -60,6 +62,8 @@
             AwardMoney = awardMoney;
         }
         
+        [HideInEditor]
+        [JsonIgnore]
         public bool IsValid => ID != 0;
     }
 }

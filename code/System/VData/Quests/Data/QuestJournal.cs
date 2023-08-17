@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text.Json.Serialization;
 
-namespace bloodlines.game.Quest;
+namespace Vampire.Data.Quest;
 
 public struct QuestJournal
 {
