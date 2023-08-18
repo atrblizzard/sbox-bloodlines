@@ -1,0 +1,969 @@
+{
+  "Quests": [
+    {
+      "Title": "Plague",
+      "DisplayName": "Fun With Pestilence",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "The regent has asked you to find the cause of the LA epidemic and put an end to it. He has suggested you speak with the Anarchs at the Last Round to get more information.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "Damsel has set you on the trail of the plaguebearer, the Kindred responsible for the outbreak of the LA epidemic. She has suggested going to speak with the ghoul Paul at the Skyeline Apartments, or talking to some of the bums around the city.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "Paul the ghoul is dead, presumably another victim of the epidemic sweeping LA. You heard a message from someone named Hannah on his answering machine, asking him to come to her apartment, also in the Skyeline building. Her key code is 1203.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "Hannah has pointed you in the direction of one Jezebel Locke as a possible link in the plaguebearer chain. She makes her residence at the Empire Arms hotel.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "A helpful homeless person has pointed out Tin Can Bill as a possible link in the plaguebearer chain. He can be found in the alley across from the Last Round.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 6,
+          "Description": "Tin Can Bill has pointed you in the direction of the sewers near where he took his last breath as the possible home of the plaguebearer.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 7,
+          "Description": "You have killed Jezebel Locke.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 8,
+          "Description": "You have killed Brother Kanker.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 9,
+          "Description": "You have reported back to Damsel that you have killed the plaguebearer, but she has informed you that there are others....",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 10,
+          "Description": "You have so pissed off Damsel that she won't talk to you. Dumbshit.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 11,
+          "Description": "You have killed Brother Kanker and Jezebel Locke. Report back to Damsel.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 12,
+          "Description": "You have killed Brother Kanker. Report back to Damsel.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 13,
+          "Description": "You have killed Jezebel Locke. Report back to Damsel.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 14,
+          "Description": "You have killed Brother Kanker and Jezebel Locke, and found a flyer with a strange symbol on it. You should go talk to Damsel about this.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 15,
+          "Description": "You became ill after feeding on a bum who turned out to be diseased. You wonder if this has anything to do with the CDC guys dressed in their blue containment suits scattered around downtown.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "AllPlague",
+      "DisplayName": "More Fun With Pestilence",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Damsel has informed you that there is more than one plaguebearer in the city - and they all need to be destroyed.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "Damsel has told you that the symbol on the flyer you found when you killed the second plaguebearer is also on one of the buildings in town.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have killed Bishop Vick, the head of the plaguebearer doomsday cult, thus ending their disease spreading religion. Report back to Damsel.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You have eradicated the plaguebearers from Los Angeles.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You have so pissed off Damsel that she won't talk to you. Dumbshit.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 6,
+          "Description": "Damsel has informed you that there is more than one plaguebearer in the city - and they all need to be destroyed. She had previously suggested going to speak with the ghoul Paul at the Skyeline Apartments.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 7,
+          "Description": "Damsel has informed you that there is more than one plaguebearer in the city - and they all need to be destroyed. She had previously suggested talking to some of the bums around the city.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 8,
+          "Description": "Paul the ghoul is dead, presumably another victim of the epidemic sweeping LA. You heard a message from someone named Hannah on his answering machine, asking him to come to her apartment, also in the Skyeline building. Her key code is 1203.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 9,
+          "Description": "Hannah has pointed you in the direction of one Jezebel Locke as a possible link in the plaguebearer chain. She makes her residence at the Empire Arms hotel.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 10,
+          "Description": "A helpful homeless person has pointed out Tin Can Bill as a possible link in the plaguebearer chain. He can be found in the alley across from the Last Round.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 11,
+          "Description": "Tin Can Bill has pointed you in the direction of the sewers near where he took his last breath as the possible home of the plaguebearer.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 12,
+          "Description": "You've killed a second plaguebearer and found a flyer with a strange symbol on it. You should go talk to Damsel about this.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 13,
+          "Description": "You've killed a second plaguebearer.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Traffik",
+      "DisplayName": "Traffik",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Fat Larry, businessman extraordinaire, wants you to acquire a briefcase being exchanged between the Tong and a local gang. The exchange will take place in a nearby parking garage. Get the briefcase undetected if possible.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have acquired the briefcase Larry sent you for. Time for a special delivery to Fat Larry.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have delivered the stolen briefcase to Larry.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "Larry is dead, no need anymore of delivering his briefcase.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Confession",
+      "DisplayName": "A Confession",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Fat Larry told you that the owner of the club Confession is looking for someone with your mad skills.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "Venus Dare wants you to go to the parking lot next to the Empire Arms hotel and tell the Russians that she doesn't have their money.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You convinced the Russians to come back next month for Venus' money.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You killed the Russians, thereby fixing Venus' money problem.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You solved Venus' money problems with the Russians.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 6,
+          "Description": "You killed Venus, thereby making it rather difficult to conclude your business with her.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Venus",
+      "DisplayName": "And Her Name Was Venus",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Venus wants you to \\",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have persuaded Boris to call off Venus' debt.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have killed Boris, thereby nullifying Venus' debt to him.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You have successfully solved Venus' Boris problem. Don't forget to visit her periodically to get your share of the club's profits.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You have killed Venus, thereby making her request of you irrelevant.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 6,
+          "Description": "You have informed Venus that Boris made you a better offer.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Kill Venus",
+      "DisplayName": "Venucide",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Boris wants you to turn the tables on Venus and kill her.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have killed Venus for Boris.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have killed Venus and told Boris about it.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You have killed Boris before your business with him was completed.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You have pissed Boris off before your business with him was completed.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Junky",
+      "DisplayName": "Attention Whore",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Skelter wants you to make Patty disappear. She's a ghoul who has been bugging everyone about her master and won't believe them when they tell her he's dead. Not only is she getting tiresome, Skelter is concerned about the implications for the Masquerade if she keeps shooting her mouth off. She can usually be found whining at the club Confession to anyone unfortunate enough to talk to her.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have \\",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have informed Skelter that Patty will no longer be a problem.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You tried to tell Skelter you'd taken care of Patty, but she's still shooting her mouth off around town.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You have convinced Patty to leave town. Report back to Skelter.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 6,
+          "Description": "You have convinced Patty to leave town, but then killed her. Report back to Skelter.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 7,
+          "Description": "You have convinced Patty to go to some dark back alley. Now what?",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 8,
+          "Description": "You have pissed off Skelter to the point where he won't talk to you anymore.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Necromantic",
+      "DisplayName": "Necromantic",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Pisha, the flesh eating, uh, woman in the basement of the abandoned hospital wants you to send the TV \\",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "Milligan, the reporter Pisha wants sent down to her, is gone, but you have found his business card. It seems he resides in the Skyeline Apartments.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have dealt with the reporter for Pisha. Go back to the abandoned hospital and tell her.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You told Pisha that the reporter has been dealt with.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "Pisha is in no state to communicate with you any more, so any arrangements you had with her are no longer relevant.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 6,
+          "Description": "You have failed to eliminate Milligan for Pisha, thereby putting the Masquerade at risk.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Occult",
+      "DisplayName": "Occultish Personality",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Pisha wants you to find two occult items and bring them back to her. One of them is a fetish in the museum, and the other is a book located in the Giovanni mansion.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have retrieved the fetish from the museum for Pisha. You still need to find the book from the Giovanni mansion.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have retrieved the \\",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You have retrieved both occult items for Pisha. You should visit her again.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You have brought Pisha her occult items and received yours in return.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 6,
+          "Description": "Pisha is in no state to communicate with you any more, so any arrangements you had with her are no longer relevant.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Regent",
+      "DisplayName": "A Plague For The Angels",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "The regent has asked you to find the cause of the LA epidemic and put an end to it. He has suggested you speak with the Anarchs at the Last Round to get more information.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have spoken with the Anarchs and they have put you on the trail of the plaguebearer.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have dispatched the plaguebearer.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You must kill all the plaguebearers.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You have killed all the plaguebearers. Report back to the regent.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 6,
+          "Description": "You have killed all the plaguebearers and reported back to the regent.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 7,
+          "Description": "You have been forbidden to enter the Tremere chantry ever again.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 8,
+          "Description": "You are looking into the cause of the epidemic for the Camarilla as well as the Anarchs.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Tutorial",
+      "DisplayName": "Jyhad For Beginners",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "You have survived the vampire gathering.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have survived the Sabbat assault.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "Feed on the mortal around the corner and return to Jack.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "Head inside the building, meet Jack upstairs.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "A vicious vampire faction known as the Sabbat has launched an assault on the secret Camarilla gathering downtown. You and Jack are caught in the middle. To escape you must obtain entry into the office.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 6,
+          "Description": "Find a key to the door.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 7,
+          "Description": "Go outside and meet Jack around back.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 8,
+          "Description": "Feed on the bum at the bottom of the stairs.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 9,
+          "Description": "Feed on some rats.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 10,
+          "Description": "Sneak past the lone Sabbat member and go through the double doors.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 11,
+          "Description": "Kill the Sabbat member outside.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 12,
+          "Description": "Head downstairs and through the building.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 13,
+          "Description": "Make your way past the Sabbat inside the building.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 14,
+          "Description": "Ride elevator up and fight the gang members.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Dane",
+      "DisplayName": "Elizabethan Rendezvous",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "The prince wants you to investigate the Elizabeth Dane. You need to go to the beach in Santa Monica where a boat will be waiting to take you out to the ship. You are to examine the Ankaran Sarcophagus, find out what the police have discovered, and take the cargo manifest for the ship. And above all, try not to go on a killing spree.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have successfully completed your tasks aboard the Elizabeth Dane. Report back to the prince.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have successfully completed your tasks aboard the Elizabeth Dane and reported back to the prince.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "The prince wants you to investigate the Elizabeth Dane, but before you do, he wants you to contact Nines Rodriguez at the bar called the Last Round and find out why he wants to talk to you.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Grout",
+      "DisplayName": "Calling Dr. Grout",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "The prince wishes you to contact Alistair Grout, the Malkavian Primogen. You should try looking for him at his mansion on the outskirts of town.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have viewed the charred remains of Alistair Grout. You should probably inform the prince about his demise.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have viewed the charred remains of Alistair Grout and informed the prince of his demise.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You encountered Nines at Grout's mansion, and he seemed a bit out of sorts.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You just entered Grout's mansion and something about it doesn't feel quite right.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Museum",
+      "DisplayName": "Patron Of The Ancient Arts",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "The prince would appreciate your taking the Ankaran Sarcophagus from the museum and bringing it to him for safekeeping. And do it without killing anyone if possible.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have found where the sarcophagus was being stored - but someone got there first. It has been stolen. You'd best tell the prince of this turn of events.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You told the prince the sarcophagus had been stolen from the museum.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You have discovered that the keycode to the area where the Ankaran Sarcophagus is kept at the museum is 2358. Now get it from there and bring it to the prince.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Sarcophagus",
+      "DisplayName": "The Epic Of The Ankaran Sarcophagus",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "The prince wants the sarcophagus NOW! First step: Find Gary. The prince has suggested speaking with Isaac Abrams, the Baron of Hollywood. Isaac can usually be found in his jewelry store.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "The prince wants the sarcophagus NOW!",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "Gary has informed you that the sarcophagus is at the Giovanni mansion. He's even drawn you a map. How sweet.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You have returned the Ankaran Sarcophagus to the prince.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You have killed Bruno Giovanni. You still need to deliver the Ankaran Sarcophagus to the prince.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Johansen",
+      "DisplayName": "Society For The Preservation Of Professors",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "Beckett wants you to find Professor Johansen, who is being held by the Society of Leopold. You'll need to find a way to get inside and locate him.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have spoken with Johansen and found out about the sarcophagus key. You should report your findings to the prince.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have spoken with Johansen and found out about the sarcophagus key. You also saved the professor from the cave-in at the Society of Leopold. You should report your findings to the prince.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You have reported back to the prince what Johansen told you about the sarcophagus key.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Shangrila",
+      "DisplayName": "Hell At The Hallowbrook Hotel",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "The prince has bidden you to kill the leader of the Sabbat (and any other Sabbat that may get in the way). They have made their headquarters in the old burned-out Hallowbrook hotel in downtown Los Angeles.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "You have located the lair of the Sabbat leader.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have brought the Sabbat leader's pitiful existence to a violent end. The prince will be as happy as a little girl when you tell him.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "You have told the prince that the Sabbat leader is dead. And, as predicted, he is as happy as a little girl.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 5,
+          "Description": "You have struck a deal with the Sabbat leader. The prince will be as happy as a little girl when you lie about this to him.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    },
+    {
+      "Title": "Alliance",
+      "DisplayName": "The Enemy Of My Enemy",
+      "CompletionState": [
+        {
+          "ID": 1,
+          "Description": "The prince has sent you to the Last Round to find out where Nines Rodriguez is hiding out. His plan is to have you find Nines and unite the Anarchs and the Camarilla in a war against the Kuei-jin.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 2,
+          "Description": "Damsel has revealed to you that Nines is hiding in Griffith Park. You need to go there and find him to unite the Anarchs with the Camarilla in a war against the Kuei-jin.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 3,
+          "Description": "You have made contact with Nines Rodriguez in Griffith Park. But something's wrong.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        },
+        {
+          "ID": 4,
+          "Description": "Against all odds, you have made it out of Griffith Park alive. Someone set you and Nines up.",
+          "Type": 0,
+          "AwardXP": 0,
+          "AwardMoney": 0
+        }
+      ]
+    }
+  ],
+  "Count": 18,
+  "name": "",
+  "hideFlags": 0
+}

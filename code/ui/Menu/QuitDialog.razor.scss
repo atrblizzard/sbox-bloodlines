@@ -1,0 +1,85 @@
+@import "/UI/styles/colors.scss";
+@import "/UI/styles/buttons.scss";
+
+QuitDialog {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    z-index: 5;
+    transition: opacity .1s ease, transform .1s ease;
+    opacity: 0;
+    background-color: #000a;
+    pointer-events: none;
+
+    &:intro {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+
+    &:outro {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+
+    &.open {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .container {
+        max-width: 800px;
+        max-height: 360px;
+        width: 100%;
+        height: 100%;
+        //background: linear-gradient(to right, #15120fee, #231f19ee, #15120fee);
+        //background-color: #0c0c0c;
+        background-color: #392f25;
+        //backdrop-filter: blur(50px);
+        border-radius: 10px;
+        transition: transform 3.5s ease-in;
+        flex-direction: column;
+        pointer-events: all;
+
+        > .header {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 48px;
+            background-color: #281e15;            
+            border-radius: 10px 10px 0 0;
+            font-family: VTMB;
+            color: #e6d9bc;
+            text-align: center;
+            align-items: center;
+        }
+
+        .content {
+            padding: 30px;
+            flex-direction: column;
+            //color: #a08f82;
+            color: wheat;
+            font-family: VTMB;
+            font-size: 24px;
+            text-align: center;
+
+            .button_container {
+                flex-direction: row;
+                margin-top: 65px;
+
+                Button {
+                    font-family: VTMB;
+                    color: wheat;
+                    background-color: darkred;
+                    width: 100%;
+                    text-align: center;
+
+                    &:not(:last-child) {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

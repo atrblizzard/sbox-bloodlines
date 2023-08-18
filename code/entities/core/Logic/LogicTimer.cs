@@ -72,7 +72,7 @@ public partial class LogicTimer : Entity
 	[Input]
 	public void Kill()
 	{
-		if(Game.IsServer) Delete();
+		if(Sandbox.Game.IsServer) Delete();
 	}
 
 
@@ -129,29 +129,26 @@ public partial class LogicTimer : Entity
 			}
 		}
 	}
-	protected void PickTime()
+
+	private void PickTime()
 	{
-		if(RandomizeTime)
-		{
-			timeToPass = Game.Random.Float( MinTime, MaxTime ).Clamp(0, MaxTime);
-		}
-		else
-		{
-			timeToPass = MaxTime;
-		}
+		timeToPass = RandomizeTime ? Sandbox.Game.Random.Float( MinTime, MaxTime ).Clamp(0, MaxTime) : MaxTime;
 	}
-	protected void Finish()
+
+	private void Finish()
 	{
 		OnTrigger.Fire( null );
 
 		PickTime();
 	}
-	protected void Unpause()
+
+	private void Unpause()
 	{
 		paused = false;
 		timeSinceStart = -timePassed;
 	}
-	protected void Pause()
+
+	private void Pause()
 	{
 		paused = true;
 		timePassed = timeSinceStart;

@@ -1,7 +1,7 @@
 ﻿using Sandbox;
 using Editor;
 
-namespace bloodlines.entities.vampire
+namespace Bloodlines.Entities.Vampire
 {
 	[Model]
 	[HammerEntity]

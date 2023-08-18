@@ -3,7 +3,7 @@ using Sandbox;
 using System.Collections.Generic;
 using Editor;
 
-namespace bloodlines.entities.vampire
+namespace Bloodlines.Entities.Vampire
 {
 	[Model]
 	[RenderFields]

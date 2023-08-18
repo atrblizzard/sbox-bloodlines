@@ -1,0 +1,141 @@
+﻿@using System.Linq;
+@using Sandbox;
+@using Sandbox.UI;
+@using Sandbox.MenuSystem;
+@using Sandbox.UI.GameMenu
+
+@page "/settings"
+@namespace Bloodlines.Menu
+@attribute [StyleSheet]
+@inherits Panel
+
+<root>
+    <text class="header">#GameSettings.Title.Settings</text>
+    <div class="nav">
+        <div class="block">
+            <div class="content">
+                <button class="button-gradient disabled" onclick=@SelectInput>#GameSettings.Inputs</button>
+                <button class="button-gradient disabled" onclick=@SelectClientSettings>Audio</button>
+                <button class="button-gradient disabled" onclick=@SelectClientSettings>#GameSettings.ClientSettings</button>
+                <button class="button-gradient disabled" onclick=@SelectClientSettings>Video</button>
+                <button class="button-gradient disabled" onclick=@SelectClientSettings>Gameplay</button>
+                <button class="button-gradient disabled" onclick=@SelectClientSettings>Multiplayer</button>
+            </div>
+        </div>
+    </div>
+
+     <div class="settings" @nooverflow>
+    
+        @if(Mode == SettingsPage.None)
+        {
+            <label class="title">TO BE IMPLEMENTED</label>
+            <div class="body">
+                 <div class="group">
+                        <text class="header">WORK IN PROGRESS</text>
+                        </div>
+                        </div>
+                        
+        }
+        else if(Mode == SettingsPage.Client)
+        {
+            <label class="title">#GameSettings.ClientSettings</label>
+            <div class="body">
+			    <ObjectEditor class="editor" @ref=Editor/>
+            </div>
+        }
+        else
+        {
+            <label class="title">#GameSettings.Inputs</label>
+            <div class="body">
+			    @foreach ( var group in Game.Menu.InputSettings.Actions.GroupBy( x => x.GroupName ) )
+                {
+                    <div class="group">
+                        <text class="header">@group.Key</text>
+                        @foreach ( InputAction action in group )
+                        {
+                            <div class="item">
+                                <label>@action.Name</label>
+                                <KeyBind Game="@Game.Menu" Action=@action class="button-dark"></KeyBind>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        }
+    </div>
+
+    <div class="footer">
+        <button class="button-footer" icon="highlight_off" onclick=@OnClickClose>#Generic.Back</button>
+        <button class="button-footer" icon="highlight_off" onclick=@SetDefaults>#GameSettings.Reset</button>
+
+        <text class="playername">@Game.UserName</text>
+        <image style="background-image: url( avatar:@Game.SteamId )" class="playeravatar" />
+    </div>
+</root>
+
+@code {
+    enum SettingsPage
+    {
+        None,
+        Inputs,
+        Client,
+    }
+
+    public ObjectEditor Editor;
+    SettingsPage Mode;
+    bool needsRefresh = true;
+
+    string nooverflow = "";
+
+    public SettingsMenu()
+    {
+        BindClass("ingame", () => Game.InGame);
+        Mode = SettingsPage.None;
+    }
+
+    protected override void OnAfterTreeRender(bool firstTime)
+    {
+        if ( Editor != null && needsRefresh )
+        {
+            needsRefresh = false;
+            //Editor.SetTarget();
+        }
+    }
+
+    public void SetDefaults()
+    {
+        Game.Menu.InputSettings.InitDefault();
+        //Mode = SettingsPage.None;
+        //ClientSettings.Reset();
+
+        //Editor?.SetTarget("");
+    }
+
+    public void OnClickClose()
+    {
+        this.Navigate("/");
+    }
+
+    protected override void OnEvent( PanelEvent e )
+    {
+        base.OnEvent( e );
+
+        if ( e.Name == "save" )
+        {
+            //ClientSettings.Current.Save();
+        }
+    }
+
+    private void SelectInput()
+    {
+        Mode = SettingsPage.Inputs;
+        needsRefresh = true;
+        StateHasChanged();
+    }
+
+    private void SelectClientSettings()
+    {
+        Mode = SettingsPage.Client;
+        StateHasChanged();
+    }
+}

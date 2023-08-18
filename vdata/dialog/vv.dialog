@@ -1,0 +1,4759 @@
+{
+  "Entries": [
+    {
+      "Id": 1,
+      "Text": {
+        "Male": "[Provocative]Oh! Look what just walked in. I can't imagine you'd get much of a rise out of Vesuvius... being what you are. Maybe I'll have more luck with you.",
+        "Female": "[Provocative]Oh! Look what just walked in. I can't imagine you'd get much of a rise out of Vesuvius... being what you are. Maybe I'll have more luck with you."
+      },
+      "Condition": "npc.SetDisposition(\"Flirt\", 1)",
+      "Action": "Whisper(\"Ambiguous\")",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 2,
+          "Text": {
+            "Male": "Why don't we go somewhere a little more... private?",
+            "Female": "Why don't we go somewhere a little more... private?"
+          },
+          "Condition": "Seduction 5",
+          "Action": "G.Velvet_Like = G.Velvet_Like +1",
+          "Link": 21,
+          "Responses": []
+        },
+        {
+          "Id": 3,
+          "Text": {
+            "Male": "Who are you?",
+            "Female": "Who are you?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 11,
+          "Responses": []
+        },
+        {
+          "Id": 4,
+          "Text": {
+            "Male": "What do you mean?",
+            "Female": "What do you mean?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 11,
+          "Responses": []
+        },
+        {
+          "Id": 5,
+          "Text": {
+            "Male": "Don't waste your time. You've got nothing that interests me anymore.",
+            "Female": "Don't waste your time. You've got nothing that interests me anymore."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Like = G.Velvet_Like -1",
+          "Link": 41,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 11,
+      "Text": {
+        "Male": "I think... we... should get to know each other a little better upstairs, where we can... be ourselves. Come up to my room - just fourteen little steps - I'll make it worth it, believe me.",
+        "Female": "I think... we... should get to know each other a little better upstairs, where we can... be ourselves. Come up to my room - just fourteen little steps - I'll make it worth it, believe me."
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 13,
+          "Text": {
+            "Male": "How do I know this isn't some kind of trap?",
+            "Female": "How do I know this isn't some kind of trap?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 31,
+          "Responses": []
+        },
+        {
+          "Id": 14,
+          "Text": {
+            "Male": "If you got something to say to me, say it here.",
+            "Female": "If you got something to say to me, say it here."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Like = G.Velvet_Like -1",
+          "Link": 41,
+          "Responses": []
+        },
+        {
+          "Id": 15,
+          "Text": {
+            "Male": "Lead the way.",
+            "Female": "Lead the way."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Stairs = 1",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 21,
+      "Text": {
+        "Male": "I was just thinking the same thing.",
+        "Female": "I was just thinking the same thing."
+      },
+      "Condition": "",
+      "Action": "G.Velvet_Stairs = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 22,
+          "Text": {
+            "Male": "Lead the way.",
+            "Female": "Lead the way."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 31,
+      "Text": {
+        "Male": "You'd be missing out if it wasn't.",
+        "Female": "You'd be missing out if it wasn't."
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 33,
+          "Text": {
+            "Male": "Forget it. Why don't we just talk here?",
+            "Female": "Forget it. Why don't we just talk here?"
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Like = G.Velvet_Like -1",
+          "Link": 41,
+          "Responses": []
+        },
+        {
+          "Id": 34,
+          "Text": {
+            "Male": "Lead the way.",
+            "Female": "Lead the way."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Stairs = 1",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 41,
+      "Text": {
+        "Male": "I'm not going to force you to come upstairs with me - I've never had anyone refuse - I just thought we might have something in common, you and I. Well, you know where to find me if you change your mind.",
+        "Female": "I'm not going to force you to come upstairs with me - I've never had anyone refuse - I just thought we might have something in common, you and I. Well, you know where to find me if you change your mind."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Scorn = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 42,
+          "Text": {
+            "Male": "Oh, alright... let's talk.",
+            "Female": "Oh, alright... let's talk."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Stairs = 1",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 43,
+          "Text": {
+            "Male": "I won't.",
+            "Female": "I won't."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 51,
+      "Text": {
+        "Male": "Isn't this better? You and me, alone... for just a little while, away from Jyhad, and the nonsense, and the dangers... just the two of us... mmm. I don't want to spoil the moment, but there's a reason I needed to speak to you alone.",
+        "Female": "Isn't this better? You and me, alone... for just a little while, away from Jyhad, and the nonsense, and the dangers... just the two of us... mmm. I don't want to spoil the moment, but there's a reason I needed to speak to you alone."
+      },
+      "Condition": "npc.SetDisposition(\"Flirt\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 52,
+          "Text": {
+            "Male": "Let's just enjoy the moment a little longer.",
+            "Female": "Let's just enjoy the moment a little longer."
+          },
+          "Condition": "Seduction 5",
+          "Action": "G.Velvet_Like = G.Velvet_Like +1",
+          "Link": 61,
+          "Responses": []
+        },
+        {
+          "Id": 53,
+          "Text": {
+            "Male": "I knew there had to be a catch.",
+            "Female": "I knew there had to be a catch."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 81,
+          "Responses": []
+        },
+        {
+          "Id": 54,
+          "Text": {
+            "Male": "Let me guess, you want me to do something for you?",
+            "Female": "Let me guess, you want me to do something for you?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 81,
+          "Responses": []
+        },
+        {
+          "Id": 55,
+          "Text": {
+            "Male": "Just a wild guess, but you're a Toreador, aren't you?",
+            "Female": "Just a wild guess, but you're a Toreador, aren't you?"
+          },
+          "Condition": "not IsClan(pc,\"Toreador\")",
+          "Action": "",
+          "Link": 91,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 61,
+      "Text": {
+        "Male": "Hmm... let's.",
+        "Female": "Hmm... let's."
+      },
+      "Condition": "npc.SetDisposition(\"Flirt\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 62,
+          "Text": {
+            "Male": "Just a little longer.",
+            "Female": "Just a little longer."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Like = G.Velvet_Like +1",
+          "Link": 71,
+          "Responses": []
+        },
+        {
+          "Id": 63,
+          "Text": {
+            "Male": "So, what did you need to speak to me about?",
+            "Female": "So, what did you need to speak to me about?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 121,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 71,
+      "Text": {
+        "Male": "...",
+        "Female": "..."
+      },
+      "Condition": "npc.SetDisposition(\"Joy\", 1)",
+      "Action": "G.Velvet_Moment = G.Velvet_Moment +1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 72,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "G.Velvet_Moment == 3",
+          "Action": "",
+          "Link": 941,
+          "Responses": []
+        },
+        {
+          "Id": 73,
+          "Text": {
+            "Male": "Just a little longer.",
+            "Female": "Just a little longer."
+          },
+          "Condition": "G.Velvet_Moment < 3",
+          "Action": "",
+          "Link": 71,
+          "Responses": []
+        },
+        {
+          "Id": 74,
+          "Text": {
+            "Male": "So, what did you need to speak to me about?",
+            "Female": "So, what did you need to speak to me about?"
+          },
+          "Condition": "G.Velvet_Moment < 3",
+          "Action": "",
+          "Link": 121,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 81,
+      "Text": {
+        "Male": "Oh, I forget sometimes the two-faced nature of our blood. It's sad, really... the way we get conditioned so quickly, isn't it?",
+        "Female": "Oh, I forget sometimes the two-faced nature of our blood. It's sad, really... the way we get conditioned so quickly, isn't it?"
+      },
+      "Condition": "npc.SetDisposition(\"Sad\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 82,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 121,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 91,
+      "Text": {
+        "Male": "Oh yes. What gave me away?",
+        "Female": "Oh yes. What gave me away?"
+      },
+      "Condition": "npc.SetDisposition(\"Joy\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 92,
+          "Text": {
+            "Male": "Your beauty.",
+            "Female": "Your beauty."
+          },
+          "Condition": "Seduction 2",
+          "Action": "G.Velvet_Like = G.Velvet_Like +1",
+          "Link": 101,
+          "Responses": []
+        },
+        {
+          "Id": 93,
+          "Text": {
+            "Male": "Your histrionic attempt to be deep.",
+            "Female": "Your histrionic attempt to be deep."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Like = G.Velvet_Like -1",
+          "Link": 111,
+          "Responses": []
+        },
+        {
+          "Id": 94,
+          "Text": {
+            "Male": "Your passion.",
+            "Female": "Your passion."
+          },
+          "Condition": "Persuasion 2",
+          "Action": "G.Velvet_Like = G.Velvet_Like +1",
+          "Link": 101,
+          "Responses": []
+        },
+        {
+          "Id": 95,
+          "Text": {
+            "Male": "You're annoying the shit out of me.",
+            "Female": "You're annoying the shit out of me."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Like = G.Velvet_Like -1",
+          "Link": 111,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 101,
+      "Text": {
+        "Male": "Mmm.... How absolutely intoxicating for you to notice. I'm beginning to think bringing you up here was an even better idea than I thought.",
+        "Female": "Mmm.... How absolutely intoxicating for you to notice. I'm beginning to think bringing you up here was an even better idea than I thought."
+      },
+      "Condition": "npc.SetDisposition(\"Flirt\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 102,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 121,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 111,
+      "Text": {
+        "Male": "Yes, just like your clan not to get it. But let's put old grudges aside, I had to speak to you up here for a reason.",
+        "Female": "Yes, just like your clan not to get it. But let's put old grudges aside, I had to speak to you up here for a reason."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 112,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 121,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 121,
+      "Text": {
+        "Male": "The reason I asked you up here is because I, and the rest of the Hollywood Kindred, have been under surveillance lately by hunters. I didn't want you to say anything that might draw attention.",
+        "Female": "The reason I asked you up here is because I, and the rest of the Hollywood Kindred, have been under surveillance lately by hunters. I didn't want you to say anything that might draw attention."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 122,
+          "Text": {
+            "Male": "Are you sure that's the only reason?",
+            "Female": "Are you sure that's the only reason?"
+          },
+          "Condition": "Seduction 4 & not IsClan(pc,\"Malkavian\")",
+          "Action": "G.Velvet_Like = G.Velvet_Like +1",
+          "Link": 131,
+          "Responses": []
+        },
+        {
+          "Id": 123,
+          "Text": {
+            "Male": "I appreciate it.",
+            "Female": "I appreciate it."
+          },
+          "Condition": "not IsClan(pc,\"Malkavian\")",
+          "Action": "",
+          "Link": 141,
+          "Responses": []
+        },
+        {
+          "Id": 124,
+          "Text": {
+            "Male": "Me? Draw attention? Under the LOOMING SHADOW of WORMWOOD?!? Never.",
+            "Female": "Me? Draw attention? Under the LOOMING SHADOW of WORMWOOD?!? Never."
+          },
+          "Condition": "IsClan(pc,\"Malkavian\")",
+          "Action": "",
+          "Link": 911,
+          "Responses": []
+        },
+        {
+          "Id": 125,
+          "Text": {
+            "Male": "Hunters... they're just kine! Simple, fragile kine.",
+            "Female": "Hunters... they're just kine! Simple, fragile kine."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Like = G.Velvet_Like -1",
+          "Link": 151,
+          "Responses": []
+        },
+        {
+          "Id": 126,
+          "Text": {
+            "Male": "Right. Look, lady, I know you've got some ulterior motive - spill it.",
+            "Female": "Right. Look, lady, I know you've got some ulterior motive - spill it."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Like = G.Velvet_Like -1",
+          "Link": 161,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 131,
+      "Text": {
+        "Male": "[Seductively]Maybe not....",
+        "Female": "[Seductively]Maybe not...."
+      },
+      "Condition": "npc.SetDisposition(\"Flirt\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 132,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 171,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 141,
+      "Text": {
+        "Male": "Think nothing of it.",
+        "Female": "Think nothing of it."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 142,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 171,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 151,
+      "Text": {
+        "Male": "That may be so, but some kine are skilled beyond all our ability - some in the arts, some in murder. If they smell a corpse, they'll bury it.",
+        "Female": "That may be so, but some kine are skilled beyond all our ability - some in the arts, some in murder. If they smell a corpse, they'll bury it."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 152,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 171,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 161,
+      "Text": {
+        "Male": "Is it very difficult carrying that heavy weight of suspicion around your neck? Isn't it uncomfortable?",
+        "Female": "Is it very difficult carrying that heavy weight of suspicion around your neck? Isn't it uncomfortable?"
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 162,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 171,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 171,
+      "Text": {
+        "Male": "I'm Velvet -",
+        "Female": "I'm Velvet -"
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Know = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 172,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "G.Velvet_Like > 3",
+          "Action": "",
+          "Link": 181,
+          "Responses": []
+        },
+        {
+          "Id": 173,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "G.Velvet_Like < 4 and G.Velvet_Like > -1",
+          "Action": "",
+          "Link": 191,
+          "Responses": []
+        },
+        {
+          "Id": 174,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "G.Velvet_Like < 0",
+          "Action": "",
+          "Link": 201,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 181,
+      "Text": {
+        "Male": "Velour. But you can call me VV; I only let people I like call me that. Feel free to flaunt it.",
+        "Female": "Velour. But you can call me VV; I only let people I like call me that. Feel free to flaunt it."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Nickname = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 182,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 211,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 191,
+      "Text": {
+        "Male": "Velour. Call me Velvet.",
+        "Female": "Velour. Call me Velvet."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Name = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 192,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 211,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 201,
+      "Text": {
+        "Male": "Miss Velour will do.",
+        "Female": "Miss Velour will do."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Last = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 202,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 211,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 211,
+      "Text": {
+        "Male": "It's been months since I've seen anyone new in here. I was starting to take it personally. And who should finally walk in but a real celebrity. I've heard a lot about you. [playfully seductive]So, uh... wouldn't you like to know about me?",
+        "Female": "It's been months since I've seen anyone new in here. I was starting to take it personally. And who should finally walk in but a real celebrity. I've heard a lot about you. [playfully seductive]So, uh... wouldn't you like to know about me?"
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 214,
+          "Text": {
+            "Male": "You're already boring me to tears.",
+            "Female": "You're already boring me to tears."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Like = G.Velvet_Like -1",
+          "Link": 231,
+          "Responses": []
+        },
+        {
+          "Id": 215,
+          "Text": {
+            "Male": "Is this where you tell me you used to be a model, or a goddess?",
+            "Female": "Is this where you tell me you used to be a model, or a goddess?"
+          },
+          "Condition": "Seduction 5",
+          "Action": "G.Velvet_Like = G.Velvet_Like +1",
+          "Link": 221,
+          "Responses": []
+        },
+        {
+          "Id": 216,
+          "Text": {
+            "Male": "What should I ask?",
+            "Female": "What should I ask?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 241,
+          "Responses": []
+        },
+        {
+          "Id": 217,
+          "Text": {
+            "Male": "No. What's all this about hunters?",
+            "Female": "No. What's all this about hunters?"
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Like = G.Velvet_Like -1",
+          "Link": 251,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 221,
+      "Text": {
+        "Male": "[Quickly, Slyly]Flatterer. No, I'm just a dancer. Keep it up and maybe I'll give you your own very private show. [seductively]I can make your heart beat again.",
+        "Female": "[Quickly, Slyly]Flatterer. No, I'm just a dancer. Keep it up and maybe I'll give you your own very private show. [seductively]I can make your heart beat again."
+      },
+      "Condition": "npc.SetDisposition(\"Flirt\", 1)",
+      "Action": "G.Velvet_Dance = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 222,
+          "Text": {
+            "Male": "Tell me something else about yourself.",
+            "Female": "Tell me something else about yourself."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 241,
+          "Responses": []
+        },
+        {
+          "Id": 223,
+          "Text": {
+            "Male": "I bet you could. I'd like to know more.",
+            "Female": "I bet you could. I'd like to know more."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Like = G.Velvet_Like +1",
+          "Link": 241,
+          "Responses": []
+        },
+        {
+          "Id": 224,
+          "Text": {
+            "Male": "I doubt it. I know I'm a dead thing, you've obviously forgotten.",
+            "Female": "I doubt it. I know I'm a dead thing, you've obviously forgotten."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Like = G.Velvet_Like -2",
+          "Link": 231,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 231,
+      "Text": {
+        "Male": "The truth can be cruel, but that doesn't mean you have to be.",
+        "Female": "The truth can be cruel, but that doesn't mean you have to be."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 232,
+          "Text": {
+            "Male": "What were you saying about hunters before?",
+            "Female": "What were you saying about hunters before?"
+          },
+          "Condition": "G.Velvet_Hunter == 0",
+          "Action": "",
+          "Link": 251,
+          "Responses": []
+        },
+        {
+          "Id": 233,
+          "Text": {
+            "Male": "Sorry. Tell me more about yourself.",
+            "Female": "Sorry. Tell me more about yourself."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 241,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 241,
+      "Text": {
+        "Male": "I'm like a book: all you have to do is run your finger down my spine and crack me open to see what I'm about.",
+        "Female": "I'm like a book: all you have to do is run your finger down my spine and crack me open to see what I'm about."
+      },
+      "Condition": "npc.SetDisposition(\"Flirt\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 242,
+          "Text": {
+            "Male": "Tell me about your hunter problem... then we'll get fingers involved.",
+            "Female": "Tell me about your hunter problem... then we'll get fingers involved."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 251,
+          "Responses": []
+        },
+        {
+          "Id": 244,
+          "Text": {
+            "Male": "What were you saying about hunters before?",
+            "Female": "What were you saying about hunters before?"
+          },
+          "Condition": "G.Velvet_Hunter == 0",
+          "Action": "",
+          "Link": 251,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 251,
+      "Text": {
+        "Male": "Hunters... yes... they've been staking out Hollywood for several weeks. They've been in Ash's club, mine, a few others. I think they're whittling down their list of suspects. I'm a bit nervous. Until recently I had one right under my nose.",
+        "Female": "Hunters... yes... they've been staking out Hollywood for several weeks. They've been in Ash's club, mine, a few others. I think they're whittling down their list of suspects. I'm a bit nervous. Until recently I had one right under my nose."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Hunter = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 252,
+          "Text": {
+            "Male": "What do you mean?",
+            "Female": "What do you mean?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 261,
+          "Responses": []
+        },
+        {
+          "Id": 253,
+          "Text": {
+            "Male": "They're gone now, right?",
+            "Female": "They're gone now, right?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 261,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 261,
+      "Text": {
+        "Male": "For a few weeks, one of them was working here at Vesuvius, keeping an eye on the clientele. I found a weapon in her locker and I fired her. But she's still in Hollywood, watching my club... and me.",
+        "Female": "For a few weeks, one of them was working here at Vesuvius, keeping an eye on the clientele. I found a weapon in her locker and I fired her. But she's still in Hollywood, watching my club... and me."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Hunter = 2",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 262,
+          "Text": {
+            "Male": "Maybe I could take care of her.",
+            "Female": "Maybe I could take care of her."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 281,
+          "Responses": []
+        },
+        {
+          "Id": 263,
+          "Text": {
+            "Male": "Why don't you just kill her?",
+            "Female": "Why don't you just kill her?"
+          },
+          "Condition": "Humanity -5",
+          "Action": "",
+          "Link": 271,
+          "Responses": []
+        },
+        {
+          "Id": 264,
+          "Text": {
+            "Male": "It may be difficult to accept, but you may have to kill her.",
+            "Female": "It may be difficult to accept, but you may have to kill her."
+          },
+          "Condition": "Humanity 5",
+          "Action": "",
+          "Link": 271,
+          "Responses": []
+        },
+        {
+          "Id": 265,
+          "Text": {
+            "Male": "That's too bad. I had another question.",
+            "Female": "That's too bad. I had another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 266,
+          "Text": {
+            "Male": "Good luck with that. I have to go.",
+            "Female": "Good luck with that. I have to go."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 271,
+      "Text": {
+        "Male": "I've had to adjust a lot to this existence... and I've accepted that I may have to do just that. But I'm a suspect, and if she ends up dead and I'm seen, they'll either kill me, or chase me into obscurity, [histrionic]where I'll wither and die.",
+        "Female": "I've had to adjust a lot to this existence... and I've accepted that I may have to do just that. But I'm a suspect, and if she ends up dead and I'm seen, they'll either kill me, or chase me into obscurity, [histrionic]where I'll wither and die."
+      },
+      "Condition": "npc.SetDisposition(\"Sad\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 272,
+          "Text": {
+            "Male": "Maybe I could take care of her.",
+            "Female": "Maybe I could take care of her."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 281,
+          "Responses": []
+        },
+        {
+          "Id": 273,
+          "Text": {
+            "Male": "That's too bad. I had another question.",
+            "Female": "That's too bad. I had another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 274,
+          "Text": {
+            "Male": "Good luck with that. I have to go.",
+            "Female": "Good luck with that. I have to go."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 281,
+      "Text": {
+        "Male": "[Pause][Innocently, sweetly]Would you? ... I think it might be a little much to ask.",
+        "Female": "[Pause][Innocently, sweetly]Would you? ... I think it might be a little much to ask."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 282,
+          "Text": {
+            "Male": "Sure. It'd be a crime if anything happened to you.",
+            "Female": "Sure. It'd be a crime if anything happened to you."
+          },
+          "Condition": "Seduction 4",
+          "Action": "G.Velvet_Like = G.Velvet_Like +1",
+          "Link": 291,
+          "Responses": []
+        },
+        {
+          "Id": 283,
+          "Text": {
+            "Male": "Kill a hunter? You don't have to ask me twice.",
+            "Female": "Kill a hunter? You don't have to ask me twice."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 291,
+          "Responses": []
+        },
+        {
+          "Id": 284,
+          "Text": {
+            "Male": "Depends, what's it worth to you?",
+            "Female": "Depends, what's it worth to you?"
+          },
+          "Condition": "not IsClan(pc,\"Nosferatu\")",
+          "Action": "G.Velvet_Like = G.Velvet_Like -1",
+          "Link": 321,
+          "Responses": []
+        },
+        {
+          "Id": 285,
+          "Text": {
+            "Male": "You know what, it is. Let's discuss something else.",
+            "Female": "You know what, it is. Let's discuss something else."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 291,
+      "Text": {
+        "Male": "You'd really be willing to do this for me? I won't lie, it's going to be dangerous. But if you got rid of her, I'd be grateful... [Seductive]very, very grateful.",
+        "Female": "You'd really be willing to do this for me? I won't lie, it's going to be dangerous. But if you got rid of her, I'd be grateful... [Seductive]very, very grateful."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 292,
+          "Text": {
+            "Male": "What do I do?",
+            "Female": "What do I do?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 301,
+          "Responses": []
+        },
+        {
+          "Id": 293,
+          "Text": {
+            "Male": "I like the sound of that. Where is she?",
+            "Female": "I like the sound of that. Where is she?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 301,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 301,
+      "Text": {
+        "Male": "She works over at the Sin Bin now. Her hair's blonde - [quickly, snidely]on top, broken heart tattoo on the small of her back. Dances under the name Chastity... as if that wasn't a dead giveaway.",
+        "Female": "She works over at the Sin Bin now. Her hair's blonde - [quickly, snidely]on top, broken heart tattoo on the small of her back. Dances under the name Chastity... as if that wasn't a dead giveaway."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 302,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 311,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 311,
+      "Text": {
+        "Male": "I want you to understand: I don't want any innocents killed on my account. So if there are other dancers or patrons around, you'll have to lure them away from her. Do it as quietly as you can. No witnesses, please. And be careful using Disciplines around the hunter.",
+        "Female": "I want you to understand: I don't want any innocents killed on my account. So if there are other dancers or patrons around, you'll have to lure them away from her. Do it as quietly as you can. No witnesses, please. And be careful using Disciplines around the hunter."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Quest = 1; pc.SetQuest(\"Strip\",1)",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 313,
+          "Text": {
+            "Male": "I'm not promising anything. I had another question.",
+            "Female": "I'm not promising anything. I had another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 314,
+          "Text": {
+            "Male": "Before I go, I had another question.",
+            "Female": "Before I go, I had another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 315,
+          "Text": {
+            "Male": "I understand. I'll go take care of your problem.",
+            "Female": "I understand. I'll go take care of your problem."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 316,
+          "Text": {
+            "Male": "This won't take long. Be back in a minute.",
+            "Female": "This won't take long. Be back in a minute."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 321,
+      "Text": {
+        "Male": "I've got a girl, Misti... she's divine, and a willing blood doll for the right amount of money. I'll set her up for you, my treat.",
+        "Female": "I've got a girl, Misti... she's divine, and a willing blood doll for the right amount of money. I'll set her up for you, my treat."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Doll = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 322,
+          "Text": {
+            "Male": "Sounds good. What do you want me to do?",
+            "Female": "Sounds good. What do you want me to do?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 291,
+          "Responses": []
+        },
+        {
+          "Id": 323,
+          "Text": {
+            "Male": "Forget it. This sounds too risky. Let's discuss something else.",
+            "Female": "Forget it. This sounds too risky. Let's discuss something else."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Doll = 0",
+          "Link": 791,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 331,
+      "Text": {
+        "Male": "Hmm... if we'd never taken the paths we did in life, could we have grown fond of each other? A shame you had to take her life... but you've saved mine, and I won't forget that.",
+        "Female": "Hmm... if we'd never taken the paths we did in life, could we have grown fond of each other? A shame you had to take her life... but you've saved mine, and I won't forget that."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Like = G.Velvet_Like +2; G.Velvet_Quest = 2; pc.SetQuest(\"Strip\",3)",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 332,
+          "Text": {
+            "Male": "There will be others. You'll have to do the same.",
+            "Female": "There will be others. You'll have to do the same."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 341,
+          "Responses": []
+        },
+        {
+          "Id": 333,
+          "Text": {
+            "Male": "It's unfortunate it had to be this way.",
+            "Female": "It's unfortunate it had to be this way."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Like = G.Velvet_Like +1",
+          "Link": 351,
+          "Responses": []
+        },
+        {
+          "Id": 334,
+          "Text": {
+            "Male": "Just a human - and a hunter. I'd kill all of them if I could.",
+            "Female": "Just a human - and a hunter. I'd kill all of them if I could."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Like = G.Velvet_Like -1",
+          "Link": 361,
+          "Responses": []
+        },
+        {
+          "Id": 335,
+          "Text": {
+            "Male": "You Toreadors... I bet you think you're deep, huh?",
+            "Female": "You Toreadors... I bet you think you're deep, huh?"
+          },
+          "Condition": "not IsClan(pc,\"Toreador\")",
+          "Action": "G.Velvet_Like = G.Velvet_Like -1",
+          "Link": 371,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 341,
+      "Text": {
+        "Male": "Yes, I'm quite a compelling subject, I'm sure. Hopefully, though, I'll have some lovely young Kindred by my side to protect me.",
+        "Female": "Yes, I'm quite a compelling subject, I'm sure. Hopefully, though, I'll have some lovely young Kindred by my side to protect me."
+      },
+      "Condition": "npc.SetDisposition(\"Flirt\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 342,
+          "Text": {
+            "Male": "Maybe. I had another question.",
+            "Female": "Maybe. I had another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 343,
+          "Text": {
+            "Male": "Don't count on it.",
+            "Female": "Don't count on it."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 381,
+          "Responses": []
+        },
+        {
+          "Id": 344,
+          "Text": {
+            "Male": "You are, and you will.",
+            "Female": "You are, and you will."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 391,
+          "Responses": []
+        },
+        {
+          "Id": 345,
+          "Text": {
+            "Male": "Now that that's done, there's somewhere else I've got to be.",
+            "Female": "Now that that's done, there's somewhere else I've got to be."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 351,
+      "Text": {
+        "Male": "Yes... but through this ordeal I've gained an enticing new ally... and I'm beginning to think it was fate.",
+        "Female": "Yes... but through this ordeal I've gained an enticing new ally... and I'm beginning to think it was fate."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 352,
+          "Text": {
+            "Male": "Maybe. I had another question.",
+            "Female": "Maybe. I had another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 353,
+          "Text": {
+            "Male": "Don't count on it.",
+            "Female": "Don't count on it."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 381,
+          "Responses": []
+        },
+        {
+          "Id": 354,
+          "Text": {
+            "Male": "Me too.",
+            "Female": "Me too."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 391,
+          "Responses": []
+        },
+        {
+          "Id": 355,
+          "Text": {
+            "Male": "Now that that's done, there's somewhere else I've got to be.",
+            "Female": "Now that that's done, there's somewhere else I've got to be."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 361,
+      "Text": {
+        "Male": "Why? Are you afraid? Are you jealous of the life you lost? You're as dead as you feel, darling.",
+        "Female": "Why? Are you afraid? Are you jealous of the life you lost? You're as dead as you feel, darling."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 362,
+          "Text": {
+            "Male": "Maybe. I had another question.",
+            "Female": "Maybe. I had another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 363,
+          "Text": {
+            "Male": "And you're as dumb as you look.",
+            "Female": "And you're as dumb as you look."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 381,
+          "Responses": []
+        },
+        {
+          "Id": 364,
+          "Text": {
+            "Male": "I'm starting to feel more alive, with you.",
+            "Female": "I'm starting to feel more alive, with you."
+          },
+          "Condition": "Persuasion 5",
+          "Action": "",
+          "Link": 391,
+          "Responses": []
+        },
+        {
+          "Id": 365,
+          "Text": {
+            "Male": "Now that that's done, there's somewhere else I've got to be.",
+            "Female": "Now that that's done, there's somewhere else I've got to be."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 371,
+      "Text": {
+        "Male": "Were you trying to be witty or profound? I couldn't tell.",
+        "Female": "Were you trying to be witty or profound? I couldn't tell."
+      },
+      "Condition": "npc.SetDisposition(\"Apathy\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 372,
+          "Text": {
+            "Male": "Maybe. I had another question.",
+            "Female": "Maybe. I had another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 373,
+          "Text": {
+            "Male": "That's because you're a vainglorious dingbat.",
+            "Female": "That's because you're a vainglorious dingbat."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 381,
+          "Responses": []
+        },
+        {
+          "Id": 374,
+          "Text": {
+            "Male": "I'm sorry, what did you say? I got lost in your beauty for a second.",
+            "Female": "I'm sorry, what did you say? I got lost in your beauty for a second."
+          },
+          "Condition": "Persuasion 5",
+          "Action": "",
+          "Link": 391,
+          "Responses": []
+        },
+        {
+          "Id": 375,
+          "Text": {
+            "Male": "Now that that's done, there's somewhere else I've got to be.",
+            "Female": "Now that that's done, there's somewhere else I've got to be."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 381,
+      "Text": {
+        "Male": "If you can't appreciate just how generous the gift of my presence is, maybe you should spend your time indulging in something more suited to your tastes... like a carnival, or perhaps a rodeo or something.",
+        "Female": "If you can't appreciate just how generous the gift of my presence is, maybe you should spend your time indulging in something more suited to your tastes... like a carnival, or perhaps a rodeo or something."
+      },
+      "Condition": "npc.SetDisposition(\"Apathy\", 1)",
+      "Action": "G.Velvet_Like = G.Velvet_Like -2",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 382,
+          "Text": {
+            "Male": "Wait....",
+            "Female": "Wait...."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 383,
+          "Text": {
+            "Male": "Bitch!",
+            "Female": "Bitch!"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 384,
+          "Text": {
+            "Male": "It's starting to stink in here, think I'll do that.",
+            "Female": "It's starting to stink in here, think I'll do that."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 391,
+      "Text": {
+        "Male": "Mmm.... You're just saying what I want to hear. Don't stop.",
+        "Female": "Mmm.... You're just saying what I want to hear. Don't stop."
+      },
+      "Condition": "npc.SetDisposition(\"Flirt\", 1)",
+      "Action": "G.Velvet_Like = G.Velvet_Like +2",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 392,
+          "Text": {
+            "Male": "I don't have time for this. I had a question.",
+            "Female": "I don't have time for this. I had a question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 393,
+          "Text": {
+            "Male": "Don't worry, I won't. I had a question.",
+            "Female": "Don't worry, I won't. I had a question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 394,
+          "Text": {
+            "Male": "I'd like to, all night, but I'm afraid I have to go.",
+            "Female": "I'd like to, all night, but I'm afraid I have to go."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 395,
+          "Text": {
+            "Male": "I've said enough. I have to get going.",
+            "Female": "I've said enough. I have to get going."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 401,
+      "Text": {
+        "Male": "Look who's back....",
+        "Female": "Look who's back...."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 402,
+          "Text": {
+            "Male": "VV.",
+            "Female": "VV."
+          },
+          "Condition": "G.Velvet_Like >= 3",
+          "Action": "",
+          "Link": 411,
+          "Responses": []
+        },
+        {
+          "Id": 403,
+          "Text": {
+            "Male": "VV.",
+            "Female": "VV."
+          },
+          "Condition": "G.Velvet_Like < 3 and G.Velvet_Like > -1",
+          "Action": "",
+          "Link": 431,
+          "Responses": []
+        },
+        {
+          "Id": 404,
+          "Text": {
+            "Male": "VV.",
+            "Female": "VV."
+          },
+          "Condition": "G.Velvet_Like < 0",
+          "Action": "",
+          "Link": 451,
+          "Responses": []
+        },
+        {
+          "Id": 405,
+          "Text": {
+            "Male": "Velvet.",
+            "Female": "Velvet."
+          },
+          "Condition": "G.Velvet_Like >= 3",
+          "Action": "",
+          "Link": 421,
+          "Responses": []
+        },
+        {
+          "Id": 406,
+          "Text": {
+            "Male": "Velvet.",
+            "Female": "Velvet."
+          },
+          "Condition": "G.Velvet_Like < 3 and G.Velvet_Like > -1",
+          "Action": "",
+          "Link": 411,
+          "Responses": []
+        },
+        {
+          "Id": 407,
+          "Text": {
+            "Male": "Velvet.",
+            "Female": "Velvet."
+          },
+          "Condition": "G.Velvet_Like < 0",
+          "Action": "",
+          "Link": 451,
+          "Responses": []
+        },
+        {
+          "Id": 408,
+          "Text": {
+            "Male": "Miss Velour.",
+            "Female": "Miss Velour."
+          },
+          "Condition": "G.Velvet_Like >= 3",
+          "Action": "",
+          "Link": 421,
+          "Responses": []
+        },
+        {
+          "Id": 409,
+          "Text": {
+            "Male": "Miss Velour.",
+            "Female": "Miss Velour."
+          },
+          "Condition": "G.Velvet_Like < 3 and G.Velvet_Like > -1",
+          "Action": "",
+          "Link": 441,
+          "Responses": []
+        },
+        {
+          "Id": 410,
+          "Text": {
+            "Male": "Miss Velour.",
+            "Female": "Miss Velour."
+          },
+          "Condition": "G.Velvet_Like < 0",
+          "Action": "",
+          "Link": 461,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 411,
+      "Text": {
+        "Male": "Couldn't stay away, could you?",
+        "Female": "Couldn't stay away, could you?"
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 412,
+          "Text": {
+            "Male": "About that hunter...",
+            "Female": "About that hunter..."
+          },
+          "Condition": "G.Velvet_Hunter > 1 and G.Velvet_Quest < 2",
+          "Action": "",
+          "Link": 621,
+          "Responses": []
+        },
+        {
+          "Id": 413,
+          "Text": {
+            "Male": "About Hatter...",
+            "Female": "About Hatter..."
+          },
+          "Condition": "G.Velvet_Quest == 3",
+          "Action": "",
+          "Link": 881,
+          "Responses": []
+        },
+        {
+          "Id": 414,
+          "Text": {
+            "Male": "I had some questions.",
+            "Female": "I had some questions."
+          },
+          "Condition": "G.Velvet_Dancer == 0 or G.Velvet_Real == 0 or G.Velvet_Origin == 0 or G.Velvet_Snuff == 0 or G.Velvet_Hollywood == 0 or G.Velvet_Ash == 0 or G.Velvet_Isaac == 0",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 415,
+          "Text": {
+            "Male": "Unfortunately, I have to... I'll be back.",
+            "Female": "Unfortunately, I have to... I'll be back."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 416,
+          "Text": {
+            "Male": "I can. Watch me walk out.",
+            "Female": "I can. Watch me walk out."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 421,
+      "Text": {
+        "Male": "[elegantly seductive]Please, call me VV.",
+        "Female": "[elegantly seductive]Please, call me VV."
+      },
+      "Condition": "npc.SetDisposition(\"Flirt\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 422,
+          "Text": {
+            "Male": "About that hunter...",
+            "Female": "About that hunter..."
+          },
+          "Condition": "G.Velvet_Hunter > 1 and G.Velvet_Quest < 2",
+          "Action": "",
+          "Link": 621,
+          "Responses": []
+        },
+        {
+          "Id": 423,
+          "Text": {
+            "Male": "About Hatter...",
+            "Female": "About Hatter..."
+          },
+          "Condition": "G.Velvet_Quest == 3",
+          "Action": "",
+          "Link": 881,
+          "Responses": []
+        },
+        {
+          "Id": 424,
+          "Text": {
+            "Male": "I had some questions.",
+            "Female": "I had some questions."
+          },
+          "Condition": "G.Velvet_Dancer == 0 or G.Velvet_Real == 0 or G.Velvet_Origin == 0 or G.Velvet_Snuff == 0 or G.Velvet_Hollywood == 0 or G.Velvet_Ash == 0 or G.Velvet_Isaac == 0",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 425,
+          "Text": {
+            "Male": "Unfortunately, I have to go. I'll be back.",
+            "Female": "Unfortunately, I have to go. I'll be back."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 426,
+          "Text": {
+            "Male": "Maybe later. I'm out of here.",
+            "Female": "Maybe later. I'm out of here."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 431,
+      "Text": {
+        "Male": "My friends call me VV, Velvet will do.",
+        "Female": "My friends call me VV, Velvet will do."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 432,
+          "Text": {
+            "Male": "About that hunter...",
+            "Female": "About that hunter..."
+          },
+          "Condition": "G.Velvet_Hunter > 1 and G.Velvet_Quest < 2",
+          "Action": "",
+          "Link": 621,
+          "Responses": []
+        },
+        {
+          "Id": 433,
+          "Text": {
+            "Male": "About Hatter...",
+            "Female": "About Hatter..."
+          },
+          "Condition": "G.Velvet_Quest == 3",
+          "Action": "",
+          "Link": 881,
+          "Responses": []
+        },
+        {
+          "Id": 434,
+          "Text": {
+            "Male": "I had some questions.",
+            "Female": "I had some questions."
+          },
+          "Condition": "G.Velvet_Dancer == 0 or G.Velvet_Real == 0 or G.Velvet_Origin == 0 or G.Velvet_Snuff == 0 or G.Velvet_Hollywood == 0 or G.Velvet_Ash == 0 or G.Velvet_Isaac == 0",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 435,
+          "Text": {
+            "Male": "Unfortunately, I have to go. I'll be back.",
+            "Female": "Unfortunately, I have to go. I'll be back."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 436,
+          "Text": {
+            "Male": "Velvet, I'm out of here.",
+            "Female": "Velvet, I'm out of here."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 441,
+      "Text": {
+        "Male": "Velvet will do nicely.",
+        "Female": "Velvet will do nicely."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 442,
+          "Text": {
+            "Male": "About that hunter...",
+            "Female": "About that hunter..."
+          },
+          "Condition": "G.Velvet_Hunter > 1 and G.Velvet_Quest < 2",
+          "Action": "",
+          "Link": 621,
+          "Responses": []
+        },
+        {
+          "Id": 443,
+          "Text": {
+            "Male": "About Hatter...",
+            "Female": "About Hatter..."
+          },
+          "Condition": "G.Velvet_Quest == 3",
+          "Action": "",
+          "Link": 881,
+          "Responses": []
+        },
+        {
+          "Id": 444,
+          "Text": {
+            "Male": "I had some questions.",
+            "Female": "I had some questions."
+          },
+          "Condition": "G.Velvet_Dancer == 0 or G.Velvet_Real == 0 or G.Velvet_Origin == 0 or G.Velvet_Snuff == 0 or G.Velvet_Hollywood == 0 or G.Velvet_Ash == 0 or G.Velvet_Isaac == 0",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 445,
+          "Text": {
+            "Male": "Unfortunately, I have to go. I'll be back.",
+            "Female": "Unfortunately, I have to go. I'll be back."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 446,
+          "Text": {
+            "Male": "Velvet, I'm out of here.",
+            "Female": "Velvet, I'm out of here."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 451,
+      "Text": {
+        "Male": "[Offended]That's Miss Velour to you.",
+        "Female": "[Offended]That's Miss Velour to you."
+      },
+      "Condition": "npc.SetDisposition(\"Anger\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 452,
+          "Text": {
+            "Male": "About that hunter...",
+            "Female": "About that hunter..."
+          },
+          "Condition": "G.Velvet_Hunter > 1 and G.Velvet_Quest < 2",
+          "Action": "",
+          "Link": 621,
+          "Responses": []
+        },
+        {
+          "Id": 453,
+          "Text": {
+            "Male": "About Hatter...",
+            "Female": "About Hatter..."
+          },
+          "Condition": "G.Velvet_Quest == 3",
+          "Action": "",
+          "Link": 881,
+          "Responses": []
+        },
+        {
+          "Id": 454,
+          "Text": {
+            "Male": "I had some questions.",
+            "Female": "I had some questions."
+          },
+          "Condition": "G.Velvet_Dancer == 0 or G.Velvet_Real == 0 or G.Velvet_Origin == 0 or G.Velvet_Snuff == 0 or G.Velvet_Hollywood == 0 or G.Velvet_Ash == 0 or G.Velvet_Isaac == 0",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 455,
+          "Text": {
+            "Male": "Unfortunately, I have to go. I'll be back.",
+            "Female": "Unfortunately, I have to go. I'll be back."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 456,
+          "Text": {
+            "Male": "How about \"bitch\"? I don't need this shit, I'm out of here.",
+            "Female": "How about \"bitch\"? I don't need this shit, I'm out of here."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 461,
+      "Text": {
+        "Male": "[Arrogant, bothered]Yesss...?",
+        "Female": "[Arrogant, bothered]Yesss...?"
+      },
+      "Condition": "npc.SetDisposition(\"Anger\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 462,
+          "Text": {
+            "Male": "About that hunter...",
+            "Female": "About that hunter..."
+          },
+          "Condition": "G.Velvet_Hunter > 1 and G.Velvet_Quest < 2",
+          "Action": "",
+          "Link": 621,
+          "Responses": []
+        },
+        {
+          "Id": 463,
+          "Text": {
+            "Male": "About Hatter...",
+            "Female": "About Hatter..."
+          },
+          "Condition": "G.Velvet_Quest == 3",
+          "Action": "",
+          "Link": 881,
+          "Responses": []
+        },
+        {
+          "Id": 464,
+          "Text": {
+            "Male": "I had some questions.",
+            "Female": "I had some questions."
+          },
+          "Condition": "G.Velvet_Dancer == 0 or G.Velvet_Real == 0 or G.Velvet_Origin == 0 or G.Velvet_Snuff == 0 or G.Velvet_Hollywood == 0 or G.Velvet_Ash == 0 or G.Velvet_Isaac == 0",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 465,
+          "Text": {
+            "Male": "No. I'll be back.",
+            "Female": "No. I'll be back."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 466,
+          "Text": {
+            "Male": "I don't need this shit, I'm out of here.",
+            "Female": "I don't need this shit, I'm out of here."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 471,
+      "Text": {
+        "Male": "Poor, poor David Hatter.",
+        "Female": "Poor, poor David Hatter."
+      },
+      "Condition": "npc.SetDisposition(\"Sad\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 472,
+          "Text": {
+            "Male": "Who?",
+            "Female": "Who?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 481,
+          "Responses": []
+        },
+        {
+          "Id": 473,
+          "Text": {
+            "Male": "That one of your \"boyfriends\"?",
+            "Female": "That one of your \"boyfriends\"?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 481,
+          "Responses": []
+        },
+        {
+          "Id": 474,
+          "Text": {
+            "Male": "That the guy who created Cop Rock?",
+            "Female": "That the guy who created Cop Rock?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 481,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 481,
+      "Text": {
+        "Male": "David Hatter's an aspiring screenwriter and hotel manager. He comes in more often than he would admit - several years now. Poor dear just can't get a break. I overheard him talking about his new screenplay with one of my girls.",
+        "Female": "David Hatter's an aspiring screenwriter and hotel manager. He comes in more often than he would admit - several years now. Poor dear just can't get a break. I overheard him talking about his new screenplay with one of my girls."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 482,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 491,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 491,
+      "Text": {
+        "Male": "It was about secret societies and creatures that found themselves dealing with inner beasts and persecution by elder monsters... sound reminiscent of something to you?",
+        "Female": "It was about secret societies and creatures that found themselves dealing with inner beasts and persecution by elder monsters... sound reminiscent of something to you?"
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 492,
+          "Text": {
+            "Male": "That sounds a lot like this guy I just wasted at the Luckee Star.",
+            "Female": "That sounds a lot like this guy I just wasted at the Luckee Star."
+          },
+          "Condition": "IsDead(\"DHatter\")",
+          "Action": "",
+          "Link": 701,
+          "Responses": []
+        },
+        {
+          "Id": 493,
+          "Text": {
+            "Male": "He's writing a movie about the Bush administration?",
+            "Female": "He's writing a movie about the Bush administration?"
+          },
+          "Condition": "not IsDead(\"DHatter\") and not IsClan(pc,\"Malkavian\")",
+          "Action": "",
+          "Link": 501,
+          "Responses": []
+        },
+        {
+          "Id": 494,
+          "Text": {
+            "Male": "They're making another Share Bears movie?",
+            "Female": "They're making another Share Bears movie?"
+          },
+          "Condition": "not IsDead(\"DHatter\") and not IsClan(pc,\"Malkavian\")",
+          "Action": "",
+          "Link": 501,
+          "Responses": []
+        },
+        {
+          "Id": 495,
+          "Text": {
+            "Male": "A movie about the game industry? He stole my idea!",
+            "Female": "A movie about the game industry? He stole my idea!"
+          },
+          "Condition": "not IsDead(\"DHatter\")",
+          "Action": "",
+          "Link": 501,
+          "Responses": []
+        },
+        {
+          "Id": 496,
+          "Text": {
+            "Male": "Oh... he's writing about Kindred.",
+            "Female": "Oh... he's writing about Kindred."
+          },
+          "Condition": "not IsDead(\"DHatter\")",
+          "Action": "",
+          "Link": 511,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 501,
+      "Text": {
+        "Male": "No... it's about Kindred.",
+        "Female": "No... it's about Kindred."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 502,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 521,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 511,
+      "Text": {
+        "Male": "Yes.",
+        "Female": "Yes."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 512,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 521,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 521,
+      "Text": {
+        "Male": "The details of his story were too insightful to be coincidental. I think someone's working with David - a Kindred who doesn't realize the consequences of their actions. Do you know what the penalty for revealing ourselves to kine is?",
+        "Female": "The details of his story were too insightful to be coincidental. I think someone's working with David - a Kindred who doesn't realize the consequences of their actions. Do you know what the penalty for revealing ourselves to kine is?"
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 522,
+          "Text": {
+            "Male": "A sound beating?",
+            "Female": "A sound beating?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 531,
+          "Responses": []
+        },
+        {
+          "Id": 523,
+          "Text": {
+            "Male": "Death?",
+            "Female": "Death?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 531,
+          "Responses": []
+        },
+        {
+          "Id": 524,
+          "Text": {
+            "Male": "A $150 fine?",
+            "Female": "A $150 fine?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 531,
+          "Responses": []
+        },
+        {
+          "Id": 525,
+          "Text": {
+            "Male": "No Xmas bonus?",
+            "Female": "No Xmas bonus?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 531,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 531,
+      "Text": {
+        "Male": "Death. I'm afraid poor David's big break, the screenplay he's worked so hard on, must be destroyed, and his less than silent partner must be... executed. I know David too well - I'm very fond of David - and I'm too close to do what needs to be done.",
+        "Female": "Death. I'm afraid poor David's big break, the screenplay he's worked so hard on, must be destroyed, and his less than silent partner must be... executed. I know David too well - I'm very fond of David - and I'm too close to do what needs to be done."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Hatter = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 532,
+          "Text": {
+            "Male": "So you want me to kill Hatter?",
+            "Female": "So you want me to kill Hatter?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 541,
+          "Responses": []
+        },
+        {
+          "Id": 533,
+          "Text": {
+            "Male": "You want me to kill Hatter and his source, right?",
+            "Female": "You want me to kill Hatter and his source, right?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 541,
+          "Responses": []
+        },
+        {
+          "Id": 534,
+          "Text": {
+            "Male": "You're asking me to destroy Hatter's screenplay?",
+            "Female": "You're asking me to destroy Hatter's screenplay?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 551,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 541,
+      "Text": {
+        "Male": "[Horrified at a suggestion]NO!",
+        "Female": "[Horrified at a suggestion]NO!"
+      },
+      "Condition": "npc.SetDisposition(\"Fear\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 542,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 551,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 551,
+      "Text": {
+        "Male": "I don't think Hatter knows his collaborator is Kindred. You'll have to take David's screenplay... and somehow, you'll have to coax the name of his source out of him. Once you've found out who... [has a hard time saying it]kill... the traitor - [like a protective mother]but DO NOT touch David.",
+        "Female": "I don't think Hatter knows his collaborator is Kindred. You'll have to take David's screenplay... and somehow, you'll have to coax the name of his source out of him. Once you've found out who... [has a hard time saying it]kill... the traitor - [like a protective mother]but DO NOT touch David."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Hatter = 2",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 552,
+          "Text": {
+            "Male": "Wait. You want me to kill... again? No, uh-uh.",
+            "Female": "Wait. You want me to kill... again? No, uh-uh."
+          },
+          "Condition": "Humanity 5",
+          "Action": "",
+          "Link": 561,
+          "Responses": []
+        },
+        {
+          "Id": 553,
+          "Text": {
+            "Male": "Sounds pretty serious. I'll straighten things out.",
+            "Female": "Sounds pretty serious. I'll straighten things out."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 591,
+          "Responses": []
+        },
+        {
+          "Id": 554,
+          "Text": {
+            "Male": "This sounds like a problem you're trying to pawn off on me.",
+            "Female": "This sounds like a problem you're trying to pawn off on me."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 571,
+          "Responses": []
+        },
+        {
+          "Id": 555,
+          "Text": {
+            "Male": "Can't I just kill Hatter?",
+            "Female": "Can't I just kill Hatter?"
+          },
+          "Condition": "Humanity -5",
+          "Action": "",
+          "Link": 581,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 561,
+      "Text": {
+        "Male": "It's not my law. Telling humans about the Masquerade is against the laws of every faction of Kindred society. There are many that are aware of us as it is. If more become suspicious... it could mean our extinction.",
+        "Female": "It's not my law. Telling humans about the Masquerade is against the laws of every faction of Kindred society. There are many that are aware of us as it is. If more become suspicious... it could mean our extinction."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 562,
+          "Text": {
+            "Male": "Good point. Yeah, okay, I'll find the Kindred traitor and kill them.",
+            "Female": "Good point. Yeah, okay, I'll find the Kindred traitor and kill them."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 591,
+          "Responses": []
+        },
+        {
+          "Id": 563,
+          "Text": {
+            "Male": "I'll find the name of David's source, but you'll have to kill him yourself.",
+            "Female": "I'll find the name of David's source, but you'll have to kill him yourself."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 601,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 571,
+      "Text": {
+        "Male": "David's such an endearing and creative fellow. If I did this personally, I'm sure he'd never speak to me again... and that would just break my heart.",
+        "Female": "David's such an endearing and creative fellow. If I did this personally, I'm sure he'd never speak to me again... and that would just break my heart."
+      },
+      "Condition": "npc.SetDisposition(\"Sad\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 572,
+          "Text": {
+            "Male": "Fine. I'll do it.",
+            "Female": "Fine. I'll do it."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 591,
+          "Responses": []
+        },
+        {
+          "Id": 573,
+          "Text": {
+            "Male": "Aw, poor Velvet. Just do it yourself. I'm out of here.",
+            "Female": "Aw, poor Velvet. Just do it yourself. I'm out of here."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 581,
+      "Text": {
+        "Male": "If you so much as touch a hair on David's precious, creative head, I will never speak to you again.",
+        "Female": "If you so much as touch a hair on David's precious, creative head, I will never speak to you again."
+      },
+      "Condition": "npc.SetDisposition(\"Anger\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 582,
+          "Text": {
+            "Male": "I was just throwing it out there. I'll do it your way.",
+            "Female": "I was just throwing it out there. I'll do it your way."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 591,
+          "Responses": []
+        },
+        {
+          "Id": 583,
+          "Text": {
+            "Male": "If murder's not on the menu, I'm not ordering anything. Bye.",
+            "Female": "If murder's not on the menu, I'm not ordering anything. Bye."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 591,
+      "Text": {
+        "Male": "David works at the Luckee Star motel. He's very passionate about his writing - he loves to talk about his craft - I'm sure he'll talk about his screenplay. It may take some persuasion to get him to give up his collaborator's name, however.",
+        "Female": "David works at the Luckee Star motel. He's very passionate about his writing - he loves to talk about his craft - I'm sure he'll talk about his screenplay. It may take some persuasion to get him to give up his collaborator's name, however."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Quest = 3; pc.SetQuest(\"Writer\",1)",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 592,
+          "Text": {
+            "Male": "Leave it to me.",
+            "Female": "Leave it to me."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 611,
+          "Responses": []
+        },
+        {
+          "Id": 593,
+          "Text": {
+            "Male": "Sounds good for a couple of laughs.",
+            "Female": "Sounds good for a couple of laughs."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 611,
+          "Responses": []
+        },
+        {
+          "Id": 594,
+          "Text": {
+            "Male": "The thing that attracted me the most was the promise of murder.",
+            "Female": "The thing that attracted me the most was the promise of murder."
+          },
+          "Condition": "not IsClan(pc,\"Malkavian\")",
+          "Action": "",
+          "Link": 611,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 601,
+      "Text": {
+        "Male": "[Droops her head and nods slowly in agreement]If it has to be that way....",
+        "Female": "[Droops her head and nods slowly in agreement]If it has to be that way...."
+      },
+      "Condition": "npc.SetDisposition(\"Sad\", 1)",
+      "Action": "G.Velvet_Pacifist = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 602,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 591,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 611,
+      "Text": {
+        "Male": "After this is over, I promise you'll have my complete attention.",
+        "Female": "After this is over, I promise you'll have my complete attention."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 612,
+          "Text": {
+            "Male": "Before I go, I had a few questions.",
+            "Female": "Before I go, I had a few questions."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 613,
+          "Text": {
+            "Male": "I'll come back with David's screenplay.",
+            "Female": "I'll come back with David's screenplay."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 614,
+          "Text": {
+            "Male": "Soon as I'm done, I'll be back.",
+            "Female": "Soon as I'm done, I'll be back."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 621,
+      "Text": {
+        "Male": "Mmm-hmm...?",
+        "Female": "Mmm-hmm...?"
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 622,
+          "Text": {
+            "Male": "You were saying about hunters...?",
+            "Female": "You were saying about hunters...?"
+          },
+          "Condition": "G.Velvet_Hunter == 1",
+          "Action": "",
+          "Link": 261,
+          "Responses": []
+        },
+        {
+          "Id": 623,
+          "Text": {
+            "Male": "If that hunter's still a problem, I'll kill her.",
+            "Female": "If that hunter's still a problem, I'll kill her."
+          },
+          "Condition": "G.Velvet_Hunter == 2 and G.Velvet_Quest < 1",
+          "Action": "",
+          "Link": 281,
+          "Responses": []
+        },
+        {
+          "Id": 624,
+          "Text": {
+            "Male": "That hunter's dead.",
+            "Female": "That hunter's dead."
+          },
+          "Condition": "G.Chastity_Dead == 1 and G.Sin_Innocent == 0 and G.Sin_Sound == 0",
+          "Action": "",
+          "Link": 331,
+          "Responses": []
+        },
+        {
+          "Id": 625,
+          "Text": {
+            "Male": "That hunter's dead.",
+            "Female": "That hunter's dead."
+          },
+          "Condition": "G.Chastity_Dead == 1 and G.Sin_Innocent == 1",
+          "Action": "",
+          "Link": 631,
+          "Responses": []
+        },
+        {
+          "Id": 626,
+          "Text": {
+            "Male": "That hunter's dead.",
+            "Female": "That hunter's dead."
+          },
+          "Condition": "G.Chastity_Dead == 1 and G.Sin_Innocent == 0 and G.Sin_Sound == 1",
+          "Action": "",
+          "Link": 891,
+          "Responses": []
+        },
+        {
+          "Id": 627,
+          "Text": {
+            "Male": "I'm still looking into it. I had another question.",
+            "Female": "I'm still looking into it. I had another question."
+          },
+          "Condition": "G.Velvet_Dancer == 0 or G.Velvet_Real == 0 or G.Velvet_Origin == 0 or G.Velvet_Snuff == 0 or G.Velvet_Hollywood == 0 or G.Velvet_Ash == 0 or G.Velvet_Isaac == 0",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 628,
+          "Text": {
+            "Male": "I'm still looking into it. I've got to go.",
+            "Female": "I'm still looking into it. I've got to go."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 631,
+      "Text": {
+        "Male": "[Pause][Despondent, sad]I asked you not to kill anyone else. You may be able to wash that blood off your hands easily, but my conscience will soak in it. [disappointed]Have you already forgotten your Humanity? Because I haven't.",
+        "Female": "[Pause][Despondent, sad]I asked you not to kill anyone else. You may be able to wash that blood off your hands easily, but my conscience will soak in it. [disappointed]Have you already forgotten your Humanity? Because I haven't."
+      },
+      "Condition": "npc.SetDisposition(\"Sad\", 1)",
+      "Action": "G.Velvet_Like = G.Velvet_Like -3; G.Velvet_Quest = 2; pc.SetQuest(\"Strip\",3)",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 632,
+          "Text": {
+            "Male": "I'm sorry. It was an accident.",
+            "Female": "I'm sorry. It was an accident."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 641,
+          "Responses": []
+        },
+        {
+          "Id": 633,
+          "Text": {
+            "Male": "So a few kine got in the way. You're okay - that's what matters.",
+            "Female": "So a few kine got in the way. You're okay - that's what matters."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 651,
+          "Responses": []
+        },
+        {
+          "Id": 635,
+          "Text": {
+            "Male": "I don't have to listen to this - don't ask me for any more favors.",
+            "Female": "I don't have to listen to this - don't ask me for any more favors."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Pissed = 1",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 641,
+      "Text": {
+        "Male": "It was a tragedy. Loss of life is a tragedy, not an accident.",
+        "Female": "It was a tragedy. Loss of life is a tragedy, not an accident."
+      },
+      "Condition": "npc.SetDisposition(\"Sad\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 642,
+          "Text": {
+            "Male": "Truly, I'm sorry. I had another question.",
+            "Female": "Truly, I'm sorry. I had another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 643,
+          "Text": {
+            "Male": "So a few kine got in the way. You're okay - that's what matters.",
+            "Female": "So a few kine got in the way. You're okay - that's what matters."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 651,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 651,
+      "Text": {
+        "Male": "Collateral damage, expendable losses, acceptable casualties... disgusting euphemisms. Hunters are soldiers - they know they're at war - but the kine... their lives have been wonderful - but now they're gone.",
+        "Female": "Collateral damage, expendable losses, acceptable casualties... disgusting euphemisms. Hunters are soldiers - they know they're at war - but the kine... their lives have been wonderful - but now they're gone."
+      },
+      "Condition": "npc.SetDisposition(\"Sad\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 652,
+          "Text": {
+            "Male": "Truly, I'm sorry. I had another question.",
+            "Female": "Truly, I'm sorry. I had another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 653,
+          "Text": {
+            "Male": "I'm pretty sure they were all miserable bastards. I had a question.",
+            "Female": "I'm pretty sure they were all miserable bastards. I had a question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 654,
+          "Text": {
+            "Male": "I'm sure you'd like me to leave. I'll come back later.",
+            "Female": "I'm sure you'd like me to leave. I'll come back later."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 655,
+          "Text": {
+            "Male": "I don't have to listen to this - don't ask me for any more favors.",
+            "Female": "I don't have to listen to this - don't ask me for any more favors."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Pissed = 1",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 661,
+      "Text": {
+        "Male": "Oh... I suppose I should just tear it up. But... I just - I can't. I can't rip up the product of that man's soul. Here, would you...? Tear it up for me?",
+        "Female": "Oh... I suppose I should just tear it up. But... I just - I can't. I can't rip up the product of that man's soul. Here, would you...? Tear it up for me?"
+      },
+      "Condition": "npc.SetDisposition(\"Sad\", 1)",
+      "Action": "G.Velvet_Rip = 1; pc.RemoveItem(\"item_g_hatters_screenplay\")",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 662,
+          "Text": {
+            "Male": "Sure.",
+            "Female": "Sure."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Like = G.Velvet_Like +1",
+          "Link": 671,
+          "Responses": []
+        },
+        {
+          "Id": 663,
+          "Text": {
+            "Male": "Do it yourself, you pompous poseur Toreador crybaby.",
+            "Female": "Do it yourself, you pompous poseur Toreador crybaby."
+          },
+          "Condition": "not IsClan(pc, \"Toreador\")",
+          "Action": "G.Velvet_Like = G.Velvet_Like -1",
+          "Link": 681,
+          "Responses": []
+        },
+        {
+          "Id": 664,
+          "Text": {
+            "Male": "I don't think I... I can't.",
+            "Female": "I don't think I... I can't."
+          },
+          "Condition": "IsClan(pc, \"Toreador\")",
+          "Action": "",
+          "Link": 691,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 671,
+      "Text": {
+        "Male": "Thanks.",
+        "Female": "Thanks."
+      },
+      "Condition": "npc.SetDisposition(\"Joy\", 2)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 672,
+          "Text": {
+            "Male": "Hatter is dead.",
+            "Female": "Hatter is dead."
+          },
+          "Condition": "IsDead(\"DHatter\")",
+          "Action": "",
+          "Link": 701,
+          "Responses": []
+        },
+        {
+          "Id": 673,
+          "Text": {
+            "Male": "I found out the name of his source.",
+            "Female": "I found out the name of his source."
+          },
+          "Condition": "G.David_Julius == 1 and G.Velvet_Quest < 4",
+          "Action": "",
+          "Link": 721,
+          "Responses": []
+        },
+        {
+          "Id": 674,
+          "Text": {
+            "Male": "Yeah, Hatter won't talk. I think I pissed him off.",
+            "Female": "Yeah, Hatter won't talk. I think I pissed him off."
+          },
+          "Condition": "G.David_Pissed == 1",
+          "Action": "",
+          "Link": 761,
+          "Responses": []
+        },
+        {
+          "Id": 675,
+          "Text": {
+            "Male": "So, didn't you say something about giving me a private show?",
+            "Female": "So, didn't you say something about giving me a private show?"
+          },
+          "Condition": "G.Velvet_Dance == 1 and G.Patch_Plus == 1",
+          "Action": "",
+          "Link": 911,
+          "Responses": []
+        },
+        {
+          "Id": 676,
+          "Text": {
+            "Male": "Forget it. I'll be back.",
+            "Female": "Forget it. I'll be back."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 681,
+      "Text": {
+        "Male": "[Pauses, looks wounded emotionally]Fine.",
+        "Female": "[Pauses, looks wounded emotionally]Fine."
+      },
+      "Condition": "npc.SetDisposition(\"Sad\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 682,
+          "Text": {
+            "Male": "Hatter is dead.",
+            "Female": "Hatter is dead."
+          },
+          "Condition": "IsDead(\"DHatter\")",
+          "Action": "",
+          "Link": 701,
+          "Responses": []
+        },
+        {
+          "Id": 683,
+          "Text": {
+            "Male": "I found out the name of his source.",
+            "Female": "I found out the name of his source."
+          },
+          "Condition": "G.David_Julius == 1 and G.Velvet_Quest < 4",
+          "Action": "",
+          "Link": 721,
+          "Responses": []
+        },
+        {
+          "Id": 684,
+          "Text": {
+            "Male": "Yeah, Hatter won't talk. I think I pissed him off.",
+            "Female": "Yeah, Hatter won't talk. I think I pissed him off."
+          },
+          "Condition": "G.David_Pissed == 1",
+          "Action": "",
+          "Link": 761,
+          "Responses": []
+        },
+        {
+          "Id": 685,
+          "Text": {
+            "Male": "Sorry, but didn't you say something about giving me a private show?",
+            "Female": "Sorry, but didn't you say something about giving me a private show?"
+          },
+          "Condition": "G.Velvet_Dance == 1 and G.Patch_Plus == 1",
+          "Action": "",
+          "Link": 911,
+          "Responses": []
+        },
+        {
+          "Id": 686,
+          "Text": {
+            "Male": "Forget it. I'll be back.",
+            "Female": "Forget it. I'll be back."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 691,
+      "Text": {
+        "Male": "[Pauses, looks wounded emotionally]Fine... I understand.",
+        "Female": "[Pauses, looks wounded emotionally]Fine... I understand."
+      },
+      "Condition": "npc.SetDisposition(\"Sad\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 692,
+          "Text": {
+            "Male": "Hatter is dead.",
+            "Female": "Hatter is dead."
+          },
+          "Condition": "IsDead(\"DHatter\")",
+          "Action": "",
+          "Link": 701,
+          "Responses": []
+        },
+        {
+          "Id": 693,
+          "Text": {
+            "Male": "I found out the name of his source.",
+            "Female": "I found out the name of his source."
+          },
+          "Condition": "G.David_Julius == 1 and G.Velvet_Quest < 4",
+          "Action": "",
+          "Link": 721,
+          "Responses": []
+        },
+        {
+          "Id": 694,
+          "Text": {
+            "Male": "Yeah, Hatter won't talk. I think I pissed him off.",
+            "Female": "Yeah, Hatter won't talk. I think I pissed him off."
+          },
+          "Condition": "G.David_Pissed == 1",
+          "Action": "",
+          "Link": 761,
+          "Responses": []
+        },
+        {
+          "Id": 695,
+          "Text": {
+            "Male": "Thanks, and didn't you say something about giving me a private show?",
+            "Female": "Thanks, and didn't you say something about giving me a private show?"
+          },
+          "Condition": "G.Velvet_Dance == 1 and G.Patch_Plus == 1",
+          "Action": "",
+          "Link": 911,
+          "Responses": []
+        },
+        {
+          "Id": 696,
+          "Text": {
+            "Male": "Forget it. I'll be back.",
+            "Female": "Forget it. I'll be back."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 701,
+      "Text": {
+        "Male": "[Shocked, dismayed, icy daggers through the heart]Hatter's dead...?",
+        "Female": "[Shocked, dismayed, icy daggers through the heart]Hatter's dead...?"
+      },
+      "Condition": "npc.SetDisposition(\"Sad\", 3)",
+      "Action": "G.Velvet_Pissed = 2; G.David_Julius = 2; G.Velvet_Email = 0; G.Velvet_Doll = 0",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 702,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 711,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 711,
+      "Text": {
+        "Male": "[Somber, cold and despondent]Get out. Murderer! You've killed my precious, wonderful, dear, dear artist. I'll never forgive you.",
+        "Female": "[Somber, cold and despondent]Get out. Murderer! You've killed my precious, wonderful, dear, dear artist. I'll never forgive you."
+      },
+      "Condition": "npc.SetDisposition(\"Sad\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 712,
+          "Text": {
+            "Male": "Sorry.",
+            "Female": "Sorry."
+          },
+          "Condition": "Humanity > 5",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 713,
+          "Text": {
+            "Male": "Whatever.",
+            "Female": "Whatever."
+          },
+          "Condition": "Humanity < 6",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 721,
+      "Text": {
+        "Male": "Are they...? I mean, did you...?",
+        "Female": "Are they...? I mean, did you...?"
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 722,
+          "Text": {
+            "Male": "It's taken care of.",
+            "Female": "It's taken care of."
+          },
+          "Condition": "IsDead(\"Julius\") or G.Julius_Release == 1",
+          "Action": "",
+          "Link": 741,
+          "Responses": []
+        },
+        {
+          "Id": 723,
+          "Text": {
+            "Male": "As I said, I won't kill him. His name's Julius. He's at the pier.",
+            "Female": "As I said, I won't kill him. His name's Julius. He's at the pier."
+          },
+          "Condition": "G.Velvet_Pacifist == 1",
+          "Action": "",
+          "Link": 731,
+          "Responses": []
+        },
+        {
+          "Id": 726,
+          "Text": {
+            "Male": "No, not yet. I'll do that right away.",
+            "Female": "No, not yet. I'll do that right away."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 731,
+      "Text": {
+        "Male": "Hmm... I guess I'll ask someone else to finish this. Isaac has condoned the punishment, but I, like yourself, am no executioner.",
+        "Female": "Hmm... I guess I'll ask someone else to finish this. Isaac has condoned the punishment, but I, like yourself, am no executioner."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Quest = 5; G.David_Julius = 2; pc.SetQuest(\"Writer\",7); FindPlayer().ChangeMasqueradeLevel( -1 )",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 732,
+          "Text": {
+            "Male": "Here's the screenplay.",
+            "Female": "Here's the screenplay."
+          },
+          "Condition": "pc.HasItem(\"item_g_Hatters_Screenplay\")",
+          "Action": "",
+          "Link": 661,
+          "Responses": []
+        },
+        {
+          "Id": 733,
+          "Text": {
+            "Male": "By the way, I had to kill Hatter.",
+            "Female": "By the way, I had to kill Hatter."
+          },
+          "Condition": "IsDead(\"DHatter\")",
+          "Action": "",
+          "Link": 701,
+          "Responses": []
+        },
+        {
+          "Id": 734,
+          "Text": {
+            "Male": "Then you understand. I had another question.",
+            "Female": "Then you understand. I had another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 735,
+          "Text": {
+            "Male": "It's unfortunate. Goodbye, Velvet.",
+            "Female": "It's unfortunate. Goodbye, Velvet."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 741,
+      "Text": {
+        "Male": "It must've been difficult... but, take some comfort in knowing if you hadn't, someone else would have had to. I do appreciate your help... a lot.",
+        "Female": "It must've been difficult... but, take some comfort in knowing if you hadn't, someone else would have had to. I do appreciate your help... a lot."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Quest = 4; FindPlayer().ChangeMasqueradeLevel( -1 )",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 742,
+          "Text": {
+            "Male": "How much do you appreciate it?",
+            "Female": "How much do you appreciate it?"
+          },
+          "Condition": "IsDead(\"Julius\") and G.Velvet_Like >= 6",
+          "Action": "pc.SetQuest(\"Writer\",6)",
+          "Link": 751,
+          "Responses": []
+        },
+        {
+          "Id": 743,
+          "Text": {
+            "Male": "How much do you appreciate it?",
+            "Female": "How much do you appreciate it?"
+          },
+          "Condition": "IsDead(\"Julius\") and G.Velvet_Like < 6 and G.Velvet_Like > -1",
+          "Action": "pc.SetQuest(\"Writer\",6)",
+          "Link": 771,
+          "Responses": []
+        },
+        {
+          "Id": 744,
+          "Text": {
+            "Male": "How much do you appreciate it?",
+            "Female": "How much do you appreciate it?"
+          },
+          "Condition": "IsDead(\"Julius\") and G.Velvet_Like < 0",
+          "Action": "pc.SetQuest(\"Writer\",6)",
+          "Link": 781,
+          "Responses": []
+        },
+        {
+          "Id": 745,
+          "Text": {
+            "Male": "How much do you appreciate it?",
+            "Female": "How much do you appreciate it?"
+          },
+          "Condition": "G.Julius_Release == 1 and G.Velvet_Like >= 6",
+          "Action": "pc.SetQuest(\"Writer\",10)",
+          "Link": 751,
+          "Responses": []
+        },
+        {
+          "Id": 746,
+          "Text": {
+            "Male": "How much do you appreciate it?",
+            "Female": "How much do you appreciate it?"
+          },
+          "Condition": "G.Julius_Release == 1 and G.Velvet_Like < 6 and G.Velvet_Like > -1",
+          "Action": "pc.SetQuest(\"Writer\",10)",
+          "Link": 771,
+          "Responses": []
+        },
+        {
+          "Id": 747,
+          "Text": {
+            "Male": "How much do you appreciate it?",
+            "Female": "How much do you appreciate it?"
+          },
+          "Condition": "G.Julius_Release == 1 and G.Velvet_Like < 0",
+          "Action": "pc.SetQuest(\"Writer\",10)",
+          "Link": 781,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 751,
+      "Text": {
+        "Male": "Can't you tell? I simply adore you - you're so sweet to me, the way you protect me. What would I have done had you never come in here? Oh, why can't they all be like you? The world could be so... so, beautiful. Here, take this, a reminder of the beautiful girl whose heart you stole.",
+        "Female": "Can't you tell? I simply adore you - you're so sweet to me, the way you protect me. What would I have done had you never come in here? Oh, why can't they all be like you? The world could be so... so, beautiful. Here, take this, a reminder of the beautiful girl whose heart you stole."
+      },
+      "Condition": "npc.SetDisposition(\"Flirt\", 1)",
+      "Action": "pc.GiveItem(\"item_g_vv_photo\"); G.Velvet_Email = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 752,
+          "Text": {
+            "Male": "And here's the screenplay.",
+            "Female": "And here's the screenplay."
+          },
+          "Condition": "pc.HasItem(\"item_g_Hatters_Screenplay\")",
+          "Action": "",
+          "Link": 661,
+          "Responses": []
+        },
+        {
+          "Id": 753,
+          "Text": {
+            "Male": "By the way, I had to kill Hatter.",
+            "Female": "By the way, I had to kill Hatter."
+          },
+          "Condition": "IsDead(\"DHatter\")",
+          "Action": "",
+          "Link": 701,
+          "Responses": []
+        },
+        {
+          "Id": 754,
+          "Text": {
+            "Male": "Thanks, but didn't you say something about giving me a private show?",
+            "Female": "Thanks, but didn't you say something about giving me a private show?"
+          },
+          "Condition": "G.Velvet_Dance == 1 and G.Patch_Plus == 1",
+          "Action": "",
+          "Link": 911,
+          "Responses": []
+        },
+        {
+          "Id": 755,
+          "Text": {
+            "Male": "My pleasure, thanks.",
+            "Female": "My pleasure, thanks."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 761,
+      "Text": {
+        "Male": "You're quite gifted at pissing people off. You're working your magic right now. Hatter's genius isn't very profitable - yet. Have you tried offering him money? The poor thing's on a diet of ramen and generic cola, I'm sure he'll take it.",
+        "Female": "You're quite gifted at pissing people off. You're working your magic right now. Hatter's genius isn't very profitable - yet. Have you tried offering him money? The poor thing's on a diet of ramen and generic cola, I'm sure he'll take it."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 762,
+          "Text": {
+            "Male": "Did I say pissed, I meant dead.",
+            "Female": "Did I say pissed, I meant dead."
+          },
+          "Condition": "IsDead(\"DHatter\")",
+          "Action": "pc.SetQuest(\"Writer\",3)",
+          "Link": 701,
+          "Responses": []
+        },
+        {
+          "Id": 763,
+          "Text": {
+            "Male": "Here's the screenplay, at least.",
+            "Female": "Here's the screenplay, at least."
+          },
+          "Condition": "pc.HasItem(\"item_g_Hatters_Screenplay\")",
+          "Action": "",
+          "Link": 661,
+          "Responses": []
+        },
+        {
+          "Id": 764,
+          "Text": {
+            "Male": "By the way, I had to kill Hatter.",
+            "Female": "By the way, I had to kill Hatter."
+          },
+          "Condition": "IsDead(\"DHatter\")",
+          "Action": "",
+          "Link": 701,
+          "Responses": []
+        },
+        {
+          "Id": 765,
+          "Text": {
+            "Male": "I'll try that. See you.",
+            "Female": "I'll try that. See you."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 771,
+      "Text": {
+        "Male": "Here. It's not a lot, but... it should be enough to buy yourself something a bit more appropriate for a personal acquaintance of Velvet Velour.",
+        "Female": "Here. It's not a lot, but... it should be enough to buy yourself something a bit more appropriate for a personal acquaintance of Velvet Velour."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "pc.MoneyAdd( 400 )",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 772,
+          "Text": {
+            "Male": "How generous. I had another question.",
+            "Female": "How generous. I had another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 773,
+          "Text": {
+            "Male": "Here's the screenplay, at least.",
+            "Female": "Here's the screenplay, at least."
+          },
+          "Condition": "pc.HasItem(\"item_g_Hatters_Screenplay\")",
+          "Action": "",
+          "Link": 661,
+          "Responses": []
+        },
+        {
+          "Id": 774,
+          "Text": {
+            "Male": "By the way, I had to kill Hatter.",
+            "Female": "By the way, I had to kill Hatter."
+          },
+          "Condition": "IsDead(\"DHatter\")",
+          "Action": "",
+          "Link": 701,
+          "Responses": []
+        },
+        {
+          "Id": 775,
+          "Text": {
+            "Male": "Nice. See you around, VV.",
+            "Female": "Nice. See you around, VV."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 781,
+      "Text": {
+        "Male": "I'm willing to ignore the incredible lengths you've gone to be an asshole.",
+        "Female": "I'm willing to ignore the incredible lengths you've gone to be an asshole."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 782,
+          "Text": {
+            "Male": "Great. I had another question.",
+            "Female": "Great. I had another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 783,
+          "Text": {
+            "Male": "Here's the screenplay, at least.",
+            "Female": "Here's the screenplay, at least."
+          },
+          "Condition": "pc.HasItem(\"item_g_Hatters_Screenplay\")",
+          "Action": "",
+          "Link": 661,
+          "Responses": []
+        },
+        {
+          "Id": 784,
+          "Text": {
+            "Male": "By the way, I had to kill Hatter.",
+            "Female": "By the way, I had to kill Hatter."
+          },
+          "Condition": "IsDead(\"DHatter\")",
+          "Action": "",
+          "Link": 701,
+          "Responses": []
+        },
+        {
+          "Id": 785,
+          "Text": {
+            "Male": "That's it? Forget this.... I'm out of here.",
+            "Female": "That's it? Forget this.... I'm out of here."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 791,
+      "Text": {
+        "Male": "Mmm-hmm...?",
+        "Female": "Mmm-hmm...?"
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 793,
+          "Text": {
+            "Male": "Tell me about yourself.",
+            "Female": "Tell me about yourself."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 801,
+          "Responses": []
+        },
+        {
+          "Id": 794,
+          "Text": {
+            "Male": "Know anything about a snuff film?",
+            "Female": "Know anything about a snuff film?"
+          },
+          "Condition": "G.Isaac_Quest == 1 and G.Velvet_Snuff == 0",
+          "Action": "",
+          "Link": 841,
+          "Responses": []
+        },
+        {
+          "Id": 795,
+          "Text": {
+            "Male": "What's to do in Hollywood?",
+            "Female": "What's to do in Hollywood?"
+          },
+          "Condition": "G.Velvet_Hollywood == 0",
+          "Action": "",
+          "Link": 851,
+          "Responses": []
+        },
+        {
+          "Id": 796,
+          "Text": {
+            "Male": "What can you tell me about Ash?",
+            "Female": "What can you tell me about Ash?"
+          },
+          "Condition": "(G.Ash_Know == 1 or G.Isaac_Ash == 1) and G.Velvet_Ash == 0",
+          "Action": "",
+          "Link": 861,
+          "Responses": []
+        },
+        {
+          "Id": 797,
+          "Text": {
+            "Male": "Tell me about Isaac.",
+            "Female": "Tell me about Isaac."
+          },
+          "Condition": "G.Isaac_Self == 1 and G.Velvet_Isaac == 0",
+          "Action": "",
+          "Link": 871,
+          "Responses": []
+        },
+        {
+          "Id": 798,
+          "Text": {
+            "Male": "Forget it. I've got to go.",
+            "Female": "Forget it. I've got to go."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 801,
+      "Text": {
+        "Male": "Mmm-hmm....",
+        "Female": "Mmm-hmm...."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 803,
+          "Text": {
+            "Male": "So, you're a stripper, huh?",
+            "Female": "So, you're a stripper, huh?"
+          },
+          "Condition": "G.Velvet_Dancer == 0",
+          "Action": "",
+          "Link": 811,
+          "Responses": []
+        },
+        {
+          "Id": 804,
+          "Text": {
+            "Male": "Is Velvet your real name?",
+            "Female": "Is Velvet your real name?"
+          },
+          "Condition": "G.Velvet_Real == 0 and not IsClan(pc,\"Malkavian\")",
+          "Action": "",
+          "Link": 821,
+          "Responses": []
+        },
+        {
+          "Id": 805,
+          "Text": {
+            "Male": "How did you become Kindred?",
+            "Female": "How did you become Kindred?"
+          },
+          "Condition": "G.Velvet_Origin == 0 and not IsClan(pc,\"Malkavian\")",
+          "Action": "",
+          "Link": 831,
+          "Responses": []
+        },
+        {
+          "Id": 806,
+          "Text": {
+            "Male": "How come you hide your true name behind a fabric, Susan?",
+            "Female": "How come you hide your true name behind a fabric, Susan?"
+          },
+          "Condition": "G.Velvet_Real == 0 and IsClan(pc,\"Malkavian\")",
+          "Action": "",
+          "Link": 921,
+          "Responses": []
+        },
+        {
+          "Id": 807,
+          "Text": {
+            "Male": "Forget it. I've got to go.",
+            "Female": "Forget it. I've got to go."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 811,
+      "Text": {
+        "Male": "I'm a dancer.",
+        "Female": "I'm a dancer."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Dancer = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 812,
+          "Text": {
+            "Male": "Yes, of course. I had another question.",
+            "Female": "Yes, of course. I had another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 801,
+          "Responses": []
+        },
+        {
+          "Id": 813,
+          "Text": {
+            "Male": "I can think of a few more terms. Another question.",
+            "Female": "I can think of a few more terms. Another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 801,
+          "Responses": []
+        },
+        {
+          "Id": 814,
+          "Text": {
+            "Male": "Right... I'm going to go now.",
+            "Female": "Right... I'm going to go now."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 821,
+      "Text": {
+        "Male": "It is now.",
+        "Female": "It is now."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Real = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 822,
+          "Text": {
+            "Male": "How did you become Kindred?",
+            "Female": "How did you become Kindred?"
+          },
+          "Condition": "G.Velvet_Origin == 0",
+          "Action": "",
+          "Link": 831,
+          "Responses": []
+        },
+        {
+          "Id": 823,
+          "Text": {
+            "Male": "Another question.",
+            "Female": "Another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 801,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 831,
+      "Text": {
+        "Male": "I'm sorry, I'd rather revel in the present than dwell on the past.",
+        "Female": "I'm sorry, I'd rather revel in the present than dwell on the past."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Origin = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 832,
+          "Text": {
+            "Male": "Okay. I had another question.",
+            "Female": "Okay. I had another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 801,
+          "Responses": []
+        },
+        {
+          "Id": 833,
+          "Text": {
+            "Male": "Me too. Another question.",
+            "Female": "Me too. Another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 801,
+          "Responses": []
+        },
+        {
+          "Id": 834,
+          "Text": {
+            "Male": "I don't like discussing anything with you. Bye.",
+            "Female": "I don't like discussing anything with you. Bye."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 841,
+      "Text": {
+        "Male": "No... are you into that kind of thing? [Sound of disgust]Ugh....",
+        "Female": "No... are you into that kind of thing? [Sound of disgust]Ugh...."
+      },
+      "Condition": "npc.SetDisposition(\"Disgust\", 1)",
+      "Action": "G.Velvet_Snuff = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 842,
+          "Text": {
+            "Male": "Another question.",
+            "Female": "Another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 843,
+          "Text": {
+            "Male": "I have to go.",
+            "Female": "I have to go."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 851,
+      "Text": {
+        "Male": "Mingle, sightsee, chat - and me, of course.",
+        "Female": "Mingle, sightsee, chat - and me, of course."
+      },
+      "Condition": "npc.SetDisposition(\"Flirt\", 1)",
+      "Action": "G.Velvet_Hollywood = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 852,
+          "Text": {
+            "Male": "Another question.",
+            "Female": "Another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 853,
+          "Text": {
+            "Male": "I have to go.",
+            "Female": "I have to go."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 861,
+      "Text": {
+        "Male": "Ash... Isaac does so love him. We're like step-siblings, Ash and I. But I think Ash is reckless. He's never been comfortable with what he's become... and he's getting careless.",
+        "Female": "Ash... Isaac does so love him. We're like step-siblings, Ash and I. But I think Ash is reckless. He's never been comfortable with what he's become... and he's getting careless."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "G.Velvet_Ash = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 862,
+          "Text": {
+            "Male": "Another question.",
+            "Female": "Another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 863,
+          "Text": {
+            "Male": "I have to go.",
+            "Female": "I have to go."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 871,
+      "Text": {
+        "Male": "I adore Isaac - he's the father I never had. Why, if anything happened to him, I'd just end it all... but nothing ever will. Isaac's gifted, a saintly patron of the arts, and the most respected Kindred in this city.",
+        "Female": "I adore Isaac - he's the father I never had. Why, if anything happened to him, I'd just end it all... but nothing ever will. Isaac's gifted, a saintly patron of the arts, and the most respected Kindred in this city."
+      },
+      "Condition": "npc.SetDisposition(\"Joy\", 2)",
+      "Action": "G.Velvet_Isaac = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 872,
+          "Text": {
+            "Male": "Another question.",
+            "Female": "Another question."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 873,
+          "Text": {
+            "Male": "I have to go.",
+            "Female": "I have to go."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 881,
+      "Text": {
+        "Male": "Mmm-hmm?",
+        "Female": "Mmm-hmm?"
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 882,
+          "Text": {
+            "Male": "Here's Hatter's screenplay.",
+            "Female": "Here's Hatter's screenplay."
+          },
+          "Condition": "pc.HasItem(\"item_g_Hatters_Screenplay\")",
+          "Action": "",
+          "Link": 661,
+          "Responses": []
+        },
+        {
+          "Id": 883,
+          "Text": {
+            "Male": "Hatter is dead.",
+            "Female": "Hatter is dead."
+          },
+          "Condition": "IsDead(\"DHatter\")",
+          "Action": "pc.SetQuest(\"Writer\",3)",
+          "Link": 701,
+          "Responses": []
+        },
+        {
+          "Id": 884,
+          "Text": {
+            "Male": "I found out the name of his source.",
+            "Female": "I found out the name of his source."
+          },
+          "Condition": "G.David_Julius == 1 and G.Velvet_Quest < 4",
+          "Action": "",
+          "Link": 721,
+          "Responses": []
+        },
+        {
+          "Id": 885,
+          "Text": {
+            "Male": "Yeah, Hatter won't talk. I think I pissed him off.",
+            "Female": "Yeah, Hatter won't talk. I think I pissed him off."
+          },
+          "Condition": "G.David_Pissed == 1",
+          "Action": "",
+          "Link": 761,
+          "Responses": []
+        },
+        {
+          "Id": 886,
+          "Text": {
+            "Male": "Forget it. I'll be back.",
+            "Female": "Forget it. I'll be back."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 891,
+      "Text": {
+        "Male": "I know... I heard you from here. So, you like loud noises, do you? I asked you to be quiet! All you've done is attracted attention to yourself, and now you're in my club. You think there's any chance someone might make the connection? I don't know if you helped or made things worse.",
+        "Female": "I know... I heard you from here. So, you like loud noises, do you? I asked you to be quiet! All you've done is attracted attention to yourself, and now you're in my club. You think there's any chance someone might make the connection? I don't know if you helped or made things worse."
+      },
+      "Condition": "npc.SetDisposition(\"Anger\", 1)",
+      "Action": "G.Velvet_Like = G.Velvet_Like -2; G.Velvet_Quest = 2; pc.SetQuest(\"Strip\",3)",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 892,
+          "Text": {
+            "Male": "Yeah, I'm really sorry about that. Things got out of hand.",
+            "Female": "Yeah, I'm really sorry about that. Things got out of hand."
+          },
+          "Condition": "Humanity 5",
+          "Action": "",
+          "Link": 901,
+          "Responses": []
+        },
+        {
+          "Id": 894,
+          "Text": {
+            "Male": "I don't have to listen to this - don't ask me for any more favors.",
+            "Female": "I don't have to listen to this - don't ask me for any more favors."
+          },
+          "Condition": "Humanity -5",
+          "Action": "G.Velvet_Pissed = 1",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 901,
+      "Text": {
+        "Male": "Fine... apology accepted. Only because no one else got hurt.",
+        "Female": "Fine... apology accepted. Only because no one else got hurt."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 902,
+          "Text": {
+            "Male": "Can I ask you a question?",
+            "Female": "Can I ask you a question?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 791,
+          "Responses": []
+        },
+        {
+          "Id": 903,
+          "Text": {
+            "Male": "I don't need your acceptance, you stuck-up bitch! The hell with you!",
+            "Female": "I don't need your acceptance, you stuck-up bitch! The hell with you!"
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Pissed = 1",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 911,
+      "Text": {
+        "Male": "Mmm, this is going to be interesting.",
+        "Female": "Mmm, this is going to be interesting."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 912,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "G.Velvet_Dance == 0",
+          "Action": "",
+          "Link": 171,
+          "Responses": []
+        },
+        {
+          "Id": 913,
+          "Text": {
+            "Male": "I really hope so.",
+            "Female": "I really hope so."
+          },
+          "Condition": "G.Velvet_Dance == 1",
+          "Action": "G.Velvet_Dance = 0; Find(\"vv_lapdance_cut\").Trigger()",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 921,
+      "Text": {
+        "Male": "There's only one part of my body I don't want anyone entering, and that's my head. That other name... never say it again, it belongs to a dead girl.",
+        "Female": "There's only one part of my body I don't want anyone entering, and that's my head. That other name... never say it again, it belongs to a dead girl."
+      },
+      "Condition": "npc.SetDisposition(\"Sad\", 1)",
+      "Action": "G.Velvet_Real = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 922,
+          "Text": {
+            "Male": "Why are you hiding your past from me, doll?",
+            "Female": "Why are you hiding your past from me, doll?"
+          },
+          "Condition": "G.Velvet_Origin == 0 and IsClan(pc,\"Malkavian\")",
+          "Action": "",
+          "Link": 931,
+          "Responses": []
+        },
+        {
+          "Id": 923,
+          "Text": {
+            "Male": "Liar.",
+            "Female": "Liar."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 931,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 931,
+      "Text": {
+        "Male": "[Flustered]I'm not hiding my past... I'm not that girl - she was flawed, she was naive, she was nobody - and now she's dead. Let the dead rest in peace. My name is VV. Show yourself out; I'd like to say a prayer for someone I used to know.",
+        "Female": "[Flustered]I'm not hiding my past... I'm not that girl - she was flawed, she was naive, she was nobody - and now she's dead. Let the dead rest in peace. My name is VV. Show yourself out; I'd like to say a prayer for someone I used to know."
+      },
+      "Condition": "npc.SetDisposition(\"Sad\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 932,
+          "Text": {
+            "Male": "Pray then.",
+            "Female": "Pray then."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 941,
+      "Text": {
+        "Male": "Um, yes, well... moving on....",
+        "Female": "Um, yes, well... moving on...."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 942,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 121,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 951,
+      "Text": {
+        "Male": "[Whispering, concerned]What are you doing? You can't just walk in here, looking like that! If you must talk to me, follow me upstairs. And please, try not to attract any more attention.",
+        "Female": "[Whispering, concerned]What are you doing? You can't just walk in here, looking like that! If you must talk to me, follow me upstairs. And please, try not to attract any more attention."
+      },
+      "Condition": "npc.SetDisposition(\"Anger\", 1)",
+      "Action": "G.Velvet_Stairs = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 952,
+          "Text": {
+            "Male": "...",
+            "Female": "..."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 961,
+      "Text": {
+        "Male": "[Talking to someone she thinks is extremely ugly, starts out a little irritated, then pities the Nosferatu]I don't know how it is in the sewers, but there are hunters all over Hollywood lately. And unlike, say, me, you don't exactly blend in. It must be so difficult for you. How sad.",
+        "Female": "[Talking to someone she thinks is extremely ugly, starts out a little irritated, then pities the Nosferatu]I don't know how it is in the sewers, but there are hunters all over Hollywood lately. And unlike, say, me, you don't exactly blend in. It must be so difficult for you. How sad."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 963,
+          "Text": {
+            "Male": "Hunters? You don't say. And who the hell are you?",
+            "Female": "Hunters? You don't say. And who the hell are you?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 171,
+          "Responses": []
+        },
+        {
+          "Id": 964,
+          "Text": {
+            "Male": "I don't need your pity! I pity you! You goddamn phony!",
+            "Female": "I don't need your pity! I pity you! You goddamn phony!"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 971,
+          "Responses": []
+        },
+        {
+          "Id": 965,
+          "Text": {
+            "Male": "Hunters... they're just kine! Simple, fragile kine.",
+            "Female": "Hunters... they're just kine! Simple, fragile kine."
+          },
+          "Condition": "",
+          "Action": "G.Velvet_Like = G.Velvet_Like -1",
+          "Link": 151,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 971,
+      "Text": {
+        "Male": "I'm sorry, I-I wasn't trying to offend you. I just meant... i-it must take a lot of time to adjust to that form.",
+        "Female": "I'm sorry, I-I wasn't trying to offend you. I just meant... i-it must take a lot of time to adjust to that form."
+      },
+      "Condition": "npc.SetDisposition(\"Confused\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 972,
+          "Text": {
+            "Male": "Who are you?",
+            "Female": "Who are you?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 171,
+          "Responses": []
+        },
+        {
+          "Id": 973,
+          "Text": {
+            "Male": "It does. But enough about how I look, let's discuss your form.",
+            "Female": "It does. But enough about how I look, let's discuss your form."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 171,
+          "Responses": []
+        },
+        {
+          "Id": 974,
+          "Text": {
+            "Male": "What the hell? Are you an idiot? You just insulted me - twice now!",
+            "Female": "What the hell? Are you an idiot? You just insulted me - twice now!"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 981,
+          "Responses": []
+        },
+        {
+          "Id": 975,
+          "Text": {
+            "Male": "I should turn you inside out for that. Then we'll see who's still pretty.",
+            "Female": "I should turn you inside out for that. Then we'll see who's still pretty."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 981,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 981,
+      "Text": {
+        "Male": "[Apologetic]Forget I brought it up.",
+        "Female": "[Apologetic]Forget I brought it up."
+      },
+      "Condition": "npc.SetDisposition(\"Neutral\", 1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 982,
+          "Text": {
+            "Male": "No problem.",
+            "Female": "No problem."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 991,
+          "Responses": []
+        },
+        {
+          "Id": 985,
+          "Text": {
+            "Male": "",
+            "Female": ""
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 986,
+          "Text": {
+            "Male": "",
+            "Female": ""
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 987,
+          "Text": {
+            "Male": "Get out!",
+            "Female": "Get out!"
+          },
+          "Condition": "npc.SetDisposition(\"Anger\", 3)",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 988,
+          "Text": {
+            "Male": "I'll go.",
+            "Female": "I'll go."
+          },
+          "Condition": "G.Misti_Dead == 0 or (G.Misti_Dead == 1 and G.Velvet_Quest == 0)",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 989,
+          "Text": {
+            "Male": "I'll go.",
+            "Female": "I'll go."
+          },
+          "Condition": "G.Misti_Dead == 1 and G.Velvet_Quest > 0 and G.Velvet_Quest < 3",
+          "Action": "pc.SetQuest(\"Strip\",4)",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 990,
+          "Text": {
+            "Male": "I'll go.",
+            "Female": "I'll go."
+          },
+          "Condition": "G.Misti_Dead == 1 and G.Velvet_Quest >= 3",
+          "Action": "pc.SetQuest(\"Writer\",11)",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 991,
+      "Text": {
+        "Male": "Thanks!",
+        "Female": "Thanks!"
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 992,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 171,
+          "Responses": []
+        },
+        {
+          "Id": 993,
+          "Text": {
+            "Male": "",
+            "Female": ""
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 994,
+          "Text": {
+            "Male": "",
+            "Female": ""
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 995,
+          "Text": {
+            "Male": "",
+            "Female": ""
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 996,
+          "Text": {
+            "Male": "",
+            "Female": ""
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 997,
+          "Text": {
+            "Male": "",
+            "Female": ""
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 998,
+          "Text": {
+            "Male": "",
+            "Female": ""
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 999,
+          "Text": {
+            "Male": "",
+            "Female": ""
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 1000,
+          "Text": {
+            "Male": "",
+            "Female": ""
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 1001,
+      "Text": {
+        "Male": "",
+        "Female": ""
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 1002,
+          "Text": {
+            "Male": "",
+            "Female": ""
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 1003,
+          "Text": {
+            "Male": "",
+            "Female": ""
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 1004,
+          "Text": {
+            "Male": "",
+            "Female": ""
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 1005,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "G.Velvet_Pissed == 2 or G.Misti_Dead == 1",
+          "Action": "",
+          "Link": 987,
+          "Responses": []
+        },
+        {
+          "Id": 1006,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "G.Velvet_Quest == 2 and G.Velvet_Hatter == 0",
+          "Action": "",
+          "Link": 471,
+          "Responses": []
+        },
+        {
+          "Id": 1007,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "G.Velvet_Hunter > 1",
+          "Action": "",
+          "Link": 401,
+          "Responses": []
+        },
+        {
+          "Id": 1008,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "G.Velvet_Stairs == 2 and IsClan(pc,\"Nosferatu\")",
+          "Action": "",
+          "Link": 961,
+          "Responses": []
+        },
+        {
+          "Id": 1009,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "G.Velvet_Stairs == 2",
+          "Action": "",
+          "Link": 51,
+          "Responses": []
+        },
+        {
+          "Id": 1010,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "IsClan(pc,\"Nosferatu\")",
+          "Action": "",
+          "Link": 951,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 1011,
+      "Text": {
+        "Male": "(Starting Condition)",
+        "Female": ""
+      },
+      "Condition": "G.Velvet_Stairs == 0 and G.Velvet_Scorn == 1",
+      "Action": "",
+      "Link": 41,
+      "Responses": [
+        {
+          "Id": 1012,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "npc.times_talked == 1",
+          "Action": "",
+          "Link": 1,
+          "Responses": []
+        }
+      ]
+    }
+  ]
+}

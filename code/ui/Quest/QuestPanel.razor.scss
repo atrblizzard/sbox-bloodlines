@@ -1,0 +1,189 @@
+﻿QuestPanel {
+    position: absolute;
+    bottom: 10px;
+    background-color: #222222;
+    width: 90%;
+    height: 95%;
+    transition: all 150ms ease-out;
+    flex-shrink: 0;
+    flex-grow: 0;
+    opacity: 0;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: white;
+    pointer-events: none;
+
+    &.open {
+        opacity: 1;
+        flex-shrink: 1;
+        flex-grow: 1;
+        cursor: pointer;
+        sound-in: ui_inventory_open;
+        pointer-events: all;
+    }
+
+    .toolbar {
+        flex-shrink: 0;
+        flex-direction: row;
+        font-family: VTMB;
+        margin-left: 20px;
+        border-radius: 4px;
+        transition: all 0.1s ease-out;
+        margin-right: 20px;
+        top: 10px;
+        width: 60%;
+        height: 40px;
+        position: absolute;
+        left: 10px;
+        gap: 30px;
+
+        .spacer {
+            flex-grow: 1;
+        }
+
+        .button-text {
+            white-space: nowrap;
+            font-weight: normal;
+            cursor: pointer;
+            justify-content: center;
+            text-align: center;
+
+            &:hover {
+                font-weight: bolder;
+            }
+        }
+
+        textentry {
+            background-color: rgba(white, 0.01);
+            border-radius: 2px;
+            color: white;
+            font-size: 12px;
+
+            .iconpanel {
+                color: rgba(white, 0.5);
+                font-size: 15px;
+            }
+        }
+    }
+
+    .header {
+        font-family: VTMB;
+        margin-top: 10px;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 30px;
+        color: white;
+        text-shadow: 2px 2px 2px black;
+    }
+
+    .title {
+        font-family: VTMB;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 30px;
+        color: white;
+        text-shadow: 2px 2px 2px black;
+    }
+
+    .quest-entry {
+        font-family: VTMB;
+        flex-direction: column;
+        margin-right: 10px;
+        margin-left: 20px;
+        padding-bottom: 30px;
+        display: flex;
+        min-height: 100px;
+        font-weight: normal;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .items {
+        margin-left: 20px;
+        margin-right: 20px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .active-quest-header {
+        top: 5%;
+        font-family: VTMB;
+        transition: all 0.1s ease-out;
+        margin: 0;
+        left: 20px;
+        width: 60%;
+        position: absolute;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .active-quests {
+        top: 15%;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        overflow-y: scroll;
+        display: flex;
+        border-radius: 4px;
+        align-items: flex-start;
+        transition: all 0.1s ease-out;
+        width: 60%;
+        height: 80%;
+        position: absolute;
+        left: 20px;
+        margin: auto;
+    }
+
+    .items-completed {
+        border-radius: 4px;
+        transition: all 0.1s ease-out;
+        margin-right: 20px;
+        margin-top: 20px;
+        top: 0;
+        width: 35%;
+        height: 30%;
+        align-items: flex-start;
+        position: absolute;
+        right: 0;
+        margin-left: auto;
+        flex-direction: column;
+        align-content: flex-start;
+        padding-bottom: 10px;
+    }
+
+    .items-failed {
+        border-radius: 4px;
+        transition: all 0.1s ease-out;
+        margin-right: 20px;
+        margin-top: 20px;
+        bottom: 50px;
+        display: flex;
+        width: 35%;
+        height: 30%;
+        align-items: flex-start;
+        position: absolute;
+        right: 0;
+        margin-left: auto;
+        flex-direction: column;
+        align-content: flex-start;
+        padding-bottom: 10px;
+    }
+
+    .incomplete {
+        color: #ff0000;
+    }
+
+    .complete {
+        color: #00ff00;
+    }
+
+    .inprogress {
+        color: #6c6c6c;
+    }
+}

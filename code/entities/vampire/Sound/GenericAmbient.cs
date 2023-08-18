@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
+#if OLD
+
 namespace Sandbox
 {
 	[Library( "ambient_generic" )]
@@ -133,3 +135,4 @@ namespace Sandbox
 		}
 	}
 }
+#endif

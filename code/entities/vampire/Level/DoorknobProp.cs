@@ -3,7 +3,7 @@ using Sandbox;
 using Editor;
 using System.Collections.Generic;
 
-namespace bloodlines.entities.vampire
+namespace Bloodlines.Entities.Vampire
 {
 	[Model]
 	[HammerEntity]

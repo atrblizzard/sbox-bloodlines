@@ -3,7 +3,7 @@ using System;
 using System.Threading.Tasks;
 using Editor;
 
-namespace bloodlines.entities.vampire
+namespace Bloodlines.Entities.Vampire
 {
 	[Library( "prop_switch", Description = "Prop Switch" )]
 	[Model]

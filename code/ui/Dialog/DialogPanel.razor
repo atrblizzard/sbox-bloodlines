@@ -1,0 +1,70 @@
+﻿@using System.Linq
+@using Sandbox;
+@using Sandbox.UI;
+
+@namespace Bloodlines.UI
+@attribute [StyleSheet]
+
+@inherits Panel
+
+@if (Game.LocalPawn is not VampirePlayer player)
+{
+    return;
+}
+
+<root class="@(IsOpen ? "open" : "")">
+    @if (DebugMode)
+    {
+        <DropDown class="dropdown with-grow name" Value:bind="@CurrentDialogLine" BuildOptions=@GetResponseOptions></DropDown>
+    }
+    else
+    {
+        <label class="name">@player.DialogManager?.GetActiveDialog()?.Text.Values.FirstOrDefault()</label>
+    }
+    <div class="items">
+        @{
+            var responses = player.DialogManager?.GetActiveDialog()?.Responses;
+            if (responses == null)
+                return;
+
+            if (DebugMode && responses.Count == 0)
+            {
+                <label class="name">No responses found</label>
+                return;
+            }
+
+            if (responses.FirstOrDefault()?.Text.Values.FirstOrDefault() == "(Auto-Link)")
+            {
+                <label class="name">@responses.FirstOrDefault()?.Link</label>
+            }
+
+            dialogSlots.Clear();
+
+            @for (var i = 0; i < responses.Count; i++)
+            {
+                var response = responses[i];
+                var lineNumber = i + 1;
+                if (player.DialogManager?.CheckStartingConditionsButtons(response.Id) == true)
+                {
+                    var entrySlot = new DialogEntrySlot();
+                  
+                    <DialogEntrySlot @ref="entrySlot"
+                        Entry=@response
+                        Counter=@(0)
+                        IsDebug=@DebugMode
+                        @onmouseover=@(() => hoveredEntry = response)
+                        @onmouseout=@(() => hoveredEntry = null)
+                        @onclick=@(() => OnInventorySlotClicked(response, lineNumber))/>
+
+                    dialogSlots.Add(entrySlot);
+                }
+            }
+
+            @for (var i = 0; i < dialogSlots.Count; i++)
+            {
+                dialogSlots[i].Counter = i + 1;
+            }
+        }
+
+    </div>
+</root>

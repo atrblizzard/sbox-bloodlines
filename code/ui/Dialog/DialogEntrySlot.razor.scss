@@ -1,0 +1,71 @@
+﻿DialogEntrySlot {
+    width: 100%;
+    height: auto;
+    //background-image: linear-gradient(to top, rgba(#eeeeee, 0.1), #ffffff1f);
+    border-radius: 4px;
+    flex-direction: column;
+    color: white;
+    transition: all 0.1s ease-out;    
+
+    label {
+        font-family: "VTMB";
+        font-size: 30px;
+        margin-left: 40px;
+
+        text-shadow: 2px 2px 2px black;
+
+        &.label-small {
+            font-family: "VTMB";
+            font-size: 20px;
+            margin-left: 40px;
+            color: grey;
+            text-shadow: 2px 2px 2px black;
+
+            &:hover {
+                color: red;
+            }
+        }
+
+        &.charges {
+            font-size: 30px;
+            position: absolute;
+            left: -30px;
+        }
+
+        &.icon {
+            font-family: MaterialIconsRound;
+            font-size: 18px;
+        }
+    }
+
+    &:hover {
+        transform: scale(1.01);
+        color: red;
+
+        &:not(.disabled) {
+            sound-in: ui_button_hover;
+        }
+    }
+
+    &:active {
+        transform: scale(1.02);
+        color: red;
+
+        &:not(.disabled) {
+            sound-in: ui_button_click;
+        }
+    }
+
+    &.disabled {
+        transform: scale(1);
+        background-color: rgba(rgb(235, 235, 235) 0.144);
+
+        img {
+            opacity: 0.6;
+        }
+
+        .charges {
+            opacity: 0.6;
+        }
+    }
+}

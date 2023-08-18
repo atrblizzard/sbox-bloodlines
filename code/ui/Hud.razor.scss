@@ -1,0 +1,116 @@
+$popup-border-radius: 10px !default;
+$primary: #222222 !default;
+$primary-fg: white !default;
+
+Hud {
+    pointer-events: none;
+    cursor: none;
+
+    &.devcamera {
+        display: none;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .popup-panel {
+        background-color: #111111;
+        /*background-image: linear-gradient( #2b303c, #1d2028 );*/
+        border-radius: 3px;
+        box-shadow: 5px 5px 30px rgba( black, 0.8 );
+        flex-direction: column;
+        font-size: 20px;
+        transition: all 0.1s ease-out;
+        position: absolute;
+        z-index: 1000;
+        min-height: 60px;
+        min-width: 90%;
+        font-family: VTMB;
+        overflow: scroll;
+        color: #eeeeee;
+        pointer-events: all;
+        backdrop-filter: blur( 20px );
+        padding: 10px;
+        border-radius: 10px;
+
+        &.medium {
+            max-width: 400px;
+        }
+
+        > .header {
+            font-size: 40px;
+            font-weight: 600;
+            padding: 8px 12px;
+            align-items: center;
+            background-color: rgba( $primary, 0.4 );
+            border-radius: $popup-border-radius $popup-border-radius 0 0;
+            color: white;
+            flex-shrink: 0;
+
+            .iconpanel {
+                margin-right: 10px;
+                font-size: 40px;
+                color: $primary-fg;
+            }
+        }
+
+        .button {
+            border-radius: 10px;
+            max-height: 200px;
+            height: auto;
+            font-size: 24px;
+            text-overflow: ellipsis;
+            padding: 8px 12px;
+            padding-right: 24px;
+            min-height: 100px;
+            overflow: auto;
+            flex-shrink: 0;
+            gap: 36px;
+            background-color: #111111;
+            color: #eeeeee;
+            font-weight: 400;
+            white-space: break-spaces;
+
+            &:first-child {
+                border-top-left-radius: $popup-border-radius;
+                border-top-right-radius: $popup-border-radius;
+            }
+
+            &:last-child {
+                border-bottom-left-radius: $popup-border-radius;
+                border-bottom-right-radius: $popup-border-radius;
+            }
+
+            &:hover, &.active {
+                color: $primary-fg;
+                background-color: $primary;
+                // Lol might be too much
+                box-shadow: 0px 0px 100px rgba( $primary, 0.2 );
+                text-shadow: 0px 0px 20px rgba( white, 0.2 );
+
+                .iconpanel {
+                    color: $primary-fg;
+                }
+            }
+
+            &:active {
+                color: $primary-fg;
+                background-color: rgba( red, 0.3 );
+
+                .iconpanel {
+                    color: $primary-fg;
+                }
+            }
+
+            &.disabled {
+                pointer-events: none;
+                opacity: 0.2;
+            }
+        }
+    }
+}
+
+.hidden {
+    display: none;
+}

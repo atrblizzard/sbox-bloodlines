@@ -1,0 +1,28 @@
+﻿.vtmbs2menu {
+    opacity: 1;
+    flex-direction: column;
+    font-size: 25px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all 0.3s ease-out;
+    color: white;
+    background-image: url("ui/menu/backgrounds/vaulderie-bg.jpg");
+    background-size: 100%;
+
+    &:intro {
+        opacity: 0;
+        transform: scaleX( 1.1 );
+    }
+}
+
+.navigator-body {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    flex-direction: column;
+    //padding: 100px 0px;
+}
+

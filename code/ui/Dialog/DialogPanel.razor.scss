@@ -1,0 +1,66 @@
+$popup-border-radius: 10px !default;
+$primary: #e500ff !default;
+$primary-fg: white !default;
+
+DialogPanel {
+	position: absolute;
+	bottom: 10px;
+	width: 90%;
+	height: 500px;
+	transition: all 150ms ease-out;
+	opacity: 0;
+	margin-left: 5%;
+	margin-right: 5%;
+	color: white;
+	align-content: center;
+	flex-direction: column;
+	pointer-events: none;
+	background-color: rgba( #111, 0.4 );
+	backdrop-filter: blur( 20px );
+	padding: 10px;
+	border-radius: 50px;
+
+	&.open {
+		opacity: 1;
+		cursor: pointer;
+		sound-in: ui_inventory_open;
+		pointer-events: all;
+	}
+
+	.name {
+		font-family: VTMB;
+		margin-top: 20px;
+		margin-left: 20px;
+		margin-bottom: 50px;
+		font-size: 40px;
+		color: white;
+		text-shadow: 2px 2px 2px black;
+	}
+
+	.items {
+		margin-left: 20px;
+		margin-right: 20px;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	.items2 {
+		flex-direction: column;
+		width: 100px;
+		margin-left: 20px;
+		margin-right: 20px;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	.dropdown {
+		/*background-color: rgba( #bdd4ff, 0.01 );*/
+		flex-shrink: 0;
+		min-height: 43px;
+		font-size: 40px;
+
+		&.with-grow {
+			flex-grow: 1;
+		}
+	}
+}

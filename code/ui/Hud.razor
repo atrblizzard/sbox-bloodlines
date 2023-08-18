@@ -1,0 +1,53 @@
+@using System
+@using Sandbox;
+@using Sandbox.UI;
+@using Bloodlines.Menu;
+
+@namespace Bloodlines.UI
+@attribute [StyleSheet]
+@inherits RootPanel
+
+@if ( DevCam != null ) return;
+
+<root id="Test">
+	<Crosshair/>
+	
+	<DialogPanel/>
+	<QuestPanel/>
+</root>
+
+@code
+{
+	public static Panel CurrentHudPanel { get; protected set; }
+	public DevCamera DevCam => Game.LocalClient.Components.Get<DevCamera>( false );
+
+	public Hud()
+	{
+		Game.AssertClient();
+		Game.RootPanel = this;
+
+		DialogPanel.CreateInstance();
+		Log.Info(DialogPanel.GetInstance());
+	}
+
+	public override void Tick()
+	{
+		if ( CurrentHudPanel is not null ) return;
+
+		if (CurrentHudPanel != null)
+		{
+			CurrentHudPanel.Parent = this;
+			CurrentHudPanel.BindClass("hidden", () => DevCam != null);
+		}
+
+		if (Input.Pressed("Log"))
+		{
+			QuestPanel.GetInstance().Toggle();
+		}
+	}
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine( DevCam is {Enabled: true }, base.BuildHash() );
+	}
+}

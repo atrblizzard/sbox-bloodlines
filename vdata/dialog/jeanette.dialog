@@ -1,0 +1,3209 @@
+{
+  "Entries": [
+    {
+      "Id": 1,
+      "Text": {
+        "Male": "Oooh, what do we have here? Another scrumptious young plaything straight out of life and into my club? Mmm... you smell new, little boy, like fabric softener dew on freshly mowed Astroturf. Oh, I'm not frightening you, am I, duckling?",
+        "Female": "What do we have here? Another scrumptious young plaything straight out of life and into my club? You smell new, little girl, like fabric softener dew on freshly mowed Astroturf. Ooh, I'm not frightening you, am I, duckling?"
+      },
+      "Condition": "",
+      "Action": "G.Jeanette_Know = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 2,
+          "Text": {
+            "Male": "Who are you?",
+            "Female": "Who are you?"
+          },
+          "Condition": "not IsClan(pc,\"Malkavian\")",
+          "Action": "",
+          "Link": 11,
+          "Responses": []
+        },
+        {
+          "Id": 3,
+          "Text": {
+            "Male": "Frightening isn't the word I'd use... exciting is more like it.",
+            "Female": "Frightening isn't the word I'd use... exciting is more like it."
+          },
+          "Condition": "Seduction 2 & not IsClan(pc,\"Malkavian\")",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 21,
+          "Responses": []
+        },
+        {
+          "Id": 4,
+          "Text": {
+            "Male": "What the hell's your problem?",
+            "Female": "What the hell's your problem?"
+          },
+          "Condition": "not IsClan(pc,\"Malkavian\")",
+          "Action": "",
+          "Link": 41,
+          "Responses": []
+        },
+        {
+          "Id": 5,
+          "Text": {
+            "Male": "Leave me alone.",
+            "Female": "Leave me alone."
+          },
+          "Condition": "not IsClan(pc,\"Malkavian\")",
+          "Action": "",
+          "Link": 51,
+          "Responses": []
+        },
+        {
+          "Id": 6,
+          "Text": {
+            "Male": "I see before me a beauty who shares the madness of my mind.",
+            "Female": "I see before me a beauty who shares the madness of my mind."
+          },
+          "Condition": "IsClan(pc,\"Malkavian\")",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 751,
+          "Responses": []
+        },
+        {
+          "Id": 7,
+          "Text": {
+            "Male": "Your words are a cracked symphony of profundity and consonance.",
+            "Female": "Your words are a cracked symphony of profundity and consonance."
+          },
+          "Condition": "IsClan(pc,\"Malkavian\")",
+          "Action": "",
+          "Link": 751,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 11,
+      "Text": {
+        "Male": "I'm the finger down your spine when all the lights are out. I'm the name on all the men's room walls. When I pout, the whole world tries to make me smile. And everyone always wants to know, who... is... that girl?",
+        "Female": "I'm the finger down your spine when all the lights are out. I'm the name on all the men's room walls. When I pout, the whole world tries to make me smile. And everyone always wants to know, who... is... that girl?"
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 12,
+          "Text": {
+            "Male": "Do you have a name?",
+            "Female": "Do you have a name?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 71,
+          "Responses": []
+        },
+        {
+          "Id": 13,
+          "Text": {
+            "Male": "Aren't you the tease? Got a name I can remember you by?",
+            "Female": "Aren't you the tease? Got a name I can remember you by?"
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 71,
+          "Responses": []
+        },
+        {
+          "Id": 14,
+          "Text": {
+            "Male": "You know what - forget it - I don't care.",
+            "Female": "You know what - forget it - I don't care."
+          },
+          "Condition": "G.Jeanette_Curious == 0",
+          "Action": "",
+          "Link": 51,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 21,
+      "Text": {
+        "Male": "[Giggles]I can tell you and I are going to get along just like fire hoses.",
+        "Female": "[Giggles]I can tell you and I are going to get along just like fire hoses."
+      },
+      "Condition": "npc.SetDisposition(\"Flirt\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 22,
+          "Text": {
+            "Male": "Fire hoses?",
+            "Female": "Fire hoses?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 31,
+          "Responses": []
+        },
+        {
+          "Id": 23,
+          "Text": {
+            "Male": "Whatever, who are you?",
+            "Female": "Whatever, who are you?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 11,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 31,
+      "Text": {
+        "Male": "When we get turned on, there's bound to be flames.",
+        "Female": "When we get turned on, there's bound to be flames."
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 32,
+          "Text": {
+            "Male": "Who are you?",
+            "Female": "Who are you?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 11,
+          "Responses": []
+        },
+        {
+          "Id": 33,
+          "Text": {
+            "Male": "That's what I was thinking. What's your name?",
+            "Female": "That's what I was thinking. What's your name?"
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 11,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 41,
+      "Text": {
+        "Male": "Oh, I was just thinking about this delicious little pancake who came into my club and wasn't so sweet because he was soaked in vinegar.",
+        "Female": "Oh, I was just thinking about this delicious little pancake who came into my club and wasn't so sweet because she was soaked in vinegar."
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 42,
+          "Text": {
+            "Male": "Okay.... Who are you?",
+            "Female": "Okay.... Who are you?"
+          },
+          "Condition": "not IsClan(pc,\"Malkavian\")",
+          "Action": "",
+          "Link": 11,
+          "Responses": []
+        },
+        {
+          "Id": 43,
+          "Text": {
+            "Male": "You're insane, you know that?",
+            "Female": "You're insane, you know that?"
+          },
+          "Condition": "not IsClan(pc,\"Malkavian\")",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 61,
+          "Responses": []
+        },
+        {
+          "Id": 44,
+          "Text": {
+            "Male": "Whatever. Just leave me alone.",
+            "Female": "Whatever. Just leave me alone."
+          },
+          "Condition": "not IsClan(pc,\"Malkavian\")",
+          "Action": "",
+          "Link": 51,
+          "Responses": []
+        },
+        {
+          "Id": 45,
+          "Text": {
+            "Male": "One woman's vinegar is another's wine. Tell me your name.",
+            "Female": "One woman's vinegar is another's wine. Tell me your name."
+          },
+          "Condition": "IsClan(pc,\"Malkavian\")",
+          "Action": "",
+          "Link": 11,
+          "Responses": []
+        },
+        {
+          "Id": 46,
+          "Text": {
+            "Male": "Your twisted mind makes mine look smooth and flawless.",
+            "Female": "Your twisted mind makes mine look smooth and flawless."
+          },
+          "Condition": "IsClan(pc,\"Malkavian\")",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 781,
+          "Responses": []
+        },
+        {
+          "Id": 47,
+          "Text": {
+            "Male": "I want no more of your mental pawings.",
+            "Female": "I want no more of your mental pawings."
+          },
+          "Condition": "IsClan(pc,\"Malkavian\")",
+          "Action": "",
+          "Link": 51,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 51,
+      "Text": {
+        "Male": "Aren't you just the teeniest bit curious about me? Come on, don't be shy. Say the right thing and I just might bare my soul... or something else.",
+        "Female": "Aren't you just the teeniest bit curious about me? Come on, don't be shy. Say the right thing and I just might bare my soul... or something else."
+      },
+      "Condition": "",
+      "Action": "G.Jeanette_Curious = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 53,
+          "Text": {
+            "Male": "Well, when you put it that way... by all means, tell me your name.",
+            "Female": "Well, when you put it that way... by all means, tell me your name."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 71,
+          "Responses": []
+        },
+        {
+          "Id": 54,
+          "Text": {
+            "Male": "Like I said, leave me alone, I couldn't care less about who you are.",
+            "Female": "Like I said, leave me alone, I couldn't care less about who you are."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 81,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 61,
+      "Text": {
+        "Male": "So's the world, but we all keep riding on this moonlit carousel regardless.",
+        "Female": "So's the world, but we all keep riding on this moonlit carousel regardless."
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 62,
+          "Text": {
+            "Male": "Who are you?",
+            "Female": "Who are you?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 11,
+          "Responses": []
+        },
+        {
+          "Id": 64,
+          "Text": {
+            "Male": "Beat it, lunatic.",
+            "Female": "Beat it, lunatic."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 51,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 71,
+      "Text": {
+        "Male": "I... am... Jeanette. And this bit of chaos crammed in a certifiable giggle is my club. Oh, I'd just love to give you funny feelings all night, sweetheart, but I really must trouble with some business. We'll reunite sweet and soon, I promise.",
+        "Female": "I... am... Jeanette. And this bit of chaos crammed in a certifiable giggle is my club. Oh, I'd just love to give you funny feelings all night, sweetheart, but I really must trouble with some business. We'll reunite sweet and soon, I promise."
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 72,
+          "Text": {
+            "Male": "Okay. Goodbye.",
+            "Female": "Okay. Goodbye."
+          },
+          "Condition": "G.Extra_Lines == 1",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 73,
+          "Text": {
+            "Male": "Soon can't come soon enough. Goodbye.",
+            "Female": "Soon can't come soon enough. Goodbye."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 74,
+          "Text": {
+            "Male": "Whatever. Later.",
+            "Female": "Whatever. Later."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 81,
+      "Text": {
+        "Male": "Well, since you don't care I'll tell you anyway. My name is Jeanette, this is my club, and you should play nice because I can be really fun when someone's not trying hard to piss me off. Better bring the butter the next time we toast.",
+        "Female": "Well, since you don't care I'll tell you anyway. My name is Jeanette, this is my club, and you should play nice because I can be really fun when someone's not trying hard to piss me off. Better bring the butter the next time we toast."
+      },
+      "Condition": "npc.SetDisposition(\"anger\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 82,
+          "Text": {
+            "Male": "Whatever.",
+            "Female": "Whatever."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 91,
+      "Text": {
+        "Male": "How odd, I was just having naughty thoughts about you. You made quite an impression earlier. Did you come up just to cheer lonely, little me?",
+        "Female": "How odd, I was just having naughty thoughts about you. You made quite an impression earlier. Did you come up just to cheer lonely, little me?"
+      },
+      "Condition": "npc.SetDisposition(\"flirt\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 92,
+          "Text": {
+            "Male": "I brought this for Therese.",
+            "Female": "I brought this for Therese."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 141,
+          "Responses": []
+        },
+        {
+          "Id": 93,
+          "Text": {
+            "Male": "Actually, I need to see Therese.",
+            "Female": "Actually, I need to see Therese."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 111,
+          "Responses": []
+        },
+        {
+          "Id": 94,
+          "Text": {
+            "Male": "Yes, as a matter of fact, I did. I couldn't stop thinking about you.",
+            "Female": "Yes, as a matter of fact, I did. I couldn't stop thinking about you."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 121,
+          "Responses": []
+        },
+        {
+          "Id": 95,
+          "Text": {
+            "Male": "You're the last person I wanted to run into.",
+            "Female": "You're the last person I wanted to run into."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 131,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 101,
+      "Text": {
+        "Male": "Not even a knock? I could have been undressing, and who knows what I would've had to do to you. You're here to see her royal majesty Queen Victoria, aren't you?",
+        "Female": "Not even a knock? I could have been undressing, and who knows what I would've had to do to you. You're here to see her royal majesty Queen Victoria, aren't you?"
+      },
+      "Condition": "npc.SetDisposition(\"apathy\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 102,
+          "Text": {
+            "Male": "I brought this for Therese.",
+            "Female": "I brought this for Therese."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 141,
+          "Responses": []
+        },
+        {
+          "Id": 103,
+          "Text": {
+            "Male": "Yeah, I need to see Therese.",
+            "Female": "Yeah, I need to see Therese."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 111,
+          "Responses": []
+        },
+        {
+          "Id": 104,
+          "Text": {
+            "Male": "Actually, I was hoping I'd run into you.",
+            "Female": "Actually, I was hoping I'd run into you."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 121,
+          "Responses": []
+        },
+        {
+          "Id": 105,
+          "Text": {
+            "Male": "I'm sure as hell not here to see you.",
+            "Female": "I'm sure as hell not here to see you."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 131,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 111,
+      "Text": {
+        "Male": "Therese is out making a show of how well her lips fit on the pants seat of the Camarilla. Did you happen to find her chastity belt or something?",
+        "Female": "Therese is out making a show of how well her lips fit on the pants seat of the Camarilla. Did you happen to find her chastity belt or something?"
+      },
+      "Condition": "npc.SetDisposition(\"apathy\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 112,
+          "Text": {
+            "Male": "I need to give something to Therese. It's from the hotel.",
+            "Female": "I need to give something to Therese. It's from the hotel."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 141,
+          "Responses": []
+        },
+        {
+          "Id": 113,
+          "Text": {
+            "Male": "I'd rather discuss this with Therese.",
+            "Female": "I'd rather discuss this with Therese."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 151,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 121,
+      "Text": {
+        "Male": "Really? Do I often pogostick through your thoughts wearing nothing but a smile? Be honest... or don't.",
+        "Female": "Really? Do I often pogostick through your thoughts wearing nothing but a smile? Be honest... or don't."
+      },
+      "Condition": "npc.SetDisposition(\"joy\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 122,
+          "Text": {
+            "Male": "Don't you find me a little... ugly?",
+            "Female": "Don't you find me a little... ugly?"
+          },
+          "Condition": "IsClan(pc,\"Nosferatu\")",
+          "Action": "",
+          "Link": 591,
+          "Responses": []
+        },
+        {
+          "Id": 123,
+          "Text": {
+            "Male": "Right. I need to see Therese.",
+            "Female": "Right. I need to see Therese."
+          },
+          "Condition": "G.Extra_Lines == 1",
+          "Action": "",
+          "Link": 111,
+          "Responses": []
+        },
+        {
+          "Id": 124,
+          "Text": {
+            "Male": "Therese around?",
+            "Female": "Therese around?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 111,
+          "Responses": []
+        },
+        {
+          "Id": 125,
+          "Text": {
+            "Male": "All the time, Jeanette. What do I do in your thoughts?",
+            "Female": "All the time, Jeanette. What do I do in your thoughts?"
+          },
+          "Condition": "Seduction 2",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 571,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 131,
+      "Text": {
+        "Male": "I'd be kinder to me, if I were you. What a gruesome thought, though, me being you. I suppose that'd mean you'd be inside me, and that's definitely never going to happen if you don't change your attitude.",
+        "Female": "I'd be kinder to me, if I were you. What a gruesome thought, though, me being you. I suppose that'd mean you'd be inside me, and that's definitely never going to happen if you don't change your attitude."
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 132,
+          "Text": {
+            "Male": "Whatever. I need to speak to Therese.",
+            "Female": "Whatever. I need to speak to Therese."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 111,
+          "Responses": []
+        },
+        {
+          "Id": 133,
+          "Text": {
+            "Male": "That's a revolting thought. Where's Therese?",
+            "Female": "That's a revolting thought. Where's Therese?"
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 111,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 141,
+      "Text": {
+        "Male": "Ooh, can I see it?",
+        "Female": "Ooh, can I see it?"
+      },
+      "Condition": "npc.SetDisposition(\"flirt\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 142,
+          "Text": {
+            "Male": "Of course. Here, take it.",
+            "Female": "Of course. Here, take it."
+          },
+          "Condition": "",
+          "Action": "pc.RemoveItem(\"item_g_ghost_pendant\")",
+          "Link": 191,
+          "Responses": []
+        },
+        {
+          "Id": 143,
+          "Text": {
+            "Male": "I'd rather give it to Therese.",
+            "Female": "I'd rather give it to Therese."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 161,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 151,
+      "Text": {
+        "Male": "[Seductively]So... Therese told me you might be back with something for her. Do you have it with you?",
+        "Female": "[Seductively]So... Therese told me you might be back with something for her. Do you have it with you?"
+      },
+      "Condition": "npc.SetDisposition(\"flirt\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 152,
+          "Text": {
+            "Male": "Of course. Here, take it.",
+            "Female": "Of course. Here, take it."
+          },
+          "Condition": "",
+          "Action": "pc.RemoveItem(\"item_g_ghost_pendant\")",
+          "Link": 191,
+          "Responses": []
+        },
+        {
+          "Id": 153,
+          "Text": {
+            "Male": "I'm not giving it to anyone but Therese.",
+            "Female": "I'm not giving it to anyone but Therese."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 161,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 161,
+      "Text": {
+        "Male": "I'm not just some silly doll, you know. [Sobs]All my life my sister's made me out to be a joke. She told you I was an embarrassment, didn't she? That I couldn't tie my shoes, let alone hold on to something for her. Is that it?",
+        "Female": "I'm not just some silly doll, you know. [Sobs]All my life my sister's made me out to be a joke. She told you I was an embarrassment, didn't she? That I couldn't tie my shoes, let alone hold on to something for her. Is that it?"
+      },
+      "Condition": "npc.SetDisposition(\"sad\",3)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 162,
+          "Text": {
+            "Male": "Not at all. Here, take it.",
+            "Female": "Not at all. Here, take it."
+          },
+          "Condition": "",
+          "Action": "pc.RemoveItem(\"item_g_ghost_pendant\")",
+          "Link": 191,
+          "Responses": []
+        },
+        {
+          "Id": 163,
+          "Text": {
+            "Male": "No. Please, calm down.",
+            "Female": "No. Please, calm down."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 171,
+          "Responses": []
+        },
+        {
+          "Id": 164,
+          "Text": {
+            "Male": "I wouldn't give you the time of day, you crazy bitch.",
+            "Female": "I wouldn't give you the time of day, you crazy bitch."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 171,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 171,
+      "Text": {
+        "Male": "[Sobbing]She's always belittling me. She's the smart one, she's the favorite, she's the successful one. Well, it's not fair! I'm not a fool! This club's success is just as much my doing as it is hers!",
+        "Female": "[Sobbing]She's always belittling me. She's the smart one, she's the favorite, she's the successful one. Well, it's not fair! I'm not a fool! This club's success is just as much my doing as it is hers!"
+      },
+      "Condition": "npc.SetDisposition(\"sad\",3)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 172,
+          "Text": {
+            "Male": "Whoa, it's alright. Here, here's the thing from the hotel.",
+            "Female": "Whoa, it's alright. Here, here's the thing from the hotel."
+          },
+          "Condition": "",
+          "Action": "pc.RemoveItem(\"item_g_ghost_pendant\")",
+          "Link": 191,
+          "Responses": []
+        },
+        {
+          "Id": 173,
+          "Text": {
+            "Male": "You've made your point, drama queen. Take it.",
+            "Female": "You've made your point, drama queen. Take it."
+          },
+          "Condition": "",
+          "Action": "pc.RemoveItem(\"item_g_ghost_pendant\")",
+          "Link": 191,
+          "Responses": []
+        },
+        {
+          "Id": 174,
+          "Text": {
+            "Male": "Would you stop? You're driving me nuts, now.",
+            "Female": "Would you stop? You're driving me nuts, now."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 181,
+          "Responses": []
+        },
+        {
+          "Id": 175,
+          "Text": {
+            "Male": "I understand. But I still can't give it to you.",
+            "Female": "I understand. But I still can't give it to you."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 181,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 181,
+      "Text": {
+        "Male": "[Sobbing]Do you understand what it's like to have your own flesh and blood ripping you apart on a daily basis for two lifetimes? Can you?",
+        "Female": "[Sobbing]Do you understand what it's like to have your own flesh and blood ripping you apart on a daily basis for two lifetimes? Can you?"
+      },
+      "Condition": "npc.SetDisposition(\"sad\",3)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 182,
+          "Text": {
+            "Male": "Here, please take it.",
+            "Female": "Here, please take it."
+          },
+          "Condition": "",
+          "Action": "pc.RemoveItem(\"item_g_ghost_pendant\")",
+          "Link": 191,
+          "Responses": []
+        },
+        {
+          "Id": 183,
+          "Text": {
+            "Male": "If I give you this will you stop your insanity? Take it.",
+            "Female": "If I give you this will you stop your insanity? Take it."
+          },
+          "Condition": "",
+          "Action": "pc.RemoveItem(\"item_g_ghost_pendant\")",
+          "Link": 191,
+          "Responses": []
+        },
+        {
+          "Id": 184,
+          "Text": {
+            "Male": "I'm sorry to hear that, Jeanette, but I really need to give it to Therese.",
+            "Female": "I'm sorry to hear that, Jeanette, but I really need to give it to Therese."
+          },
+          "Condition": "Humanity 5",
+          "Action": "",
+          "Link": 581,
+          "Responses": []
+        },
+        {
+          "Id": 185,
+          "Text": {
+            "Male": "Shut up already. I'm only giving it to Therese and that's final.",
+            "Female": "Shut up already. I'm only giving it to Therese and that's final."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 581,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 191,
+      "Text": {
+        "Male": "Ah! It's beautiful. Like a knight in shining armor... dangling at the end of a noose.",
+        "Female": "Ah! It's beautiful. Like a knight in shining armor... dangling at the end of a noose."
+      },
+      "Condition": "npc.SetDisposition(\"joy\",1)",
+      "Action": "pc.SetQuest(\"Hotel\",4)",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 192,
+          "Text": {
+            "Male": "Right. Therese was supposed to call off the feud with Tung.",
+            "Female": "Right. Therese was supposed to call off the feud with Tung."
+          },
+          "Condition": "G.Extra_Lines == 1",
+          "Action": "",
+          "Link": 221,
+          "Responses": []
+        },
+        {
+          "Id": 193,
+          "Text": {
+            "Male": "Make sure Therese gets it. She said she'd call off the feud with Tung.",
+            "Female": "Make sure Therese gets it. She said she'd call off the feud with Tung."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 221,
+          "Responses": []
+        },
+        {
+          "Id": 194,
+          "Text": {
+            "Male": "It would look good on you. I'm sure anything does.",
+            "Female": "It would look good on you. I'm sure anything does."
+          },
+          "Condition": "Seduction 2 & not IsClan(pc,\"Malkavian\")",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 201,
+          "Responses": []
+        },
+        {
+          "Id": 195,
+          "Text": {
+            "Male": "I would like to see it glistening against your bloodless pale heart-place.",
+            "Female": "I would like to see it glistening against your bloodless pale heart-place."
+          },
+          "Condition": "Seduction 2 & IsClan(pc,\"Malkavian\")",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 801,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 201,
+      "Text": {
+        "Male": "That was clich� and predictable, but you can say it anytime and I'll act like you were the first and only.",
+        "Female": "That was clich� and predictable, but you can say it anytime and I'll act like you were the first and only."
+      },
+      "Condition": "npc.SetDisposition(\"joy\",3)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 202,
+          "Text": {
+            "Male": "Listen, Therese told me she'd call off the feud with Tung.",
+            "Female": "Listen, Therese told me she'd call off the feud with Tung."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 221,
+          "Responses": []
+        },
+        {
+          "Id": 203,
+          "Text": {
+            "Male": "I'm sure you say that to all the guys. All eight dozen.",
+            "Female": "I'm sure you say that to all the girls. All eight dozen."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 211,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 211,
+      "Text": {
+        "Male": "Are you sure that's the kind of thing you want to say to me? Keep bending me and I'm bound to snap.",
+        "Female": "Are you sure that's the kind of thing you want to say to me? Keep bending me and I'm bound to snap."
+      },
+      "Condition": "npc.SetDisposition(\"anger\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 212,
+          "Text": {
+            "Male": "Sorry. Therese told me if I got that for her, she'd call off the feud with Tung.",
+            "Female": "Sorry. Therese told me if I got that for her, she'd call off the feud with Tung."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 221,
+          "Responses": []
+        },
+        {
+          "Id": 213,
+          "Text": {
+            "Male": "Whatever. Therese said she'd call off the feud with Tung.",
+            "Female": "Whatever. Therese said she'd call off the feud with Tung."
+          },
+          "Condition": "G.Extra_Lines == 1",
+          "Action": "",
+          "Link": 221,
+          "Responses": []
+        },
+        {
+          "Id": 214,
+          "Text": {
+            "Male": "I'm sure you're used to being bent over. Therese said she'd call off the feud.",
+            "Female": "I'm sure you're used to being bent over. Therese said she'd call off the feud."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 221,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 221,
+      "Text": {
+        "Male": "Oh, did she now? I spend a few nights with Bertram and all of a sudden he's the pox of Santa Monica. Ha ha! Paranoia and Therese have been bedfellows for longer than I can remember. Indulge my curiosity... what did you really think of Therese?",
+        "Female": "Oh, did she now? I spend a few nights with Bertram and all of a sudden he's the pox of Santa Monica. Ha ha! Paranoia and Therese have been bedfellows for longer than I can remember. Indulge my curiosity... what did you really think of Therese?"
+      },
+      "Condition": "npc.SetDisposition(\"joy\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 222,
+          "Text": {
+            "Male": "I don't really know. About the feud...",
+            "Female": "I don't really know. About the feud..."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 261,
+          "Responses": []
+        },
+        {
+          "Id": 223,
+          "Text": {
+            "Male": "She's not a pest. Listen, about the feud...",
+            "Female": "She's not a pest. Listen, about the feud..."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 261,
+          "Responses": []
+        },
+        {
+          "Id": 224,
+          "Text": {
+            "Male": "She's not very attractive, that's for sure.",
+            "Female": "She's not very attractive, that's for sure."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 231,
+          "Responses": []
+        },
+        {
+          "Id": 225,
+          "Text": {
+            "Male": "I can't stand her type.",
+            "Female": "I can't stand her type."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 241,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 231,
+      "Text": {
+        "Male": "[Not amused]We're identical twins.",
+        "Female": "[Not amused]We're identical twins."
+      },
+      "Condition": "npc.SetDisposition(\"pissed\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 232,
+          "Text": {
+            "Male": "Whatever. About calling off the feud...",
+            "Female": "Whatever. About calling off the feud..."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 261,
+          "Responses": []
+        },
+        {
+          "Id": 233,
+          "Text": {
+            "Male": "Really? I thought you were the pretty one. Now, about the feud...",
+            "Female": "Really? I thought you were the pretty one. Now, about the feud..."
+          },
+          "Condition": "Seduction 4",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 2",
+          "Link": 261,
+          "Responses": []
+        },
+        {
+          "Id": 234,
+          "Text": {
+            "Male": "I meant she looks much less slutty. About the feud...",
+            "Female": "I meant she looks much less slutty. About the feud..."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 251,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 241,
+      "Text": {
+        "Male": "There are nuns that sin more often than her. In fact, she won't even feed unless it's poured into a glass for her. Myself... I like to bite.",
+        "Female": "There are nuns that sin more often than her. In fact, she won't even feed unless it's poured into a glass for her. Myself... I like to bite."
+      },
+      "Condition": "npc.SetDisposition(\"neutral\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 242,
+          "Text": {
+            "Male": "Okay. About the feud...",
+            "Female": "Okay. About the feud..."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 261,
+          "Responses": []
+        },
+        {
+          "Id": 243,
+          "Text": {
+            "Male": "As do I. Now, about the feud...",
+            "Female": "As do I. Now, about the feud..."
+          },
+          "Condition": "G.Extra_Lines == 1",
+          "Action": "",
+          "Link": 261,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 251,
+      "Text": {
+        "Male": "Mmm... that is unfortunate, isn't it?",
+        "Female": "Mmm... that is unfortunate, isn't it?"
+      },
+      "Condition": "npc.SetDisposition(\"apathy\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 252,
+          "Text": {
+            "Male": "Just tell me what I have to do to call off the feud.",
+            "Female": "Just tell me what I have to do to call off the feud."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 311,
+          "Responses": []
+        },
+        {
+          "Id": 253,
+          "Text": {
+            "Male": "Yes. And Therese said she would call it off for me.",
+            "Female": "Yes. And Therese said she would call it off for me."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 261,
+          "Responses": []
+        },
+        {
+          "Id": 254,
+          "Text": {
+            "Male": "I don't care. I need to see Tung.",
+            "Female": "I don't care. I need to see Tung."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 261,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 261,
+      "Text": {
+        "Male": "I wish I could do something about it, but Bertram won't believe it's off until he hears Therese say it's off. And as I told you, I'm really not sure where Therese is. However...",
+        "Female": "I wish I could do something about it, but Bertram won't believe it's off until he hears Therese say it's off. And as I told you, I'm really not sure where Therese is. However..."
+      },
+      "Condition": "npc.SetDisposition(\"neutral\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 262,
+          "Text": {
+            "Male": "What?",
+            "Female": "What?"
+          },
+          "Condition": "G.Extra_Lines == 1",
+          "Action": "",
+          "Link": 311,
+          "Responses": []
+        },
+        {
+          "Id": 263,
+          "Text": {
+            "Male": "What is it this time?",
+            "Female": "What is it this time?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 311,
+          "Responses": []
+        },
+        {
+          "Id": 264,
+          "Text": {
+            "Male": "Therese promised me! I don't care where she is, get her back here now!",
+            "Female": "Therese promised me! I don't care where she is, get her back here now!"
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 271,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 271,
+      "Text": {
+        "Male": "Would if I could, kitten, so sorry, but she doesn't tell me much about her business. But I do know something you could do for us in the meantime... something that would make us very grateful.",
+        "Female": "Would if I could, kitten, so sorry, but she doesn't tell me much about her business. But I do know something you could do for us in the meantime... something that would make us very grateful."
+      },
+      "Condition": "npc.SetDisposition(\"neutral\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 272,
+          "Text": {
+            "Male": "What is it?",
+            "Female": "What is it?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 311,
+          "Responses": []
+        },
+        {
+          "Id": 273,
+          "Text": {
+            "Male": "That wasn't the deal.",
+            "Female": "That wasn't the deal."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 281,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 281,
+      "Text": {
+        "Male": "I know.... You've got my sympathy, really you do. I do need your help for something - and I can show my appreciation in a lot more creative ways than Therese ever could.",
+        "Female": "I know.... You've got my sympathy, really you do. I do need your help for something - and I can show my appreciation in a lot more creative ways than Therese ever could."
+      },
+      "Condition": "npc.SetDisposition(\"sad\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 282,
+          "Text": {
+            "Male": "I like the sound of that. What do you have in mind?",
+            "Female": "I like the sound of that. What do you have in mind?"
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 311,
+          "Responses": []
+        },
+        {
+          "Id": 283,
+          "Text": {
+            "Male": "Why not. What do you want me to do?",
+            "Female": "Why not. What do you want me to do?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 311,
+          "Responses": []
+        },
+        {
+          "Id": 284,
+          "Text": {
+            "Male": "Forget it.",
+            "Female": "Forget it."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 291,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 291,
+      "Text": {
+        "Male": "Mmm... pretty please? For me?",
+        "Female": "Mmm... pretty please? For me?"
+      },
+      "Condition": "npc.SetDisposition(\"sad\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 292,
+          "Text": {
+            "Male": "Fine. What is it?",
+            "Female": "Fine. What is it?"
+          },
+          "Condition": "G.Jeanette_Refuse == 0",
+          "Action": "",
+          "Link": 311,
+          "Responses": []
+        },
+        {
+          "Id": 293,
+          "Text": {
+            "Male": "Especially not for you. Goodbye.",
+            "Female": "Especially not for you. Goodbye."
+          },
+          "Condition": "G.Jeanette_Refuse == 0",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1; G.Jeanette_Refuse = 1",
+          "Link": 301,
+          "Responses": []
+        },
+        {
+          "Id": 294,
+          "Text": {
+            "Male": "Alright... fine.",
+            "Female": "Alright... fine."
+          },
+          "Condition": "G.Jeanette_Refuse == 2",
+          "Action": "G.Jeanette_Refuse = 0",
+          "Link": 361,
+          "Responses": []
+        },
+        {
+          "Id": 295,
+          "Text": {
+            "Male": "Destroying art's where I draw the line. Forget it. Goodbye.",
+            "Female": "Destroying art's where I draw the line. Forget it. Goodbye."
+          },
+          "Condition": "G.Jeanette_Refuse == 2 and G.Jeanette_Knife == 0",
+          "Action": "G.Jeanette_Refuse = 1; G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 296,
+          "Text": {
+            "Male": "Do it yourself, psycho-bitch. I'm nobody's tool. The hell with you and your sister.",
+            "Female": "Do it yourself, psycho-bitch. I'm nobody's tool. The hell with you and your sister."
+          },
+          "Condition": "G.Jeanette_Refuse == 2 and G.Jeanette_Knife == 0",
+          "Action": "G.Jeanette_Refuse = 1; G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 301,
+      "Text": {
+        "Male": "Leave now and Bertram will never help you. I'll see to that. So you can make believe you adore my every word and help me, or you can go back to the prince with your head in your hands.",
+        "Female": "Leave now and Bertram will never help you. I'll see to that. So you can make believe you adore my every word and help me, or you can go back to the prince with your head in your hands."
+      },
+      "Condition": "npc.SetDisposition(\"anger\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 302,
+          "Text": {
+            "Male": "When you put it that way. What do I have to do?",
+            "Female": "When you put it that way. What do I have to do?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 311,
+          "Responses": []
+        },
+        {
+          "Id": 303,
+          "Text": {
+            "Male": "I'll do it, but I don't like being blackmailed. I'll remember this.",
+            "Female": "I'll do it, but I don't like being blackmailed. I'll remember this."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 311,
+          "Responses": []
+        },
+        {
+          "Id": 304,
+          "Text": {
+            "Male": "I'll take my chances. Goodbye.",
+            "Female": "I'll take my chances. Goodbye."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Refuse = 1; G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 311,
+      "Text": {
+        "Male": "Do you know Gallery Noir, down the street? I happen to know there's a charity event being organized there. Lots of the influential Santa Monicans slithering in for token appearances. But there's one thing they don't know...",
+        "Female": "Do you know Gallery Noir, down the street? I happen to know there's a charity event being organized there. Lots of the influential Santa Monicans slithering in for token appearances. But there's one thing they don't know..."
+      },
+      "Condition": "npc.SetDisposition(\"neutral\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 312,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 321,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 321,
+      "Text": {
+        "Male": "The whole event's been set up by a Kindred trying to establish their own power clique in our city. And we can't let that happen, can we? So I need some brilliant young upstart to spoil the milk.",
+        "Female": "The whole event's been set up by a Kindred trying to establish their own power clique in our city. And we can't let that happen, can we? So I need some brilliant young upstart to spoil the milk."
+      },
+      "Condition": "npc.SetDisposition(\"neutral\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 322,
+          "Text": {
+            "Male": "What do I do?",
+            "Female": "What do I do?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 351,
+          "Responses": []
+        },
+        {
+          "Id": 323,
+          "Text": {
+            "Male": "For you, anything.",
+            "Female": "For you, anything."
+          },
+          "Condition": "Seduction 2",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 351,
+          "Responses": []
+        },
+        {
+          "Id": 324,
+          "Text": {
+            "Male": "Please tell me I get to kill somebody?",
+            "Female": "Please tell me I get to kill somebody?"
+          },
+          "Condition": "Humanity -5",
+          "Action": "",
+          "Link": 331,
+          "Responses": []
+        },
+        {
+          "Id": 325,
+          "Text": {
+            "Male": "I need to talk to Tung. This isn't helping.",
+            "Female": "I need to talk to Tung. This isn't helping."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 341,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 331,
+      "Text": {
+        "Male": "You don't need more enemies this early in the game. Give it a few years, they'll come.",
+        "Female": "You don't need more enemies this early in the game. Give it a few years, they'll come."
+      },
+      "Condition": "npc.SetDisposition(\"joy\",3)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 332,
+          "Text": {
+            "Male": "What do I do?",
+            "Female": "What do I do?"
+          },
+          "Condition": "G.Extra_Lines == 1",
+          "Action": "",
+          "Link": 351,
+          "Responses": []
+        },
+        {
+          "Id": 333,
+          "Text": {
+            "Male": "I like adversity... keeps me on my toes. Go on.",
+            "Female": "I like adversity... keeps me on my toes. Go on."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 351,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 341,
+      "Text": {
+        "Male": "I thought we went over this? Therese isn't here. Until he hears it from her, Bertram's like a windshield in the deep blue sea - invisible.",
+        "Female": "I thought we went over this? Therese isn't here. Until he hears it from her, Bertram's like a windshield in the deep blue sea - invisible."
+      },
+      "Condition": "npc.SetDisposition(\"anger\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 342,
+          "Text": {
+            "Male": "Fine. What do I have to do?",
+            "Female": "Fine. What do I have to do?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 351,
+          "Responses": []
+        },
+        {
+          "Id": 343,
+          "Text": {
+            "Male": "I'm listening.",
+            "Female": "I'm listening."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 351,
+          "Responses": []
+        },
+        {
+          "Id": 344,
+          "Text": {
+            "Male": "This is it. You understand? The last thing I'm doing for either of you.",
+            "Female": "This is it. You understand? The last thing I'm doing for either of you."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 351,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 351,
+      "Text": {
+        "Male": "I promise this won't take long. Take this knife. Give the paintings in the gallery a good slashing. Don't get caught and don't turn it into a massacre. And steal the charity box, would you? Buy yourself something velvet.",
+        "Female": "I promise this won't take long. Take this knife. Give the paintings in the gallery a good slashing. Don't get caught and don't turn it into a massacre. And steal the charity box, would you? Buy yourself something velvet."
+      },
+      "Condition": "npc.SetDisposition(\"joy\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 352,
+          "Text": {
+            "Male": "Alright, I'll go slash the paintings.",
+            "Female": "Alright, I'll go slash the paintings."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 361,
+          "Responses": []
+        },
+        {
+          "Id": 353,
+          "Text": {
+            "Male": "Fine. I'll be back when it's finished. And this time the feud will be called off?",
+            "Female": "Fine. I'll be back when it's finished. And this time the feud will be called off?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 361,
+          "Responses": []
+        },
+        {
+          "Id": 354,
+          "Text": {
+            "Male": "I'm not going to steal charity money.",
+            "Female": "I'm not going to steal charity money."
+          },
+          "Condition": "Humanity 5",
+          "Action": "",
+          "Link": 371,
+          "Responses": []
+        },
+        {
+          "Id": 355,
+          "Text": {
+            "Male": "I'm just going to start slashing, and if someone should get in the way...",
+            "Female": "I'm just going to start slashing, and if someone should get in the way..."
+          },
+          "Condition": "Humanity -5",
+          "Action": "",
+          "Link": 381,
+          "Responses": []
+        },
+        {
+          "Id": 356,
+          "Text": {
+            "Male": "Slashing paintings? Forget it. That's too much! I'm out of here.",
+            "Female": "Slashing paintings? Forget it. That's too much! I'm out of here."
+          },
+          "Condition": "not IsClan(pc,\"Toreador\")",
+          "Action": "G.Jeanette_Refuse = 2; G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 291,
+          "Responses": []
+        },
+        {
+          "Id": 357,
+          "Text": {
+            "Male": "Destroy art? I perish the thought of such odious deeds! I refuse! Farewell!",
+            "Female": "Destroy art? I perish the thought of such odious deeds! I refuse! Farewell!"
+          },
+          "Condition": "IsClan(pc,\"Toreador\")",
+          "Action": "G.Jeanette_Refuse = 2; G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 291,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 361,
+      "Text": {
+        "Male": "I'm sure Therese will be thrilled to honor your agreement when you get back. But in the meantime, get to the museum and ruin those paintings, then pay me a visit. I want to hear all about it.... Hurry up, I can only amuse myself for so long.",
+        "Female": "I'm sure Therese will be thrilled to honor your agreement when you get back. But in the meantime, get to the museum and ruin those paintings, then pay me a visit. I want to hear all about it.... Hurry up, I can only amuse myself for so long."
+      },
+      "Condition": "npc.SetDisposition(\"joy\",1)",
+      "Action": "G.Jeanette_Refuse = 0; G.Jeanette_Quest = 1; pc.SetQuest(\"Slashterpiece\",1); pc.GiveItem(\"item_w_knife\")",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 362,
+          "Text": {
+            "Male": "Be back soon. Goodbye.",
+            "Female": "Be back soon. Goodbye."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 811,
+          "Responses": []
+        },
+        {
+          "Id": 363,
+          "Text": {
+            "Male": "I'd never intentionally keep you waiting, Jeanette. Goodbye.",
+            "Female": "I'd never intentionally keep you waiting, Jeanette. Goodbye."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 811,
+          "Responses": []
+        },
+        {
+          "Id": 364,
+          "Text": {
+            "Male": "If I don't get to see Tung when I get back, I'm taking it out on both of you. Bye.",
+            "Female": "If I don't get to see Tung when I get back, I'm taking it out on both of you. Bye."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 811,
+          "Responses": []
+        },
+        {
+          "Id": 365,
+          "Text": {
+            "Male": "We may amuse ourselves together. But I'm not sure it's possible.",
+            "Female": "We may amuse ourselves together. But I'm not sure it's possible."
+          },
+          "Condition": "Seduction 4 & pc.bloodpool > 1 and G.Jeanette_Seduce >= 3 and G.Patch_Plus == 1 and (not pc.IsMale() or G.Player_Homo == 0)",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 541,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 371,
+      "Text": {
+        "Male": "It's not what you think. Every pretty penny dropped in that box is going right into some other Kindred's purse. You'd be crooking from a dirty steal.",
+        "Female": "It's not what you think. Every pretty penny dropped in that box is going right into some other Kindred's purse. You'd be crooking from a dirty steal."
+      },
+      "Condition": "npc.SetDisposition(\"neutral\",1); G.Charity_Know = 1",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 372,
+          "Text": {
+            "Male": "Fine, I'll do it. Then you'll call off the feud, right?",
+            "Female": "Fine, I'll do it. Then you'll call off the feud, right?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 361,
+          "Responses": []
+        },
+        {
+          "Id": 373,
+          "Text": {
+            "Male": "I'm not stealing charity money but I'll do the rest. Then you'll call off the feud?",
+            "Female": "I'm not stealing charity money but I'll do the rest. Then you'll call off the feud?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 361,
+          "Responses": []
+        },
+        {
+          "Id": 374,
+          "Text": {
+            "Male": "I refuse. I'm not a criminal. Find someone else. Goodbye.",
+            "Female": "I refuse. I'm not a criminal. Find someone else. Goodbye."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Refuse = 2; G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 381,
+      "Text": {
+        "Male": "Ah-ah! Leave the wine in the cask. I'll harvest that blood when it's time. Tonight there is no harvest moon, got it?",
+        "Female": "Ah-ah! Leave the wine in the cask. I'll harvest that blood when it's time. Tonight there is no harvest moon, got it?"
+      },
+      "Condition": "npc.SetDisposition(\"joy\",3)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 382,
+          "Text": {
+            "Male": "Fine, I'll do it. Then you'll call off the feud, right?",
+            "Female": "Fine, I'll do it. Then you'll call off the feud, right?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 361,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 391,
+      "Text": {
+        "Male": "[Rapidly, frightened]Oh, I'm so relieved you're safe! I wanted to warn you when I heard it was a setup, but Therese pulled a gun on me and I locked myself in the bathroom and she's threatening to kill me an-and you have to help me!",
+        "Female": "[Rapidly, frightened]Oh, I'm so relieved you're safe! I wanted to warn you when I heard it was a setup, but Therese pulled a gun on me and I locked myself in the bathroom and she's threatening to kill me an-and you have to help me!"
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 392,
+          "Text": {
+            "Male": "Slow down. Tell me what happened.",
+            "Female": "Slow down. Tell me what happened."
+          },
+          "Condition": "G.Jeanette_Quest == 1",
+          "Action": "",
+          "Link": 411,
+          "Responses": []
+        },
+        {
+          "Id": 393,
+          "Text": {
+            "Male": "Of course I'll save you. But first, tell me what happened.",
+            "Female": "Of course I'll save you. But first, tell me what happened."
+          },
+          "Condition": "Seduction 2 & G.Jeanette_Quest == 1",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 411,
+          "Responses": []
+        },
+        {
+          "Id": 394,
+          "Text": {
+            "Male": "Why should I help you?",
+            "Female": "Why should I help you?"
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 421,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 401,
+      "Text": {
+        "Male": "[Rapidly, frightened]It was a setup! Listen, I know we've had our differences, but you have to trust me! Therese tried to have you killed! I had to lock myself in the bathroom because now she's got a gun and - please, you have to help me!",
+        "Female": "[Rapidly, frightened]It was a setup! Listen, I know we've had our differences, but you have to trust me! Therese tried to have you killed! I had to lock myself in the bathroom because now she's got a gun and - please, you have to help me!"
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 402,
+          "Text": {
+            "Male": "Slow down. Tell me what happened.",
+            "Female": "Slow down. Tell me what happened."
+          },
+          "Condition": "G.Jeanette_Quest == 1",
+          "Action": "",
+          "Link": 411,
+          "Responses": []
+        },
+        {
+          "Id": 403,
+          "Text": {
+            "Male": "Why should I help you?",
+            "Female": "Why should I help you?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 421,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 411,
+      "Text": {
+        "Male": "Therese knew it was you at the gallery all along. She set you up and... heh![Sound of gunfire] Did you hear that? She's crazy! She paid those thieves for a hit. She'll kill anyone who gets in the way of her becoming the top dog of Santa Monica.",
+        "Female": "Therese knew it was you at the gallery all along. She set you up and... heh![Sound of gunfire] Did you hear that? She's crazy! She paid those thieves for a hit. She'll kill anyone who gets in the way of her becoming the top dog of Santa Monica."
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 412,
+          "Text": {
+            "Male": "Alright. I'm coming over. Goodbye.",
+            "Female": "Alright. I'm coming over. Goodbye."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 431,
+          "Responses": []
+        },
+        {
+          "Id": 413,
+          "Text": {
+            "Male": "Don't worry, Jeanette, I'll deal with Therese. I've got a score to settle.",
+            "Female": "Don't worry, Jeanette, I'll deal with Therese. I've got a score to settle."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 431,
+          "Responses": []
+        },
+        {
+          "Id": 414,
+          "Text": {
+            "Male": "Well, thanks for getting me into this, Jeanette!",
+            "Female": "Well, thanks for getting me into this, Jeanette!"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 421,
+          "Responses": []
+        },
+        {
+          "Id": 415,
+          "Text": {
+            "Male": "I hope you two kill each other, goodbye.",
+            "Female": "I hope you two kill each other, goodbye."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 421,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 421,
+      "Text": {
+        "Male": "Therese is going to kill us! Without me you'll never get out of Santa Monica alive.",
+        "Female": "Therese is going to kill us! Without me you'll never get out of Santa Monica alive."
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 422,
+          "Text": {
+            "Male": "Why is Therese trying to kill me?",
+            "Female": "Why is Therese trying to kill me?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 431,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 431,
+      "Text": {
+        "Male": "Hurry! I don't know how much longer I have!",
+        "Female": "Hurry! I don't know how much longer I have!"
+      },
+      "Condition": "",
+      "Action": "pc.SetQuest(\"Tourette\",1)",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 432,
+          "Text": {
+            "Male": "(Auto-End)",
+            "Female": "(Auto-End)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 441,
+      "Text": {
+        "Male": "",
+        "Female": ""
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": []
+    },
+    {
+      "Id": 461,
+      "Text": {
+        "Male": "[Melancholy]Oh, it's you. I'm surprised you returned to the scene of the crime, without your girlfriend Therese here. Come to bury the bitterness between us? That time's past. Way in the past. So, be a b-e-e and buzz off. I've got no honey for you.",
+        "Female": "[Melancholy]Oh, it's you. I'm surprised you returned to the scene of the crime, without your girlfriend Therese here. Come to bury the bitterness between us? That time's past. Way in the past. So, be a b-e-e and buzz off. I've got no honey for you."
+      },
+      "Condition": "npc.SetDisposition(\"apathy\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 462,
+          "Text": {
+            "Male": "Fine. Goodbye.",
+            "Female": "Fine. Goodbye."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 463,
+          "Text": {
+            "Male": "I'm sorry about Therese. Goodbye.",
+            "Female": "I'm sorry about Therese. Goodbye."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 464,
+          "Text": {
+            "Male": "If only Therese had been a better shot. Goodbye.",
+            "Female": "If only Therese had been a better shot. Goodbye."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 471,
+      "Text": {
+        "Male": "Hello, kitten. Didja come back for me? Even if you didn't, just nod your head. I'm all gooey - I didn't think you'd be back so soon. Any particular reason for this unexpected visit? Although...",
+        "Female": "Hello, kitten. Didja come back for me? Even if you didn't, just nod your head. I'm all gooey - I didn't think you'd be back so soon. Any particular reason for this unexpected visit? Although..."
+      },
+      "Condition": "npc.SetDisposition(\"joy\",1)",
+      "Action": "G.Jeanette_Baron = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 472,
+          "Text": {
+            "Male": "(Auto-Link)",
+            "Female": "(Auto-Link)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 481,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 481,
+      "Text": {
+        "Male": "It is pleasure, I mean, a pleasure to see you again.",
+        "Female": "It is pleasure, I mean, a pleasure to see you again."
+      },
+      "Condition": "npc.SetDisposition(\"flirt\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 482,
+          "Text": {
+            "Male": "Are you lonely?",
+            "Female": "Are you lonely?"
+          },
+          "Condition": "G.Jeanette_Seduce >= 8 and G.Jeanette_Mail == 0",
+          "Action": "",
+          "Link": 511,
+          "Responses": []
+        },
+        {
+          "Id": 483,
+          "Text": {
+            "Male": "I got your email. So, you're lonely, huh?",
+            "Female": "I got your email. So, you're lonely, huh?"
+          },
+          "Condition": "G.Jeanette_Mail == 1",
+          "Action": "",
+          "Link": 511,
+          "Responses": []
+        },
+        {
+          "Id": 484,
+          "Text": {
+            "Male": "What's going on in Santa Monica?",
+            "Female": "What's going on in Santa Monica?"
+          },
+          "Condition": "G.Story_State > 10",
+          "Action": "",
+          "Link": 491,
+          "Responses": []
+        },
+        {
+          "Id": 485,
+          "Text": {
+            "Male": "Anything new?",
+            "Female": "Anything new?"
+          },
+          "Condition": "G.Story_State > 40",
+          "Action": "",
+          "Link": 501,
+          "Responses": []
+        },
+        {
+          "Id": 486,
+          "Text": {
+            "Male": "Good to see you, as always, Jeanette. Goodbye.",
+            "Female": "Good to see you, as always, Jeanette. Goodbye."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 487,
+          "Text": {
+            "Male": "Don't ever change, you lunatic. Goodbye.",
+            "Female": "Don't ever change, you lunatic. Goodbye."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 491,
+      "Text": {
+        "Male": "The tide goes out, the tide comes in, and then it waves goodbye again. It'll take me a few years to wake this city up.",
+        "Female": "The tide goes out, the tide comes in, and then it waves goodbye again. It'll take me a few years to wake this city up."
+      },
+      "Condition": "npc.SetDisposition(\"neutral\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 492,
+          "Text": {
+            "Male": "Are you lonely?",
+            "Female": "Are you lonely?"
+          },
+          "Condition": "G.Jeanette_Seduce >= 8 or G.Jeanette_Invite == 1",
+          "Action": "",
+          "Link": 511,
+          "Responses": []
+        },
+        {
+          "Id": 493,
+          "Text": {
+            "Male": "Good to see you. Goodbye.",
+            "Female": "Good to see you. Goodbye."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 494,
+          "Text": {
+            "Male": "Right. Goodbye.",
+            "Female": "Right. Goodbye."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 501,
+      "Text": {
+        "Male": "The Camarilla tried to get its hand down my skirt, so I slapped them in the face. Prince - ha! The only title I want is for a cherry-red Porsche. I'm sure they're out for blood, but I have a few new sugar daddies - Nines and Isaac, know 'em?",
+        "Female": "The Camarilla tried to get its hand down my skirt, so I slapped them in the face. Prince - ha! The only title I want is for a cherry-red Porsche. I'm sure they're out for blood, but I have a few new sugar daddies - Nines and Isaac, know 'em?"
+      },
+      "Condition": "npc.SetDisposition(\"neutral\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 502,
+          "Text": {
+            "Male": "Yeah, I do. Glad to see you didn't join the Cam. Goodbye.",
+            "Female": "Yeah, I do. Glad to see you didn't join the Cam. Goodbye."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        },
+        {
+          "Id": 503,
+          "Text": {
+            "Male": "I think you're making a mistake. You should've joined with the prince. Goodbye.",
+            "Female": "I think you're making a mistake. You should've joined with the prince. Goodbye."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 511,
+      "Text": {
+        "Male": "Oh, sweetheart, desperately, these nights. I'm just a lonely, little girl on a rainy day. Know any games we can play?",
+        "Female": "Oh, sweetheart, desperately, these nights. I'm just a lonely, little girl on a rainy day. Know any games we can play?"
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 512,
+          "Text": {
+            "Male": "Got any board games?",
+            "Female": "Got any board games?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 521,
+          "Responses": []
+        },
+        {
+          "Id": 513,
+          "Text": {
+            "Male": "I know something we can do. But I'm not sure it's possible.",
+            "Female": "I know something we can do. But I'm not sure it's possible."
+          },
+          "Condition": "G.Jeanette_Boink == 0 and pc.bloodpool > 1 and (not pc.IsMale() or G.Player_Homo == 0)",
+          "Action": "",
+          "Link": 541,
+          "Responses": []
+        },
+        {
+          "Id": 514,
+          "Text": {
+            "Male": "I remember something we already did. Is it possible again?",
+            "Female": "I remember something we already did. Is it possible again?"
+          },
+          "Condition": "G.Jeanette_Boink == 2 and pc.bloodpool > 1",
+          "Action": "",
+          "Link": 541,
+          "Responses": []
+        },
+        {
+          "Id": 515,
+          "Text": {
+            "Male": "Killing's fun. Let's go down to the beach, find a vagrant and...",
+            "Female": "Killing's fun. Let's go down to the beach, find a vagrant and..."
+          },
+          "Condition": "Humanity -5",
+          "Action": "",
+          "Link": 531,
+          "Responses": []
+        },
+        {
+          "Id": 516,
+          "Text": {
+            "Male": "I'll give it some thought. Bye, Jeanette.",
+            "Female": "I'll give it some thought. Bye, Jeanette."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 521,
+      "Text": {
+        "Male": "Think harder and dirtier.",
+        "Female": "Think harder and dirtier."
+      },
+      "Condition": "npc.SetDisposition(\"joy\",3)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 522,
+          "Text": {
+            "Male": "Cards?",
+            "Female": "Cards?"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 531,
+          "Responses": []
+        },
+        {
+          "Id": 523,
+          "Text": {
+            "Male": "I know something we can do. But I'm not sure it's possible.",
+            "Female": "I know something we can do. But I'm not sure it's possible."
+          },
+          "Condition": "G.Jeanette_Boink == 0 and pc.bloodpool > 1 and (not pc.IsMale() or G.Player_Homo == 0)",
+          "Action": "",
+          "Link": 541,
+          "Responses": []
+        },
+        {
+          "Id": 524,
+          "Text": {
+            "Male": "I remember something we already did. Is it possible again?",
+            "Female": "I remember something we already did. Is it possible again?"
+          },
+          "Condition": "G.Jeanette_Boink == 2 and pc.bloodpool > 1",
+          "Action": "",
+          "Link": 541,
+          "Responses": []
+        },
+        {
+          "Id": 525,
+          "Text": {
+            "Male": "Killing's fun. Let's go down to the beach, find a vagrant and...",
+            "Female": "Killing's fun. Let's go down to the beach, find a vagrant and..."
+          },
+          "Condition": "Humanity -5",
+          "Action": "",
+          "Link": 531,
+          "Responses": []
+        },
+        {
+          "Id": 526,
+          "Text": {
+            "Male": "I'll give it some thought. Bye, Jeanette.",
+            "Female": "I'll give it some thought. Bye, Jeanette."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 531,
+      "Text": {
+        "Male": "I'm not into that kind of thing. Maybe you should go.",
+        "Female": "I'm not into that kind of thing. Maybe you should go."
+      },
+      "Condition": "npc.SetDisposition(\"apathy\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 532,
+          "Text": {
+            "Male": "Maybe I will.",
+            "Female": "Maybe I will."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 541,
+      "Text": {
+        "Male": "Oh, well, it's a little different, but entirely possible. Come sit next to me on the bed. I'll show you.",
+        "Female": "Oh, well, it's a little different, but entirely possible. Come sit next to me on the bed. I'll show you."
+      },
+      "Condition": "npc.SetDisposition(\"joy\",3)",
+      "Action": "G.Jeanette_Boink = 1; pc.Bloodloss(1)",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 542,
+          "Text": {
+            "Male": "...",
+            "Female": "..."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 551,
+      "Text": {
+        "Male": "Should I draw a map for you? The gallery's right down the street.",
+        "Female": "Should I draw a map for you? The gallery's right down the street."
+      },
+      "Condition": "npc.SetDisposition(\"neutral\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 552,
+          "Text": {
+            "Male": "No need, I'll find it.",
+            "Female": "No need, I'll find it."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 561,
+      "Text": {
+        "Male": "Hello, sunrise, back to burn me?",
+        "Female": "Hello, sunrise, back to burn me?"
+      },
+      "Condition": "npc.SetDisposition(\"anger\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 562,
+          "Text": {
+            "Male": "What do you need me to do?",
+            "Female": "What do you need me to do?"
+          },
+          "Condition": "G.Jeanette_Refuse == 1",
+          "Action": "",
+          "Link": 311,
+          "Responses": []
+        },
+        {
+          "Id": 563,
+          "Text": {
+            "Male": "Like I had a choice.",
+            "Female": "Like I had a choice."
+          },
+          "Condition": "G.Jeanette_Refuse == 1",
+          "Action": "",
+          "Link": 311,
+          "Responses": []
+        },
+        {
+          "Id": 564,
+          "Text": {
+            "Male": "I thought about the museum - I'll do it.",
+            "Female": "I thought about the museum - I'll do it."
+          },
+          "Condition": "G.Jeanette_Refuse == 2",
+          "Action": "",
+          "Link": 361,
+          "Responses": []
+        },
+        {
+          "Id": 565,
+          "Text": {
+            "Male": "You've left me no choice. I'll do the museum.",
+            "Female": "You've left me no choice. I'll do the museum."
+          },
+          "Condition": "G.Jeanette_Refuse == 2",
+          "Action": "",
+          "Link": 361,
+          "Responses": []
+        },
+        {
+          "Id": 566,
+          "Text": {
+            "Male": "Indeed. Goodbye.",
+            "Female": "Indeed. Goodbye."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 571,
+      "Text": {
+        "Male": "What all suede kittens do... on hands and knees, you lap up the milk of me... and we purr, kitten, like dragonflies buzzing around frog bellies.",
+        "Female": "What all suede kittens do... on hands and knees, you lap up the milk of me... and we purr, kitten, like dragonflies buzzing around frog bellies."
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 572,
+          "Text": {
+            "Male": "Uh, okay.",
+            "Female": "Uh, okay."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 151,
+          "Responses": []
+        },
+        {
+          "Id": 573,
+          "Text": {
+            "Male": "Kinky.",
+            "Female": "Kinky."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 151,
+          "Responses": []
+        },
+        {
+          "Id": 574,
+          "Text": {
+            "Male": "That's pretty goddamn crazy, Jeanette.",
+            "Female": "That's pretty goddamn crazy, Jeanette."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 151,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 581,
+      "Text": {
+        "Male": "Fine. You hold on to it. Hmm... since you were so willing to brave that big, spooky place for my darling sister, how about doing a teensy, tiny favor for little, troubled me?",
+        "Female": "Fine. You hold on to it. Hmm... since you were so willing to brave that big, spooky place for my darling sister, how about doing a teensy, tiny favor for little, troubled me?"
+      },
+      "Condition": "npc.SetDisposition(\"neutral\",1)",
+      "Action": "G.Jeanette_Scorn = 1; pc.AwardExperience(\"Haunted04\") ; pc.SetQuest(\"Hotel\",5)",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 582,
+          "Text": {
+            "Male": "That depends on what it is.",
+            "Female": "That depends on what it is."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 311,
+          "Responses": []
+        },
+        {
+          "Id": 583,
+          "Text": {
+            "Male": "Cut the schoolgirl act and just tell me what the hell it is.",
+            "Female": "Cut the schoolgirl act and just tell me what the hell it is."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 311,
+          "Responses": []
+        },
+        {
+          "Id": 584,
+          "Text": {
+            "Male": "No. Forget it. I'm sick of running errands for you bitches. I'm out of here.",
+            "Female": "No. Forget it. I'm sick of running errands for you bitches. I'm out of here."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 301,
+          "Responses": []
+        },
+        {
+          "Id": 585,
+          "Text": {
+            "Male": "What would put a smile on that face?",
+            "Female": "What would put a smile on that face?"
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 311,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 591,
+      "Text": {
+        "Male": "On the inside, we're all dead meat, kitten.",
+        "Female": "On the inside, we're all dead meat, kitten."
+      },
+      "Condition": "npc.SetDisposition(\"joy\",3)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 592,
+          "Text": {
+            "Male": "I guess.",
+            "Female": "I guess."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 151,
+          "Responses": []
+        },
+        {
+          "Id": 593,
+          "Text": {
+            "Male": "If your inside's anything like your outside, you're anything but dead.",
+            "Female": "If your inside's anything like your outside, you're anything but dead."
+          },
+          "Condition": "Seduction 2",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 151,
+          "Responses": []
+        },
+        {
+          "Id": 594,
+          "Text": {
+            "Male": "Glad someone understands.",
+            "Female": "Glad someone understands."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 151,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 601,
+      "Text": {
+        "Male": "She's crazy! HELP!",
+        "Female": "She's crazy! HELP!"
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": []
+    },
+    {
+      "Id": 611,
+      "Text": {
+        "Male": "I wasn't sticking my fingers in anyone's pie, dear sister.",
+        "Female": "I wasn't sticking my fingers in anyone's pie, dear sister."
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": []
+    },
+    {
+      "Id": 621,
+      "Text": {
+        "Male": "Your city? Last time I looked it was called Santa Monica, not Stuck-up Bitch.",
+        "Female": "Your city? Last time I looked it was called Santa Monica, not Stuck-up Bitch."
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": []
+    },
+    {
+      "Id": 631,
+      "Text": {
+        "Male": "Oh, Therese, you really do paint a flattering portrait of me with your turn-of-the-century barbs. I always assumed you could do nothing but look down on me.",
+        "Female": "Oh, Therese, you really do paint a flattering portrait of me with your turn-of-the-century barbs. I always assumed you could do nothing but look down on me."
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": []
+    },
+    {
+      "Id": 641,
+      "Text": {
+        "Male": "[Laughs]Let she who is without sin, cast the fierce tone.",
+        "Female": "[Laughs]Let she who is without sin, cast the fierce tone."
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": []
+    },
+    {
+      "Id": 651,
+      "Text": {
+        "Male": "[Upset]Don't you call me that!",
+        "Female": "[Upset]Don't you call me that!"
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": []
+    },
+    {
+      "Id": 661,
+      "Text": {
+        "Male": "I'm your sister! How can you treat me like this?",
+        "Female": "I'm your sister! How can you treat me like this?"
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": []
+    },
+    {
+      "Id": 671,
+      "Text": {
+        "Male": "Father? Oh, Therese... you poor, deluded dear... I treated father exactly the way he deserved to be treated... and he treated you like a -",
+        "Female": "Father? Oh, Therese... you poor, deluded dear... I treated father exactly the way he deserved to be treated... and he treated you like a -"
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": []
+    },
+    {
+      "Id": 681,
+      "Text": {
+        "Male": "Your heart still belongs to Daddy after all these years, eh, sister?",
+        "Female": "Your heart still belongs to Daddy after all these years, eh, sister?"
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": []
+    },
+    {
+      "Id": 691,
+      "Text": {
+        "Male": "You take that back, you bitch!",
+        "Female": "You take that back, you bitch!"
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": []
+    },
+    {
+      "Id": 701,
+      "Text": {
+        "Male": "Hello, kitten.",
+        "Female": "Hello, kitten."
+      },
+      "Condition": "npc.SetDisposition(\"joy\",3)",
+      "Action": "G.Jeanette_Float = 1",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 702,
+          "Text": {
+            "Male": "(Auto-End)",
+            "Female": "(Auto-End)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 711,
+      "Text": {
+        "Male": "Hmm... mmm, heh-heh.",
+        "Female": "Hmm... mmm, heh-heh."
+      },
+      "Condition": "npc.SetDisposition(\"joy\",3)",
+      "Action": "G.Jeanette_Float = 2",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 712,
+          "Text": {
+            "Male": "(Auto-End)",
+            "Female": "(Auto-End)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 721,
+      "Text": {
+        "Male": "Here kitty, kitty, kitty, kitty.",
+        "Female": "Here kitty, kitty, kitty, kitty."
+      },
+      "Condition": "npc.SetDisposition(\"joy\",3)",
+      "Action": "G.Jeanette_Float = 0",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 722,
+          "Text": {
+            "Male": "(Auto-End)",
+            "Female": "(Auto-End)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 731,
+      "Text": {
+        "Male": "[Hiss.]",
+        "Female": ""
+      },
+      "Condition": "npc.SetDisposition(\"anger\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 732,
+          "Text": {
+            "Male": "(Auto-End)",
+            "Female": "(Auto-End)"
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 751,
+      "Text": {
+        "Male": "What? Oh my! A Malkavian! This ought to be absolutely delicious! Two minds as crazy as ours, and who knows just what might happen.",
+        "Female": "What? Oh my! A Malkavian! This ought to be absolutely delicious! Two minds as crazy as ours, and who knows just what might happen."
+      },
+      "Condition": "npc.SetDisposition(\"joy\",1)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 752,
+          "Text": {
+            "Male": "Greetings, daughter of Janus.",
+            "Female": "Greetings, daughter of Janus."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 761,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 761,
+      "Text": {
+        "Male": "[Laughing]Oh! But you've got it bad, little boy! Not sure exactly what is real and what isn't? Janus... let's see... isn't that a two-faced Roman god? Of course, you're right. You just happened to meet the prettier face first.",
+        "Female": "[Laughing]Oh! But you've got it bad, little girl! Not sure exactly what is real and what isn't? Janus... let's see... isn't that a two-faced Roman god? Of course, you're right. You just happened to meet the prettier face first."
+      },
+      "Condition": "npc.SetDisposition(\"joy\",3)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 762,
+          "Text": {
+            "Male": "You are the whiteness, she of alabaster and ivory.",
+            "Female": "You are the whiteness, she of alabaster and ivory."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 771,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 771,
+      "Text": {
+        "Male": "Ha! Wait until Therese hears that! I am white to her black. She'll be absolutely furious. Of course, I won't be wearing white to any weddings, but... we can talk about that later.",
+        "Female": "Ha! Wait until Therese hears that! I am white to her black. She'll be absolutely furious. Of course, I won't be wearing white to any weddings, but... we can talk about that later."
+      },
+      "Condition": "npc.SetDisposition(\"joy\",3)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 772,
+          "Text": {
+            "Male": "Tell me your name, daughter of Janus.",
+            "Female": "Tell me your name, daughter of Janus."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 11,
+          "Responses": []
+        },
+        {
+          "Id": 773,
+          "Text": {
+            "Male": "Fear and love are two sides of the same coin.",
+            "Female": "Fear and love are two sides of the same coin."
+          },
+          "Condition": "Seduction 2",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce + 1",
+          "Link": 21,
+          "Responses": []
+        },
+        {
+          "Id": 774,
+          "Text": {
+            "Male": "Only with the smell of many suitors.",
+            "Female": "Only with the smell of many suitors."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 41,
+          "Responses": []
+        },
+        {
+          "Id": 775,
+          "Text": {
+            "Male": "I've no interest in your pheromones.",
+            "Female": "I've no interest in your pheromones."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 51,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 781,
+      "Text": {
+        "Male": "The world is a bubbling blood cauldron, and yet we all just keep going in for a dip. Does that make any more sense?",
+        "Female": "The world is a bubbling blood cauldron, and yet we all just keep going in for a dip. Does that make any more sense?"
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 782,
+          "Text": {
+            "Male": "Tell me your name.",
+            "Female": "Tell me your name."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 11,
+          "Responses": []
+        },
+        {
+          "Id": 783,
+          "Text": {
+            "Male": "Leave this fractured mind to itself, white mistress.",
+            "Female": "Leave this fractured mind to itself, white mistress."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 51,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 791,
+      "Text": {
+        "Male": "",
+        "Female": ""
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": []
+    },
+    {
+      "Id": 801,
+      "Text": {
+        "Male": "Mmmm. No one flirts like a Malkavian. Your compliments make me positively tingly.",
+        "Female": "Mmmm. No one flirts like a Malkavian. Your compliments make me positively tingly."
+      },
+      "Condition": "npc.SetDisposition(\"joy\",3)",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 802,
+          "Text": {
+            "Male": "Your father's darker daughter said she would forgive the hiding worm.",
+            "Female": "Your father's darker daughter said she would forgive the hiding worm."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 221,
+          "Responses": []
+        },
+        {
+          "Id": 803,
+          "Text": {
+            "Male": "Unfortunately, your tinglings are not a rare privilege.",
+            "Female": "Unfortunately, your tinglings are not a rare privilege."
+          },
+          "Condition": "",
+          "Action": "G.Jeanette_Seduce = G.Jeanette_Seduce - 1",
+          "Link": 211,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 811,
+      "Text": {
+        "Male": "Oh, and there was something about the paintings.... [Thinking to self]Hmm, what was it...? [gives up]I can't remember. Oh well, have fun, duckling!",
+        "Female": "Oh, and there was something about the paintings.... [Thinking to self]Hmm, what was it...? [gives up]I can't remember. Oh well, have fun, duckling!"
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 812,
+          "Text": {
+            "Male": "I will.",
+            "Female": "I will."
+          },
+          "Condition": "",
+          "Action": "",
+          "Link": 0,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 821,
+      "Text": {
+        "Male": "",
+        "Female": ""
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": []
+    },
+    {
+      "Id": 831,
+      "Text": {
+        "Male": "",
+        "Female": ""
+      },
+      "Condition": "",
+      "Action": "",
+      "Link": 0,
+      "Responses": [
+        {
+          "Id": 832,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "G.Jeanette_Baron == 1",
+          "Action": "",
+          "Link": 481,
+          "Responses": []
+        },
+        {
+          "Id": 833,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "G.Therese_Dead == 1 and G.Jeanette_Side < 4",
+          "Action": "",
+          "Link": 461,
+          "Responses": []
+        },
+        {
+          "Id": 834,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "G.Therese_Dead == 1 and G.Jeanette_Side >= 4",
+          "Action": "",
+          "Link": 471,
+          "Responses": []
+        },
+        {
+          "Id": 835,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "G.Therese_Quest == 4 and G.Jeanette_Seduce < 8",
+          "Action": "",
+          "Link": 401,
+          "Responses": []
+        },
+        {
+          "Id": 836,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "G.Therese_Quest == 4 and G.Jeanette_Seduce >= 8",
+          "Action": "",
+          "Link": 391,
+          "Responses": []
+        },
+        {
+          "Id": 837,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "G.Jeanette_Quest == 1",
+          "Action": "",
+          "Link": 551,
+          "Responses": []
+        },
+        {
+          "Id": 838,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "G.Jeanette_Refuse == 2",
+          "Action": "",
+          "Link": 561,
+          "Responses": []
+        },
+        {
+          "Id": 839,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "G.Jeanette_Refuse == 1",
+          "Action": "",
+          "Link": 561,
+          "Responses": []
+        },
+        {
+          "Id": 840,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "G.Therese_Quest == 2 and G.Jeanette_Seduce < 3",
+          "Action": "",
+          "Link": 101,
+          "Responses": []
+        }
+      ]
+    },
+    {
+      "Id": 841,
+      "Text": {
+        "Male": "(Starting Condition)",
+        "Female": ""
+      },
+      "Condition": "G.Therese_Quest == 2 and G.Jeanette_Seduce >= 3",
+      "Action": "",
+      "Link": 91,
+      "Responses": [
+        {
+          "Id": 842,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "G.Jeanette_Float == 2",
+          "Action": "",
+          "Link": 721,
+          "Responses": []
+        },
+        {
+          "Id": 843,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "G.Jeanette_Float == 1",
+          "Action": "",
+          "Link": 711,
+          "Responses": []
+        },
+        {
+          "Id": 844,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "npc.times_talked > 1 and G.Jeanette_Seduce >= 0 and G.Jeanette_Float == 0",
+          "Action": "",
+          "Link": 701,
+          "Responses": []
+        },
+        {
+          "Id": 845,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "npc.times_talked > 1 and G.Jeanette_Seduce < 0",
+          "Action": "",
+          "Link": 731,
+          "Responses": []
+        },
+        {
+          "Id": 846,
+          "Text": {
+            "Male": "(Starting Condition)",
+            "Female": ""
+          },
+          "Condition": "npc.times_talked == 1",
+          "Action": "",
+          "Link": 1,
+          "Responses": []
+        }
+      ]
+    }
+  ]
+}

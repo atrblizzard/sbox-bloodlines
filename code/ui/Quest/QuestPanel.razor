@@ -1,0 +1,136 @@
+﻿@using System.Linq
+@using Bloodlines.Systems.Quest
+@using Sandbox;
+@using Sandbox.UI;
+@using Vampire.Data.Quest
+
+@namespace Bloodlines.UI
+@attribute [StyleSheet]
+
+@inherits Panel
+
+@code {
+    QuestDisplayModel questModel = new();
+}
+
+@if (Game.LocalPawn is not VampirePlayer player)
+{
+    return;
+}
+
+<root class="@(IsOpen ? "open" : "")">
+    
+    <toolbar class="toolbar">
+        <button><div class="button-text">Santa Monica</div></button>
+        <button>Downtown</button>
+        <button>Hollywood</button>
+        <button>Chinatown</button>
+    </toolbar>
+    
+    <div class="items-completed">
+        <label class="header">Completed</label>
+
+        @{ questModel = GetQuestDisplayModel(CompletionType.Success); }
+        @if (questModel != null)
+        {
+            <div class="quest-entry">
+                <label class="title complete">@questModel.DisplayName</label>
+                <label class="complete">@questModel.Description</label>
+            </div>
+        }
+        else
+        {
+            <label class="title complete">No Quests Completed</label>
+        }
+    </div>
+    
+     <div class="items-failed">
+            <label class="header">Failed</label>
+            
+           @{
+               var questModel2 = GetQuestDisplayModel(CompletionType.Failure);
+           }
+               @if (questModel2 != null)
+               {
+                   <label class="title incomplete">@questModel2.DisplayName</label>
+                   <label class="incomplete">@questModel2.Description</label>
+               }
+               else
+               {
+                   @if (DebugMode)
+                   {
+                       <label class="title complete">No Failed Quests. Good for you!</label>
+                   }
+               }
+            <hr/>
+        </div>
+    
+    <div class="active-quest-header">
+    <label class="header">Active Quests</label>
+    </div>
+    <div class="active-quests">
+        @if (player.QuestState != null)
+        {
+            if (DebugMode)
+            {
+                Log.Info("Player QuestState " + player.QuestState.QuestCompletionState.Count);
+                Log.Info("QuestState Instance " + QuestState.Instance.QuestCompletionState.Count);
+            }
+
+            if (player.QuestState.QuestCompletionState.Count == 0)
+            {
+                Log.Info("QuestState.QuestCompletionState count is 0!");
+                return;
+            }
+
+            @foreach (var quest in player.QuestState.QuestCompletionState)
+            {
+                @if (DebugMode)
+                {
+                    <label class>Getting Quest state of @quest.Key: @quest.Value</label>
+                }
+                if (player.QuestState.GetQuests() == null) return;
+
+                var currentQuest = player.QuestState.GetQuests().FirstOrDefault(x => x.Title == quest.Key);
+                var questState = player.QuestState.GetQuests().FirstOrDefault(x =>
+                    x.Title == quest.Key).CompletionState.ToList();
+
+                if (questState.Count > 0)
+                {
+                    var currentState = questState.FirstOrDefault(x => x.ID == quest.Value &&
+                                                                      x.Type == CompletionType.Incomplete);
+                    if (currentState.Type == CompletionType.Incomplete)
+                    {
+                        <div class="quest-entry">
+                            <label class="title">@currentQuest.DisplayName</label>
+                            <label>@currentState.Description</label>
+                        
+                        @if (DebugMode)
+                        {
+                            <br/>
+                            <label class="inprogress">Debug Info</label>
+                            <label class="inprogress">State ID: @currentState.ID</label>
+                            <label class="inprogress">Award XP: @currentState.AwardXP</label>
+                            <label class="inprogress">Award Money: @currentState.AwardMoney</label>
+                            <label class="inprogress">@currentState.Type</label>
+                        }
+                        </div>
+                    }
+                }
+                else
+                {
+                    @if (DebugMode)
+                    {
+                        <label>"QuestState is null!"</label>
+                    }
+                }
+                <hr/>
+            }
+        }
+        else
+        {
+            <label>player.QuestState is null! This is not good! </label>
+        }
+    </div>
+
+</root>

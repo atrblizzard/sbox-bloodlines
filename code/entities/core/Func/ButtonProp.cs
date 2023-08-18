@@ -13,7 +13,6 @@ namespace bloodlines.entities.core.Func
 	[Title( "Button" ), Category( "Gameplay" ), Icon( "radio_button_checked" )]
 	public partial class ButtonProp : KeyframeEntity, IUse
 	{
-		
 		TimeSince LastUsed;
 		public bool Momentary { get; set; } = false;
 		
@@ -92,6 +91,7 @@ namespace bloodlines.entities.core.Func
         protected void Press( Entity activator )
         {
 	        DoPress( activator );
+	        OnReleased.Fire( this );
         }
                     
         [Input]
@@ -101,33 +101,35 @@ namespace bloodlines.entities.core.Func
         }
                             
         [Input]
-        protected void SetState(int state, Entity activator = null)
+        protected void SetState(int state, Entity activator)
         {
 	        Log.Info( "Setting state: " + state );
 			switch ( state )
 			{
-				case 0:
-					OnSetState1.Fire( activator );
-					break;
 				case 1:
-					OnSetState2.Fire( activator );
+					OnSetState1.Fire( activator );
+					SetMaterialGroup(0);
 					break;
 				case 2:
-					OnSetState3.Fire( activator );
+					OnSetState2.Fire( activator );
+					SetMaterialGroup(1);
 					break;
 				case 3:
-					OnSetState4.Fire( activator );
+					OnSetState3.Fire( activator );
 					break;
 				case 4:
-					OnSetState5.Fire( activator );
+					OnSetState4.Fire( activator );
 					break;
 				case 5:
-					OnSetState6.Fire( activator );
+					OnSetState5.Fire( activator );
 					break;
 				case 6:
-					OnSetState7.Fire( activator );
+					OnSetState6.Fire( activator );
 					break;
 				case 7:
+					OnSetState7.Fire( activator );
+					break;
+				case 8:
 					OnSetState8.Fire( activator );
 					break;
 				default:
@@ -168,14 +170,15 @@ namespace bloodlines.entities.core.Func
 			OnPressedLocked.Fire( toucher );
 		}
 		
-		int globalTimers = 0;
-		async Task FireRelease()
+		int _globalTimers;
+
+		private async Task FireRelease()
 		{
-			var thisTimer = ++globalTimers;
+			var thisTimer = ++_globalTimers;
 
 			await Task.DelaySeconds( 0.1f );
 
-			if ( thisTimer != globalTimers ) return;
+			if ( thisTimer != _globalTimers ) return;
 
 			_ = OnReleased.Fire( this );
 		}
@@ -189,7 +192,7 @@ namespace bloodlines.entities.core.Func
 			{
 				//Sound.FromEntity( LockedSound, this );
 				OnPressedLocked.Fire( user );
-				Log.Info( "Locked shit" );
+				Log.Info( "Can't use, locked." );
 				return false;
 			}
 			
@@ -197,11 +200,10 @@ namespace bloodlines.entities.core.Func
 				DoPress( user );
 
 			LastUsed = 0;
-			
-			//DoPress( user );
+
 			_ = FireRelease();
 
-			return true;
+			return Momentary;
 		}
 
 		private void DoPress( Entity activator )
@@ -212,20 +214,19 @@ namespace bloodlines.entities.core.Func
 		        return;
 	        }
 
+	        //Log.Info($"Do press {activator}");
+
 			PlaySound( UnlockedSound );
 			OnPressed.Fire( activator );
         }
 
 		public bool IsUsable( Entity user )
 		{
-			// TODO: implement lock usability
-			//return true; //!Locked;
-			
 			var hasFlag = ActivationSettings.HasFlag( ActivationFlags.UseActivates );
-			bool shit = hasFlag && !Locked;
+			var usable = hasFlag && !Locked;
 			
-			Log.Info( "Is shit usable: " + shit );
-			return hasFlag && !Locked;
+			//Log.Info($"Is button usable: {usable}");
+			return usable;
 		}
 	}
 }

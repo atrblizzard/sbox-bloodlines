@@ -1,6 +1,6 @@
 ﻿using Editor;
 
-namespace bloodlines.entities.vampire.NPC;
+namespace Bloodlines.Entities.Vampire.NPC;
 
 [ClassName("npc_VYukie")]
 [HammerEntity]

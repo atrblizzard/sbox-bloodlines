@@ -1,0 +1,54 @@
+@using System
+@using System.Linq
+@using Sandbox
+@using Sandbox.UI
+@using Vampire.Data.Dialog
+
+@namespace Bloodlines.UI
+@inherits Sandbox.UI.Panel
+@attribute [StyleSheet]
+
+@if (Game.LocalPawn is not VampirePlayer player)
+{
+    return;
+}
+
+<root class="@(IsDisabled(player) ? "disabled" : "")">
+    <label class="charges">@GetCounterString()</label>
+    <label>@(string.IsNullOrEmpty(Entry?.Text.Values.FirstOrDefault()) ? "Missing entry" : Entry?.Text.Values.FirstOrDefault())</label> 
+    @if (IsDebug)
+    {
+        <label class="label-small">@Entry?.Condition</label>
+    }
+</root>
+
+@code {
+    public bool IsDebug { get; set; }
+    public IDialogEntry Entry { get; set; }
+    public int Counter { get; set; }
+
+    private bool IsDisabled(VampirePlayer player)
+    {
+        return !player.IsValid();
+    }
+
+    private float GetDelayHeight()
+    {
+        return 1f;
+    }
+
+    protected string GetCounterString()
+    {
+        return Counter.ToString();
+    }
+
+    protected string GetIDString()
+    {
+        return Entry?.Id.ToString();
+    }
+
+    protected override int BuildHash()
+    {
+        return HashCode.Combine(IsDisabled(Game.LocalPawn as VampirePlayer), GetIDString());
+    }
+}
