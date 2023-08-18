@@ -1,0 +1,82 @@
+@using Sandbox.UI;
+@using Sandbox;
+
+@attribute [StyleSheet]
+
+@namespace Bloodlines.Menu
+
+@inherits Panel
+
+<root>
+    
+    <div class="disclaimer">
+        <div class="dev_container">
+            <div class="dev_text">
+                <text>#GameMenu.DevNotice</text>
+            </div>
+            <div class="dev_logo"></div>
+        </div>
+       <div class="build"><text class="build_number">(Alpha) 0.0.1</text></div> 
+    </div>
+    
+    @* <image class="new" /> *@
+
+    <div class="container">
+        <image class="logotype" />
+        <div class="menublock">
+            <div class="content">
+
+                 @foreach (var item in Details)
+                {
+                    <MainMenuHoverButton
+                        onclick="@(item.OnClicked)"
+                        onmousemove="@(() => OnButtonMouseEnter(item))"
+                        onmouseout="@(() => FooterText.Text = string.Empty)"
+                        Text="@(item.Title)"
+                        Ghost="@(item.Tooltip)"
+                        IsDisabled="@(item.IsDisabled)"
+                        MenuType="@(item.Type)"
+                        style="align-self: stretch">
+                    </MainMenuHoverButton>
+                }
+            </div>
+        </div>
+
+  @if (!Game.InGame)
+  {
+      <div class="news hidden" style="background: url(@GetBlogThumbnail());">
+          <div class="header">
+              <div>
+                  <div class="date">
+                      <div class="date_icon"></div>
+                      <text class="date_label">Sunday, Nov 20th, 2023</text>
+                  </div>
+              </div>
+              <text class="title">@GetBlogTitle()</text>
+          </div>
+
+          <div class="content">
+              <text class="text">@GetBlogDescription()</text>
+              <button class="button-dark" @onclick=@OnClickBlog>
+                  #GameMenu.Blog.ReadMore
+                  <text class="link">open_in_new</text>
+              </button>
+          </div>
+      </div>
+  }
+    </div>
+
+    <ServerList @ref=List></ServerList>
+
+    <div class="footer">
+        @if (Game.Menu.Lobby != null)
+        {
+            <label class="playername">@Game.UserName</label>
+            <image style="background-image: url( avatar:@Game.SteamId )" class="playeravatar"/>
+        }
+
+        <div class="inputnotice shown">
+            <label @ref="FooterText" id="output__text"></label>
+        </div>
+    </div>
+</root>

@@ -1,0 +1,154 @@
+@import "ui/styles/colors.scss";
+
+.icon {
+    color: $tan-light;
+    font-family: MaterialIcons, serif;
+}
+
+.button {
+    background-color: $tan-dark;
+    font-family: VTMB, sans-serif;
+    color: $tan-light;
+    padding: 15px 30px;
+    font-size: 38px;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        background-color: #924738;
+    }
+
+    &:active {
+        sound-in: ui.button.click;
+        sound-out: ui.button.release;
+    }
+
+    &.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}
+
+.button.toggle {
+    background-color: $tan-dark;
+    font-family: MaterialIcons, serif;
+    width: 14px;
+    height: 14px;
+    color: $tan-light;
+    font-size: 48px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    aspect-ratio: 1;
+    margin-left: 65%;
+
+    &:hover {
+        background-color: #924738;
+    }
+
+    &:active {
+        sound-in: ui.button.click;
+        sound-out: ui.button.release;
+    }
+
+    &.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}
+
+.button-footer {
+    background-color: transparent;
+    font-family: VTMB;
+}
+
+.button-dark {
+    //background: linear-gradient(to right, #606060, #424242);
+    font-family: VTMB;
+    color: $tan-light;
+    font-size: 30px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 10px black;
+
+    iconpanel {
+        color: $tan-light;
+        font-family: MaterialIcons, sans-serif;
+        padding: 0px 10px 1px 0px;
+    }
+
+    &:hover {
+        //background: linear-gradient(to top, #8c4644, #862c29);
+    }
+
+    &:active {
+        sound-in: ui.button.click;
+        sound-out: ui.button.release;
+    }
+
+    &.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}
+
+.button-gradient {
+    //background: linear-gradient(to top, #d7cdb6, #a29578);
+    background-color: transparent;
+    font-family: VTMB;
+    color: $menu-text;
+    padding: 10px;
+    font-size: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+    transition: opacity .1s ease, transform .1s ease;
+
+    &:hover {
+        color: $menu-text-highlighted;
+        background-color: transparent;
+        transition: opacity .1s ease, transform .1s ease;
+        //background: linear-gradient(to top, #8c4644, #862c29);
+    }
+
+    &:active {
+        color: $menu-text-highlighted;
+        font-weight: bold;
+        sound-in: ui.button.click;
+        sound-out: ui.button.release;
+    }
+
+    &.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &.disabled {
+        opacity: 0.5;
+        cursor: auto;
+        pointer-events: none;
+        transform: scale(0.95);
+    }
+}

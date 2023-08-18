@@ -1,0 +1,177 @@
+@import "/UI/styles/assets.scss";
+@import "/UI/styles/buttons.scss";
+@import "/UI/styles/colors.scss";
+@import "/UI/styles/footer.scss";
+
+MainPage {
+    flex-direction: column;
+
+    &.hidden {
+        display: none;
+    }
+
+    &.ingame {
+        //backdrop-filter: blur(5px);
+        //background-color: #100a0194;
+        background-image: url("ui/menu/backgrounds/vaulderie-bg.jpg");
+        background-size: 100%;
+    }
+
+    &:not(.ingame) {
+        background: linear-gradient(to right, #100a01d4, #100a01a4, #100a0134, #100a0100);
+        background-size: 100%;
+    }
+
+    .container {
+        padding: 0 50px;
+        align-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+
+        .hidden {
+            display: none;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .menublock {
+            flex-direction: column;
+            width: 50%;
+            //background: linear-gradient(to right, #231f1c, #3e352f, #231f1c);
+            backdrop-filter: blur(50px);
+            border-radius: 6px;
+            align-content: center;
+            margin-bottom: 15px;
+
+            .header {
+                width: 100%;
+                padding: 5px 20px;
+                background-color: $tan-darkest;
+                border-radius: 6px;
+                font-family: VTMB;
+                font-size: 40px;
+                color: $tan-light;
+            }
+
+            .content {
+                flex-direction: column;
+                padding-top: 15px;
+            }
+
+            .button-gradient {
+                background-color: transparent;
+                pointer-events: all;
+                font-size: 40px;
+                margin: 0 15px 10px 15px;
+            }
+        }
+
+        .news {
+            //overflow: hidden;
+            //background-color: red;
+            flex-direction: column;
+            width: 25%;
+            height: auto;
+            max-height: 150%;
+            min-height: 300px;
+            left: 2%;
+            bottom: 5%;
+            position: absolute;
+            background-size: cover;
+            background-position: center center;
+            backdrop-filter: blur(50px);
+            border-radius: 6px;
+            border-width: 1px;
+            box-shadow: 0px 0px 10px 2px rgba(25, 25, 25, 0.9);
+            border-color: #100a0100;
+
+            .hidden {
+                display: none;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .header {
+                width: 100%;
+                padding: 10px 20px;
+                background-color: $tan-darkest;
+                border-radius: 6px 6px 0 0;
+                flex-direction: column;
+
+                .date {
+                    color: $text-highlight;
+                    font-family: VTMB;
+                    font-size: 18px;
+                    padding: 5px 10px;
+                    background-color: $orange;
+                    border: 1px solid #5e371c;
+                    border-radius: 4px;
+                }
+
+                .date_icon {
+                    height: 24px;
+                    width: 24px;
+                    background: url("ui/menu/calendar_range.png");
+                    background-size: cover;
+                    background-image-tint: $text-highlight;
+                }
+
+                .date_label {
+                    padding-left: 8px;
+                    padding-top: 2px;
+                }
+
+                .title {
+                    padding-top: 8px;
+                    font-family: VTMB;
+                    color: $tan-light;
+                    font-size: 48px;
+                }
+            }
+
+            .content {
+                width: 100%;
+                //background: linear-gradient(to right, #24201d, #3c332def, #3c332d00);
+                background-color: black;
+                border-radius: 0 0 6px 6px;
+                padding: 20px 20px 20px 20px;
+                flex-direction: column;
+
+                .link {
+                    font-family: MaterialIcons;
+                    font-size: 20px;
+                    padding-left: 6px;
+                    color: #a08f82;
+                }
+
+                .text {
+                    color: #c0afa2;
+                    font-family: 'Segoe UI';
+                    font-size: 24px;
+                    margin-bottom: 35px;
+                    flex-grow: 1;
+                }
+
+                .button-dark {
+                    width: 100%;
+                    font-size: 22px;
+                    padding: 5px 5px 5px 15px;
+                }
+            }
+        }
+    }
+
+    .footer {
+        justify-content: flex-start;
+    }
+
+    ServerList {
+        position: absolute;
+        top: 20%;
+        right: 10%;
+        width: 50%;
+        height: 50%;
+    }
+}

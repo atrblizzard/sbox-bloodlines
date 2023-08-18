@@ -1,0 +1,102 @@
+.mainmenu-hover-button {
+
+    .ankh {
+        opacity: 0;
+        background-size: contain;
+        transform: scale(2);
+        background-repeat: no-repeat;
+        background: url(/ui/menu/indev.png);
+        overflow: visible;
+        z-index: 1;
+        width: 6%;
+        height: 100%;
+        top: 0;
+        position: absolute;
+        flex-grow: 0;
+        justify-content: flex-end;
+        align-items: flex-end;
+        align-self: stretch;
+        transition: opacity .2s ease, transform .1s ease;
+
+        &.left {
+            left: 0;
+        }
+
+        &.right {
+            right: 0;
+        }
+    }
+
+    &.ingame {
+        backdrop-filter: blur(5px);
+    }
+
+    &:not(.ingame) {
+        backdrop-filter: blur(5px);
+    }
+
+    &.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &.disabled {
+        opacity: 0.5;
+        cursor: auto;
+        pointer-events: none;
+        transform: scale(0.95);
+    }
+
+    .text {
+        transition: padding-left 0.3s ease;
+        padding: 6px 8px;
+        font-size: 46px;
+        color: red;
+        height: 70px;
+        font-family: VTMB;
+        align-self: stretch;
+        align-items: center;
+        text-align: center;
+        align-content: center;
+        justify-content: center;
+        flex-grow: 1;
+    }
+
+    .hover-button__tooltip {
+        text-transform: none;
+        font-size: 14px;
+        padding-right: 2px;
+        font-family: VTMB;
+        justify-content: flex-end;
+        align-items: flex-end;
+        align-self: stretch;
+        flex-grow: 1;
+        opacity: 0;
+    }
+
+    &:hover {
+        .text {
+            color: indianred;
+            font-size: 50px;
+            transform: scale(1.1);
+            transition: transform .2s linear;
+        }
+
+        .ankh {
+            opacity: 1;
+            transition: opacity .2s ease, transform .1s ease;
+        }
+
+        .button__tooltip {
+            opacity: 0.8;
+        }
+    }
+
+    &.active {
+        .ridge {
+        }
+
+        .ankh {
+        }
+    }
+}

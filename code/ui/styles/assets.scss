@@ -1,0 +1,79 @@
+﻿@import "ui/styles/colors.scss";
+
+.disclaimer {
+    flex-direction: column;
+    width: 99%;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    position: absolute;
+    top: 1%;
+    align-content: center;
+
+    .dev_container {
+        align-content: center;
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+        overflow: visible;
+        padding: 0 50px;
+
+        .dev_text {
+            font-family: VTMB;
+            font-size: 21px;
+            text-align: center;
+            align-content: center;
+            color: $tan-light;
+            padding-top: 18px;
+        }
+
+        .dev_logo {
+            width: 75px;
+            height: 75px;
+            background-image: url(ui/menu/indev.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            opacity: 0;
+        }
+    }
+
+    .build {
+        position: absolute;
+        left: 90%;
+        top: 55%;
+
+        .build_number {
+            font-family: VTMB;
+            font-size: 20px;
+            color: $tan-light;
+        }
+    }
+}
+
+.logotype {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background: url(ui/menu/VTMBLogo.png);
+    height: 30%;
+    width: 40%;
+    display:flex;
+    align-content: center;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.new {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background: url(/ui/menu/new_large.png);
+    height: 124px;
+    width: 124px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 435px;
+    margin-left: 435px;
+    z-index: 3;
+}

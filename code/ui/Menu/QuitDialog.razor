@@ -1,0 +1,20 @@
+@using Sandbox.UI;
+
+@attribute [StyleSheet]
+
+@namespace Bloodlines.Menu
+@inherits MenuOverlay
+
+<root>
+    <div class="container">
+        <text class="header">#GameMenu.QuitDialog.Title</text>
+
+        <div class="content">
+			<text class="message">#GameMenu.QuitDialog.Description</text>
+            <div class="button_container">
+				<button class="button" @onclick=@OnClickCancel>#Generic.Cancel</button>
+				<button class="button" @onclick=@OnClickQuit>#Generic.Quit</button>
+            </div>
+        </div>
+    </div>
+</root>
