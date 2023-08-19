@@ -1,5 +1,6 @@
 ﻿using Editor;
 using Sandbox;
+using Vampire.ObsoleteClass;
 
 namespace Bloodlines.Entities.Vampire.NPC;
 

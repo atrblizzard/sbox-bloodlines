@@ -91,6 +91,12 @@ namespace Bloodlines.Entities.Vampire.NPC
 		{
 
 		}
+		
+		[Input]
+		public void Kill()
+		{
+
+		}
 
 		protected Output OnDamaged { get; set; }
 		protected Output OnDeath { get; set; }

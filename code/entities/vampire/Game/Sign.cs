@@ -72,7 +72,7 @@ namespace bloodlines.entities.vampire.Game
 
 			try
 			{
-				if ( activator is VampirePlayer player )
+				if ( activator is Player player )
 				{
 					JsonSerializerOptions options = new()
 					{

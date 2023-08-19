@@ -3,6 +3,7 @@ using System.Linq;
 using Sandbox;
 using Sandbox.UI;
 using Vampire.Data.Quest;
+using Vampire.ObsoleteClass;
 
 namespace Bloodlines.UI;
 

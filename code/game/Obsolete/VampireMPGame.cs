@@ -5,8 +5,12 @@ using System;
 using System.Linq;
 using Bloodlines.UI;
 using MyGame;
+using Vampire.entities.vampire;
+
+namespace Vampire.ObsoleteClass;
 
 [Library( "vampiremp", Title = "Vampire Multiplayer Games" )]
+[Obsolete]
 public partial class VampireMPGame : GameManager
 {
 	public static VampireMPGame Entity => Current as VampireMPGame;
@@ -118,4 +122,56 @@ public partial class VampireMPGame : GameManager
 
 		base.PostLevelLoaded();
 	}
+	
+#if TESTING
+	[ConCmd.Server( "camtracktest" )]
+	static void Cmd_TrackCamTest()
+	{
+		if ( ConsoleSystem.Caller == null ) return;
+
+		var camera = ConsoleSystem.Caller.Components.Get<ObserverCamera>( true );
+		
+		// camera.TargetRot = new Rotation(30, 40, 20, 30);
+		// camera.Rotation = new Rotation(30, 40, 20, 30);
+		
+		camera.TargetPos = ConsoleSystem.Caller.Position;
+		camera.TargetRot = ConsoleSystem.Caller.Rotation;
+		
+		Entity.TrackCamTest( ConsoleSystem.Caller, camera);
+	}
+	
+	[ConCmd.Client( "cl_camtracktest" )]
+	static void Cmd_ClTrackCamTest()
+	{
+		if ( ConsoleSystem.Caller == null ) return;
+		
+
+		var camera = ConsoleSystem.Caller.Components.Get<ObserverCamera>( true );
+		
+		//camera.TargetRot = new Rotation(30, 40, 20, 30);
+		//camera.Rotation = new Rotation(30, 40, 20, 30);
+		camera.TargetPos = ConsoleSystem.Caller.Position;
+		camera.TargetRot = ConsoleSystem.Caller.Rotation;
+		
+		Entity.TrackCamTest( ConsoleSystem.Caller, camera);
+	}
+	
+	public void TrackCamTest( IClient client, ObserverCamera camera = null )
+	{
+		//Game.AssertServer();
+
+		//var camera = client.Components.Get<ObserverCamera>( true );
+
+		if ( camera == null )
+		{
+			Log.Info("Camera was null!");
+			camera = new ObserverCamera();
+			client.Components.Add( camera );
+			return;
+		}
+
+		camera.Enabled = !camera.Enabled;
+		Log.Info(camera.Enabled);
+	}
+#endif
 }

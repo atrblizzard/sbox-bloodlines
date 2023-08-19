@@ -1,0 +1,12 @@
+{
+  "Entry": "Tremere",
+  "Title": "Tremere",
+  "Description": "",
+  "MaxHealth": 100,
+  "MaxSpeed": 190,
+  "EyeHeight": 70,
+  "Model": "models/character/pc/female/tremere/armor0/tremere_female_armor_0.vmdl",
+  "Hands": "models/hands/female/shared/v_shared_female_hands.vmdl",
+  "AnimationFile": "",
+  "Abilities": {}
+}

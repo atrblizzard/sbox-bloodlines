@@ -1,5 +1,6 @@
 using Sandbox;
 using System.Collections.Generic;
+using Amper.FPS;
 
 namespace Vampire.CameraEffects;
 
@@ -38,7 +39,7 @@ public abstract partial class ScreenShake
 	[ClientRpc]
 	public static void DoRandomShake( Vector3 position, float range = 512f, float intensity = 1f )
 	{
-		if ( Game.LocalPawn is not VampirePlayer player ) return;
+		if ( Game.LocalPawn is not Player player ) return;
 
 		var distance = player.Position.Distance( position );
 		if ( distance >= range ) return;

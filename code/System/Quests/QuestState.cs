@@ -2,6 +2,7 @@
 using System.Linq;
 using Sandbox;
 using Vampire.Data.Quest;
+using Vampire.ObsoleteClass;
 
 namespace Bloodlines.Systems.Quest
 {

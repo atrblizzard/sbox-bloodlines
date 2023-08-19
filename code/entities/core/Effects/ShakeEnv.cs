@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Editor;
 using Sandbox;
+using Vampire.ObsoleteClass;
 
 [Library( "env_shake" )]
 [HammerEntity]

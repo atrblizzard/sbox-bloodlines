@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Vampire.Data.Dialog;
+using Vampire.ObsoleteClass;
 
 namespace Bloodlines.UI;
 

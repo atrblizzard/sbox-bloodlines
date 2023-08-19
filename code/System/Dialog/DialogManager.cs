@@ -3,6 +3,7 @@ using Sandbox;
 using Bloodlines.UI;
 using System.Collections.Generic;
 using Vampire;
+using VampirePlayer = Vampire.ObsoleteClass.VampirePlayer;
 using Vampire.Data.Dialog;
 
 namespace Bloodlines.Systems.Dialog;
@@ -302,7 +303,7 @@ public partial class DialogManager : EntityComponent
             return false;
         }
 
-        if (Sandbox.Game.LocalPawn is not VampirePlayer player)
+        if (Game.LocalPawn is not VampirePlayer player)
             return false;
 
         var responseEntry = GetActiveDialog().Responses.FirstOrDefault(x => x.Id == line);        

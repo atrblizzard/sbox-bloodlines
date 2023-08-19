@@ -13,7 +13,7 @@ public static class Source1Extensions
 
 	public static Vector3 GetLocalEyePosition( this IEntity ent ) => ent.Transform.PointToLocal(ent.GetEyePosition());
 	public static Rotation GetLocalEyeRotation( this IEntity ent ) => ent.Transform.RotationToLocal( ent.GetEyeRotation() );
-	public async static void Reset( this DoorEntity door )
+	public static async void Reset( this DoorEntity door )
 	{
 		if ( !Game.IsServer ) return;
 		var startsLocked = door.SpawnSettings.HasFlag( DoorEntity.Flags.StartLocked );

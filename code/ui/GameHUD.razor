@@ -1,0 +1,33 @@
+@namespace Bloodlines.UI
+@using Bloodlines.UI;
+@using Sandbox.UI;
+
+<style>
+    GameHUD {
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+</style>
+
+<root>
+     <!-- Player Vitals -->
+     <Crosshair></Crosshair>
+</root>
+
+@code {
+    public static GameHUD Instance { get; set; }
+
+    public static bool Enabled
+    {
+        set
+        {
+            Instance.Style.Set("display", value ? "flex" : "none");
+        }
+    }
+
+    public GameHUD()
+    {
+        Instance = this;
+    }
+}
