@@ -1,0 +1,12 @@
+{
+  "Entry": "Undefined",
+  "Title": "Malkavian",
+  "Description": "Male Malkavian",
+  "MaxHealth": 150,
+  "MaxSpeed": 150,
+  "EyeHeight": 75,
+  "Model": "models/character/pc/test/malkavian/malkavianmalearmor0.vmdl",
+  "Hands": "models/hands/female/nosferatu/v_nosferatu_fem_hands.vmdl",
+  "AnimationFile": "",
+  "Abilities": {}
+}

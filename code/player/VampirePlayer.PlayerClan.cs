@@ -13,7 +13,7 @@ public partial class VampirePlayer
 	[Net] public PlayerClan CurrentPlayerClan { get; set; }
 	[Net] public PlayerClan DesiredPlayerClan { get; set; }
 
-	private void SetupPlayerClass()
+	private void SetupPlayerClan()
 	{
 		// We didn't choose any class. We can't regenerate.
 		if ( !CurrentPlayerClan.IsValid() ) 
@@ -34,15 +34,15 @@ public partial class VampirePlayer
 		EnableShadowCasting = true;
 	}
 	
-	public void SetClass( PlayerClan pclass )
+	public void SetClan( PlayerClan pClan )
 	{
 		var lastClass = CurrentPlayerClan;
-		if ( lastClass == pclass )
+		if ( lastClass == pClan )
 			return;
 
 		ClanChanges++;
-		DesiredPlayerClan = pclass;
-		VampireGameRules.Current.PlayerChangeClass( this, pclass );
+		DesiredPlayerClan = pClan;
+		VampireGameRules.Current.PlayerChangeClass( this, pClan );
 
 		var shouldRespawn = lastClass == null;
 
@@ -54,23 +54,23 @@ public partial class VampirePlayer
 
 		CommitSuicide( false );
 		//TFChatBox.AddInformation( To.Single( Client ), $"* You will respawn as {pclass.Title}" );
-		Log.Info( $"{Client.Name} changed their class {(lastClass != null ? $"from {lastClass.Title} " : "")}to {pclass.Title}" );
+		Log.Info( $"{Client.Name} changed their class {(lastClass != null ? $"from {lastClass.Title} " : "")}to {pClan.Title}" );
 	}
 
-	public void SetRandomClass()
+	public void SetRandomClan()
 	{
 		// all classes minus undefined.
 		var count = Enum.GetValues( typeof( VampirePlayerClan ) ).Length - 1;
 		var random = Game.Random.Int( 0, count - 1 );
-		var pclass = PlayerClan.Get( (VampirePlayerClan)random );
+		var pClan = PlayerClan.Get( (VampirePlayerClan)random );
 
-		if ( pclass == null )
+		if ( pClan == null )
 		{
 			Log.Info( $"SetRandomClass() - Failed to compute random class." );
 			return;
 		}
 
-		SetClass( pclass );
+		SetClan( pClan );
 	}
 
 	#region Console Commands
@@ -99,18 +99,18 @@ public partial class VampirePlayer
 		name = name.ToLower();
 
 		// see if we've chosen to select a random class.
-		bool selectRandom = name is "auto" or "random";
+		var selectRandom = name is "auto" or "random";
 
 		if( selectRandom )
 		{
-		 	player.SetRandomClass();
+		 	player.SetRandomClan();
 		 	return;
 		} 
 
 		// Currently nothing ever stops players from choosing any class.
-		var pclass = PlayerClan.Get( name );
+		var pClan = PlayerClan.Get( name );
 
-		player.SetClass( pclass );
+		player.SetClan( pClan );
 	}
 	#endregion
 }

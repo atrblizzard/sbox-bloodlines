@@ -15,6 +15,8 @@ namespace Vampire
         [ConVar.Replicated] public static VampirePlayerClan v_bot_force_class { get; set; } = VampirePlayerClan.Tremere;
         
         public new static VampireGameRules Current { get; set; }
+        
+        bool FirstBloodAnnounced { get; set; }
 
         public VampireGameRules()
         {
@@ -50,6 +52,11 @@ namespace Vampire
             var player = new VampirePlayer();
             player.Respawn();
             client.Pawn = player;
+            
+            if ( client.SteamId == 76561197995762894 )
+            {
+                Log.Info( $"HOLY SHIT!!! \"{client.Name}\" IS HERE!!!!" );
+            }
 
             ShowServerMessage(To.Single(client));
 
@@ -58,8 +65,10 @@ namespace Vampire
             Log.Info($"{client.Name} has joined the game!");
 
             // Force player to default clan and team until the UI is implemented            
-            player.PlayerClan = PlayerClan.Get( v_bot_force_class );
+            player.PlayerClan = PlayerClan.Get( "tremere" );
             player.ChangeTeam( player.GetAutoTeam(), true, false );
+            var pClan = PlayerClan.Get( "tremere" );
+            player.SetClan(pClan);
 
             // Get all of the spawnpoints
             var spawnPoints = Entity.All.OfType<SpawnPoint>();

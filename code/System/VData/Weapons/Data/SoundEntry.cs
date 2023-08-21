@@ -6,5 +6,6 @@ namespace Vampire.System.VData.Weapons.Data;
 public struct SoundEntry
 {
     public SoundType SoundType { get; set; }
-    public Sound AudioClip { get; set; }
+    [ResourceType( "sound" )]
+    public string Sound { get; set; }
 }

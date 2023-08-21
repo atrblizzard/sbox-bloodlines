@@ -1,0 +1,50 @@
+{
+  "EngineClass": "item_w_ithaca_m_37",
+  "PrintName": "Ithaca M37",
+  "Description": "The M37 is designed for close quarters use as a home defense weapon. Tried and true service for military and law enforcement, the M37 features all metal parts and a bottom feed and ejector for both righties and lefties. It has moderate recoil and is fairly light for ease of use.",
+  "Weight": 0,
+  "ItemType": "Firearm",
+  "ItemWorth": 0,
+  "PlayerSell": 0,
+  "CameraType": "NoSwitch",
+  "Viewmodel": "models/weapons/m37/view/v_m37.vmdl",
+  "WorldModel": "models/weapons/m37/wield/w_m_m37.vmdl",
+  "WorldModels": {
+    "Male": "models/weapons/m37/wield/w_m_m37.vmdl"
+  },
+  "Magazine": {
+    "AmmoPrintName": "",
+    "AmmoDescription": "",
+    "Type": ""
+  },
+  "Activations": [
+    {
+      "Tag": "",
+      "Type": "",
+      "AmmoType": "",
+      "Damage": "500",
+      "BotchTable": "",
+      "SoundData": {
+        "SoundEntry": {
+          "Attack": "sounds/weapons/ranged/shotgun/shotgun.attack_1.sound",
+          "Reload": "sounds/weapons/ranged/shotgun/shotgun.reload.sound",
+          "Deploy": "sounds/weapons/ranged/shotgun/shotgun.deploy.sound"
+        }
+      }
+    }
+  ],
+  "Tables": {
+    "Table": {
+      "Name": "",
+      "InternalName": "",
+      "TraitDependency": ""
+    }
+  },
+  "SpriteData": {},
+  "Owners": [
+    {
+      "OwnerResource": "vdata/tremere.vclan",
+      "Reserve": 32
+    }
+  ]
+}

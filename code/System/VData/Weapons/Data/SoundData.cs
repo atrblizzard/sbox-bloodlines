@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using Sandbox;
 
 namespace Vampire.System.VData.Weapons.Data;
 
 public struct SoundData
 {
-    public List<SoundEntry> SoundEntry { get; set; }
+    [ResourceType( "sound" )]
+    public Dictionary<SoundType, string> SoundEntry { get; set; }
 }

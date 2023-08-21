@@ -6,8 +6,8 @@ namespace Vampire
 {
 	public partial class VampireGameMovement : GameMovement
 	{
-		[ConVar.Replicated] public static float tf_clamp_back_speed { get; set; } = 0.9f;
-		[ConVar.Replicated] public static float tf_clamp_back_speed_min { get; set; } = 100;
+		[ConVar.Replicated] public static float v_clamp_back_speed { get; set; } = 0.9f;
+		[ConVar.Replicated] public static float v_clamp_back_speed_min { get; set; } = 100;
 
 		protected new VampirePlayer Player;
 
@@ -81,7 +81,7 @@ namespace Vampire
 
 			// Now reduce their backwards speed to some percent of max, if they are traveling backwards
 			// unless they are under some minimum, to not penalize deployed snipers or heavies
-			if (tf_clamp_back_speed < 1 && Velocity.Length > tf_clamp_back_speed_min)
+			if (v_clamp_back_speed < 1 && Velocity.Length > v_clamp_back_speed_min)
 			{
 				float flDot = Vector3.Dot(vecForward, Velocity);
 
@@ -93,7 +93,7 @@ namespace Vampire
 
 					// clamp the back move vector if it is faster than max
 					float flBackSpeed = vecBackMove.Length;
-					float flMaxBackSpeed = MaxSpeed * tf_clamp_back_speed;
+					float flMaxBackSpeed = MaxSpeed * v_clamp_back_speed;
 
 					if (flBackSpeed > flMaxBackSpeed)
 					{

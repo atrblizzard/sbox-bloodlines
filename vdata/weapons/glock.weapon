@@ -1,0 +1,75 @@
+{
+  "EngineClass": "item_w_glock_17c",
+  "PrintName": "GLOCK 19",
+  "Description": "A 9 mm standard pistol with a polymer grip and guide rod (instead of metal) that makes it lighter than other pistols. It can be found in use by most law enforcement agencies.",
+  "Weight": 3,
+  "ItemType": "Firearm",
+  "ItemWorth": 180,
+  "PlayerSell": 35,
+  "CameraType": "NoSwitch",
+  "Viewmodel": "models/weapons/pistol_glock/view/v_pistol_glock.vmdl",
+  "WorldModel": "models/weapons/pistol_glock/wield/w_f_pistol_glock.vmdl",
+  "WorldModels": {
+    "Male": "models/weapons/pistol_glock/wield/w_m_pistol_glock.vmdl",
+    "Female": "models/weapons/pistol_glock/wield/w_f_pistol_glock.vmdl"
+  },
+  "Magazine": {
+    "AmmoPrintName": "GLOCK 19 9 mm Rounds",
+    "AmmoDescription": "A magazine of fifteen 9 mm Parabellum rounds for the GLOCK 19",
+    "AmmoWorth": 7,
+    "Type": "Glock_17cRound",
+    "Size": 15,
+    "DefaultSize": 15,
+    "DroppedAmmo": 15,
+    "ReloadTime": 3.5
+  },
+  "Activations": [
+    {
+      "Tag": "Primary",
+      "Type": "Attack",
+      "AmmoType": "Glock_17cRound",
+      "AmmoCost": 1,
+      "SkillRequirement": 5,
+      "BaseLethality": 9,
+      "Damage": "2",
+      "BotchTable": "Pistols",
+      "Range": 20,
+      "Accuracy": 6,
+      "SpreadAngle": 4,
+      "CriminalLevel": 3,
+      "SoundData": {        
+        "SoundEntry": {
+          "Attack": "sounds/weapons/ranged/glock/attack_1.sound"
+        }
+      }
+    }
+  ],
+  "Tables": {
+    "Table": {
+      "Name": "WeaponRanges",
+      "InternalName": "WeaponRanges",
+      "Clamping": 1,
+      "TraitDependency": "",
+      "KeyValuePairs": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 80,
+        "4": 80
+      }
+    }
+  },
+  "SpriteData": {
+    "Weapon": "ui/hud/inventory_images/weapons_ranged/glock.png",
+    "WeaponSelected": "materials/hud/inventory_images/weapons_ranged/glock_color.tga",
+    "Ammo": "ui/hud/inventory_images/weapons_ranged/ammo/glock_ammo.png",
+    "AmmoSelected": "ui/hud/inventory_images/weapons_ranged/ammo/glock_ammo.png"
+  },
+  "Owners": [
+    {
+      "OwnerResource": "vdata/clans/multiplayer/malkavian_male.vclan",
+      "Slot": "Secondary",
+      "ViewModel": "models/weapons/pistol_glock/view/v_pistol_glock.vmdl"
+    }
+  ]
+}

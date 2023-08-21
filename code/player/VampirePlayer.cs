@@ -1,6 +1,9 @@
-﻿using Amper.FPS;
+﻿using System;
+using Amper.FPS;
 using Sandbox;
 using System.Linq;
+using Vampire.System.VData.Weapons;
+
 //using Vampire.UI;
 
 namespace Vampire
@@ -10,16 +13,9 @@ namespace Vampire
         public new static VampirePlayer LocalPlayer => Game.LocalPawn as VampirePlayer;
         public override float DeathAnimationTime => 2;
 
-        public VampirePlayer()
-        {
-            //SubscribeToConditionEvents();
-        }
-
         public override void Spawn()
         {
 		    base.Spawn();
-            //Animator = new TFPlayerAnimator();
-            //ResponseController = new ( this );
             
             CurrentSequence.Name = "tremere_female_idle2";
         } 
@@ -34,19 +30,13 @@ namespace Vampire
             }
             
             base.Respawn();
-            
-            // We are respawning and we have a class selected.            
-            // We need to stop taunting to prevent lingering variables
-
-            //RemoveAllConditions();
-            //ResponseController.Reset();
-            
+    
             // We are respawning and we have a class selected.
             if (CurrentPlayerClan.IsValid())
             {
                 Tags.Add(CurrentPlayerClan.GetTag());
             
-                SetupPlayerClass();
+                SetupPlayerClan();
                 Regenerate(true);
             }
         }
@@ -60,8 +50,6 @@ namespace Vampire
 
             base.Touch(other);
         }
-
-        //public override SDKViewModel CreateViewModel() => new VampireViewModel();
 
         public override bool IsReadyToPlay()
         {
@@ -114,6 +102,10 @@ namespace Vampire
             DeadViewOffset = new( 0, 0, 14 )
         };
         
+        public override SDKViewModel CreateViewModel() => new ViewModel();
+        public WeaponSlot GetActiveTFSlot() => (WeaponSlot)GetActiveSlot();
+        public WeaponBase GetWeaponInSlot( WeaponSlot slot ) => GetWeaponInSlot( (int)slot ) as WeaponBase;
+        
         public override float CalculateMaxSpeed()
         {
             if ( !CurrentPlayerClan.IsValid() )
@@ -145,6 +137,18 @@ namespace Vampire
                 Respawn();
                 return;
             }
+            
+            if ( full )
+            {
+                // If we do full regeneration, delete our entire inventory.
+                DeleteAllWeapons();
+            }
+            
+            // Reset health to max health.
+            if ( Health < GetMaxHealth() )
+                Health = GetMaxHealth();
+            
+            RegenerateWeaponsForClan( PlayerClan );
             
             VampireGameRules.Current.PlayerRegenerate( this, full );
         }
@@ -238,21 +242,94 @@ namespace Vampire
         public bool ChangeTeam( Team team, bool autoTeam, bool silent, bool autoBalance = false )
         {
             bool result = ChangeTeam( (int)team, autoTeam, silent, autoBalance );
-            if(result)
-            {
-                //DestroyBuildings();
-            }
+            Log.Info($"ChangeTeam Result: {result}");
 
             return result;
         }
         
         private void ShowTestDebugOverlay()
         {
-            if ( Client.IsListenServerHost ) //&& Game.IsServer )
+            if ( Client.IsListenServerHost && sv_debug_player )
             {
                 DebugOverlay.ScreenText( CreateDebugTestString(), new Vector2( 60, 150 ) );
             }
         }
+        
+        public void RegenerateWeaponsForClan( PlayerClan pclass )
+        {
+            var weaponsList = ResourceLibrary.GetAll<WeaponData>().ToList();
+
+            foreach (var weaponData in weaponsList)
+            {
+                // No weapon here
+                if (weaponData == null)
+                    return;
+
+                if (!weaponData.IsValid())
+                    return;
+
+                var newWeapon = weaponData.CreateInstance();
+                EquipWeapon(newWeapon);
+                
+                if ( !ActiveWeapon.IsValid() )
+                    SwitchToNextBestWeapon();
+            }
+        }
+
+        [ConCmd.Server("give_weapon")]
+        private static void Cmd_GiveWeapon(string weaponName)
+        {
+            if (ConsoleSystem.Caller.Pawn is not VampirePlayer localPlayer)
+                return;
+            
+            var data = ResourceLibrary.GetAll<WeaponData>().FirstOrDefault( x => x.EngineClass == weaponName);
+            if (data != null)
+            {
+                if (!data.IsValid())
+                    return;
+                
+                var weapon = data.CreateInstance();
+                if (weapon != null)
+                {
+                    Log.Info(weapon.Name);
+                    weapon.Regenerate();
+                    localPlayer.EquipWeapon(weapon);
+                    localPlayer.SwitchToWeapon(weapon);
+                }
+            }
+        }
+
+        [ConCmd.Server("weapon_switch")]
+        private static void Cmd_SwitchToWeapon(string weaponName)
+        {
+            if (ConsoleSystem.Caller.Pawn is not VampirePlayer localPlayer)
+                return;
+            
+            foreach (var weapon in localPlayer.Weapons)
+            {
+                if (weapon.ClassName == weaponName)
+                    localPlayer.ForceSwitchWeapon(weapon);
+            }
+        }
+        
+        protected override bool PreEquipWeapon( SDKWeapon weapon, bool makeActive )
+        {
+            // This is overriden from base because each class has weapon in a different slot.
+            var newWeapon = weapon as WeaponBase;
+            if ( !newWeapon.IsValid() )
+                return base.PreEquipWeapon( weapon, makeActive );
+
+            //Can't be equipped by this class.
+            // if ( !newWeapon.Data.TryGetOwnerDataForPlayerClan( PlayerClan, out var ownerData ) )
+            //     return false;
+
+            if ( !CanDrop( weapon ) )
+                return false;
+
+            return true;
+        }
+
+        [ConVar.Replicated] public static bool sv_debug_player { get; set; }
 
         private string CreateDebugTestString()
         {
@@ -270,7 +347,6 @@ namespace Vampire
                 $"Last Known Area:      #{(LastKnownArea?.ID.ToString()) ?? "~"}\n" +
                 $"Tags:                 {string.Join(",", Tags.List)}\n" +
                 $"\n";
-                //$"WaterLevel            {GetWaterLevel()}\n";
 
             return str;
         }

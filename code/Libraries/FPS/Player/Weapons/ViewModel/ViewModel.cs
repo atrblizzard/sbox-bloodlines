@@ -63,7 +63,7 @@ public partial class SDKViewModel : BaseViewModel
 
 	public virtual void SetupAttachments() { }
 
-	public ModelEntity CreateAttachment<T>( string model = "" ) where T : ModelEntity, new()
+	public AnimatedEntity CreateAttachment<T>( string model = "" ) where T : AnimatedEntity, new()
 	{
 		var attach = new T { Owner = Owner, EnableViewmodelRendering = EnableViewmodelRendering };
 		attach.SetParent( this, true );
@@ -71,9 +71,9 @@ public partial class SDKViewModel : BaseViewModel
 		return attach;
 	}
 
-	public ModelEntity CreateAttachment( string model = "" )
+	public AnimatedEntity CreateAttachment( string model = "" )
 	{
-		return CreateAttachment<ModelEntity>( model );
+		return CreateAttachment<AnimatedEntity>( model );
 	}
 
 	public virtual void ClearAttachments()

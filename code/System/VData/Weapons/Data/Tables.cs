@@ -2,5 +2,5 @@
 
 public struct Tables
 {
-    public Table Table;
+    public Table Table { get; set; }
 }

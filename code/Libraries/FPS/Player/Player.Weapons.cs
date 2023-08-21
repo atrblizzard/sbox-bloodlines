@@ -248,7 +248,7 @@ partial class SDKPlayer
 
 	public SDKWeapon GetWeaponInSlot( int slot )
 	{
-		return Children.OfType<SDKWeapon>().Where( x => x.SlotNumber == slot ).FirstOrDefault();
+		return Children.OfType<SDKWeapon>().FirstOrDefault(x => x.SlotNumber == slot);
 	}
 
 	public virtual bool ThrowWeapon( SDKWeapon weapon, float force = 400 )

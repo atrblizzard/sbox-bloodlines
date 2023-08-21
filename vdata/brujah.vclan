@@ -1,8 +1,8 @@
 {
   "Entry": "Brujah",
   "Title": "Brujah",
-  "Description": "what",
-  "MaxHealth": 0,
+  "Description": "Bruhaaah!",
+  "MaxHealth": 150,
   "MaxSpeed": 170,
   "EyeHeight": 75,
   "Model": "models/character/pc/female/tremere/armor1/tremere_female_armor_1.vmdl",
